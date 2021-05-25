@@ -99,16 +99,3 @@ module  recirculador (
         end
     end
 endmodule
-
-
-// module muxes_L1 (
-//     ports
-// );
-    
-// endmodule
-
-// module muxes_L2 (
-//     ports
-// );
-    
-// endmodule
