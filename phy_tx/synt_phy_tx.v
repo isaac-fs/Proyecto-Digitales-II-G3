@@ -883,7 +883,7 @@ module synt_phy_tx(data_000, valid_000, recirc_0, recirc_1, recirc_2, recirc_3, 
     .clk_2f(clk_2f),
     .data_0(data_r_0),
     .data_00(data__00),
-    .data_1(data_r_1),
+    .data_1(data_r_2),
     .valid_0(valid_int_0),
     .valid_00(valid__00),
     .valid_1(valid_int_1)
@@ -892,7 +892,7 @@ module synt_phy_tx(data_000, valid_000, recirc_0, recirc_1, recirc_2, recirc_3, 
   (* src = "phy_tx.v:70" *)
   MUX1_L1 MUX2 (
     .clk_2f(clk_2f),
-    .data_0(data_r_2),
+    .data_0(data_r_1),
     .data_00(data__11),
     .data_1(data_r_3),
     .valid_0(valid_int_2),

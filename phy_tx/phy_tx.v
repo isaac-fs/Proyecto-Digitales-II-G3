@@ -63,14 +63,14 @@ module phy_tx (
 		    valid__00,
 		    clk_2f,
 		    data_r_0,
-		    data_r_1,
+		    data_r_2,
 		    valid_int_0,
 		    valid_int_1);//MUX 1 de L1
    
    MUX1_L1 MUX2   (data__11,
 		   valid__11,
 		   clk_2f,
-		   data_r_2,
+		   data_r_1,
 		   data_r_3,
 		   valid_int_2,
 		   valid_int_3);//MUX 2 de L1

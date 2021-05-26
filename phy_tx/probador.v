@@ -44,7 +44,7 @@ module probador( // Módulo probador: generador de señales y monitor de datos.
 	integer i = 0;
 
 	//Reloj f
-	initial clk_f <= 1;
+	initial clk_f <= 0;
    	always #20 clk_f <= ~clk_f;
          
    //Reloj 2f
@@ -70,6 +70,7 @@ module probador( // Módulo probador: generador de señales y monitor de datos.
         
         // Inicialización de datos
 		idle <= 1;
+		@(posedge clk_f) begin
 		// Desde probador o lógica superior
 		data_0 <= 8'h0A;
 		data_1 <= 8'h0B;
@@ -80,6 +81,7 @@ module probador( // Módulo probador: generador de señales y monitor de datos.
 		valid_1 <= 1'b1;
 		valid_2 <= 1'b1;
 		valid_3 <= 1'b1;
+		end
 
 		for (i = 0; i < 8; i = i + 1) begin
 			if (i==2) begin
@@ -99,10 +101,10 @@ module probador( // Módulo probador: generador de señales y monitor de datos.
 
 			@(posedge clk_f) begin
 				// Espera/sincroniza con el flanco positivo del reloj
-				data_0 <= data_0 + 1;
-				data_1 <= data_1 + 1;
-				data_2 <= data_2 + 1;
-				data_3 <= data_3 + 1;
+				data_0 <= data_0 + 4;
+				data_1 <= data_1 + 2;
+				data_2 <= data_2 + 3;
+				data_3 <= data_3 + 4;
 			end
 		end
 
