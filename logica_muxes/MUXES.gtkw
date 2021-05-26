@@ -1,0 +1,78 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Tue May 25 23:23:04 2021
+[*]
+[dumpfile] "/home/avegaz97/Documents/Proyecto1/Avance1/MUXES/SYNTH/senales_MUX.vcd"
+[dumpfile_mtime] "Tue May 25 23:18:28 2021"
+[dumpfile_size] 26963
+[savefile] "/home/avegaz97/Documents/Proyecto1/Avance1/MUXES/SYNTH/MUXES.gtkw"
+[timestart] 0
+[size] 1393 1012
+[pos] -1 -1
+*-15.776297 158000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 223
+[signals_width] 335
+[sst_expanded] 1
+[sst_vpaned_height] 293
+@200
+-Señales clk
+@28
+Banco_pruebas.clk_4f
+Banco_pruebas.clk_2f
+Banco_pruebas.clk_f
+@200
+-Datos entrada
+@22
+[color] 3
+Banco_pruebas.data_0[7:0]
+[color] 3
+Banco_pruebas.data_1[7:0]
+[color] 3
+Banco_pruebas.data_2[7:0]
+[color] 3
+Banco_pruebas.data_3[7:0]
+@28
+Banco_pruebas.valid_0
+Banco_pruebas.valid_1
+Banco_pruebas.valid_2
+Banco_pruebas.valid_3
+@200
+-Salida L1/ Entrada L2
+@22
+[color] 2
+Banco_pruebas.MUXES.data__00[7:0]
+[color] 2
+Banco_pruebas.MUXES.data__11[7:0]
+@28
+Banco_pruebas.MUXES.valid__00
+Banco_pruebas.MUXES.valid__11
+@200
+-Salida L2
+@22
+[color] 5
+Banco_pruebas.probador.data_000_cond[7:0]
+@28
+Banco_pruebas.valid_000_cond
+@200
+-Salida L1/Entrada L2 Synth
+@22
+[color] 2
+Banco_pruebas.MUXES_synth.data__00[7:0]
+[color] 2
+Banco_pruebas.MUXES_synth.data__11[7:0]
+@28
+Banco_pruebas.MUXES_synth.valid__00
+Banco_pruebas.MUXES_synth.valid__11
+@200
+-Salida L2 Synth
+@22
+[color] 5
+Banco_pruebas.probador.data_000_synth[7:0]
+@28
+Banco_pruebas.valid_000_synth
+@420
+Banco_pruebas.probador.check
+@200
+-Checker (Alto para lógicamente eq)
+[pattern_trace] 1
+[pattern_trace] 0
