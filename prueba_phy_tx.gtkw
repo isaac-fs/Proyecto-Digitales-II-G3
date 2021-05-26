@@ -1,0 +1,82 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed May 26 05:43:32 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_tx/phy_tx.vcd"
+[dumpfile_mtime] "Wed May 26 05:37:53 2021"
+[dumpfile_size] 56740
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/prueba_phy_tx.gtkw"
+[timestart] 0
+[size] 1536 801
+[pos] -113 -113
+*-15.759146 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[sst_width] 192
+[signals_width] 138
+[sst_expanded] 1
+[sst_vpaned_height] 228
+@200
+-Clk y control
+@28
+testbench.clk_f
+testbench.clk_2f
+testbench.clk_4f
+testbench.idle
+@200
+-
+-Entradas
+@22
+testbench.data_0[7:0]
+testbench.data_1[7:0]
+testbench.data_2[7:0]
+testbench.data_3[7:0]
+@200
+-
+@28
+testbench.valid_0
+testbench.valid_1
+testbench.valid_2
+testbench.valid_3
+@200
+-
+-Salida conductual
+@22
+testbench.data_000_cond[7:0]
+@28
+testbench.valid_000_cond
+@200
+-
+-Recirculacion
+@22
+testbench.recirc_0_cond[7:0]
+testbench.recirc_1_cond[7:0]
+testbench.recirc_2_cond[7:0]
+testbench.recirc_3_cond[7:0]
+@28
+testbench.valid_r_0_cond
+testbench.valid_r_1_cond
+testbench.valid_r_2_cond
+testbench.valid_r_2_cond
+@200
+-
+-Salida estructural
+@22
+testbench.data_000_synt[7:0]
+@28
+testbench.valid_000_synt
+@200
+-
+@22
+testbench.recirc_0_synt[7:0]
+testbench.recirc_1_synt[7:0]
+testbench.recirc_2_synt[7:0]
+testbench.recirc_3_synt[7:0]
+@28
+testbench.valid_r_0_synt
+testbench.valid_r_1_synt
+@29
+testbench.valid_r_2_synt
+@28
+testbench.valid_r_3_synt
+[pattern_trace] 1
+[pattern_trace] 0
