@@ -1,4 +1,5 @@
 `timescale 1ns / 100ps
+
 `include "DEMUX_L1.v"
 `include "DEMUX_L2.v"
 `include "probadorPrueba.v"
@@ -46,7 +47,7 @@ module Banco_pruebas;
 		     .data_11		(data_11[7:0]),
 		     .valid_00		(valid_00),
 		     .valid_11		(valid_11),
-		     .clk_4f		(clk_4f));
+		     .clk_f		(clk_f));
 
 	//Instancia DEMUX_L2 Conductual
 
