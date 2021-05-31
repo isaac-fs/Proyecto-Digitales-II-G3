@@ -1,0 +1,51 @@
+`timescale 1ns / 100ps
+`include "cmos_cells.v"
+`include "MUXES.v"
+`include "MUXES_synth.v"
+`include "probador.v"
+
+
+module Banco_pruebas;
+   //Cables 
+ /*AUTOWIRE*/
+
+   //Instancia MUXES Conductual
+
+   /* MUXES AUTO_TEMPLATE (
+    .data_000 (data_000_cond[7:0]),
+    .valid_000 (valid_000_cond));
+    */
+
+   MUXES MUXES(/*AUTOINST*/
+	       // Outputs
+	       .data_000		(data_000_cond[7:0]),	 // Templated
+	       .valid_000		(valid_000_cond),	 // Templated
+	       // Inputs
+	       .reset_L			(reset_L),
+	       .clk_f			(clk_f),
+	       .clk_2f			(clk_2f),
+	       .clk_4f			(clk_4f),
+	       .data_0			(data_0[7:0]),
+	       .data_1			(data_1[7:0]),
+	       .data_2			(data_2[7:0]),
+	       .data_3			(data_3[7:0]),
+	       .valid_0			(valid_0),
+	       .valid_1			(valid_1),
+	       .valid_2			(valid_2),
+	       .valid_3			(valid_3));
+
+   //Instancia Sintetizado
+    /* MUXES_synth AUTO_TEMPLATE (
+    .data_000 (data_000_synth[7:0]),
+    .valid_000 (valid_000_synth));
+    */
+   
+
+   MUXES_synth MUXES_synth(/*AUTOINST*/);
+
+   //Instancia probador
+
+   probador probador(/*AUTOINST*/);
+   
+
+endmodule // Banco_pruebas

@@ -1,6 +1,7 @@
 module MUX_L2 (
 		output reg [7:0] data_000,
                	output reg 	 valid_000,
+		input 		 reset_L,
       		input 		 clk_4f,
 		input [7:0] 	 data_00,
 		input [7:0] 	 data_11,
@@ -36,11 +37,13 @@ module MUX_L2 (
 
    always @ (posedge clk_4f)
      begin
-	if(validt_000)
+	if(validt_000 & reset_L)
 	  begin
 	     data_000 <= a;
 	     valid_000 <= validt_000;
 	  end
+	else if(~reset_L)
+	  data_000 <= 00000000;
 	
 	else
 	  begin

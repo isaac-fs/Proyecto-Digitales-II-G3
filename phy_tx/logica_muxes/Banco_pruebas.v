@@ -18,6 +18,7 @@ module Banco_pruebas;
  wire [7:0]		data_1;			// From probador of probador.v
  wire [7:0]		data_2;			// From probador of probador.v
  wire [7:0]		data_3;			// From probador of probador.v
+ wire			reset_L;		// From probador of probador.v
  wire			valid_0;		// From probador of probador.v
  wire			valid_000_cond;		// From MUXES of MUXES.v
  wire			valid_000_synth;	// From MUXES_synth of MUXES_synth.v
@@ -38,6 +39,7 @@ module Banco_pruebas;
 	       .data_000		(data_000_cond[7:0]),	 // Templated
 	       .valid_000		(valid_000_cond),	 // Templated
 	       // Inputs
+	       .reset_L			(reset_L),
 	       .clk_f			(clk_f),
 	       .clk_2f			(clk_2f),
 	       .clk_4f			(clk_4f),
@@ -69,6 +71,7 @@ module Banco_pruebas;
 			   .data_1		(data_1[7:0]),
 			   .data_2		(data_2[7:0]),
 			   .data_3		(data_3[7:0]),
+			   .reset_L		(reset_L),
 			   .valid_0		(valid_0),
 			   .valid_1		(valid_1),
 			   .valid_2		(valid_2),
@@ -89,6 +92,7 @@ module Banco_pruebas;
 		     .valid_1		(valid_1),
 		     .valid_2		(valid_2),
 		     .valid_3		(valid_3),
+		     .reset_L		(reset_L),
 		     // Inputs
 		     .data_000_cond	(data_000_cond[7:0]),
 		     .valid_000_cond	(valid_000_cond),

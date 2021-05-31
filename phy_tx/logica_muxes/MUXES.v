@@ -4,6 +4,7 @@
 module MUXES (
 	output [7:0] data_000,
 	output 	     valid_000,
+	input 	     reset_L,
 	input 	     clk_f,
 	input 	     clk_2f,
 	input 	     clk_4f,
@@ -22,6 +23,7 @@ module MUXES (
    
    MUX1_L1 MUX1    (data__00,
 		    valid__00,
+		    reset_L,
 		    clk_2f,
 		    data_0,
 		    data_1,
@@ -30,6 +32,7 @@ module MUXES (
    
    MUX1_L1 MUX2   (data__11,
 		   valid__11,
+		   reset_L,
 		   clk_2f,
 		   data_2,
 		   data_3,
@@ -38,6 +41,7 @@ module MUXES (
 
    MUX_L2 MUX3  (data_000,
 		 valid_000,
+		 reset_L,
 		 clk_4f,
 		 data__00,
 		 data__11,

@@ -1,11 +1,13 @@
 module MUX1_L1 (
-		output  reg [7:0] data_00,
-               	output  reg	 valid_00,
+		output reg [7:0] data_00,
+               	output reg 	 valid_00,
+		input 		 reset_L,
       		input 		 clk_2f,
 		input [7:0] 	 data_0,
 		input [7:0] 	 data_1,
 		input 		 valid_0,
 		input 		 valid_1);
+   
 
    //Señales internas
    reg [7:0] 			 a;
@@ -36,11 +38,14 @@ module MUX1_L1 (
 
    always @ (posedge clk_2f)
      begin
-	if(validt_00)
+	if(validt_00 & reset_L)
 	  begin
 	     data_00 <= a;
 	     valid_00 <= validt_00;
 	  end
+
+	else if(~reset_L)
+	  data_00 <= 00000000;
 	
 	else
 	  begin

@@ -10,6 +10,7 @@ module probador (
 		    output reg 	     valid_1,
 		    output reg 	     valid_2,
 		    output reg 	     valid_3,
+		    output reg 	     reset_L,
 		    input [7:0]      data_000_cond,
 		    input 	     valid_000_cond,
 		    input [7:0]      data_000_synth,
@@ -60,6 +61,7 @@ module probador (
 	valid_1 = 1;
 	valid_2 = 1;
 	valid_3 = 1;
+	reset_L = 1;
 	
 	
 
@@ -90,6 +92,7 @@ module probador (
 	{valid_1} <= 0;
 	
 	{valid_3} <= 0;
+	
 	
 
 	@(posedge clk_f);

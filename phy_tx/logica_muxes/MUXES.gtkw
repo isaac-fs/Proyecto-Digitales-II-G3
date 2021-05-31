@@ -1,19 +1,19 @@
 [*]
-[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Wed May 26 03:35:20 2021
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Mon May 31 21:39:38 2021
 [*]
-[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_tx/logica_muxes/senales_MUX.vcd"
-[dumpfile_mtime] "Wed May 26 03:20:02 2021"
-[dumpfile_size] 26963
-[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_tx/logica_muxes/MUXES.gtkw"
+[dumpfile] "/home/avegaz97/Proyecto-Digitales-II-G3/phy_tx/logica_muxes/senales_MUX.vcd"
+[dumpfile_mtime] "Mon May 31 21:38:33 2021"
+[dumpfile_size] 32921
+[savefile] "/home/avegaz97/Proyecto-Digitales-II-G3/phy_tx/logica_muxes/MUXES.gtkw"
 [timestart] 0
-[size] 1393 845
-[pos] -1 -1
-*-15.776297 158000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1415 977
+[pos] 30 -1
+*-15.736371 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [sst_width] 223
 [signals_width] 335
 [sst_expanded] 1
-[sst_vpaned_height] 293
+[sst_vpaned_height] 341
 @200
 -Señales clk
 @28
@@ -37,6 +37,7 @@ Banco_pruebas.valid_0
 Banco_pruebas.valid_1
 Banco_pruebas.valid_2
 Banco_pruebas.valid_3
+Banco_pruebas.reset_L
 @200
 -
 -Salida L1/ Entrada L2
@@ -75,9 +76,9 @@ Banco_pruebas.MUXES_synth.valid__11
 Banco_pruebas.probador.data_000_synth[7:0]
 @28
 Banco_pruebas.valid_000_synth
-@420
-Banco_pruebas.probador.check
 @200
 -Checker (Alto para lógicamente eq)
+@420
+Banco_pruebas.probador.check
 [pattern_trace] 1
 [pattern_trace] 0
