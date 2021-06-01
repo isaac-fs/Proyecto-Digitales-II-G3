@@ -1,0 +1,165 @@
+$date
+	Tue Jun  1 16:43:17 2021
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	100ps
+$end
+$scope module DFF $end
+$var wire 1 ! C $end
+$var wire 1 " D $end
+$var reg 1 # Q $end
+$upscope $end
+$scope module DFFSR $end
+$var wire 1 $ C $end
+$var wire 1 % D $end
+$var wire 1 & R $end
+$var wire 1 ' S $end
+$var reg 1 ( Q $end
+$upscope $end
+$scope module NAND $end
+$var wire 1 ) A $end
+$var wire 1 * B $end
+$var wire 1 + Y $end
+$upscope $end
+$scope module NOR $end
+$var wire 1 , A $end
+$var wire 1 - B $end
+$var wire 1 . Y $end
+$upscope $end
+$scope module testbench $end
+$var wire 8 / idle_out_synth [7:0] $end
+$var wire 8 0 idle_out_cond [7:0] $end
+$var wire 1 1 active $end
+$scope module paralelo_serial_rx_0 $end
+$var wire 1 1 active $end
+$var reg 8 2 idle_out [7:0] $end
+$upscope $end
+$scope module paralelo_serial_rx_synth_0 $end
+$var wire 8 3 idle_out [7:0] $end
+$var wire 1 1 active $end
+$scope module _0_ $end
+$var wire 1 4 Y $end
+$var wire 1 1 A $end
+$upscope $end
+$scope module _1_ $end
+$var wire 1 5 Y $end
+$var wire 1 1 A $end
+$upscope $end
+$upscope $end
+$scope module probador_ $end
+$var wire 8 6 idle_out_cond [7:0] $end
+$var wire 8 7 idle_out_synth [7:0] $end
+$var reg 1 1 active $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+b10111100 7
+b10111100 6
+05
+14
+b10111100 3
+b10111100 2
+01
+b10111100 0
+b10111100 /
+x.
+z-
+z,
+x+
+z*
+z)
+x(
+z'
+z&
+z%
+z$
+x#
+z"
+z!
+$end
+#80
+04
+b1111100 0
+b1111100 2
+b1111100 6
+b1111100 /
+b1111100 3
+b1111100 7
+15
+11
+#160
+14
+b10111100 0
+b10111100 2
+b10111100 6
+b10111100 /
+b10111100 3
+b10111100 7
+05
+01
+#240
+04
+b1111100 0
+b1111100 2
+b1111100 6
+b1111100 /
+b1111100 3
+b1111100 7
+15
+11
+#400
+14
+b10111100 0
+b10111100 2
+b10111100 6
+b10111100 /
+b10111100 3
+b10111100 7
+05
+01
+#560
+04
+b1111100 0
+b1111100 2
+b1111100 6
+b1111100 /
+b1111100 3
+b1111100 7
+15
+11
+#640
+14
+b10111100 0
+b10111100 2
+b10111100 6
+b10111100 /
+b10111100 3
+b10111100 7
+05
+01
+#720
+04
+b1111100 0
+b1111100 2
+b1111100 6
+b1111100 /
+b1111100 3
+b1111100 7
+15
+11
+#880
+14
+b10111100 0
+b10111100 2
+b10111100 6
+b10111100 /
+b10111100 3
+b10111100 7
+05
+01
+#960

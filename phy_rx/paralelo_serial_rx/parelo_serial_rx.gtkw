@@ -1,0 +1,36 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Tue Jun  1 22:44:31 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_rx/paralelo_serial_rx/paralelo_serial_rx.vcd"
+[dumpfile_mtime] "Tue Jun  1 22:43:17 2021"
+[dumpfile_size] 2049
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_rx/paralelo_serial_rx/parelo_serial_rx.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-14.977872 20410 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[sst_width] 211
+[signals_width] 155
+[sst_expanded] 1
+[sst_vpaned_height] 147
+@200
+-Entrada
+@28
+[color] 2
+testbench.probador_.active
+@200
+-
+-Salida conductual
+@22
+[color] 3
+testbench.probador_.idle_out_cond[7:0]
+@200
+-
+-Salida estructural
+@22
+[color] 7
+testbench.probador_.idle_out_synth[7:0]
+[pattern_trace] 1
+[pattern_trace] 0
