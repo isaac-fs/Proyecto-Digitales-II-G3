@@ -1,0 +1,51 @@
+module paralelo_serial (
+			output reg [7:0] data2send,
+			output reg 	 data_out,
+			input 		 clk_32f,
+			input [7:0] 	 data_in,
+			input 		 valid_in);
+   
+   reg [2:0] 				 index = 000;
+  
+  
+   
+
+   
+
+   always @(*)
+     begin
+	if(valid_in)
+	  begin
+	     data2send = data_in;
+	  end
+	else
+	  begin
+	     data2send = 8'hBC;
+	  end // else: !if(valid_in)
+     end // always @ (*)
+ 
+   
+
+   always @ (posedge clk_32f)
+     begin
+	data_out <= data2send[index];
+	index <= index -1;
+	
+     end
+ 
+ 
+   
+  
+   
+
+   
+ 
+
+   
+   
+
+endmodule // paralelo_serial
+
+	      
+			  
+  

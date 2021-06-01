@@ -1,0 +1,25 @@
+#lee archivo de verilog
+read_verilog paralelo_serial.v 
+hierarchy -check -top paralelo_serial 
+
+#optimizaciones 
+proc; opt; fsm; opt; memory; opt
+
+#mapeo a la liberia interna
+techmap; opt  
+
+#mapea FF en cmos_cells
+dfflibmap -liberty cmos_cells.lib
+
+#mapea compuertas lógicas en cmos_cells
+abc   -liberty  cmos_cells.lib
+
+#limpieza
+clean
+
+#escribe el archivo sintetizado
+write_verilog paralelo_serial_synth.v
+
+#muestra el diagrama dot
+#show
+

@@ -47,7 +47,6 @@ module probador (
         else
             check <= 0;    
     end 
-
    
 
    // Secuencia de prueba
