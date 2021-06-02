@@ -1,0 +1,60 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun  2 04:35:42 2021
+[*]
+[dumpfile] "/home/gokeh/Digitales2/Proyecto/phy_rx/logica_demuxes/senales_DEMUX_L1.vcd"
+[dumpfile_mtime] "Wed Jun  2 04:29:26 2021"
+[dumpfile_size] 4572
+[savefile] "/home/gokeh/Digitales2/Proyecto/phy_rx/logica_demuxes/Diagrama_Demuxes.gtkw"
+[timestart] 0
+[size] 1000 600
+[pos] -1 -1
+*-16.136541 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 206
+[sst_expanded] 1
+[sst_vpaned_height] 144
+@200
+-Señales de clk
+@28
+Banco_pruebas.clk_4f
+Banco_pruebas.clk_2f
+Banco_pruebas.clk_f
+@200
+-
+-Datos entrada
+@22
+[color] 7
+Banco_pruebas.data_000[7:0]
+@28
+Banco_pruebas.valid_000
+@200
+-
+-Salida L2 / Entrada L1
+@22
+[color] 2
+Banco_pruebas.data_00[7:0]
+[color] 2
+Banco_pruebas.data_11[7:0]
+@28
+Banco_pruebas.valid_00
+Banco_pruebas.valid_11
+@200
+-
+-Salida L1
+@23
+[color] 3
+Banco_pruebas.data_0[7:0]
+[color] 3
+Banco_pruebas.data_1[7:0]
+[color] 3
+Banco_pruebas.data_2[7:0]
+[color] 3
+Banco_pruebas.data_3[7:0]
+@28
+Banco_pruebas.valid_0
+Banco_pruebas.valid_1
+Banco_pruebas.valid_2
+Banco_pruebas.valid_3
+[pattern_trace] 1
+[pattern_trace] 0

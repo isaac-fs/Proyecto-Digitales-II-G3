@@ -1,0 +1,47 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun  2 04:25:06 2021
+[*]
+[dumpfile] "/home/david/Documentos/Verilog/Proyecto1/serial.vcd"
+[dumpfile_mtime] "Wed Jun  2 04:22:12 2021"
+[dumpfile_size] 42024
+[savefile] "/home/david/Documentos/Verilog/Proyecto1/serial.gtkw"
+[timestart] 0
+[size] 1040 563
+[pos] -1 -1
+*-16.840103 119600 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 233
+[signals_width] 242
+[sst_expanded] 1
+[sst_vpaned_height] 192
+@200
+-Entradas
+@28
+[color] 1
+BancoPruebas_PtoS.clk_4f
+[color] 1
+BancoPruebas_PtoS.clk_32f
+[color] 1
+BancoPruebas_PtoS.data_in
+[color] 1
+BancoPruebas_PtoS.reset
+@200
+-Señales internas
+@29
+[color] 2
+BancoPruebas_PtoS.Serial_paralelo_tx.BC_counter[2:0]
+@28
+[color] 2
+BancoPruebas_PtoS.Serial_paralelo_tx.active
+@200
+-Salidas cond
+@28
+[color] 3
+BancoPruebas_PtoS.idle_cond
+@200
+-Salidas yosys
+@28
+[color] 3
+BancoPruebas_PtoS.idle_yosys
+[pattern_trace] 1
+[pattern_trace] 0
