@@ -1,5 +1,13 @@
 /* Genera señales para probar el phyrx.*/
 module probador(
+	// señales para leer
+	input [7:0] sp_out_cond,
+	input [7:0] sp_out_synth, 
+	input valid_out_sp_cond,
+	input valid_out_sp_synth,
+	input active_cond,
+	input active_synth,
+	// señales para generar
     output reg clk_4f,
     output reg clk_32f,
 	output reg data_in
@@ -8,332 +16,317 @@ module probador(
 
     // Relojes
     initial	clk_4f 	<= 1;
-    initial	clk_32f <= 1;
+	initial	clk_32f <= 1;
+	always	#8 clk_4f 	<= ~clk_4f; 
+    always	#1 clk_32f <= ~clk_32f; 
 
-    always	#20 clk_4f 	<= ~clk_4f; 
-    always	#160 clk_32f 	<= ~clk_32f; 
 
+	reg [7:0] data;
 
-	reg [7:0]data;
 	initial begin
-		$dumpfile("senales_serial_paralelo.vcd");	// Nombre de archivo del "dump"
-		$dumpvars;			        // Directiva para "dumpear" variables
+		$dumpfile("serial_paralelo_rx.vcd"); // Nombre de archivo del "dump"
+		$dumpvars; // Directiva para "dumpear" variables
+
+			
+		// Primer dato
 		
+		data_in <= 1;
+
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
 		data_in <= 0;
-        
-		data <= 0;
 		
-		@(posedge clk_4f);
-		repeat (4) begin
-			repeat (4) begin
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data  <= 'hBC;
-				
-			end
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		data  <= 8'hF2;
+		
+		// Segundo dato
 
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data  <= 'hF2;
-				
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		data  <= 'h15;
 
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data  <= 'h15;
-				
+		repeat (4) begin // primeros 4 BC
 
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data  <= 'hDD;
-				
+			@(posedge clk_32f);
+			data_in <= 1;
 
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data  <= 'h45;
-				
-
-			repeat (4) begin
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data  <= 'hBC;
-				
-			end
-
-
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data  <= 'hAA;
+			@(posedge clk_32f);
+			data_in <= 0;
 			
-
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data  <= 'hEE;
-				
-
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-            
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data  <= 'h13;
-				
-
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data  <= 'hCD;
-				
-
-			repeat (4) begin
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 1;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data_in <= 0;
-                
-				@(posedge clk_32f);
-				data  <= 'hBC;
-				
-			end
-
+			@(posedge clk_32f);
+			data_in <= 1;
 			
-		end 
+			@(posedge clk_32f);
+			data_in <= 1;
+			
+			@(posedge clk_32f);
+			data_in <= 1;
+			
+			@(posedge clk_32f);
+			data_in <= 1;
+			
+			@(posedge clk_32f);
+			data_in <= 0;
+			
+			@(posedge clk_32f);
+			data_in <= 0;
+			data  <= 'hBC;
+		end	
+		
+		// Tercer dato
 
-		$finish;
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		data  <= 'hDD;
+
+		// Cuarto dato
+
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		data  <= 'h45;
+		
+		// Quinto dato
+
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		data  <= 'hAA;
+	
+
+		// Sexto dato
+
+		@(posedge clk_32f);
+		data_in <= 1;
+
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		data  <= 'hBC;
+		
+		// Septimo dato
+
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+	
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		data  <= 'h13;
+		
+		// Octavo dato
+
+		@(posedge clk_32f);
+		data_in <= 1;
+
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		data  <= 'hBC;
+
+		// Tercer dato
+
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		data  <= 'hDD;
+
+		// Cuarto dato
+
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		
+		@(posedge clk_32f);
+		data_in <= 0;
+		
+		@(posedge clk_32f);
+		data_in <= 1;
+		data  <= 'h45;
+
+		@(posedge clk_32f);
+		$finish;		
 	end
-
-
 endmodule

@@ -1,0 +1,60 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun  2 05:44:11 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_rx/serial_paralelo_rx/serial_paralelo_rx.vcd"
+[dumpfile_mtime] "Wed Jun  2 05:40:40 2021"
+[dumpfile_size] 24939
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_rx/serial_paralelo_rx/serial_paralelo_rx.gtkw"
+[timestart] 0
+[size] 1536 801
+[pos] -1 -1
+*-15.315274 79500 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BancoPruebas.
+[sst_width] 219
+[signals_width] 178
+[sst_expanded] 1
+[sst_vpaned_height] 218
+@200
+-Relojes
+@28
+BancoPruebas.clk_4f
+BancoPruebas.clk_32f
+@200
+-
+-Entradas
+@28
+[color] 7
+BancoPruebas.data_in
+@22
+[color] 7
+BancoPruebas.probador_.data[7:0]
+@200
+-
+-Señales relevantes
+@28
+[color] 2
+BancoPruebas.module_serial_paralelo_0.BCcounter[2:0]
+@200
+-
+-Señales conductuales
+@22
+[color] 3
+BancoPruebas.sp_out_cond[7:0]
+@28
+BancoPruebas.valid_out_sp_cond
+BancoPruebas.active_cond
+@200
+-
+-Señales estructurales
+@22
+[color] 3
+BancoPruebas.probador_.sp_out_synth[7:0]
+@29
+BancoPruebas.probador_.valid_out_sp_synth
+@28
+BancoPruebas.probador_.active_synth
+@200
+-
+[pattern_trace] 1
+[pattern_trace] 0

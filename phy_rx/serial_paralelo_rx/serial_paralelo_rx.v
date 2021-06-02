@@ -1,20 +1,19 @@
-module module_serial_paralelo (
+module serial_paralelo_rx (
     output reg [7:0]sp_out,
     output reg valid_out_sp,
+    output reg active,
     input data_in,
     input clk_4f,
     input clk_32f);
     
 
-    reg [7:0] serial_in,q1;
-    reg [2:0] counter;
-    reg [2:0] BCcounter;
+    reg [7:0] serial_in, q1;// = 8'h0;
+    reg [2:0] counter=0;
+    reg [2:0] BCcounter=0;
 
     
     always @(posedge clk_32f) begin
-
             
-        
             if (counter == 0) begin
                 serial_in[7] <= data_in;
                 counter <= counter + 1;
@@ -47,34 +46,44 @@ module module_serial_paralelo (
             if (counter == 7) begin
                 serial_in[0] <= data_in;
                 counter <= counter + 1;
-            end
-        
+            end 
+    end
+
+    always @(*) begin
+        valid_out_sp = 0;
+        if (active && q1 != 8'hBC)
+            valid_out_sp = 1'b1;
+        else
+            valid_out_sp = 1'b0;
     end
 
     always @(posedge clk_4f) begin
-        
+        //q1 = 8'h0;
+        //q1 <= serial_in;
+        if (q1 == 8'hBC && BCcounter < 4) //
+        BCcounter = BCcounter + 1;
+
+        if(BCcounter < 4) begin
             sp_out <= q1;
-            if (q1 == 'hBC) begin
-                BCcounter <= BCcounter + 1;
-                
-                
-                valid_out_sp <= 0;
-                end
-        else begin
-            if (BCcounter == 4) begin
-                
-                
-                valid_out_sp <= 1;
-                
-            end
+            active <= 1'b0;
         end 
-        if (BCcounter == 4) begin
-            if (q1 == 'hBC) begin
-                BCcounter <= 'b100;
-            end
-            end
+        else begin
+            sp_out <= q1;
+            active <= 1'b1; 
         end
 
-    
 
+    end
+
+    //*******************************
+    //     else if (BCcounter == 4) begin     
+    //             valid_out_sp <= 1;         
+    //     end 
+    //     if (BCcounter == 4) begin
+    //         if (q1 == 8'hBC) begin
+    //             BCcounter <= 'b100;
+    //         end
+    //      end
+    // end
+    //*******************************
 endmodule
