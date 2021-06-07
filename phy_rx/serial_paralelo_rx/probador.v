@@ -26,11 +26,7 @@ module probador(
 	initial begin
 		$dumpfile("serial_paralelo_rx.vcd"); // Nombre de archivo del "dump"
 		$dumpvars; // Directiva para "dumpear" variables
-
-			
-		// Primer dato
-		
-		data_in <= 1;
+		data_in = 1;
 
 		@(posedge clk_32f);
 		data_in <= 1;
@@ -52,7 +48,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 0;
-		data  <= 8'hF2;
+		#10 data  <= 8'hF2;
 		
 		// Segundo dato
 
@@ -79,7 +75,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 1;
-		data  <= 'h15;
+		#10 data  <= 'h15;
 
 		repeat (4) begin // primeros 4 BC
 
@@ -106,7 +102,7 @@ module probador(
 			
 			@(posedge clk_32f);
 			data_in <= 0;
-			data  <= 'hBC;
+			#10 data  <= 'hBC;
 		end	
 		
 		// Tercer dato
@@ -134,7 +130,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 1;
-		data  <= 'hDD;
+		#10data  <= 'hDD;
 
 		// Cuarto dato
 
@@ -161,7 +157,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 1;
-		data  <= 'h45;
+		#10 data  <= 'h45;
 		
 		// Quinto dato
 
@@ -188,7 +184,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 0;
-		data  <= 'hAA;
+		#10 data  <= 'hAA;
 	
 
 		// Sexto dato
@@ -216,7 +212,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 0;
-		data  <= 'hBC;
+		#10 data  <= 'hBC;
 		
 		// Septimo dato
 
@@ -243,7 +239,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 1;
-		data  <= 'h13;
+		#10 data  <= 'h13;
 		
 		// Octavo dato
 
@@ -270,7 +266,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 0;
-		data  <= 'hBC;
+		#10 data  <= 'hBC;
 
 		// Tercer dato
 
@@ -297,7 +293,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 1;
-		data  <= 'hDD;
+		#10 data  <= 'hDD;
 
 		// Cuarto dato
 
@@ -324,7 +320,7 @@ module probador(
 		
 		@(posedge clk_32f);
 		data_in <= 1;
-		data  <= 'h45;
+		#10 data  <= 'h45;
 
 		@(posedge clk_32f);
 		$finish;		

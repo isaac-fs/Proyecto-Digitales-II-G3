@@ -5,7 +5,7 @@ read_verilog serial_paralelo_rx.v
 hierarchy -check -top serial_paralelo_rx
 
 # the high-level stuff
-proc; opt; fsm; opt; memory; opt
+proc; opt; fsm; opt; memory; opt;
 
 # mapping to internal cell library
 techmap;
@@ -21,3 +21,5 @@ clean
 
 # write synthesized design
 write_verilog serial_paralelo_rx_synth.v
+
+#show
