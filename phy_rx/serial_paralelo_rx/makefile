@@ -12,7 +12,7 @@ serial_paralelo_rx.vvp: $(DEPS)
 
 serial_paralelo_rx_synth.v: serial_paralelo_rx.v
 	@echo -e "\nGenerando síntesis $@ con Yosys"
-	@yosys -s yosys.ys
+	@yosys -q -s yosys.ys
 	@sed -i 's/module\sserial_paralelo_rx(/module serial_paralelo_rx_synth(/' serial_paralelo_rx_synth.v
 
 gtk: serial_paralelo_rx.vvp

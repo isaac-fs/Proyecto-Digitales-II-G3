@@ -1,6 +1,6 @@
 /* Banco de pruebas para el módulo: phyrx. Prueba la descripción conductual y la estructural a partir del probador: probadorRx2.v*/
 `timescale 	1ns				/ 100ps
-`include "../../cmos_cells/cmos_cells.v"
+`include "cmos_cells.v"
 `include "serial_paralelo_rx.v"
 `include "serial_paralelo_rx_synth.v"
 `include "probador.v"
