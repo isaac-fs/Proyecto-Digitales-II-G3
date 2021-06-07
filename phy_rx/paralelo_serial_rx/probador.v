@@ -1,17 +1,21 @@
 module probador( // Módulo probador: generador de señales y monitor de datos.
 	// Entradas del monitor de datos
 	// Conductual
-	input [7:0] idle_out_cond,
+	input idle_out_cond,
 	// Síntesis
-	input [7:0] idle_out_synth,
+	input idle_out_synth,
     // Salidas del generador de señales
-	output reg active
-	// output reg clk
+	output reg active,
+	output reg rst_L,
+	output reg clk_4f,
+	output reg clk_32f
 );
 
 	// Reloj
-	// initial	clk <= 0;			// Valor inicial al reloj, sino siempre será indeterminado
-	// always #8 clk <= ~clk;		// Hace "toggle" cada 2*1ns
+	initial	clk_4f <= 1;			// Valor inicial al reloj, sino siempre será indeterminado
+	initial	clk_32f <= 1;			// Valor inicial al reloj, sino siempre será indeterminado
+	always #40 clk_4f <= ~clk_4f;		// Hace "toggle" cada 2*1ns
+	always #5 clk_32f <= ~clk_32f;		// Hace "toggle" cada 2*1ns
 	
 	// Bloque de procedimiento, no sintetizable, se recorre una única vez.
 	// Generalmente, los initial sólo se usan en los testbench o probadores.
@@ -25,26 +29,30 @@ module probador( // Módulo probador: generador de señales y monitor de datos.
 		// $monitor($time,"\t%b", clk);
         
         // Inicialización de datos
-		active = 1'b0;
-		#8;
 		active = 1'b1;
-		#8;
+		rst_L = 1'b0;
+		#10;
+		rst_L = 1'b1;
 		active = 1'b0;
-		#8;
+		#20;
 		active = 1'b1;
-		#16;
+		#20;
 		active = 1'b0;
-		#8;
-		active = 1'b0;
-		#8;
+		#40;
 		active = 1'b1;
-		#8;
+		#20;
 		active = 1'b0;
-		#8;
+		#20;
+		active = 1'b0;
+		#20;
 		active = 1'b1;
-		#16;
-		active = 1'b0;
-		#8;
+		#20;
+		// active = 1'b0;
+		// #20;
+		// active = 1'b1;
+		// #20;
+		// active = 1'b0;
+		// #20;
 
 		$finish; // Termina de almacenar señales
 		end

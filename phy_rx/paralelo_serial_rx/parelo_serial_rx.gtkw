@@ -1,36 +1,63 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Tue Jun  1 22:44:31 2021
+[*] Mon Jun  7 17:39:25 2021
 [*]
 [dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_rx/paralelo_serial_rx/paralelo_serial_rx.vcd"
-[dumpfile_mtime] "Tue Jun  1 22:43:17 2021"
-[dumpfile_size] 2049
+[dumpfile_mtime] "Mon Jun  7 17:34:47 2021"
+[dumpfile_size] 9375
 [savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_rx/paralelo_serial_rx/parelo_serial_rx.gtkw"
 [timestart] 0
-[size] 1000 600
+[size] 1536 801
 [pos] -1 -1
-*-14.977872 20410 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-14.889757 44100 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
 [sst_width] 211
 [signals_width] 155
 [sst_expanded] 1
-[sst_vpaned_height] 147
+[sst_vpaned_height] 217
 @200
+-Clock
+@28
+testbench.probador_.clk_32f
+testbench.paralelo_serial_rx_0.clk_4f
+@200
+-
 -Entrada
 @28
 [color] 2
 testbench.probador_.active
 @200
--
--Salida conductual
-@22
-[color] 3
-testbench.probador_.idle_out_cond[7:0]
+-Señales de interés
+@28
+testbench.rst_L
+@c00024
+testbench.paralelo_serial_rx_synth_0.index[2:0]
+@28
+(0)testbench.paralelo_serial_rx_synth_0.index[2:0]
+(1)testbench.paralelo_serial_rx_synth_0.index[2:0]
+(2)testbench.paralelo_serial_rx_synth_0.index[2:0]
+@1401204
+-group_end
 @200
 -
--Salida estructural
+-Salida conductual
+@28
+[color] 3
+testbench.probador_.idle_out_cond
 @22
-[color] 7
-testbench.probador_.idle_out_synth[7:0]
+[color] 5
+testbench.paralelo_serial_rx_0.data2send[7:0]
+@20000
+-
+@200
+-Salida estructural
+@28
+[color] 3
+testbench.probador_.idle_out_synth
+@22
+[color] 5
+testbench.paralelo_serial_rx_synth_0.data2send[7:0]
+@200
+-
 [pattern_trace] 1
 [pattern_trace] 0
