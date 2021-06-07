@@ -40,13 +40,12 @@ module probadorPrueba (
 		$dumpfile ("senales_DEMUX_L1.vcd");
 		$dumpvars;
 
+		{data_000} = {8'hFF};
 		valid_000 = 1; //Valores iniciales de valids
 		
-		
 		repeat (2) begin
-		@(posedge clk_4f);
-		{data_000} <= {8'hFF};
 		
+		@(posedge clk_4f);
 		
 
 		@(posedge clk_4f);

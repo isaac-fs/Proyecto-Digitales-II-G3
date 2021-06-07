@@ -5,13 +5,14 @@
 
 module phy_rx (
 	// inputs
+	input rst_L,
 	input clk_f,
 	input clk_2f,
 	input clk_4f,
 	input clk_32f,
     input datos_paralelo_serial,
 	// outputs
-    output [7:0] idle_out,
+    output idle_out,
     output [7:0] data_out_0,
     output [7:0] data_out_1,
     output [7:0] data_out_2,
@@ -36,9 +37,12 @@ module phy_rx (
 
     paralelo_serial_rx parelelo_serial_rx_0(/*AUTOINST*/
 					    // Outputs
-					    .idle_out		(idle_out[7:0]),
+					    .idle_out		(idle_out),
 					    // Inputs
-					    .active		(active));
+					    .active		(active),
+						.rst_L		(rst_L),
+						.clk_32f	(clk_32f),
+						.clk_4f		(clk_4f));
 
     DEMUX_L2 demux_L2_0(/*AUTOINST*/
 			// Outputs

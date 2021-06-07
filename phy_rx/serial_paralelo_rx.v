@@ -10,15 +10,15 @@ module serial_paralelo_rx (
     reg [2:0] counter=0;
     reg [2:0] BCcounter=0;
     
-    always @(posedge clk_32f) begin          
+    always @(posedge clk_32f) begin   
         serial_in[7-counter] <= data_in;
-        counter <= counter + 1;
-    end
+        counter <= counter + 1;                  
+    end       
     
     always @(posedge clk_4f) begin
-        sp_out <= serial_in; 
+        sp_out <= serial_in;
         if (serial_in == 8'hBC && BCcounter < 4) 
-            BCcounter = BCcounter + 1; 
+            BCcounter <= BCcounter + 1;     
     end
 
     always @(*) begin

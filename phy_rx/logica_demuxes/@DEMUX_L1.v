@@ -1,10 +1,11 @@
 module DEMUX_L1 (
         input [7:0] data_00,
         input [7:0] data_11,
+		
         input 		        valid_00,
         input 		        valid_11,
         input 		        clk_f,
-      	input 		        clk_2f,
+      	
 		output reg [7:0] 	data_0,
 		output reg [7:0] 	data_1,
         output reg [7:0] 	data_2,
@@ -40,66 +41,51 @@ module DEMUX_L1 (
 
    //Lógica DEMUX 
 
-   always @(posedge clk_2f)
+   always @(*)
      begin
 	    /*validt_00 = (valid_000 & ~selector_4f) | (valid_000 & selector_4f);
         validt_11 = (valid_000 & ~selector_4f) | (valid_000 & selector_4f);*/
         
-        // data_11 = 8'h00;
-        // data_00 = 8'h00;
-        // validt_00 = 1;
-        
-        // validt_0 = 1;  
-        // validt_1 = 1; 
-        // validt_2 = 1; 
-        // validt_3 = 1; 
-        // c = 8'h00;
-        // d = 8'h00;
-        // e = 8'h00;
-        // f = 8'h00;
+        //data_11 = 8'h00;
+        //data_00 = 8'h00;
+        //validt_00 = 1;
 
-	    
-        if (valid_00) begin
+	    if (clk_f & valid_00) begin
 	        c <= data_00;
-            validt_2 <= valid_00;
+            validt_0 <= valid_00;
         end
-	    else if (~valid_00) begin
+	    else if (clk_f & ~valid_00) begin
             c <= c;
-            validt_2 <= valid_00;
+            validt_0 <= valid_00;
         end 
 
-         if (valid_11) begin
-	        d <= data_11;
-            validt_0 <= valid_11;
+        if (~clk_f & valid_00) begin
+	        d <= data_00;
+            validt_1 <= valid_00;
         end
-	    else if (~valid_11) begin
+	    else if (~clk_f & ~valid_00) begin
             d <= d;
-            validt_0 <= valid_11;
+            validt_1 <= valid_00;
+        end 
+
+        if (clk_f & valid_11) begin
+	        e <= data_11;
+            validt_2 <= valid_11;
+        end
+	    else if (clk_f & ~valid_11) begin
+            e <= e;
+            validt_2 <= valid_11;
+        end 
+
+        if (~clk_f & valid_11) begin
+	        f <= data_11;
+            validt_3 <= valid_11;
+        end
+	    else if (~clk_f & ~valid_11) begin
+            f <= f;
+            validt_3 <= valid_11;
         end 
      end
-      
-      
-
-    always @(negedge clk_2f) begin
-       
-         if (valid_00) begin
-	        f <= data_11;
-            validt_3 <= valid_00;
-        end
-	    else if (~valid_00) begin
-            f <= f;
-            validt_3 <= valid_00;
-        end 
-     
-        if (valid_11) begin
-	        e <= data_00;
-            validt_1 <= valid_11;
-        end
-	    else if (~valid_11) begin
-            e <= e;
-            validt_1 <= valid_11;
-        end 
-    end
 
    // Lógica Flop
 
