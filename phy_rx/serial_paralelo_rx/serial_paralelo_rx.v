@@ -7,7 +7,7 @@ module serial_paralelo_rx (
     input clk_32f);
     
 
-    reg [7:0] serial_in, q1;// = 8'h0;
+    reg [7:0] serial_in, q1;
     reg [2:0] counter=0;
     reg [2:0] BCcounter=0;
 
@@ -72,18 +72,5 @@ module serial_paralelo_rx (
             active <= 1'b1; 
         end
 
-
     end
-
-    //*******************************
-    //     else if (BCcounter == 4) begin     
-    //             valid_out_sp <= 1;         
-    //     end 
-    //     if (BCcounter == 4) begin
-    //         if (q1 == 8'hBC) begin
-    //             BCcounter <= 'b100;
-    //         end
-    //      end
-    // end
-    //*******************************
 endmodule

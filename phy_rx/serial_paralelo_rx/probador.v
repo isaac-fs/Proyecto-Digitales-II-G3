@@ -15,10 +15,10 @@ module probador(
 
 
     // Relojes
-    initial	clk_4f 	<= 1;
-	initial	clk_32f <= 1;
-	always	#8 clk_4f 	<= ~clk_4f; 
-    always	#1 clk_32f <= ~clk_32f; 
+   initial	clk_4f 	<= 1;
+   initial	clk_32f <= 1;
+   always	#40 clk_4f <= ~clk_4f;
+   always	#5 clk_32f <= ~clk_32f; 
 
 
 	reg [7:0] data;
