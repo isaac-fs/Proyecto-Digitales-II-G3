@@ -1,0 +1,25 @@
+`include "./paralelo_serial_rx/parelelo_serial_rx.v"
+`include "./serial_paralelo_rx/serial_paralelo_rx.v"
+`include "./logica_demuxes/DEMUX_L1.v"
+`include "./logica_demuxes/DEMUX_L2.v"
+
+module phy_rx.v (
+    input datos_paralelo_serial,
+    output idle,
+    output [7:0] data_out_0,
+    output [7:0] data_out_1,
+    output [7:0] data_out_2,
+    output [7:0] data_out_3,
+    output valid_out_0,        
+    output valid_out_1,
+    output valid_out_2,
+    output valid_out_3,
+);
+    serial_paralelo_rx serial_paralelo_rx_0(/*AUTOINST*/);
+
+    paralelo_serial_rx parelelo_serial_rx_0(/*AUTOINST*/);
+
+    DEMUX_L2 demux_l2_0(/*AUTOINST*/);
+
+    DEMUX_L1 demux_l2_1(/*AUTOINST*/);
+endmodule
