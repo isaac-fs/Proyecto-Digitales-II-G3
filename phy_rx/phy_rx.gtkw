@@ -1,6 +1,6 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Mon Jun  7 23:15:54 2021
+[*] Mon Jun  7 23:29:57 2021
 [*]
 [dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_rx/phy_rx.vcd"
 [dumpfile_mtime] "Mon Jun  7 23:04:47 2021"
@@ -8,9 +8,10 @@
 [savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_rx/phy_rx.gtkw"
 [timestart] 0
 [size] 1536 801
-[pos] -1 -1
-*-18.592459 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -9 -72
+*-18.592459 1616000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] BancoPruebas.
+[treeopen] BancoPruebas.phy_rx_0.
 [sst_width] 211
 [signals_width] 177
 [sst_expanded] 1
@@ -44,6 +45,13 @@ BancoPruebas.probador_.data[7:0]
 BancoPruebas.phy_rx_0.serial_paralelo_rx_0.BCcounter[2:0]
 @200
 -
+@22
+BancoPruebas.phy_rx_0.demux_L2_0.data_00[7:0]
+[color] 4
+BancoPruebas.phy_rx_0.demux_L2_0.data_11[7:0]
+@200
+-
+@201
 -Salidas condicionales
 @22
 [color] 7
@@ -55,7 +63,7 @@ BancoPruebas.probador_.data_out_2_cond[7:0]
 [color] 3
 BancoPruebas.probador_.data_out_3_cond[7:0]
 @200
--
+-Datos relevantes
 @28
 [color] 5
 BancoPruebas.probador_.valid_out_0_cond
@@ -105,7 +113,7 @@ BancoPruebas.probador_.valid_out_3_synth
 BancoPruebas.probador_.idle_out_synth
 @200
 -Datos relevantes
-@23
+@22
 [color] 5
 BancoPruebas.phy_rx_0.parelelo_serial_rx_0.data2send[7:0]
 @200
