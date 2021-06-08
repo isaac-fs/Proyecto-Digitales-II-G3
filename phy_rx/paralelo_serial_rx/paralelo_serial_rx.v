@@ -30,9 +30,9 @@ module paralelo_serial_rx(
 
     always @ (posedge clk_4f) begin 
         if (active)
-            data2send = 8'h7C; // Enviar IDLE;
+            data2send <= 8'h7C; // Enviar IDLE;
         else
-            data2send = 8'hBC; // Enviar COM;
+            data2send <= 8'hBC; // Enviar COM;
     end // always @ (*)
 
 endmodule

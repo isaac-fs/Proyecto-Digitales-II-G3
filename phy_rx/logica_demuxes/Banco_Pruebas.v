@@ -47,7 +47,8 @@ module Banco_pruebas;
 		     .data_11		(data_11[7:0]),
 		     .valid_00		(valid_00),
 		     .valid_11		(valid_11),
-		     .clk_f		(clk_f));
+		     .clk_f		(clk_f),
+		     .clk_2f		(clk_2f));
 
 	//Instancia DEMUX_L2 Conductual
 
@@ -60,6 +61,7 @@ module Banco_pruebas;
 		      // Inputs
 		      .data_000		(data_000[7:0]),
 		      .valid_000	(valid_000),
+		      .clk_4f		(clk_4f),
 		      .clk_2f		(clk_2f));
  
    //Instancia probador

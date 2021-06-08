@@ -2,8 +2,7 @@ module DEMUX_L2 (
 		input [7:0]         data_000,
         input 	            valid_000,
       	//input 		        clk_f,
-      	input 		        clk_4f,
-        input 		        clk_2f,
+      	input 		        clk_2f,
 		output reg [7:0] 	data_00,
 		output reg [7:0] 	data_11,
 		output reg 		    valid_00,
@@ -13,7 +12,7 @@ module DEMUX_L2 (
    reg [7:0] 	        a;
    reg [7:0]            b;
    //reg 	                selector_4f = 1;
-   //reg                  selector_4f = 1;
+   //reg                  selector_2f = 1;
    reg 	                validt_00;
    reg 	                validt_11;
 
@@ -24,60 +23,59 @@ module DEMUX_L2 (
 	        selector_4f <= ~selector_4f;
         end
         
-   always @ (posedge clk_4f)
+   always @ (posedge clk_2f)
         begin
-	        selector_4f <= ~selector_4f;
+	        selector_2f <= ~selector_2f;
         end*/
 
    //Lógica DEMUX 
 
-   always @(posedge clk_4f)
+   always @(*)
      begin
 	    /*validt_00 = (valid_000 & ~selector_4f) | (valid_000 & selector_4f);
-        validt_11 = (valid_000 & ~selector_4f) | (valid_000 & selector_4f);*/     
-        // a = 8'h00;
-        // validt_00 = 1;
+        validt_11 = (valid_000 & ~selector_4f) | (valid_000 & selector_4f);*/
+        
+        //data_11 = 8'h00;
+        //data_00 = 8'h00;
+        //validt_00 = 1;
 
-	    if (valid_000) begin
+	    if (clk_2f & valid_000) begin
 	        a <= data_000;
             validt_00 <= valid_000;
         end
-	    else if (~valid_000) begin
+	    else if (clk_2f & ~valid_000) begin
             a <= a;
             validt_00 <= valid_000;
         end 
-     end
 
-    always @(negedge clk_4f) begin
-        // b = 8'h00;
-        // validt_11 = 1;
-        if (valid_000) begin
+        if (~clk_2f & valid_000) begin
 	        b <= data_000;
             validt_11 <= valid_000;
         end
-	    else if (~valid_000) begin
+	    else if (~clk_2f & ~valid_000) begin
             b <= b;
             validt_11 <= valid_000;
         end 
-    end
+     end
+
    // Lógica Flop
 
    always @ (posedge clk_2f)
     begin
+
 	    if(validt_00)
 	        begin
 	            data_00 <= a;
 	            valid_00 <= validt_00;
 	        end
+	
 	    else
 	        begin
                 data_00 <= data_00;
                 valid_00 <= validt_00;
 	        end      
-    end
-   
-   always @(posedge clk_2f) begin
-       if(validt_11)
+    
+        if(validt_11)
 	        begin
                 data_11 <= b;
                 valid_11 <= validt_11;
@@ -88,6 +86,7 @@ module DEMUX_L2 (
                 data_11 <= data_11;
                 valid_11 <= validt_11;
 	        end
-   end
+    end
+   
 	
 endmodule // MUX_L2
