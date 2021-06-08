@@ -1,0 +1,24 @@
+#lee archivo de verilog
+read_verilog phy_tx.v 
+hierarchy -check -top phy_tx
+
+#optimizaciones 
+proc; opt; fsm; opt; memory; opt
+
+#mapeo a la liberia interna
+techmap; opt  
+
+#mapea FF en cmos_cells
+dfflibmap -liberty cmos_cells.lib
+
+#mapea compuertas lógicas en cmos_cells
+abc   -liberty  cmos_cells.lib
+
+#limpieza
+clean
+
+#escribe el archivo sintetizado
+write_verilog phy_tx_synth.v
+
+#muestra el diagrama dot
+#show

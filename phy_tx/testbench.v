@@ -1,159 +1,154 @@
-`timescale 	1ns/100ps // escala	unidad temporal (valor de "#1") / precisión
-
-// includes de archivos de verilog
-// Pueden omitirse y llamarse desde el testbench
-`include "../cmos_cells/cmos_cells.v"
+`timescale 1ns/100ps
+`include "cmos_cells.v"
 `include "phy_tx.v"
-`include "synt_phy_tx.v"
+`include "phy_tx_synth.v"
 `include "probador.v"
 
+module testbench;
 
-module testbench; // Testbench
-	// Por lo general, las señales en el banco de pruebas son wires.
-	// No almacenan un valor, son manejadas por otras instancias de módulos.
+   /*AUTOWIRE*/
+   // Beginning of automatic wires (for undeclared instantiated-module outputs)
+   wire			clk_2f;			// From probador of probador.v
+   wire			clk_32f;		// From probador of probador.v
+   wire			clk_4f;			// From probador of probador.v
+   wire			clk_f;			// From probador of probador.v
+   wire			data_in;		// From probador of probador.v
+   wire [7:0]		data_in_0;		// From probador of probador.v
+   wire [7:0]		data_in_1;		// From probador of probador.v
+   wire [7:0]		data_in_2;		// From probador of probador.v
+   wire [7:0]		data_in_3;		// From probador of probador.v
+   wire			data_out;		// From phy_tx of phy_tx.v
+   wire			data_out_synth;		// From phy_tx_synth of phy_tx_synth.v
+   wire [7:0]		recirc_4;		// From phy_tx of phy_tx.v
+   wire [7:0]		recirc_5;		// From phy_tx of phy_tx.v
+   wire [7:0]		recirc_6;		// From phy_tx of phy_tx.v
+   wire [7:0]		recirc_7;		// From phy_tx of phy_tx.v
+   wire [7:0]		recirc_synth_4;		// From phy_tx_synth of phy_tx_synth.v
+   wire [7:0]		recirc_synth_5;		// From phy_tx_synth of phy_tx_synth.v
+   wire [7:0]		recirc_synth_6;		// From phy_tx_synth of phy_tx_synth.v
+   wire [7:0]		recirc_synth_7;		// From phy_tx_synth of phy_tx_synth.v
+   wire			reset_L;		// From probador of probador.v
+   wire			valid_in_0;		// From probador of probador.v
+   wire			valid_in_1;		// From probador of probador.v
+   wire			valid_in_2;		// From probador of probador.v
+   wire			valid_in_3;		// From probador of probador.v
+   wire			valid_r_4;		// From phy_tx of phy_tx.v
+   wire			valid_r_5;		// From phy_tx of phy_tx.v
+   wire			valid_r_6;		// From phy_tx of phy_tx.v
+   wire			valid_r_7;		// From phy_tx of phy_tx.v
+   wire			valid_r_synth_4;	// From phy_tx_synth of phy_tx_synth.v
+   wire			valid_r_synth_5;	// From phy_tx_synth of phy_tx_synth.v
+   wire			valid_r_synth_6;	// From phy_tx_synth of phy_tx_synth.v
+   wire			valid_r_synth_7;	// From phy_tx_synth of phy_tx_synth.v
+   // End of automatics
 
-	/*AUTOWIRE*/
-	// Beginning of automatic wires (for undeclared instantiated-module outputs)
-	wire		clk_2f;			// From probador_ of probador.v
-	wire		clk_4f;			// From probador_ of probador.v
-	wire		clk_f;			// From probador_ of probador.v
-	wire [7:0]	data_0;			// From probador_ of probador.v
-	wire [7:0]	data_000_cond;		// From phy_tx_0 of phy_tx.v
-	wire [7:0]	data_000_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	wire [7:0]	data_1;			// From probador_ of probador.v
-	wire [7:0]	data_2;			// From probador_ of probador.v
-	wire [7:0]	data_3;			// From probador_ of probador.v
-	wire		idle;			// From probador_ of probador.v
-	wire [7:0]	recirc_0_cond;		// From phy_tx_0 of phy_tx.v
-	wire [7:0]	recirc_0_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	wire [7:0]	recirc_1_cond;		// From phy_tx_0 of phy_tx.v
-	wire [7:0]	recirc_1_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	wire [7:0]	recirc_2_cond;		// From phy_tx_0 of phy_tx.v
-	wire [7:0]	recirc_2_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	wire [7:0]	recirc_3_cond;		// From phy_tx_0 of phy_tx.v
-	wire [7:0]	recirc_3_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	wire		valid_0;		// From probador_ of probador.v
-	wire		valid_000_cond;		// From phy_tx_0 of phy_tx.v
-	wire		valid_000_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	wire		valid_1;		// From probador_ of probador.v
-	wire		valid_2;		// From probador_ of probador.v
-	wire		valid_3;		// From probador_ of probador.v
-	wire		valid_r_0_cond;		// From phy_tx_0 of phy_tx.v
-	wire		valid_r_0_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	wire		valid_r_1_cond;		// From phy_tx_0 of phy_tx.v
-	wire		valid_r_1_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	wire		valid_r_2_cond;		// From phy_tx_0 of phy_tx.v
-	wire		valid_r_2_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	wire		valid_r_3_cond;		// From phy_tx_0 of phy_tx.v
-	wire		valid_r_3_synt;		// From synt_phy_tx_0 of synt_phy_tx.v
-	// End of automatics
 
-	// Descripción conductual
-	/* phy_tx AUTO_TEMPLATE (
-		.data_000 (data_000_cond[7:0]),  
-		.valid_000 (valid_000_cond),
-		.valid_r_@ (valid_r_\1_cond),
-		.recirc_@ (recirc_\1_cond[7:0]));
-	*/
-	phy_tx phy_tx_0 (/*AUTOINST*/
-			 // Outputs
-			 .data_000		(data_000_cond[7:0]), // Templated
-			 .valid_000		(valid_000_cond), // Templated
-			 .recirc_0		(recirc_0_cond[7:0]), // Templated
-			 .recirc_1		(recirc_1_cond[7:0]), // Templated
-			 .recirc_2		(recirc_2_cond[7:0]), // Templated
-			 .recirc_3		(recirc_3_cond[7:0]), // Templated
-			 .valid_r_0		(valid_r_0_cond), // Templated
-			 .valid_r_1		(valid_r_1_cond), // Templated
-			 .valid_r_2		(valid_r_2_cond), // Templated
-			 .valid_r_3		(valid_r_3_cond), // Templated
-			 // Inputs
-			 .idle			(idle),
-			 .clk_f			(clk_f),
-			 .clk_2f		(clk_2f),
-			 .clk_4f		(clk_4f),
-			 .data_0		(data_0[7:0]),
-			 .data_1		(data_1[7:0]),
-			 .data_2		(data_2[7:0]),
-			 .data_3		(data_3[7:0]),
-			 .valid_0		(valid_0),
-			 .valid_1		(valid_1),
-			 .valid_2		(valid_2),
-			 .valid_3		(valid_3));
-	
-	// Descripción estructural
-	/* synt_phy_tx AUTO_TEMPLATE (
-		.data_000 (data_000_synt[7:0]),  
-		.valid_000 (valid_000_synt),
-		.valid_r_@ (valid_r_\1_synt),
-		.recirc_@ (recirc_\1_synt[7:0]));
-	*/
-	synt_phy_tx synt_phy_tx_0(/*AUTOINST*/
-				  // Outputs
-				  .data_000		(data_000_synt[7:0]), // Templated
-				  .recirc_0		(recirc_0_synt[7:0]), // Templated
-				  .recirc_1		(recirc_1_synt[7:0]), // Templated
-				  .recirc_2		(recirc_2_synt[7:0]), // Templated
-				  .recirc_3		(recirc_3_synt[7:0]), // Templated
-				  .valid_000		(valid_000_synt), // Templated
-				  .valid_r_0		(valid_r_0_synt), // Templated
-				  .valid_r_1		(valid_r_1_synt), // Templated
-				  .valid_r_2		(valid_r_2_synt), // Templated
-				  .valid_r_3		(valid_r_3_synt), // Templated
-				  // Inputs
-				  .clk_2f		(clk_2f),
-				  .clk_4f		(clk_4f),
-				  .clk_f		(clk_f),
-				  .data_0		(data_0[7:0]),
-				  .data_1		(data_1[7:0]),
-				  .data_2		(data_2[7:0]),
-				  .data_3		(data_3[7:0]),
-				  .idle			(idle),
-				  .valid_0		(valid_0),
-				  .valid_1		(valid_1),
-				  .valid_2		(valid_2),
-				  .valid_3		(valid_3));
-	
-	// Probador: generador de señales y monitor
-	/* probador AUTO_TEMPLATE (
-		.valid_r_@_cond (valid_r_\1_cond),
-		.valid_r_@_synt (valid_r_\1_synt),  
-		.data_r_@_cond (recirc_\1_cond), 
-		.data_r_@_synt (recirc_\1_synt));
-	*/
-	probador probador_ (/*AUTOINST*/
-			    // Outputs
-			    .idle		(idle),
-			    .clk_f		(clk_f),
-			    .clk_2f		(clk_2f),
-			    .clk_4f		(clk_4f),
-			    .data_0		(data_0[7:0]),
-			    .data_1		(data_1[7:0]),
-			    .data_2		(data_2[7:0]),
-			    .data_3		(data_3[7:0]),
-			    .valid_0		(valid_0),
-			    .valid_1		(valid_1),
-			    .valid_2		(valid_2),
-			    .valid_3		(valid_3),
-			    // Inputs
-			    .data_000_cond	(data_000_cond[7:0]),
-			    .valid_000_cond	(valid_000_cond),
-			    .data_000_synt	(data_000_synt[7:0]),
-			    .valid_000_synt	(valid_000_synt),
-			    .data_r_0_cond	(recirc_0_cond), // Templated
-			    .valid_r_0_cond	(valid_r_0_cond), // Templated
-			    .data_r_1_cond	(recirc_1_cond), // Templated
-			    .valid_r_1_cond	(valid_r_1_cond), // Templated
-			    .data_r_2_cond	(recirc_2_cond), // Templated
-			    .valid_r_2_cond	(valid_r_2_cond), // Templated
-			    .data_r_3_cond	(recirc_3_cond), // Templated
-			    .valid_r_3_cond	(valid_r_3_cond), // Templated
-			    .data_r_0_synt	(recirc_0_synt), // Templated
-			    .valid_r_0_synt	(valid_r_0_synt), // Templated
-			    .data_r_1_synt	(recirc_1_synt), // Templated
-			    .valid_r_1_synt	(valid_r_1_synt), // Templated
-			    .data_r_2_synt	(recirc_2_synt), // Templated
-			    .valid_r_2_synt	(valid_r_2_synt), // Templated
-			    .data_r_3_synt	(recirc_3_synt), // Templated
-			    .valid_r_3_synt	(valid_r_3_synt)); // Templated
-endmodule
+   //Instancia de descripción conductual
+
+   phy_tx phy_tx(/*AUTOINST*/
+		 // Outputs
+		 .data_out		(data_out),
+		 .recirc_4		(recirc_4[7:0]),
+		 .recirc_5		(recirc_5[7:0]),
+		 .recirc_6		(recirc_6[7:0]),
+		 .recirc_7		(recirc_7[7:0]),
+		 .valid_r_4		(valid_r_4),
+		 .valid_r_5		(valid_r_5),
+		 .valid_r_6		(valid_r_6),
+		 .valid_r_7		(valid_r_7),
+		 // Inputs
+		 .clk_f			(clk_f),
+		 .clk_2f		(clk_2f),
+		 .clk_4f		(clk_4f),
+		 .clk_32f		(clk_32f),
+		 .reset_L		(reset_L),
+		 .data_in_0		(data_in_0[7:0]),
+		 .data_in_1		(data_in_1[7:0]),
+		 .data_in_2		(data_in_2[7:0]),
+		 .data_in_3		(data_in_3[7:0]),
+		 .valid_in_0		(valid_in_0),
+		 .valid_in_1		(valid_in_1),
+		 .valid_in_2		(valid_in_2),
+		 .valid_in_3		(valid_in_3),
+		 .data_in		(data_in));
+   
+   //Instancia de descripción estructural
+   /* phy_tx_synth AUTO_TEMPLATE (
+    .data_out (data_out_synth),
+    .recirc_@ (recirc_synth_\1[7:0]),
+    .valid_r_@ (valid_r_synth_\1));
+    */
+
+   phy_tx_synth phy_tx_synth(/*AUTOINST*/
+			     // Outputs
+			     .data_out		(data_out_synth), // Templated
+			     .recirc_4		(recirc_synth_4[7:0]), // Templated
+			     .recirc_5		(recirc_synth_5[7:0]), // Templated
+			     .recirc_6		(recirc_synth_6[7:0]), // Templated
+			     .recirc_7		(recirc_synth_7[7:0]), // Templated
+			     .valid_r_4		(valid_r_synth_4), // Templated
+			     .valid_r_5		(valid_r_synth_5), // Templated
+			     .valid_r_6		(valid_r_synth_6), // Templated
+			     .valid_r_7		(valid_r_synth_7), // Templated
+			     // Inputs
+			     .clk_2f		(clk_2f),
+			     .clk_32f		(clk_32f),
+			     .clk_4f		(clk_4f),
+			     .clk_f		(clk_f),
+			     .data_in		(data_in),
+			     .data_in_0		(data_in_0[7:0]),
+			     .data_in_1		(data_in_1[7:0]),
+			     .data_in_2		(data_in_2[7:0]),
+			     .data_in_3		(data_in_3[7:0]),
+			     .reset_L		(reset_L),
+			     .valid_in_0	(valid_in_0),
+			     .valid_in_1	(valid_in_1),
+			     .valid_in_2	(valid_in_2),
+			     .valid_in_3	(valid_in_3));
+   
+
+
+   //Instancia de probador
+
+   probador probador(/*AUTOINST*/
+		     // Outputs
+		     .clk_f		(clk_f),
+		     .clk_2f		(clk_2f),
+		     .clk_4f		(clk_4f),
+		     .clk_32f		(clk_32f),
+		     .reset_L		(reset_L),
+		     .data_in_0		(data_in_0[7:0]),
+		     .data_in_1		(data_in_1[7:0]),
+		     .data_in_2		(data_in_2[7:0]),
+		     .data_in_3		(data_in_3[7:0]),
+		     .valid_in_0	(valid_in_0),
+		     .valid_in_1	(valid_in_1),
+		     .valid_in_2	(valid_in_2),
+		     .valid_in_3	(valid_in_3),
+		     .data_in		(data_in),
+		     // Inputs
+		     .data_out		(data_out),
+		     .recirc_4		(recirc_4[7:0]),
+		     .recirc_5		(recirc_5[7:0]),
+		     .recirc_6		(recirc_6[7:0]),
+		     .recirc_7		(recirc_7[7:0]),
+		     .valid_r_4		(valid_r_4),
+		     .valid_r_5		(valid_r_5),
+		     .valid_r_6		(valid_r_6),
+		     .valid_r_7		(valid_r_7),
+		     .data_out_synth	(data_out_synth),
+		     .recirc_synth_4	(recirc_synth_4[7:0]),
+		     .recirc_synth_5	(recirc_synth_5[7:0]),
+		     .recirc_synth_6	(recirc_synth_6[7:0]),
+		     .recirc_synth_7	(recirc_synth_7[7:0]),
+		     .valid_r_synth_4	(valid_r_synth_4),
+		     .valid_r_synth_5	(valid_r_synth_5),
+		     .valid_r_synth_6	(valid_r_synth_6),
+		     .valid_r_synth_7	(valid_r_synth_7));
+
+endmodule // testbench
+
+
+
+   
+   

@@ -1,0 +1,80 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Tue Jun  8 03:34:42 2021
+[*]
+[dumpfile] "/home/avegaz97/Documents/Proyecto1/Avance3/phy_tx.vcd"
+[dumpfile_mtime] "Tue Jun  8 03:31:38 2021"
+[dumpfile_size] 104960
+[savefile] "/home/avegaz97/Documents/Proyecto1/Avance3/phy_tx.gtkw"
+[timestart] 0
+[size] 1853 1025
+[pos] -1 -1
+*-16.421497 40800 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 223
+[signals_width] 451
+[sst_expanded] 1
+[sst_vpaned_height] 302
+@200
+-Relojes
+@28
+testbench.clk_f
+testbench.clk_2f
+testbench.clk_4f
+testbench.clk_32f
+@200
+-Reset
+@28
+testbench.reset_L
+@200
+-Entrada Probador -> Recirculador
+@22
+testbench.data_in_0[7:0]
+testbench.data_in_1[7:0]
+testbench.data_in_2[7:0]
+testbench.data_in_3[7:0]
+@28
+testbench.valid_in_0
+testbench.valid_in_1
+testbench.valid_in_2
+testbench.valid_in_3
+@200
+-Entrada Probador -> Serial_paralelo
+@28
+testbench.data_in
+@22
+testbench.phy_tx.serial_paralelo_tx.data2out[7:0]
+@28
+testbench.phy_tx.serial_paralelo_tx.BC_counter[2:0]
+testbench.phy_tx.serial_paralelo_tx.idle
+@200
+-Salida recirculador -> Probador
+@22
+testbench.recirc_4[7:0]
+testbench.recirc_5[7:0]
+testbench.recirc_6[7:0]
+testbench.recirc_7[7:0]
+@200
+-Salidas Recirculador -> Muxes
+@22
+testbench.phy_tx.recirculador_tx.data_out_0[7:0]
+testbench.phy_tx.recirculador_tx.data_out_1[7:0]
+testbench.phy_tx.recirculador_tx.data_out_2[7:0]
+testbench.phy_tx.recirculador_tx.data_out_3[7:0]
+@200
+-Salida Muxes -> Paralelo_serial
+@22
+testbench.phy_tx.muxes_tx.data_000[7:0]
+@28
+testbench.phy_tx.muxes_tx.valid_000
+@200
+-Salida Paralelo_serial -> Probador
+@28
+testbench.data_out
+@22
+testbench.phy_tx.paralelo_serial_tx.data2send[7:0]
+@200
+-Salida Paralelo_serial -> Probador (Sintetizado)
+@28
+testbench.data_out_synth
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,127 +1,475 @@
-module probador( // Módulo probador: generador de señales y monitor de datos.
-	// Entradas del monitor de datos
-    input [7:0] data_000_cond,
-    input valid_000_cond,
-	input [7:0] data_000_synt,
-    input valid_000_synt,
-	// Recirculacion
-	//cond
-	input [7:0] data_r_0_cond,
-    input valid_r_0_cond,
-	input [7:0] data_r_1_cond,
-    input valid_r_1_cond,
-	input [7:0] data_r_2_cond,
-    input valid_r_2_cond,
-	input [7:0] data_r_3_cond,
-    input valid_r_3_cond,
-	//synt
-	input [7:0] data_r_0_synt,
-    input valid_r_0_synt,
-	input [7:0] data_r_1_synt,
-    input valid_r_1_synt,
-	input [7:0] data_r_2_synt,
-    input valid_r_2_synt,
-	input [7:0] data_r_3_synt,
-    input valid_r_3_synt,
-	// control
-	output reg idle,
-    output reg clk_f,
-	output reg clk_2f,
-	output reg clk_4f, 
-	// Salidas del generador de señales 
-    // Desde probador o lógica superior
-    output reg [7:0] data_0,
-    output reg [7:0] data_1,
-    output reg [7:0] data_2,
-    output reg [7:0] data_3,
-    // Valids de entrada correspondientes 
-    output reg valid_0,
-    output reg valid_1,
-    output reg valid_2,
-    output reg valid_3);
+module probador(//Salida de paralelo a serial
+	       input 		data_out,
+	       //Salidas de reciculador hacia probador 
+	       input [7:0] 	recirc_4,
+	       input [7:0] 	recirc_5,
+	       input [7:0] 	recirc_6,
+	       input [7:0] 	recirc_7,
+	       input 		valid_r_4,
+	       input 		valid_r_5,
+	       input 		valid_r_6,
+	       input 		valid_r_7,
+		//Salidas estrcuturales
+	       input 		data_out_synth,
+	       input [7:0] 	recirc_synth_4,
+	       input [7:0] 	recirc_synth_5,
+	       input [7:0] 	recirc_synth_6,
+	       input [7:0] 	recirc_synth_7,
+	       input 		valid_r_synth_4,
+	       input 		valid_r_synth_5,
+	       input 		valid_r_synth_6,
+	       input 		valid_r_synth_7,
+		
+	       //Entradas de reloj
+	       output reg 	clk_f,
+	       output reg 	clk_2f,
+	       output reg 	clk_4f,
+	       output reg 	clk_32f,
+	       //Reset
+	       output reg 	reset_L,
+	       //Entradas de datos y valid desde probador
+	       output reg [7:0] data_in_0,
+	       output reg [7:0] data_in_1,
+	       output reg [7:0] data_in_2,
+	       output reg [7:0] data_in_3,
+	       output reg 	valid_in_0,
+	       output reg 	valid_in_1,
+	       output reg 	valid_in_2,
+	       output reg 	valid_in_3,
+	       //Entrada desde el phy_rx
+	       output reg 	data_in);
+   
+   
+   
 
-	// contador
-	integer i = 0;
+   //Reloj
+   initial clk_f <= 0;
+   always #32 clk_f <= ~clk_f;
 
-	//Reloj f
-	initial clk_f <= 0;
-   	always #20 clk_f <= ~clk_f;
-         
    //Reloj 2f
 
    initial clk_2f <= 1;
-   always #10 clk_2f <= ~clk_2f;
+   always #16 clk_2f <= ~clk_2f;
 
    //Reloj 4f
 
    initial clk_4f <= 1;
-   always #5 clk_4f <= ~clk_4f;
+   always #8 clk_4f <= ~clk_4f;
 
-	// Bloque de procedimiento, no sintetizable, se recorre una única vez.
-	// Generalmente, los initial sólo se usan en los testbench o probadores.
-	// Se recomienda siempre sincronizar con el reloj y utilizar asignaciones no bloqueantes en la generación de señales.
-	initial begin
-		$dumpfile("phy_tx.vcd");	// Nombre de archivo del "dump"
-		$dumpvars;              // Directiva para "dumpear" variables
-		// Mensaje que se imprime en consola una vez
-		$display ("\t\ttime\tclk,\tcheck");
-		// Mensaje que se imprime en consola cada vez que un elemento de la lista cambia
-		$monitor($time,"\t%b", clk_f);
+   //Reloj 32f
+
+   initial clk_32f <= 1;
+   always #1 clk_32f <= ~clk_32f;
+
+   //Secuencia de pruebas
+
+   initial
+     begin
+	$dumpfile ("phy_tx.vcd");
+	$dumpvars;
+
+	valid_in_0 = 1; //Valores iniciales de valids
+	valid_in_1 = 1;
+	valid_in_2 = 1;
+	valid_in_3 = 1;
+	reset_L = 0;
+	
         
-        // Inicialización de datos
-		idle <= 1;
-		@(posedge clk_f) begin
-		// Desde probador o lógica superior
-		data_0 <= 8'h0A;
-		data_1 <= 8'h0B;
-		data_2 <= 8'h0C;
-		data_3 <= 8'h0D;
-		// Valids de entrada correspondientes 
-		valid_0 <= 1'b1;
-		valid_1 <= 1'b1;
-		valid_2 <= 1'b1;
-		valid_3 <= 1'b1;
-		end
 
-		for (i = 0; i < 8; i = i + 1) begin
-			if (i==2) begin
-				//idle = 1;
-			end
+	@(posedge clk_f);
+	{data_in_0} <= {8'hFF};
+	{data_in_1} <= {8'hEE};
 
-			if (i==5) begin
-				valid_0 <= 1'b0;
-				valid_1 <= 1'b0;
-				valid_2 <= 1'b0;
-				valid_3 <= 1'b0;
-			end
+	{data_in_2} <= {8'hDD};
+	{data_in_3} <= {8'hCC};
+	
+
+	@(posedge clk_f);
+	{data_in_0} <= {8'hBB};
+	{data_in_1} <= {8'hAA};
+
+	{data_in_2} <= {8'h99};
+	{data_in_3} <= {8'h88};
+
+        @(posedge clk_f);
+	{data_in_0} <= {8'hEA};
+	{data_in_1} <= {8'hDE};
+
+	{data_in_2} <= {8'h77};
+	{data_in_3} <= {8'h66};
+
+
+	@(posedge clk_f);
+	{data_in_0} <= {8'hCC};
+	{data_in_1} <= {8'hFF};
+
+	{data_in_2} <= {8'h55};
+	{data_in_3} <= {8'h44};
+
+	
+	@(posedge clk_f);
+	{data_in_0} <= {8'h15};
+	{data_in_1} <= {8'h20};
+
+	{data_in_2} <= {8'h33};
+	{data_in_3} <= {8'h22};
+
+
+	@(posedge clk_f);
+	{data_in_0} <= {8'h16};
+	{data_in_1} <= {8'h21};
+
+	{data_in_2} <= {8'h22};
+	{data_in_3} <= {8'h11};
+
+
+     end // initial begin
+    initial begin
+       repeat(2) begin
+       @ (posedge clk_32f)
+			data_in <= 'b1;
+	        
+			@ (posedge clk_32f)
+       
+			data_in <= 'b0;
+	        
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+	        
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+	        
+			@ (posedge clk_32f)
+			data_in <= 'b1;
 			
-			if (i==6) begin
-				idle <= 0;
-			end
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			
+			
+			
+			//BC 4 veces
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+       reset_L <= 1;
+       
+			
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			//7C
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			//7C
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			//7C
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			//7C
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			
+			// BC
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			//7C
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			//7C
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			
+			//7C
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b1;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+			@ (posedge clk_32f)
+			data_in <= 'b0;
+       end // repeat (2)
+       
+		
 
-			@(posedge clk_f) begin
-				// Espera/sincroniza con el flanco positivo del reloj
-				data_0 <= data_0 + 4;
-				data_1 <= data_1 + 2;
-				data_2 <= data_2 + 3;
-				data_3 <= data_3 + 4;
-			end
-		end
+		
 
-		@(posedge clk_f) begin
-			// Finalización de datos
-			idle <= 0;
-			// Desde probador o lógica superior
-			data_0 <= 8'h00;
-			data_1 <= 8'h00;
-			data_2 <= 8'h00;
-			data_3 <= 8'h00;
-			// Valids de entrada correspondientes 
-			valid_0 <= 1'b0;
-			valid_1 <= 1'b0;
-			valid_2 <= 1'b0;
-			valid_3 <= 1'b0;
-		end
-		$finish; // Termina de almacenar señales
-	end
-endmodule
+
+
+	
+
+
+	$finish;
+
+     end // initial begin
+
+endmodule // probador
+
+
+
+   
+   
