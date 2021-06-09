@@ -2597,12 +2597,12 @@ module paralelo_serial_rx_synth(active, clk_4f, clk_32f, rst_L, idle_out);
     .Y(_04_)
   );
   NOT _37_ (
-    .A(active),
-    .Y(_00_[7])
-  );
-  NOT _38_ (
     .A(rst_L),
     .Y(_05_)
+  );
+  NOT _38_ (
+    .A(active),
+    .Y(_00_[7])
   );
   NOR _39_ (
     .A(_02_),
@@ -2884,7 +2884,7 @@ module phy_rx_synth(rst_L, clk_f, clk_2f, clk_4f, clk_32f, datos_paralelo_serial
   (* src = "phy_rx.v:26" *)
   wire valid_out_sp;
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_rx.v:59" *)
+  (* src = "phy_rx.v:60" *)
   DEMUX_L1 demux_L1_0 (
     .clk_2f(clk_2f),
     .clk_f(clk_f),
@@ -2902,7 +2902,7 @@ module phy_rx_synth(rst_L, clk_f, clk_2f, clk_4f, clk_32f, datos_paralelo_serial
     .valid_3(valid_out_3)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_rx.v:47" *)
+  (* src = "phy_rx.v:48" *)
   DEMUX_L2 demux_L2_0 (
     .clk_2f(clk_2f),
     .clk_4f(clk_4f),
@@ -2914,7 +2914,7 @@ module phy_rx_synth(rst_L, clk_f, clk_2f, clk_4f, clk_32f, datos_paralelo_serial
     .valid_11(valid_11)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_rx.v:38" *)
+  (* src = "phy_rx.v:39" *)
   paralelo_serial_rx parelelo_serial_rx_0 (
     .active(active),
     .clk_32f(clk_32f),
@@ -2929,20 +2929,22 @@ module phy_rx_synth(rst_L, clk_f, clk_2f, clk_4f, clk_32f, datos_paralelo_serial
     .clk_32f(clk_32f),
     .clk_4f(clk_4f),
     .data_in(datos_paralelo_serial),
+    .rst_L(rst_L),
     .sp_out(sp_out),
     .valid_out_sp(valid_out_sp)
   );
 endmodule
 
 (* src = "serial_paralelo_rx.v:1" *)
-module serial_paralelo_rx_synth(sp_out, valid_out_sp, active, data_in, clk_4f, clk_32f);
-  (* src = "serial_paralelo_rx.v:18" *)
+module serial_paralelo_rx_synth(sp_out, valid_out_sp, active, data_in, rst_L, clk_4f, clk_32f);
+  (* src = "serial_paralelo_rx.v:28" *)
   wire [2:0] _000_;
-  (* src = "serial_paralelo_rx.v:13" *)
+  (* src = "serial_paralelo_rx.v:14" *)
   wire [2:0] _001_;
-  (* src = "serial_paralelo_rx.v:13" *)
+  (* src = "serial_paralelo_rx.v:24" *)
   wire [7:0] _002_;
-  wire _003_;
+  (* src = "serial_paralelo_rx.v:28" *)
+  wire [7:0] _003_;
   wire _004_;
   wire _005_;
   wire _006_;
@@ -3013,574 +3015,766 @@ module serial_paralelo_rx_synth(sp_out, valid_out_sp, active, data_in, clk_4f, c
   wire _071_;
   wire _072_;
   wire _073_;
-  (* init = 3'h0 *)
-  (* src = "serial_paralelo_rx.v:11" *)
+  wire _074_;
+  wire _075_;
+  wire _076_;
+  wire _077_;
+  wire _078_;
+  wire _079_;
+  wire _080_;
+  wire _081_;
+  wire _082_;
+  wire _083_;
+  wire _084_;
+  wire _085_;
+  wire _086_;
+  wire _087_;
+  wire _088_;
+  wire _089_;
+  wire _090_;
+  wire _091_;
+  wire _092_;
+  wire _093_;
+  wire _094_;
+  wire _095_;
+  wire _096_;
+  wire _097_;
+  wire _098_;
+  wire _099_;
+  wire _100_;
+  (* src = "serial_paralelo_rx.v:12" *)
   wire [2:0] BCcounter;
   (* src = "serial_paralelo_rx.v:4" *)
   output active;
-  (* src = "serial_paralelo_rx.v:7" *)
+  (* src = "serial_paralelo_rx.v:8" *)
   input clk_32f;
-  (* src = "serial_paralelo_rx.v:6" *)
+  (* src = "serial_paralelo_rx.v:7" *)
   input clk_4f;
-  (* init = 3'h0 *)
-  (* src = "serial_paralelo_rx.v:10" *)
+  (* src = "serial_paralelo_rx.v:11" *)
   wire [2:0] counter;
   (* src = "serial_paralelo_rx.v:5" *)
   input data_in;
-  (* init = 8'h00 *)
-  (* src = "serial_paralelo_rx.v:9" *)
+  (* src = "serial_paralelo_rx.v:6" *)
+  input rst_L;
+  (* src = "serial_paralelo_rx.v:10" *)
   wire [7:0] serial_in;
   (* src = "serial_paralelo_rx.v:2" *)
   output [7:0] sp_out;
   (* src = "serial_paralelo_rx.v:3" *)
   output valid_out_sp;
-  NOT _074_ (
-    .A(BCcounter[2]),
-    .Y(_023_)
-  );
-  NOT _075_ (
+  NOT _101_ (
     .A(BCcounter[1]),
-    .Y(_024_)
+    .Y(_069_)
   );
-  NOT _076_ (
-    .A(BCcounter[0]),
-    .Y(_025_)
-  );
-  NOT _077_ (
+  NOT _102_ (
     .A(counter[2]),
-    .Y(_026_)
+    .Y(_070_)
   );
-  NOT _078_ (
+  NOT _103_ (
     .A(counter[1]),
-    .Y(_027_)
+    .Y(_071_)
   );
-  NOT _079_ (
+  NOT _104_ (
     .A(counter[0]),
-    .Y(_001_[0])
+    .Y(_072_)
   );
-  NOT _080_ (
-    .A(sp_out[4]),
-    .Y(_028_)
+  NOT _105_ (
+    .A(clk_32f),
+    .Y(_004_)
   );
-  NAND _081_ (
+  NOT _106_ (
+    .A(rst_L),
+    .Y(_073_)
+  );
+  NOT _107_ (
+    .A(sp_out[6]),
+    .Y(_074_)
+  );
+  NOR _108_ (
     .A(counter[1]),
     .B(counter[0]),
-    .Y(_029_)
+    .Y(_075_)
   );
-  NOT _082_ (
-    .A(_029_),
-    .Y(_030_)
+  NOT _109_ (
+    .A(_075_),
+    .Y(_076_)
   );
-  NOR _083_ (
-    .A(counter[2]),
-    .B(_029_),
-    .Y(_031_)
-  );
-  NAND _084_ (
-    .A(_026_),
-    .B(_030_),
-    .Y(_032_)
-  );
-  NAND _085_ (
-    .A(counter[2]),
-    .B(_029_),
-    .Y(_033_)
-  );
-  NAND _086_ (
-    .A(_032_),
-    .B(_033_),
-    .Y(_001_[2])
-  );
-  NAND _087_ (
-    .A(_027_),
-    .B(counter[0]),
-    .Y(_034_)
-  );
-  NOT _088_ (
-    .A(_034_),
-    .Y(_035_)
-  );
-  NAND _089_ (
+  NAND _110_ (
     .A(counter[1]),
-    .B(_001_[0]),
-    .Y(_036_)
+    .B(counter[0]),
+    .Y(_077_)
   );
-  NOT _090_ (
-    .A(_036_),
-    .Y(_037_)
+  NOT _111_ (
+    .A(_077_),
+    .Y(_078_)
   );
-  NAND _091_ (
-    .A(_034_),
-    .B(_036_),
+  NAND _112_ (
+    .A(rst_L),
+    .B(_077_),
+    .Y(_079_)
+  );
+  NOR _113_ (
+    .A(_075_),
+    .B(_079_),
     .Y(_001_[1])
   );
-  NOR _092_ (
+  NOR _114_ (
+    .A(counter[0]),
+    .B(_073_),
+    .Y(_001_[0])
+  );
+  NAND _115_ (
+    .A(rst_L),
+    .B(serial_in[6]),
+    .Y(_080_)
+  );
+  NAND _116_ (
+    .A(_073_),
+    .B(sp_out[6]),
+    .Y(_081_)
+  );
+  NAND _117_ (
+    .A(_080_),
+    .B(_081_),
+    .Y(_003_[6])
+  );
+  NAND _118_ (
+    .A(rst_L),
+    .B(serial_in[5]),
+    .Y(_082_)
+  );
+  NAND _119_ (
+    .A(_073_),
+    .B(sp_out[5]),
+    .Y(_083_)
+  );
+  NAND _120_ (
+    .A(_082_),
+    .B(_083_),
+    .Y(_003_[5])
+  );
+  NAND _121_ (
+    .A(rst_L),
+    .B(serial_in[4]),
+    .Y(_084_)
+  );
+  NAND _122_ (
+    .A(_073_),
+    .B(sp_out[4]),
+    .Y(_085_)
+  );
+  NAND _123_ (
+    .A(_084_),
+    .B(_085_),
+    .Y(_003_[4])
+  );
+  NAND _124_ (
+    .A(rst_L),
+    .B(serial_in[3]),
+    .Y(_086_)
+  );
+  NAND _125_ (
+    .A(_073_),
+    .B(sp_out[3]),
+    .Y(_087_)
+  );
+  NAND _126_ (
+    .A(_086_),
+    .B(_087_),
+    .Y(_003_[3])
+  );
+  NAND _127_ (
+    .A(rst_L),
+    .B(serial_in[2]),
+    .Y(_088_)
+  );
+  NAND _128_ (
+    .A(_073_),
+    .B(sp_out[2]),
+    .Y(_089_)
+  );
+  NAND _129_ (
+    .A(_088_),
+    .B(_089_),
+    .Y(_003_[2])
+  );
+  NAND _130_ (
+    .A(rst_L),
+    .B(serial_in[1]),
+    .Y(_090_)
+  );
+  NAND _131_ (
+    .A(_073_),
+    .B(sp_out[1]),
+    .Y(_091_)
+  );
+  NAND _132_ (
+    .A(_090_),
+    .B(_091_),
+    .Y(_003_[1])
+  );
+  NAND _133_ (
+    .A(rst_L),
+    .B(serial_in[0]),
+    .Y(_092_)
+  );
+  NAND _134_ (
+    .A(_073_),
+    .B(sp_out[0]),
+    .Y(_093_)
+  );
+  NAND _135_ (
+    .A(_092_),
+    .B(_093_),
+    .Y(_003_[0])
+  );
+  NOR _136_ (
     .A(serial_in[1]),
     .B(serial_in[0]),
-    .Y(_038_)
+    .Y(_094_)
   );
-  NAND _093_ (
+  NAND _137_ (
     .A(serial_in[7]),
-    .B(_038_),
-    .Y(_039_)
+    .B(_094_),
+    .Y(_095_)
   );
-  NOR _094_ (
+  NOR _138_ (
     .A(BCcounter[2]),
     .B(serial_in[6]),
-    .Y(_040_)
+    .Y(_096_)
   );
-  NAND _095_ (
+  NAND _139_ (
     .A(serial_in[5]),
     .B(serial_in[4]),
-    .Y(_041_)
+    .Y(_097_)
   );
-  NAND _096_ (
+  NAND _140_ (
     .A(serial_in[3]),
     .B(serial_in[2]),
+    .Y(_098_)
+  );
+  NOR _141_ (
+    .A(_097_),
+    .B(_098_),
+    .Y(_099_)
+  );
+  NAND _142_ (
+    .A(_096_),
+    .B(_099_),
+    .Y(_100_)
+  );
+  NOR _143_ (
+    .A(_095_),
+    .B(_100_),
+    .Y(_012_)
+  );
+  NAND _144_ (
+    .A(BCcounter[0]),
+    .B(_012_),
+    .Y(_013_)
+  );
+  NAND _145_ (
+    .A(_069_),
+    .B(_013_),
+    .Y(_014_)
+  );
+  NAND _146_ (
+    .A(rst_L),
+    .B(_014_),
+    .Y(_015_)
+  );
+  NOR _147_ (
+    .A(_069_),
+    .B(_013_),
+    .Y(_016_)
+  );
+  NOR _148_ (
+    .A(_015_),
+    .B(_016_),
+    .Y(_000_[1])
+  );
+  NOR _149_ (
+    .A(BCcounter[0]),
+    .B(_012_),
+    .Y(_017_)
+  );
+  NAND _150_ (
+    .A(rst_L),
+    .B(_013_),
+    .Y(_018_)
+  );
+  NOR _151_ (
+    .A(_017_),
+    .B(_018_),
+    .Y(_000_[0])
+  );
+  NOR _152_ (
+    .A(sp_out[1]),
+    .B(sp_out[0]),
+    .Y(_019_)
+  );
+  NOT _153_ (
+    .A(_019_),
+    .Y(_020_)
+  );
+  NAND _154_ (
+    .A(sp_out[2]),
+    .B(sp_out[7]),
+    .Y(_021_)
+  );
+  NOR _155_ (
+    .A(_020_),
+    .B(_021_),
+    .Y(_022_)
+  );
+  NAND _156_ (
+    .A(_074_),
+    .B(sp_out[5]),
+    .Y(_023_)
+  );
+  NAND _157_ (
+    .A(sp_out[4]),
+    .B(sp_out[3]),
+    .Y(_024_)
+  );
+  NOR _158_ (
+    .A(_023_),
+    .B(_024_),
+    .Y(_025_)
+  );
+  NAND _159_ (
+    .A(_022_),
+    .B(_025_),
+    .Y(_026_)
+  );
+  NAND _160_ (
+    .A(BCcounter[2]),
+    .B(_026_),
+    .Y(_027_)
+  );
+  NOT _161_ (
+    .A(_027_),
+    .Y(valid_out_sp)
+  );
+  NAND _162_ (
+    .A(rst_L),
+    .B(serial_in[7]),
+    .Y(_028_)
+  );
+  NAND _163_ (
+    .A(_073_),
+    .B(sp_out[7]),
+    .Y(_029_)
+  );
+  NAND _164_ (
+    .A(_028_),
+    .B(_029_),
+    .Y(_003_[7])
+  );
+  NOR _165_ (
+    .A(BCcounter[2]),
+    .B(_016_),
+    .Y(_030_)
+  );
+  NOR _166_ (
+    .A(_073_),
+    .B(_030_),
+    .Y(_000_[2])
+  );
+  NOR _167_ (
+    .A(counter[2]),
+    .B(_076_),
+    .Y(_031_)
+  );
+  NAND _168_ (
+    .A(_070_),
+    .B(_075_),
+    .Y(_032_)
+  );
+  NAND _169_ (
+    .A(data_in),
+    .B(_031_),
+    .Y(_033_)
+  );
+  NAND _170_ (
+    .A(serial_in[7]),
+    .B(_032_),
+    .Y(_034_)
+  );
+  NAND _171_ (
+    .A(_033_),
+    .B(_034_),
+    .Y(_002_[7])
+  );
+  NOR _172_ (
+    .A(counter[2]),
+    .B(_077_),
+    .Y(_035_)
+  );
+  NOT _173_ (
+    .A(_035_),
+    .Y(_036_)
+  );
+  NAND _174_ (
+    .A(data_in),
+    .B(_035_),
+    .Y(_037_)
+  );
+  NAND _175_ (
+    .A(serial_in[4]),
+    .B(_036_),
+    .Y(_038_)
+  );
+  NAND _176_ (
+    .A(_037_),
+    .B(_038_),
+    .Y(_002_[4])
+  );
+  NOR _177_ (
+    .A(counter[1]),
+    .B(_072_),
+    .Y(_039_)
+  );
+  NAND _178_ (
+    .A(_071_),
+    .B(counter[0]),
+    .Y(_040_)
+  );
+  NOR _179_ (
+    .A(_070_),
+    .B(_040_),
+    .Y(_041_)
+  );
+  NAND _180_ (
+    .A(counter[2]),
+    .B(_039_),
     .Y(_042_)
   );
-  NOR _097_ (
-    .A(_041_),
-    .B(_042_),
+  NAND _181_ (
+    .A(data_in),
+    .B(_041_),
     .Y(_043_)
   );
-  NAND _098_ (
-    .A(_040_),
-    .B(_043_),
+  NAND _182_ (
+    .A(serial_in[2]),
+    .B(_042_),
     .Y(_044_)
   );
-  NOR _099_ (
-    .A(_039_),
+  NAND _183_ (
+    .A(_043_),
     .B(_044_),
+    .Y(_002_[2])
+  );
+  NAND _184_ (
+    .A(counter[2]),
+    .B(_078_),
     .Y(_045_)
   );
-  NOT _100_ (
+  NOT _185_ (
     .A(_045_),
     .Y(_046_)
   );
-  NOR _101_ (
-    .A(_025_),
+  NAND _186_ (
+    .A(data_in),
     .B(_046_),
     .Y(_047_)
   );
-  NAND _102_ (
-    .A(BCcounter[0]),
+  NAND _187_ (
+    .A(serial_in[0]),
     .B(_045_),
     .Y(_048_)
   );
-  NOR _103_ (
-    .A(_024_),
+  NAND _188_ (
+    .A(_047_),
     .B(_048_),
+    .Y(_002_[0])
+  );
+  NOR _189_ (
+    .A(counter[2]),
+    .B(_040_),
     .Y(_049_)
   );
-  NAND _104_ (
-    .A(BCcounter[1]),
-    .B(_047_),
+  NAND _190_ (
+    .A(_070_),
+    .B(_039_),
     .Y(_050_)
   );
-  NOR _105_ (
-    .A(BCcounter[1]),
-    .B(_047_),
+  NAND _191_ (
+    .A(data_in),
+    .B(_049_),
     .Y(_051_)
   );
-  NOR _106_ (
-    .A(_049_),
-    .B(_051_),
-    .Y(_000_[1])
-  );
-  NOR _107_ (
-    .A(BCcounter[0]),
-    .B(_045_),
+  NAND _192_ (
+    .A(serial_in[6]),
+    .B(_050_),
     .Y(_052_)
   );
-  NOR _108_ (
-    .A(_047_),
+  NAND _193_ (
+    .A(_051_),
     .B(_052_),
-    .Y(_000_[0])
+    .Y(_002_[6])
   );
-  NOR _109_ (
-    .A(sp_out[1]),
-    .B(sp_out[0]),
+  NOR _194_ (
+    .A(_071_),
+    .B(counter[0]),
     .Y(_053_)
   );
-  NAND _110_ (
-    .A(sp_out[5]),
-    .B(sp_out[3]),
+  NAND _195_ (
+    .A(counter[1]),
+    .B(_072_),
     .Y(_054_)
   );
-  NAND _111_ (
-    .A(sp_out[2]),
-    .B(sp_out[7]),
+  NOR _196_ (
+    .A(_070_),
+    .B(_054_),
     .Y(_055_)
   );
-  NOT _112_ (
-    .A(_055_),
+  NAND _197_ (
+    .A(counter[2]),
+    .B(_053_),
     .Y(_056_)
   );
-  NOR _113_ (
-    .A(sp_out[6]),
-    .B(_028_),
+  NAND _198_ (
+    .A(data_in),
+    .B(_055_),
     .Y(_057_)
   );
-  NAND _114_ (
-    .A(_056_),
-    .B(_057_),
+  NAND _199_ (
+    .A(serial_in[1]),
+    .B(_056_),
     .Y(_058_)
   );
-  NOR _115_ (
-    .A(_054_),
+  NAND _200_ (
+    .A(_057_),
     .B(_058_),
+    .Y(_002_[1])
+  );
+  NAND _201_ (
+    .A(counter[2]),
+    .B(_075_),
     .Y(_059_)
   );
-  NAND _116_ (
-    .A(_053_),
-    .B(_059_),
+  NOT _202_ (
+    .A(_059_),
     .Y(_060_)
   );
-  NAND _117_ (
-    .A(BCcounter[2]),
+  NAND _203_ (
+    .A(data_in),
     .B(_060_),
     .Y(_061_)
   );
-  NOT _118_ (
-    .A(_061_),
-    .Y(valid_out_sp)
-  );
-  NAND _119_ (
-    .A(_023_),
-    .B(_050_),
-    .Y(_000_[2])
-  );
-  NOR _120_ (
-    .A(counter[1]),
-    .B(counter[0]),
+  NAND _204_ (
+    .A(serial_in[3]),
+    .B(_059_),
     .Y(_062_)
   );
-  NOT _121_ (
-    .A(_062_),
+  NAND _205_ (
+    .A(_061_),
+    .B(_062_),
+    .Y(_002_[3])
+  );
+  NOR _206_ (
+    .A(counter[2]),
+    .B(_054_),
     .Y(_063_)
   );
-  NOR _122_ (
-    .A(counter[2]),
-    .B(_063_),
+  NAND _207_ (
+    .A(_070_),
+    .B(_053_),
     .Y(_064_)
   );
-  NAND _123_ (
-    .A(_026_),
-    .B(_062_),
+  NAND _208_ (
+    .A(data_in),
+    .B(_063_),
     .Y(_065_)
   );
-  NAND _124_ (
-    .A(data_in),
+  NAND _209_ (
+    .A(serial_in[5]),
     .B(_064_),
     .Y(_066_)
   );
-  NAND _125_ (
-    .A(serial_in[7]),
-    .B(_065_),
-    .Y(_067_)
-  );
-  NAND _126_ (
-    .A(_066_),
-    .B(_067_),
-    .Y(_002_[7])
-  );
-  NOR _127_ (
-    .A(counter[2]),
-    .B(_034_),
-    .Y(_068_)
-  );
-  NOT _128_ (
-    .A(_068_),
-    .Y(_069_)
-  );
-  NAND _129_ (
-    .A(data_in),
-    .B(_068_),
-    .Y(_070_)
-  );
-  NAND _130_ (
-    .A(serial_in[6]),
-    .B(_069_),
-    .Y(_071_)
-  );
-  NAND _131_ (
-    .A(_070_),
-    .B(_071_),
-    .Y(_002_[6])
-  );
-  NOR _132_ (
-    .A(counter[2]),
-    .B(_036_),
-    .Y(_072_)
-  );
-  NOT _133_ (
-    .A(_072_),
-    .Y(_073_)
-  );
-  NAND _134_ (
-    .A(data_in),
-    .B(_072_),
-    .Y(_003_)
-  );
-  NAND _135_ (
-    .A(serial_in[5]),
-    .B(_073_),
-    .Y(_004_)
-  );
-  NAND _136_ (
-    .A(_003_),
-    .B(_004_),
+  NAND _210_ (
+    .A(_065_),
+    .B(_066_),
     .Y(_002_[5])
   );
-  NAND _137_ (
-    .A(data_in),
-    .B(_031_),
+  NAND _211_ (
+    .A(_070_),
+    .B(_077_),
+    .Y(_067_)
+  );
+  NAND _212_ (
+    .A(rst_L),
+    .B(_067_),
+    .Y(_068_)
+  );
+  NOR _213_ (
+    .A(_046_),
+    .B(_068_),
+    .Y(_001_[2])
+  );
+  NOT _214_ (
+    .A(clk_32f),
     .Y(_005_)
   );
-  NAND _138_ (
-    .A(serial_in[4]),
-    .B(_032_),
+  NOT _215_ (
+    .A(clk_32f),
     .Y(_006_)
   );
-  NAND _139_ (
-    .A(_005_),
-    .B(_006_),
-    .Y(_002_[4])
-  );
-  NAND _140_ (
-    .A(counter[2]),
-    .B(_062_),
+  NOT _216_ (
+    .A(clk_32f),
     .Y(_007_)
   );
-  NOT _141_ (
-    .A(_007_),
+  NOT _217_ (
+    .A(clk_32f),
     .Y(_008_)
   );
-  NAND _142_ (
-    .A(data_in),
-    .B(_008_),
+  NOT _218_ (
+    .A(clk_32f),
     .Y(_009_)
   );
-  NAND _143_ (
-    .A(serial_in[3]),
-    .B(_007_),
+  NOT _219_ (
+    .A(clk_32f),
     .Y(_010_)
   );
-  NAND _144_ (
-    .A(_009_),
-    .B(_010_),
-    .Y(_002_[3])
-  );
-  NOR _145_ (
-    .A(_026_),
-    .B(_034_),
-    .Y(_011_)
-  );
-  NAND _146_ (
-    .A(counter[2]),
-    .B(_035_),
-    .Y(_012_)
-  );
-  NAND _147_ (
-    .A(data_in),
-    .B(_011_),
-    .Y(_013_)
-  );
-  NAND _148_ (
-    .A(serial_in[2]),
-    .B(_012_),
-    .Y(_014_)
-  );
-  NAND _149_ (
-    .A(_013_),
-    .B(_014_),
-    .Y(_002_[2])
-  );
-  NOR _150_ (
-    .A(_026_),
-    .B(_036_),
-    .Y(_015_)
-  );
-  NAND _151_ (
-    .A(counter[2]),
-    .B(_037_),
-    .Y(_016_)
-  );
-  NAND _152_ (
-    .A(data_in),
-    .B(_015_),
-    .Y(_017_)
-  );
-  NAND _153_ (
-    .A(serial_in[1]),
-    .B(_016_),
-    .Y(_018_)
-  );
-  NAND _154_ (
-    .A(_017_),
-    .B(_018_),
-    .Y(_002_[1])
-  );
-  NOR _155_ (
-    .A(_026_),
-    .B(_029_),
-    .Y(_019_)
-  );
-  NAND _156_ (
-    .A(counter[2]),
-    .B(_030_),
-    .Y(_020_)
-  );
-  NAND _157_ (
-    .A(data_in),
-    .B(_019_),
-    .Y(_021_)
-  );
-  NAND _158_ (
-    .A(serial_in[0]),
-    .B(_020_),
-    .Y(_022_)
-  );
-  NAND _159_ (
-    .A(_021_),
-    .B(_022_),
-    .Y(_002_[0])
-  );
-  BUF _160_ (
+  BUF _220_ (
     .A(BCcounter[2]),
     .Y(active)
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _161_ (
+  NOT _221_ (
+    .A(clk_32f),
+    .Y(_011_)
+  );
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _222_ (
     .C(clk_4f),
     .D(_000_[0]),
     .Q(BCcounter[0])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _162_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _223_ (
     .C(clk_4f),
     .D(_000_[1]),
     .Q(BCcounter[1])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _163_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _224_ (
     .C(clk_4f),
     .D(_000_[2]),
     .Q(BCcounter[2])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _164_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _225_ (
     .C(clk_4f),
-    .D(serial_in[0]),
+    .D(_003_[0]),
     .Q(sp_out[0])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _165_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _226_ (
     .C(clk_4f),
-    .D(serial_in[1]),
+    .D(_003_[1]),
     .Q(sp_out[1])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _166_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _227_ (
     .C(clk_4f),
-    .D(serial_in[2]),
+    .D(_003_[2]),
     .Q(sp_out[2])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _167_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _228_ (
     .C(clk_4f),
-    .D(serial_in[3]),
+    .D(_003_[3]),
     .Q(sp_out[3])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _168_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _229_ (
     .C(clk_4f),
-    .D(serial_in[4]),
+    .D(_003_[4]),
     .Q(sp_out[4])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _169_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _230_ (
     .C(clk_4f),
-    .D(serial_in[5]),
+    .D(_003_[5]),
     .Q(sp_out[5])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _170_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _231_ (
     .C(clk_4f),
-    .D(serial_in[6]),
+    .D(_003_[6]),
     .Q(sp_out[6])
   );
-  (* src = "serial_paralelo_rx.v:18" *)
-  DFF _171_ (
+  (* src = "serial_paralelo_rx.v:28" *)
+  DFF _232_ (
     .C(clk_4f),
-    .D(serial_in[7]),
+    .D(_003_[7]),
     .Q(sp_out[7])
   );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _172_ (
+  (* src = "serial_paralelo_rx.v:24" *)
+  DFF _233_ (
+    .C(_010_),
+    .D(_002_[0]),
+    .Q(serial_in[0])
+  );
+  (* src = "serial_paralelo_rx.v:24" *)
+  DFF _234_ (
+    .C(_009_),
+    .D(_002_[1]),
+    .Q(serial_in[1])
+  );
+  (* src = "serial_paralelo_rx.v:24" *)
+  DFF _235_ (
+    .C(_008_),
+    .D(_002_[2]),
+    .Q(serial_in[2])
+  );
+  (* src = "serial_paralelo_rx.v:24" *)
+  DFF _236_ (
+    .C(_007_),
+    .D(_002_[3]),
+    .Q(serial_in[3])
+  );
+  (* src = "serial_paralelo_rx.v:24" *)
+  DFF _237_ (
+    .C(_006_),
+    .D(_002_[4]),
+    .Q(serial_in[4])
+  );
+  (* src = "serial_paralelo_rx.v:24" *)
+  DFF _238_ (
+    .C(_005_),
+    .D(_002_[5]),
+    .Q(serial_in[5])
+  );
+  (* src = "serial_paralelo_rx.v:24" *)
+  DFF _239_ (
+    .C(_004_),
+    .D(_002_[6]),
+    .Q(serial_in[6])
+  );
+  (* src = "serial_paralelo_rx.v:24" *)
+  DFF _240_ (
+    .C(_011_),
+    .D(_002_[7]),
+    .Q(serial_in[7])
+  );
+  (* src = "serial_paralelo_rx.v:14" *)
+  DFF _241_ (
     .C(clk_32f),
     .D(_001_[0]),
     .Q(counter[0])
   );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _173_ (
+  (* src = "serial_paralelo_rx.v:14" *)
+  DFF _242_ (
     .C(clk_32f),
     .D(_001_[1]),
     .Q(counter[1])
   );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _174_ (
+  (* src = "serial_paralelo_rx.v:14" *)
+  DFF _243_ (
     .C(clk_32f),
     .D(_001_[2]),
     .Q(counter[2])
-  );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _175_ (
-    .C(clk_32f),
-    .D(_002_[0]),
-    .Q(serial_in[0])
-  );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _176_ (
-    .C(clk_32f),
-    .D(_002_[1]),
-    .Q(serial_in[1])
-  );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _177_ (
-    .C(clk_32f),
-    .D(_002_[2]),
-    .Q(serial_in[2])
-  );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _178_ (
-    .C(clk_32f),
-    .D(_002_[3]),
-    .Q(serial_in[3])
-  );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _179_ (
-    .C(clk_32f),
-    .D(_002_[4]),
-    .Q(serial_in[4])
-  );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _180_ (
-    .C(clk_32f),
-    .D(_002_[5]),
-    .Q(serial_in[5])
-  );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _181_ (
-    .C(clk_32f),
-    .D(_002_[6]),
-    .Q(serial_in[6])
-  );
-  (* src = "serial_paralelo_rx.v:13" *)
-  DFF _182_ (
-    .C(clk_32f),
-    .D(_002_[7]),
-    .Q(serial_in[7])
   );
 endmodule

@@ -43,10 +43,14 @@ module probador(
 
 	reg [7:0] data;
 
+	initial rst_L = 0;
+
 	initial begin
 		$dumpfile("phy_rx.vcd"); // Nombre de archivo del "dump"
 		$dumpvars; // Directiva para "dumpear" variables
-		rst_L = 0;
+		#5 
+		rst_L = 1;
+		#5
 		datos_paralelo_serial = 1;
 		
 		@(posedge clk_32f);
