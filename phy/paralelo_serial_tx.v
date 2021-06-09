@@ -1,4 +1,4 @@
-module paralelo_serial (
+module paralelo_serial_tx (
 			output reg  data_out,
 			input 	    reset_L,
 			input 	    clk_32f,
