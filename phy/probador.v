@@ -1,5 +1,13 @@
-module probador(
-	       //Salidas de reciculador hacia probador 
+module probador(//Salida de phy_rx
+	       input [7:0] 	data_out_0_cond,
+	       input [7:0] 	data_out_1_cond,
+	       input [7:0] 	data_out_2_cond,
+	       input [7:0] 	data_out_3_cond,
+	       input 		valid_out_0_cond,        
+	       input 		valid_out_1_cond,
+	       input 		valid_out_2_cond,
+	       input 		valid_out_3_cond,
+	       //Salidas de recirculador hacia probador 
 	       input [7:0] 	recirc_4,
 	       input [7:0] 	recirc_5,
 	       input [7:0] 	recirc_6,
@@ -8,19 +16,7 @@ module probador(
 	       input 		valid_r_5,
 	       input 		valid_r_6,
 	       input 		valid_r_7,
-	       
-	       //Salidas del phy_rx hacia probador
-	        input [7:0] data_out_0,
-    		input [7:0] data_out_1,
-    		input [7:0] data_out_2,
-    		input [7:0] data_out_3,
-    		input valid_out_0,        
-    		input valid_out_1,
-    		input valid_out_2,
-    		input valid_out_3,
-	       
-	        //Salidas estrcuturales
-	       input 		data_out_synth,
+		//Salidas estructurales
 	       input [7:0] 	recirc_synth_4,
 	       input [7:0] 	recirc_synth_5,
 	       input [7:0] 	recirc_synth_6,
@@ -29,6 +25,15 @@ module probador(
 	       input 		valid_r_synth_5,
 	       input 		valid_r_synth_6,
 	       input 		valid_r_synth_7,
+	       input [7:0] 	data_out_0_synth,
+	       input [7:0] 	data_out_1_synth,
+	       input [7:0] 	data_out_2_synth,
+	       input [7:0] 	data_out_3_synth,
+	       input 		valid_out_0_synth,     
+	       input 		valid_out_1_synth,
+	       input 		valid_out_2_synth,
+	       input 		valid_out_3_synth,
+	       
 		
 	       //Entradas de reloj
 	       output reg 	clk_f,
@@ -45,8 +50,8 @@ module probador(
 	       output reg 	valid_in_0,
 	       output reg 	valid_in_1,
 	       output reg 	valid_in_2,
-	       output reg 	valid_in_3);
-	       
+	       output reg 	valid_in_3
+	       );
    
    
    
@@ -74,7 +79,7 @@ module probador(
 
    initial
      begin
-	$dumpfile ("phy.vcd");
+	$dumpfile ("phy_tx.vcd");
 	$dumpvars;
 
 	valid_in_0 = 1; //Valores iniciales de valids
@@ -86,12 +91,14 @@ module probador(
         
 
 	@(posedge clk_f);
+	
 	{data_in_0} <= {8'hFF};
 	{data_in_1} <= {8'hEE};
 
 	{data_in_2} <= {8'hDD};
 	{data_in_3} <= {8'hCC};
 	
+	{reset_L} <= 1;
 
 	@(posedge clk_f);
 	{data_in_0} <= {8'hBB};
@@ -133,347 +140,4 @@ module probador(
 
 
      end // initial begin
-    initial begin
-       repeat(2) begin
-       @ (posedge clk_32f)
-			data_in <= 'b1;
-	        
-			@ (posedge clk_32f)
-       
-			data_in <= 'b0;
-	        
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-	        
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-	        
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			
-			
-			
-			//BC 4 veces
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-       		reset_L <= 1;
-       
-			
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			//7C
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			//7C
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			//7C
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			//7C
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			
-			// BC
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			//7C
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			//7C
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			
-			//7C
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b1;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-			@ (posedge clk_32f)
-			data_in <= 'b0;
-       end // repeat (2)
-       
-		
-
-		
-
-
-
-	
-
-
-	$finish;
-
-     end // initial begin
-
 endmodule // probador

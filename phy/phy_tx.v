@@ -1,7 +1,7 @@
-`include "logica_muxes/MUXES.v"
-`include "recirculador/recirculador.v"
-`include "paralelo_serial/paralelo_serial.v"
-`include "Serial_paralelo/Serial_paralelo_tx.v"
+`include "MUXES.v"
+`include "recirculador.v"
+`include "paralelo_serial_tx.v"
+`include "Serial_paralelo_tx.v"
 
 module phy_tx (//Salida de paralelo a serial
 	       output 	    data_out,
@@ -117,7 +117,7 @@ module phy_tx (//Salida de paralelo a serial
     .valid_in (valid_000));
     */
    
-   paralelo_serial paralelo_serial_tx(/*AUTOINST*/
+   paralelo_serial_tx paralelo_serial_tx(/*AUTOINST*/
 				      // Outputs
 				      .data_out		(data_out),
 				      // Inputs
