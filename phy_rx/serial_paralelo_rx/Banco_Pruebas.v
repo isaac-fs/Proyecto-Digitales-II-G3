@@ -13,6 +13,7 @@ module BancoPruebas;
     wire		clk_32f;		// From probador_ of probador.v
     wire		clk_4f;			// From probador_ of probador.v
     wire		data_in;		// From probador_ of probador.v
+    wire		rst_L;			// From probador_ of probador.v
     wire [7:0]		sp_out_cond;		// From module_serial_paralelo_0 of serial_paralelo_rx.v
     wire [7:0]		sp_out_synth;		// From module_serial_paralelo_0_synth of serial_paralelo_rx_synth.v
     wire		valid_out_sp_cond;	// From module_serial_paralelo_0 of serial_paralelo_rx.v
@@ -33,6 +34,7 @@ module BancoPruebas;
 						.active		(active_cond),	 // Templated
 						// Inputs
 						.data_in	(data_in),
+						.rst_L		(rst_L),
 						.clk_4f		(clk_4f),
 						.clk_32f	(clk_32f));
 
@@ -51,11 +53,13 @@ module BancoPruebas;
 								// Inputs
 								.clk_32f	(clk_32f),
 								.clk_4f		(clk_4f),
-								.data_in	(data_in));
+								.data_in	(data_in),
+								.rst_L		(rst_L));
 
 	probador probador_(
 		/*AUTOINST*/
 			   // Outputs
+			   .rst_L		(rst_L),
 			   .clk_4f		(clk_4f),
 			   .clk_32f		(clk_32f),
 			   .data_in		(data_in),

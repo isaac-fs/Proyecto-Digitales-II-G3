@@ -8,6 +8,7 @@ module probador(
 	input active_cond,
 	input active_synth,
 	// señales para generar
+	output reg rst_L,
     output reg clk_4f,
     output reg clk_32f,
 	output reg data_in
@@ -23,9 +24,16 @@ module probador(
 
 	reg [7:0] data;
 
+	initial rst_L = 0;
+
 	initial begin
 		$dumpfile("serial_paralelo_rx.vcd"); // Nombre de archivo del "dump"
 		$dumpvars; // Directiva para "dumpear" variables
+		//data_in = 1;
+		
+		#5 
+		rst_L = 1;
+		#5
 		data_in = 1;
 
 		@(posedge clk_32f);

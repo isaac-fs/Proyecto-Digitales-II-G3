@@ -1,6 +1,6 @@
 /* Banco de pruebas para el módulo: phyrx. Prueba la descripción conductual y la estructural a partir del probador: probadorRx2.v*/
 `timescale 	1ns				/ 100ps
-`include "../../cmos_cells/cmos_cells.v"
+`include "cmos_cells.v"
 `include "serial_paralelo_rx.v"
 `include "serial_paralelo_rx_synth.v"
 `include "probador.v"
@@ -13,7 +13,6 @@ module BancoPruebas;
     wire		clk_32f;		// From probador_ of probador.v
     wire		clk_4f;			// From probador_ of probador.v
     wire		data_in;		// From probador_ of probador.v
-    wire		rstH;			// From probador_ of probador.v
     wire [7:0]		sp_out_cond;		// From module_serial_paralelo_0 of serial_paralelo_rx.v
     wire [7:0]		sp_out_synth;		// From module_serial_paralelo_0_synth of serial_paralelo_rx_synth.v
     wire		valid_out_sp_cond;	// From module_serial_paralelo_0 of serial_paralelo_rx.v
@@ -52,8 +51,7 @@ module BancoPruebas;
 								// Inputs
 								.clk_32f	(clk_32f),
 								.clk_4f		(clk_4f),
-								.data_in	(data_in),
-								.rstH		(rstH));
+								.data_in	(data_in));
 
 	probador probador_(
 		/*AUTOINST*/
@@ -61,7 +59,6 @@ module BancoPruebas;
 			   .clk_4f		(clk_4f),
 			   .clk_32f		(clk_32f),
 			   .data_in		(data_in),
-			   .rstH		(rstH),
 			   // Inputs
 			   .sp_out_cond		(sp_out_cond[7:0]),
 			   .sp_out_synth	(sp_out_synth[7:0]),
