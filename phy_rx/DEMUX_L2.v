@@ -12,31 +12,13 @@ module DEMUX_L2 (
    //Señales internas
    reg [7:0] 	        a;
    reg [7:0]            b;
-   //reg 	                selector_4f = 1;
-   //reg                  selector_4f = 1;
    reg 	                validt_00;
    reg 	                validt_11;
-
-   //Lógica selector automático
-
-   /*always @ (posedge clk_4f)
-        begin
-	        selector_4f <= ~selector_4f;
-        end
-        
-   always @ (posedge clk_4f)
-        begin
-	        selector_4f <= ~selector_4f;
-        end*/
 
    //Lógica DEMUX 
 
    always @(posedge clk_4f)
      begin
-	    /*validt_00 = (valid_000 & ~selector_4f) | (valid_000 & selector_4f);
-        validt_11 = (valid_000 & ~selector_4f) | (valid_000 & selector_4f);*/     
-        // a = 8'h00;
-        // validt_00 = 1;
 
 	    if (valid_000) begin
 	        a <= data_000;
@@ -49,8 +31,6 @@ module DEMUX_L2 (
      end
 
     always @(negedge clk_4f) begin
-        // b = 8'h00;
-        // validt_11 = 1;
         if (valid_000) begin
 	        b <= data_000;
             validt_11 <= valid_000;
@@ -60,8 +40,8 @@ module DEMUX_L2 (
             validt_11 <= valid_000;
         end 
     end
+    
    // Lógica Flop
-
    always @ (posedge clk_2f)
     begin
 	    if(validt_00)
