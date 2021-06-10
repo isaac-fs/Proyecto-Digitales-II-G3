@@ -11,25 +11,25 @@ module Banco_pruebas;
    wire			clk_2f;			// From probadorPrueba of probadorPrueba.v
    wire			clk_4f;			// From probadorPrueba of probadorPrueba.v
    wire			clk_f;			// From probadorPrueba of probadorPrueba.v
+   wire [7:0]		data_0;			// From DEMUXES_synth of DEMUXES_synth.v
    wire [7:0]		data_000;		// From probadorPrueba of probadorPrueba.v
    wire [7:0]		data_0_cond;		// From DEMUXES of DEMUXES.v
-   wire [7:0]		data_0_synth;		// From DEMUXES_synth of DEMUXES_synth.v
+   wire [7:0]		data_1;			// From DEMUXES_synth of DEMUXES_synth.v
    wire [7:0]		data_1_cond;		// From DEMUXES of DEMUXES.v
-   wire [7:0]		data_1_synth;		// From DEMUXES_synth of DEMUXES_synth.v
+   wire [7:0]		data_2;			// From DEMUXES_synth of DEMUXES_synth.v
    wire [7:0]		data_2_cond;		// From DEMUXES of DEMUXES.v
-   wire [7:0]		data_2_synth;		// From DEMUXES_synth of DEMUXES_synth.v
+   wire [7:0]		data_3;			// From DEMUXES_synth of DEMUXES_synth.v
    wire [7:0]		data_3_cond;		// From DEMUXES of DEMUXES.v
-   wire [7:0]		data_3_synth;		// From DEMUXES_synth of DEMUXES_synth.v
    wire			reset_L;		// From probadorPrueba of probadorPrueba.v
+   wire			valid_0;		// From DEMUXES_synth of DEMUXES_synth.v
    wire			valid_000;		// From probadorPrueba of probadorPrueba.v
    wire			valid_0_cond;		// From DEMUXES of DEMUXES.v
-   wire			valid_0_synth;		// From DEMUXES_synth of DEMUXES_synth.v
+   wire			valid_1;		// From DEMUXES_synth of DEMUXES_synth.v
    wire			valid_1_cond;		// From DEMUXES of DEMUXES.v
-   wire			valid_1_synth;		// From DEMUXES_synth of DEMUXES_synth.v
+   wire			valid_2;		// From DEMUXES_synth of DEMUXES_synth.v
    wire			valid_2_cond;		// From DEMUXES of DEMUXES.v
-   wire			valid_2_synth;		// From DEMUXES_synth of DEMUXES_synth.v
+   wire			valid_3;		// From DEMUXES_synth of DEMUXES_synth.v
    wire			valid_3_cond;		// From DEMUXES of DEMUXES.v
-   wire			valid_3_synth;		// From DEMUXES_synth of DEMUXES_synth.v
    // End of automatics
   
   
@@ -82,14 +82,14 @@ module Banco_pruebas;
 
    DEMUXES_synth DEMUXES_synth(/*AUTOINST*/
 			       // Outputs
-			       .data_0		(data_0_synth[7:0]), // Templated
-			       .data_1		(data_1_synth[7:0]), // Templated
-			       .data_2		(data_2_synth[7:0]), // Templated
-			       .data_3		(data_3_synth[7:0]), // Templated
-			       .valid_0		(valid_0_synth), // Templated
-			       .valid_1		(valid_1_synth), // Templated
-			       .valid_2		(valid_2_synth), // Templated
-			       .valid_3		(valid_3_synth), // Templated
+			       .data_0		(data_0[7:0]),
+			       .data_1		(data_1[7:0]),
+			       .data_2		(data_2[7:0]),
+			       .data_3		(data_3[7:0]),
+			       .valid_0		(valid_0),
+			       .valid_1		(valid_1),
+			       .valid_2		(valid_2),
+			       .valid_3		(valid_3),
 			       // Inputs
 			       .clk_2f		(clk_2f),
 			       .clk_4f		(clk_4f),
