@@ -32,6 +32,7 @@ module phy_rx (
 					    .active		(active),
 					    // Inputs
 					    .data_in		(datos_paralelo_serial),
+						.rst_L		(rst_L),
 					    .clk_4f		(clk_4f),
 					    .clk_32f		(clk_32f));
 

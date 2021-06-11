@@ -26,58 +26,27 @@ module DEMUX_L1 (
    reg 	                validt_2;
    reg 	                validt_3;
 
-   //Lógica selector automático
-
-   /*always @ (posedge clk_4f)
-        begin
-	        selector_4f <= ~selector_4f;
-        end
-        
-   always @ (posedge clk_2f)
-        begin
-	        selector_2f <= ~selector_2f;
-        end*/
-
-   //Lógica DEMUX 
-
    always @(posedge clk_2f)
      begin
-	    /*validt_00 = (valid_000 & ~selector_4f) | (valid_000 & selector_4f);
-        validt_11 = (valid_000 & ~selector_4f) | (valid_000 & selector_4f);*/
-        
-        // data_11 = 8'h00;
-        // data_00 = 8'h00;
-        // validt_00 = 1;
-        
-        // validt_0 = 1;  
-        // validt_1 = 1; 
-        // validt_2 = 1; 
-        // validt_3 = 1; 
-        // c = 8'h00;
-        // d = 8'h00;
-        // e = 8'h00;
-        // f = 8'h00;
-
-	    
+    
         if (valid_00) begin
 	        c <= data_00;
-            validt_2 <= valid_00;
+            validt_0 <= valid_00;
         end
 	    else if (~valid_00) begin
             c <= c;
-            validt_2 <= valid_00;
+            validt_0 <= valid_00;
         end 
 
          if (valid_11) begin
-	        d <= data_11;
-            validt_0 <= valid_11;
+	        e <= data_11;
+            validt_2 <= valid_11;
         end
 	    else if (~valid_11) begin
-            d <= d;
-            validt_0 <= valid_11;
+            e <= e;
+            validt_2 <= valid_11;
         end 
      end
-      
       
 
     always @(negedge clk_2f) begin
@@ -92,11 +61,11 @@ module DEMUX_L1 (
         end 
      
         if (valid_11) begin
-	        e <= data_00;
+	        d <= data_00;
             validt_1 <= valid_11;
         end
 	    else if (~valid_11) begin
-            e <= e;
+            d <= d;
             validt_1 <= valid_11;
         end 
     end

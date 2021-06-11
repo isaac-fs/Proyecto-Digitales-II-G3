@@ -1,4 +1,4 @@
-module probador(//Salida de phy_rx
+module probador_cond(//Salida de phy_rx
 	       input [7:0] 	data_out_0_cond,
 	       input [7:0] 	data_out_1_cond,
 	       input [7:0] 	data_out_2_cond,
@@ -16,24 +16,6 @@ module probador(//Salida de phy_rx
 	       input 		valid_r_5,
 	       input 		valid_r_6,
 	       input 		valid_r_7,
-		//Salidas estructurales
-	       input [7:0] 	recirc_4_synth,
-	       input [7:0] 	recirc_5_synth,
-	       input [7:0] 	recirc_6_synth,
-	       input [7:0] 	recirc_7_synth,
-	       input 		valid_r_synth_4,
-	       input 		valid_r_synth_5,
-	       input 		valid_r_synth_6,
-	       input 		valid_r_synth_7,
-	       input [7:0] 	data_out_0_synth,
-	       input [7:0] 	data_out_1_synth,
-	       input [7:0] 	data_out_2_synth,
-	       input [7:0] 	data_out_3_synth,
-	       input 		valid_out_0_synth,     
-	       input 		valid_out_1_synth,
-	       input 		valid_out_2_synth,
-	       input 		valid_out_3_synth,
-	       
 		
 	       //Entradas de reloj
 	       output reg 	clk_f,
@@ -77,9 +59,9 @@ module probador(//Salida de phy_rx
 
    //Secuencia de pruebas
 
-  initial
+   initial
      begin
-	$dumpfile ("phy.vcd");
+	$dumpfile ("resultados.vcd");
 	$dumpvars;
 
 	valid_in_0 = 1; //Valores iniciales de valids

@@ -3,8 +3,8 @@ all: yosys sed verilog
 synth: yosys sed
 
 verilog:
-	iverilog -o out BancoPrueba.v
-	vvp BancoPrueba
+	iverilog -o out BancoPruebas.v
+	vvp out
 	gtkwave phy.vcd phy.gtkw &
 yosys:
 	yosys script_y.ys
