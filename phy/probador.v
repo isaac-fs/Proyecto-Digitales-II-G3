@@ -231,6 +231,6 @@ module probador(//Salida de phy_rx
 	valid_in_1 <=1;
 	valid_in_2 <=1;
 	valid_in_3 <=1;
-	
+	$finish;
      end // initial begin
 endmodule // probador
