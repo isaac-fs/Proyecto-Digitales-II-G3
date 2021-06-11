@@ -1,20 +1,19 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Fri Jun 11 01:25:31 2021
+[*] Fri Jun 11 04:03:57 2021
 [*]
-[dumpfile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/phy/phy.vcd"
-[dumpfile_mtime] "Fri Jun 11 01:15:26 2021"
-[dumpfile_size] 3367523
-[savefile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/phy/phy.gtkw"
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy/phy.vcd"
+[dumpfile_mtime] "Fri Jun 11 03:21:00 2021"
+[dumpfile_size] 221434
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy/phy.gtkw"
 [timestart] 0
-[size] 928 486
-[pos] -1 -1
-*-19.000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
-[treeopen] BancoPruebas.
+[size] 1536 801
+[pos] -165 -165
+*-17.424595 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [sst_width] 233
 [signals_width] 198
 [sst_expanded] 1
-[sst_vpaned_height] 104
+[sst_vpaned_height] 210
 @200
 -Relojes
 @28
@@ -23,6 +22,14 @@ BancoPruebas.clk_2f
 BancoPruebas.clk_4f
 BancoPruebas.clk_32f
 @200
+-
+-Relevantes
+@28
+BancoPruebas.phy.idle_out
+@29
+BancoPruebas.phy.reset_L
+@200
+-
 -Entradas
 @22
 [color] 3
@@ -43,65 +50,71 @@ BancoPruebas.valid_in_2
 [color] 3
 BancoPruebas.valid_in_3
 @200
+-
 -Salidas recirculacion
 @22
 [color] 5
 BancoPruebas.recirc_4_cond[7:0]
 [color] 5
-BancoPruebas.recirc_4_synth[7:0]
-[color] 5
 BancoPruebas.recirc_5_cond[7:0]
-[color] 5
-BancoPruebas.recirc_5_synth[7:0]
 [color] 5
 BancoPruebas.recirc_6_cond[7:0]
 [color] 5
-BancoPruebas.recirc_6_synth[7:0]
-[color] 5
 BancoPruebas.recirc_7_cond[7:0]
+@200
+-
+@22
+[color] 5
+BancoPruebas.recirc_4_synth[7:0]
+[color] 5
+BancoPruebas.recirc_5_synth[7:0]
+[color] 5
+BancoPruebas.recirc_6_synth[7:0]
 [color] 5
 BancoPruebas.recirc_7_synth[7:0]
 @200
+-
 -Salida rx
 @22
 [color] 7
 BancoPruebas.data_out_0_cond[7:0]
-[color] 7
-BancoPruebas.data_out_0_synth[7:0]
+[color] 4
+BancoPruebas.data_out_1_cond[7:0]
+[color] 1
+BancoPruebas.data_out_2_cond[7:0]
+[color] 6
+BancoPruebas.data_out_3_cond[7:0]
+@200
+-
 @28
 [color] 7
 BancoPruebas.valid_out_0_cond
-[color] 7
-BancoPruebas.valid_out_0_synth
-@22
-[color] 4
-BancoPruebas.data_out_1_cond[7:0]
-[color] 4
-BancoPruebas.data_out_1_synth[7:0]
-@28
 [color] 4
 BancoPruebas.valid_out_1_cond
-@29
-[color] 4
-BancoPruebas.valid_out_1_synth
-@22
-[color] 1
-BancoPruebas.data_out_2_cond[7:0]
-[color] 1
-BancoPruebas.data_out_2_synth[7:0]
-@28
 [color] 1
 BancoPruebas.valid_out_2_cond
-[color] 1
-BancoPruebas.valid_out_2_synth
-@22
-[color] 6
-BancoPruebas.data_out_3_cond[7:0]
-[color] 6
-BancoPruebas.data_out_3_synth[7:0]
-@28
 [color] 6
 BancoPruebas.valid_out_3_cond
+@200
+-
+@22
+[color] 7
+BancoPruebas.data_out_0_synth[7:0]
+[color] 4
+BancoPruebas.data_out_1_synth[7:0]
+[color] 1
+BancoPruebas.data_out_2_synth[7:0]
+[color] 6
+BancoPruebas.data_out_3_synth[7:0]
+@200
+-
+@28
+[color] 7
+BancoPruebas.valid_out_0_synth
+[color] 4
+BancoPruebas.valid_out_1_synth
+[color] 1
+BancoPruebas.valid_out_2_synth
 [color] 6
 BancoPruebas.valid_out_3_synth
 [pattern_trace] 1
