@@ -26,6 +26,7 @@ module DEMUX_L1 (
    reg 	                validt_2;
    reg 	                validt_3;
 
+
    always @(posedge clk_2f)
      begin
     
@@ -46,83 +47,100 @@ module DEMUX_L1 (
             e <= e;
             validt_2 <= valid_11;
         end 
-     end
-      
+     end 
 
     always @(negedge clk_2f) begin
        
          if (valid_00) begin
-	        f <= data_11;
+	        d <= data_00;
             validt_3 <= valid_00;
         end
 	    else if (~valid_00) begin
-            f <= f;
+            d <= d;
             validt_3 <= valid_00;
         end 
      
         if (valid_11) begin
-	        d <= data_00;
+	        f <= data_11;
             validt_1 <= valid_11;
         end
 	    else if (~valid_11) begin
-            d <= d;
+            f <= f;
             validt_1 <= valid_11;
         end 
     end
 
    // Lógica Flop
 
-   always @ (posedge clk_f)
+   reg [7:0] data_0_t, data_1_t, data_2_t, data_3_t;
+   reg valid_0_t, valid_1_t, valid_2_t, valid_3_t; 
+
+   always @ (negedge clk_f)
     begin
 
 	    if(validt_0)
 	        begin
-	            data_0 <= c;
-	            valid_0 <= validt_0;
+	            data_0_t <= c;
+	            valid_0_t <= validt_0;
 	        end
 	
 	    else
 	        begin
-                data_0 <= data_0;
-                valid_0 <= validt_0;
+                data_0_t <= data_0;
+                valid_0_t <= validt_0;
 	        end      
     
         if(validt_1)
 	        begin
-                data_1 <= d;
-                valid_1 <= validt_1;
+                data_1_t <= d;
+                valid_1_t <= validt_1;
 	        end
 	
 	    else
 	        begin
-                data_1 <= data_1;
-                valid_1 <= validt_1;
+                data_1_t <= data_1;
+                valid_1_t <= validt_1;
 	        end
 
          if(validt_2)
 	        begin
-	            data_2 <= e;
-	            valid_2 <= validt_2;
+	            data_2_t <= e;
+	            valid_2_t <= validt_2;
 	        end
 	
 	    else
 	        begin
-                data_2 <= data_2;
-                valid_2 <= validt_2;
+                data_2_t <= data_2;
+                valid_2_t <= validt_2;
 	        end      
     
         if(validt_3)
 	        begin
-                data_3 <= f;
-                valid_3 <= validt_3;
+                data_3_t <= f;
+                valid_3_t <= validt_3;
 	        end
 	
 	    else
 	        begin
-                data_3 <= data_3;
-                valid_3 <= validt_3;
+                data_3_t <= data_3;
+                valid_3_t <= validt_3;
 	        end
     end
    
+
+   always @ (posedge clk_f)
+    begin
+        data_0 <= data_0_t;
+        valid_0 <= valid_0_t;
+
+        data_1 <= data_1_t;
+        valid_1 <= valid_1_t;
+
+        data_2 <= data_2_t;
+        valid_2 <= valid_2_t;
+
+        data_3 <= data_3_t;
+        valid_3 <= valid_3_t;
+    end
 	
 endmodule // DEMUX_L1
