@@ -20,7 +20,7 @@ synt_recirculador.v: recirculador.v
 
 gtk: recirculador.vvp
 	@echo -e "\nCorriendo GTK Wave\n"
-	@gtkwave ./recirculador.vcd & disown
+	@gtkwave ./recirculador.vcd ./prueba_recirculador.gtkw & disown
 
 clean: 
 	@rm *.vcd *.vvp
