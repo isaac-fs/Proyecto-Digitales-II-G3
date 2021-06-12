@@ -17,7 +17,7 @@ parelo_serial_rx_synth.v: paralelo_serial_rx.v
 
 gtk: paralelo_serial_rx.v
 	@echo -e "\nCorriendo GTK Wave\n"
-	@gtkwave ./paralelo_serial_rx.vcd & disown
+	@gtkwave ./paralelo_serial_rx.vcd parelo_serial_rx.gtkw & disown
 
 clean: 
 	@rm *.vcd *.vvp

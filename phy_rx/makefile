@@ -21,7 +21,7 @@ phy_rx_synth.v: phy_rx.v
 
 gtk: phy_rx.vvp
 	@echo -e "\nCorriendo GTK Wave\n"
-	@gtkwave ./phy_rx.vcd & disown
+	@gtkwave ./phy_rx.vcd ./phy_rx.gtkw & disown
 
 clean: 
 	@rm *.vcd *.vvp
