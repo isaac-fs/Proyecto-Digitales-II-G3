@@ -144,8 +144,3 @@ module phy_tx (//Salida de paralelo a serial
    
 
      endmodule // phy_tx
-
-				
-				
-	       
-	       

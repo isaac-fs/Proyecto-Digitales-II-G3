@@ -64,7 +64,8 @@ module  recirculador (
         data_out_6 = 8'h0;
         data_out_7 = 8'h0;
         // Valids de salida correspondientes
-    
+
+        valid_out_0 = 1'b0;
         valid_out_1 = 1'b0;
         valid_out_2 = 1'b0;
         valid_out_3 = 1'b0;
@@ -92,10 +93,10 @@ module  recirculador (
             data_out_6 <= data_ff_2;
             data_out_7 <= data_ff_3;
 
-            valid_out_0 <= valid_ff_0;
-            valid_out_1 <= valid_ff_1;
-            valid_out_2 <= valid_ff_2;
-            valid_out_3 <= valid_ff_3;
+            valid_out_4 <= valid_ff_0;
+            valid_out_5 <= valid_ff_1;
+            valid_out_6 <= valid_ff_2;
+            valid_out_7 <= valid_ff_3;
         end
     end
 endmodule

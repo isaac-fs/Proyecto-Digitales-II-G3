@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Sat Jun 12 01:38:43 2021
+[*] Sat Jun 12 22:11:44 2021
 [*]
-[dumpfile] "/mnt/c/Users/Isaac/Desktop/phy/phy.vcd"
-[dumpfile_mtime] "Sat Jun 12 01:38:25 2021"
-[dumpfile_size] 227410
-[savefile] "/mnt/c/Users/Isaac/Desktop/phy/phy.gtkw"
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy/phy.vcd"
+[dumpfile_mtime] "Sat Jun 12 22:10:11 2021"
+[dumpfile_size] 244307
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy/phy.gtkw"
 [timestart] 0
 [size] 1536 801
 [pos] -9 -72
-*-17.321503 296400 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-17.424595 296400 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] BancoPruebas.
 [treeopen] BancoPruebas.phy.
 [treeopen] BancoPruebas.phy.phy_rx.
@@ -65,6 +65,17 @@ BancoPruebas.recirc_6_cond[7:0]
 BancoPruebas.recirc_7_cond[7:0]
 @200
 -
+@28
+[color] 2
+BancoPruebas.phy.valid_r_4
+[color] 2
+BancoPruebas.phy.valid_r_5
+[color] 2
+BancoPruebas.phy.valid_r_6
+[color] 2
+BancoPruebas.phy.valid_r_7
+@200
+-
 @22
 [color] 5
 BancoPruebas.recirc_4_synth[7:0]
@@ -74,6 +85,18 @@ BancoPruebas.recirc_5_synth[7:0]
 BancoPruebas.recirc_6_synth[7:0]
 [color] 5
 BancoPruebas.recirc_7_synth[7:0]
+@200
+-
+-
+@29
+[color] 2
+BancoPruebas.phy_synth.valid_r_4
+[color] 2
+BancoPruebas.phy_synth.valid_r_5
+[color] 2
+BancoPruebas.phy_synth.valid_r_6
+[color] 2
+BancoPruebas.phy_synth.valid_r_7
 @200
 -
 -Salida rx
