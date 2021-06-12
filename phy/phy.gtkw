@@ -1,15 +1,18 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Fri Jun 11 04:03:57 2021
+[*] Sat Jun 12 01:38:43 2021
 [*]
-[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy/phy.vcd"
-[dumpfile_mtime] "Fri Jun 11 03:21:00 2021"
-[dumpfile_size] 221434
-[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy/phy.gtkw"
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/phy/phy.vcd"
+[dumpfile_mtime] "Sat Jun 12 01:38:25 2021"
+[dumpfile_size] 227410
+[savefile] "/mnt/c/Users/Isaac/Desktop/phy/phy.gtkw"
 [timestart] 0
 [size] 1536 801
-[pos] -165 -165
-*-17.424595 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -9 -72
+*-17.321503 296400 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BancoPruebas.
+[treeopen] BancoPruebas.phy.
+[treeopen] BancoPruebas.phy.phy_rx.
 [sst_width] 233
 [signals_width] 198
 [sst_expanded] 1
@@ -26,7 +29,6 @@ BancoPruebas.clk_32f
 -Relevantes
 @28
 BancoPruebas.phy.idle_out
-@29
 BancoPruebas.phy.reset_L
 @200
 -

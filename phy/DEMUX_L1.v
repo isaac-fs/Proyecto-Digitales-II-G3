@@ -52,27 +52,27 @@ module DEMUX_L1 (
     always @(negedge clk_2f) begin
        
          if (valid_00) begin
-	        f <= data_11;
+	        d <= data_00;
             validt_3 <= valid_00;
         end
 	    else if (~valid_00) begin
-            f <= f;
+            d <= d;
             validt_3 <= valid_00;
         end 
      
         if (valid_11) begin
-	        d <= data_00;
+	        f <= data_11;
             validt_1 <= valid_11;
         end
 	    else if (~valid_11) begin
-            d <= d;
+            f <= f;
             validt_1 <= valid_11;
         end 
     end
 
    // Lógica Flop
 
-   always @ (posedge clk_f)
+   always @ (negedge clk_f)
     begin
 
 	    if(validt_0)
