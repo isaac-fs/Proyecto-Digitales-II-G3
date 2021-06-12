@@ -1,4 +1,4 @@
-# Tarea 6, parte c.
+# Recirculador
 # Isaac F. Fonseca Segura
 
 SHELL=/bin/bash
