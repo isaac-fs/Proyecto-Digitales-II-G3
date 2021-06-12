@@ -1,17 +1,17 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Wed May 26 03:32:03 2021
+[*] Sat Jun 12 21:28:43 2021
 [*]
 [dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_tx/recirculador/recirculador.vcd"
-[dumpfile_mtime] "Tue May 25 08:43:38 2021"
-[dumpfile_size] 31632
+[dumpfile_mtime] "Sat Jun 12 21:25:15 2021"
+[dumpfile_size] 33469
 [savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/phy_tx/recirculador/prueba_recirculador.gtkw"
 [timestart] 0
 [size] 1536 801
 [pos] -1 -1
-*-12.565289 510 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-12.587316 20490 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
-[sst_width] 192
+[sst_width] 211
 [signals_width] 170
 [sst_expanded] 1
 [sst_vpaned_height] 228
@@ -24,78 +24,118 @@ testbench.probador_.idle
 -
 -Estimulos
 @22
+[color] 2
 testbench.probador_.data_in_0[7:0]
+[color] 2
 testbench.probador_.data_in_1[7:0]
+[color] 2
 testbench.probador_.data_in_2[7:0]
+[color] 2
 testbench.probador_.data_in_3[7:0]
 @200
 -
 @28
+[color] 3
 testbench.probador_.valid_in_0
+[color] 3
 testbench.probador_.valid_in_1
+[color] 3
 testbench.probador_.valid_in_2
+[color] 3
 testbench.probador_.valid_in_3
 @200
 -
 -Salidas conductuales
 -Hacia mux
 @22
+[color] 5
 testbench.probador_.data_out_0_cond[7:0]
+[color] 5
 testbench.probador_.data_out_1_cond[7:0]
+[color] 5
 testbench.probador_.data_out_2_cond[7:0]
+[color] 5
 testbench.probador_.data_out_3_cond[7:0]
 @200
+-
+@28
+[color] 4
+testbench.probador_.valid_out_0_cond
+[color] 4
+testbench.probador_.valid_out_1_cond
+[color] 4
+testbench.probador_.valid_out_2_cond
+[color] 4
+testbench.probador_.valid_out_3_cond
+@200
+-
 -Hacia recirculacion
 @22
+[color] 2
 testbench.probador_.data_out_4_cond[7:0]
+[color] 2
 testbench.probador_.data_out_5_cond[7:0]
+[color] 2
 testbench.probador_.data_out_6_cond[7:0]
+[color] 2
 testbench.probador_.data_out_7_cond[7:0]
 @200
 -
--Hacia mux
 @28
-testbench.probador_.valid_out_0_cond
-testbench.probador_.valid_out_1_cond
-testbench.probador_.valid_out_2_cond
-testbench.probador_.valid_out_3_cond
-@200
--Hacia recirculacion
-@28
+[color] 4
 testbench.probador_.valid_out_4_cond
+[color] 4
 testbench.probador_.valid_out_5_cond
+[color] 4
 testbench.probador_.valid_out_6_cond
+[color] 4
 testbench.probador_.valid_out_7_cond
 @200
 -
 -Salida sintetizadas
 -Hacia mux
 @22
+[color] 5
 testbench.probador_.data_out_0_synt[7:0]
+[color] 5
 testbench.probador_.data_out_1_synt[7:0]
+[color] 5
 testbench.probador_.data_out_2_synt[7:0]
+[color] 5
 testbench.probador_.data_out_3_synt[7:0]
 @200
+-
+@28
+[color] 4
+testbench.probador_.valid_out_0_synt
+[color] 4
+testbench.probador_.valid_out_1_synt
+[color] 4
+testbench.probador_.valid_out_2_synt
+[color] 4
+testbench.probador_.valid_out_3_synt
+@200
+-
 -Hacia recirculacion
 @22
+[color] 2
 testbench.probador_.data_out_4_synt[7:0]
+[color] 2
 testbench.probador_.data_out_5_synt[7:0]
+[color] 2
 testbench.probador_.data_out_6_synt[7:0]
+[color] 2
 testbench.probador_.data_out_7_synt[7:0]
 @200
 -
--Hacia mux
-@28
-testbench.probador_.valid_out_0_synt
-testbench.probador_.valid_out_1_synt
-testbench.probador_.valid_out_2_synt
-testbench.probador_.valid_out_3_synt
-@200
--Hacia recirculacion
-@28
+@29
+[color] 4
 testbench.probador_.valid_out_4_synt
+[color] 4
 testbench.probador_.valid_out_5_synt
+[color] 4
 testbench.probador_.valid_out_6_synt
+[color] 4
 testbench.probador_.valid_out_7_synt
 [pattern_trace] 1
 [pattern_trace] 0
