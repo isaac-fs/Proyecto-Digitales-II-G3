@@ -11,4 +11,6 @@ sed:
 	sed -i 's/module\sMUX1_L1(/module MUX1_L1_synth(/' MUXES_synth.v
 	sed -i 's/module\sMUX_L2(/module MUX_L2_synth(/' MUXES_synth.v
 	sed -i 's/module\sMUXES(/module MUXES_synth(/' MUXES_synth.v
-	
+	sed -i 's/MUX1_L1 /MUX1_L1_synth /g' MUXES_synth.v
+	sed -i 's/MUX_L2 /MUX_L2_synth /g' MUXES_synth.v
+	sed -i 's/MUXES /MUXES_synth /g' MUXES_synth.v
