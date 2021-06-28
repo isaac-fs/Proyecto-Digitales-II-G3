@@ -2,7 +2,8 @@ module MUX_L2 (
 		output reg [7:0] data_000,
                	output reg 	 valid_000,
 		input 		 reset_L,
-      		input 		 clk_4f,
+		input 		 clk_2f,
+		input		 clk_4f,
 		input [7:0] 	 data_00,
 		input [7:0] 	 data_11,
 		input 		 valid_00,
@@ -10,16 +11,13 @@ module MUX_L2 (
 
    //Señales internas
    reg [7:0] 			 a;
-   reg 				 selector_4f = 1;
+   wire 				 selector_4f;
    reg 				 validt_000;
    
 
    //Lógica selector automático
 
-   always @ (posedge clk_4f)
-     begin
-	selector_4f <= ~selector_4f;
-     end
+   assign selector_4f = ~clk_2f;
 
    //Lógica MUX 
 
