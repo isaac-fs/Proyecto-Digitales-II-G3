@@ -11,7 +11,7 @@ module MUX1_L1 (
 
    //Señales internas
    reg [7:0] 			 a;
-   reg 				 selector_2f;
+   reg 				 selector_2f=0;
    reg 				 validt_00;
    
 
@@ -19,9 +19,6 @@ module MUX1_L1 (
 
    always @ (posedge clk_2f)
 	begin
-	if(~reset_L)
-		selector_2f <= 1;
-	else
 		selector_2f <= ~selector_2f;
     end
 
