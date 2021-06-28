@@ -2,7 +2,7 @@
 
 (* top =  1  *)
 (* src = "recirculador.v:1" *)
-module synt_recirculador(idle, clk, data_in_0, data_in_1, data_in_2, data_in_3, valid_in_0, valid_in_1, valid_in_2, valid_in_3, data_out_0, data_out_1, data_out_2, data_out_3, data_out_4, data_out_5, data_out_6, data_out_7, valid_out_0, valid_out_1, valid_out_2, valid_out_3, valid_out_4, valid_out_5, valid_out_6, valid_out_7);
+module synth_recirculador(idle, clk, data_in_0, data_in_1, data_in_2, data_in_3, valid_in_0, valid_in_1, valid_in_2, valid_in_3, data_out_0, data_out_1, data_out_2, data_out_3, data_out_4, data_out_5, data_out_6, data_out_7, valid_out_0, valid_out_1, valid_out_2, valid_out_3, valid_out_4, valid_out_5, valid_out_6, valid_out_7);
   wire _000_;
   wire _001_;
   wire _002_;

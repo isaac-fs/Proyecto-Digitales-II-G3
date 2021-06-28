@@ -4,7 +4,7 @@
 // Pueden omitirse y llamarse desde el testbench
 `include "../../cmos_cells/cmos_cells.v"
 `include "recirculador.v"
-`include "synt_recirculador.v"
+`include "synth_recirculador.v"
 `include "probador.v"
 
 
@@ -94,11 +94,11 @@ module testbench; // Testbench
 					.valid_in_3	(valid_in_3));
 	
 	// Descripción estructural
-	/* synt_recirculador AUTO_TEMPLATE ( 
+	/* synth_recirculador AUTO_TEMPLATE ( 
 		.data_out_@ (data_out_\1_synt[7:0]), 
 	.valid_out_@ (valid_out_\1_synt) );
 	*/
-	synt_recirculador synt_recirculador (/*AUTOINST*/
+	synth_recirculador synth_recirculador (/*AUTOINST*/
 					     // Outputs
 					     .data_out_0	(data_out_0_synt[7:0]), // Templated
 					     .data_out_1	(data_out_1_synt[7:0]), // Templated

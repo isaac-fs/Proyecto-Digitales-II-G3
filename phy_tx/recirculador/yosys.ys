@@ -20,4 +20,4 @@ abc -liberty ../../cmos_cells/cmos_cells.lib
 clean
 
 # write synthesized design
-write_verilog synt_recirculador.v
+write_verilog synth_recirculador.v
