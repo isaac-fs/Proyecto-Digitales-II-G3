@@ -18,6 +18,11 @@ phy_rx_synth.v: phy_rx.v
 	@sed -i 's/module\sphy_rx(/module phy_rx_synth(/g' phy_rx_synth.v
 	@sed -i 's/module\sserial_paralelo_rx(/module serial_paralelo_rx_synth(/' phy_rx_synth.v
 	@sed -i 's/module\sparalelo_serial_rx(/module paralelo_serial_rx_synth(/g' phy_rx_synth.v
+	@sed -i 's/DEMUX_L1 /DEMUX_L1_synth /g' phy_rx_synth.v
+	@sed -i 's/DEMUX_L2 /DEMUX_L2_synth /g' phy_rx_synth.v
+	@sed -i 's/paralelo_serial_rx /paralelo_serial_rx_synth /g' phy_rx_synth.v
+	@sed -i 's/serial_paralelo_rx /serial_paralelo_rx_synth /g' phy_rx_synth.v
+	@sed -i 's/phy_rx /phy_synth_rx /g' phy_rx_synth.v
 
 gtk: phy_rx.vvp
 	@echo -e "\nCorriendo GTK Wave\n"
