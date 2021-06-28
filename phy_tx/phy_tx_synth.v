@@ -1124,7 +1124,7 @@ module MUX_L2_synth(data_000, valid_000, reset_L, clk_2f, clk_4f, data_00, data_
 endmodule
 
 (* src = "Serial_paralelo/Serial_paralelo_tx.v:1" *)
-module serial_paralelo_synth(clk_4f, clk_32f, data_in, reset, idle);
+module Serial_paralelo_tx_synth(clk_4f, clk_32f, data_in, reset, idle);
   (* src = "Serial_paralelo/Serial_paralelo_tx.v:16" *)
   wire [2:0] _000_;
   (* src = "Serial_paralelo/Serial_paralelo_tx.v:34" *)
@@ -2155,7 +2155,7 @@ module phy_tx_synth(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4,
   );
   (* module_not_derived = 32'd1 *)
   (* src = "phy_tx.v:120" *)
-  paralelo_serial_synth paralelo_serial_tx_synth (
+  paralelo_serial_synth paralelo_serial_tx (
     .clk_32f(clk_32f),
     .data_in(data_000),
     .data_out(data_out),
@@ -2194,7 +2194,7 @@ module phy_tx_synth(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4,
   );
   (* module_not_derived = 32'd1 *)
   (* src = "phy_tx.v:133" *)
-  serial_paralelo_tx_synth serial_paralelo_tx (
+  Serial_paralelo_tx_synth serial_paralelo_tx (
     .clk_32f(clk_32f),
     .clk_4f(clk_4f),
     .data_in(data_in),

@@ -45,7 +45,7 @@ module testbench;
 
    //Instancia de descripción conductual
 
-   phy_tx phy_tx(/*AUTOINST*/
+   phy_tx phy_tx_0(/*AUTOINST*/
 		 // Outputs
 		 .data_out		(data_out),
 		 .recirc_4		(recirc_4[7:0]),
@@ -79,7 +79,7 @@ module testbench;
     .valid_r_@ (valid_r_synth_\1));
     */
 
-   phy_tx_synth phy_tx_synth(/*AUTOINST*/
+   phy_tx_synth phy_tx_synth_0(/*AUTOINST*/
 			     // Outputs
 			     .data_out		(data_out_synth), // Templated
 			     .recirc_4		(recirc_synth_4[7:0]), // Templated
