@@ -3952,7 +3952,7 @@ module MUX_L2_synth(data_000, valid_000, reset_L, clk_2f, clk_4f, data_00, data_
 endmodule
 
 (* src = "Serial_paralelo_tx.v:1" *)
-module serial_paralelo_tx_synth(clk_4f, clk_32f, data_in, reset, idle);
+module Serial_paralelo_tx_synth(clk_4f, clk_32f, data_in, reset, idle);
   (* src = "Serial_paralelo_tx.v:16" *)
   wire [2:0] _000_;
   (* src = "Serial_paralelo_tx.v:34" *)
@@ -5173,7 +5173,7 @@ module phy_synth(data_in_0, data_in_1, data_in_2, data_in_3, reset_L, valid_in_0
   );
   (* module_not_derived = 32'd1 *)
   (* src = "phy.v:49" *)
-  phy_synth_tx phy_synth_tx (
+  phy_synth_tx  phy_synth_tx  (
     .clk_2f(clk_2f),
     .clk_32f(clk_32f),
     .clk_4f(clk_4f),
@@ -5298,78 +5298,78 @@ module phy_synth_rx(rst_L, clk_f, clk_2f, clk_4f, clk_32f, datos_paralelo_serial
   );
 endmodule
 
-(* src = "phy_tx.v:6" *)
+(* src = "phy_synth_tx .v:6" *)
 module phy_synth_tx(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4, valid_r_5, valid_r_6, valid_r_7, clk_f, clk_2f, clk_4f, clk_32f, reset_L, data_in_0, data_in_1, data_in_2, data_in_3, valid_in_0, valid_in_1, valid_in_2, valid_in_3, data_in);
-  (* src = "phy_tx.v:19" *)
+  (* src = "phy_synth_tx .v:19" *)
   input clk_2f;
-  (* src = "phy_tx.v:21" *)
+  (* src = "phy_synth_tx .v:21" *)
   input clk_32f;
-  (* src = "phy_tx.v:20" *)
+  (* src = "phy_synth_tx .v:20" *)
   input clk_4f;
-  (* src = "phy_tx.v:18" *)
+  (* src = "phy_synth_tx .v:18" *)
   input clk_f;
-  (* src = "phy_tx.v:42" *)
+  (* src = "phy_synth_tx .v:42" *)
   wire [7:0] data_000;
-  (* src = "phy_tx.v:34" *)
+  (* src = "phy_synth_tx .v:34" *)
   input data_in;
-  (* src = "phy_tx.v:25" *)
+  (* src = "phy_synth_tx .v:25" *)
   input [7:0] data_in_0;
-  (* src = "phy_tx.v:26" *)
+  (* src = "phy_synth_tx .v:26" *)
   input [7:0] data_in_1;
-  (* src = "phy_tx.v:27" *)
+  (* src = "phy_synth_tx .v:27" *)
   input [7:0] data_in_2;
-  (* src = "phy_tx.v:28" *)
+  (* src = "phy_synth_tx .v:28" *)
   input [7:0] data_in_3;
-  (* src = "phy_tx.v:7" *)
+  (* src = "phy_synth_tx .v:7" *)
   output data_out;
-  (* src = "phy_tx.v:43" *)
+  (* src = "phy_synth_tx .v:43" *)
   wire idle;
-  (* src = "phy_tx.v:44" *)
+  (* src = "phy_synth_tx .v:44" *)
   wire [7:0] recirc_0;
-  (* src = "phy_tx.v:45" *)
+  (* src = "phy_synth_tx .v:45" *)
   wire [7:0] recirc_1;
-  (* src = "phy_tx.v:46" *)
+  (* src = "phy_synth_tx .v:46" *)
   wire [7:0] recirc_2;
-  (* src = "phy_tx.v:47" *)
+  (* src = "phy_synth_tx .v:47" *)
   wire [7:0] recirc_3;
-  (* src = "phy_tx.v:9" *)
+  (* src = "phy_synth_tx .v:9" *)
   output [7:0] recirc_4;
-  (* src = "phy_tx.v:10" *)
+  (* src = "phy_synth_tx .v:10" *)
   output [7:0] recirc_5;
-  (* src = "phy_tx.v:11" *)
+  (* src = "phy_synth_tx .v:11" *)
   output [7:0] recirc_6;
-  (* src = "phy_tx.v:12" *)
+  (* src = "phy_synth_tx .v:12" *)
   output [7:0] recirc_7;
-  (* src = "phy_tx.v:23" *)
+  (* src = "phy_synth_tx .v:23" *)
   input reset_L;
-  (* src = "phy_tx.v:48" *)
+  (* src = "phy_synth_tx .v:48" *)
   wire valid_000;
-  (* src = "phy_tx.v:29" *)
+  (* src = "phy_synth_tx .v:29" *)
   input valid_in_0;
-  (* src = "phy_tx.v:30" *)
+  (* src = "phy_synth_tx .v:30" *)
   input valid_in_1;
-  (* src = "phy_tx.v:31" *)
+  (* src = "phy_synth_tx .v:31" *)
   input valid_in_2;
-  (* src = "phy_tx.v:32" *)
+  (* src = "phy_synth_tx .v:32" *)
   input valid_in_3;
-  (* src = "phy_tx.v:49" *)
+  (* src = "phy_synth_tx .v:49" *)
   wire valid_r_0;
-  (* src = "phy_tx.v:50" *)
+  (* src = "phy_synth_tx .v:50" *)
   wire valid_r_1;
-  (* src = "phy_tx.v:51" *)
+  (* src = "phy_synth_tx .v:51" *)
   wire valid_r_2;
-  (* src = "phy_tx.v:52" *)
+  (* src = "phy_synth_tx .v:52" *)
   wire valid_r_3;
-  (* src = "phy_tx.v:13" *)
+  (* src = "phy_synth_tx .v:13" *)
   output valid_r_4;
-  (* src = "phy_tx.v:14" *)
+  (* src = "phy_synth_tx .v:14" *)
   output valid_r_5;
-  (* src = "phy_tx.v:15" *)
+  (* src = "phy_synth_tx .v:15" *)
   output valid_r_6;
-  (* src = "phy_tx.v:16" *)
+  (* src = "phy_synth_tx .v:16" *)
   output valid_r_7;
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_tx.v:97" *)
+  (* src = "phy_synth_tx .v:97" *)
   MUXES_synth muxes_tx (
     .clk_2f(clk_2f),
     .clk_4f(clk_4f),
@@ -5387,7 +5387,7 @@ module phy_synth_tx(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4,
     .valid_3(valid_r_3)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_tx.v:120" *)
+  (* src = "phy_synth_tx .v:120" *)
   paralelo_serial_tx_synth paralelo_serial_tx_synth (
     .clk_32f(clk_32f),
     .data_in(data_000),
@@ -5396,7 +5396,7 @@ module phy_synth_tx(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4,
     .valid_in(valid_000)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_tx.v:61" *)
+  (* src = "phy_synth_tx .v:61" *)
   recirculador_synth recirculador_tx (
     .clk(clk_f),
     .data_in_0(data_in_0),
@@ -5426,8 +5426,8 @@ module phy_synth_tx(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4,
     .valid_out_7(valid_r_7)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "phy_tx.v:133" *)
-  serial_paralelo_tx_synth serial_paralelo_tx (
+  (* src = "phy_synth_tx .v:133" *)
+  Serial_paralelo_tx_synth serial_paralelo_tx (
     .clk_32f(clk_32f),
     .clk_4f(clk_4f),
     .data_in(data_in),
