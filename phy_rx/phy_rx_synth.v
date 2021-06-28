@@ -3201,7 +3201,7 @@ module phy_rx_synth(rst_L, clk_f, clk_2f, clk_4f, clk_32f, datos_paralelo_serial
   wire valid_out_sp;
   (* module_not_derived = 32'd1 *)
   (* src = "phy_rx.v:60" *)
-  DEMUX_L1 demux_L1_0 (
+  DEMUX_L1_synth demux_L1_0 (
     .clk_2f(clk_2f),
     .clk_f(clk_f),
     .data_0(data_out_0),
@@ -3219,7 +3219,7 @@ module phy_rx_synth(rst_L, clk_f, clk_2f, clk_4f, clk_32f, datos_paralelo_serial
   );
   (* module_not_derived = 32'd1 *)
   (* src = "phy_rx.v:48" *)
-  DEMUX_L2 demux_L2_0 (
+  DEMUX_L2_synth demux_L2_0 (
     .clk_2f(clk_2f),
     .clk_4f(clk_4f),
     .data_00(data_00),
@@ -3231,7 +3231,7 @@ module phy_rx_synth(rst_L, clk_f, clk_2f, clk_4f, clk_32f, datos_paralelo_serial
   );
   (* module_not_derived = 32'd1 *)
   (* src = "phy_rx.v:39" *)
-  paralelo_serial_rx parelelo_serial_rx_0 (
+  paralelo_serial_rx_synth parelelo_serial_rx_0 (
     .active(active),
     .clk_32f(clk_32f),
     .clk_4f(clk_4f),
@@ -3240,7 +3240,7 @@ module phy_rx_synth(rst_L, clk_f, clk_2f, clk_4f, clk_32f, datos_paralelo_serial
   );
   (* module_not_derived = 32'd1 *)
   (* src = "phy_rx.v:28" *)
-  serial_paralelo_rx serial_paralelo_rx_0 (
+  serial_paralelo_rx_synth serial_paralelo_rx_0 (
     .active(active),
     .clk_32f(clk_32f),
     .clk_4f(clk_4f),
