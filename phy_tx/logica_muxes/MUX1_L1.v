@@ -11,16 +11,19 @@ module MUX1_L1 (
 
    //Señales internas
    reg [7:0] 			 a;
-   reg 				 selector_2f = 0;
+   reg 				 selector_2f;
    reg 				 validt_00;
    
 
    //Lógica selector automático
 
    always @ (posedge clk_2f)
-     begin
-	selector_2f <= ~selector_2f;
-     end
+	begin
+	if(~reset_L)
+		selector_2f <= 1;
+	else
+		selector_2f <= ~selector_2f;
+    end
 
    //Lógica MUX 
 

@@ -570,7 +570,7 @@ module MUXES_synth(data_000, valid_000, reset_L, clk_f, clk_2f, clk_4f, data_0, 
   wire valid__11;
   (* module_not_derived = 32'd1 *)
   (* src = "logica_muxes/MUXES.v:24" *)
-  MUX1_L1 MUX1 (
+  MUX1_L1_synth MUX1 (
     .clk_2f(clk_2f),
     .data_0(data_0),
     .data_00(data__00),
@@ -582,7 +582,7 @@ module MUXES_synth(data_000, valid_000, reset_L, clk_f, clk_2f, clk_4f, data_0, 
   );
   (* module_not_derived = 32'd1 *)
   (* src = "logica_muxes/MUXES.v:33" *)
-  MUX1_L1 MUX2 (
+  MUX1_L1_synth MUX2 (
     .clk_2f(clk_2f),
     .data_0(data_2),
     .data_00(data__11),
@@ -594,7 +594,7 @@ module MUXES_synth(data_000, valid_000, reset_L, clk_f, clk_2f, clk_4f, data_0, 
   );
   (* module_not_derived = 32'd1 *)
   (* src = "logica_muxes/MUXES.v:42" *)
-  MUX_L2 MUX3 (
+  MUX_L2_synth MUX3 (
     .clk_4f(clk_4f),
     .data_00(data__00),
     .data_000(data_000),
@@ -2150,7 +2150,7 @@ module phy_tx_synth(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4,
   output valid_r_7;
   (* module_not_derived = 32'd1 *)
   (* src = "phy_tx.v:97" *)
-  MUXES muxes_tx (
+  MUXES_synth muxes_tx (
     .clk_2f(clk_2f),
     .clk_4f(clk_4f),
     .clk_f(clk_f),
@@ -2168,7 +2168,7 @@ module phy_tx_synth(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4,
   );
   (* module_not_derived = 32'd1 *)
   (* src = "phy_tx.v:120" *)
-  paralelo_serial paralelo_serial_tx (
+  paralelo_serial_synth paralelo_serial_tx_synth (
     .clk_32f(clk_32f),
     .data_in(data_000),
     .data_out(data_out),
@@ -2177,7 +2177,7 @@ module phy_tx_synth(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4,
   );
   (* module_not_derived = 32'd1 *)
   (* src = "phy_tx.v:61" *)
-  recirculador recirculador_tx (
+  recirculador_synth recirculador_tx (
     .clk(clk_f),
     .data_in_0(data_in_0),
     .data_in_1(data_in_1),
@@ -2207,7 +2207,7 @@ module phy_tx_synth(data_out, recirc_4, recirc_5, recirc_6, recirc_7, valid_r_4,
   );
   (* module_not_derived = 32'd1 *)
   (* src = "phy_tx.v:133" *)
-  Serial_paralelo_tx serial_paralelo_tx (
+  serial_paralelo_tx_synth serial_paralelo_tx (
     .clk_32f(clk_32f),
     .clk_4f(clk_4f),
     .data_in(data_in),
