@@ -24,34 +24,37 @@ module MUX1_L1 (
 
    always @(*)
      begin
-	validt_00 = (valid_0 & ~selector_2f) | (valid_1 & selector_2f);
+	a = 0;
+	validt_00 = 0;
 
-	if (~selector_2f)
-	  a = data_0;
-	else
-	  a = data_1;
+	if (~selector_2f) begin
+		a = data_0;
+		validt_00 = valid_0;
+	end
+	  
+	else begin
+		a = data_1;
+		validt_00 = valid_1;
+	end
+	  
      end
 
    // Lógica Flop
 
    always @ (posedge clk_2f)
      begin
-	if(validt_00 & reset_L)
+	if(reset_L)
 	  begin
 	     data_00 <= a;
 	     valid_00 <= validt_00;
 	  end
 
-	else if(~reset_L)
-	  data_00 <= 00000000;
+	else if(~reset_L) begin
+		data_00 <= 0;
+		valid_00 <= 0;
+	end
 	
-	else
-	  begin
-	     data_00 <= data_00;
-	     valid_00 <= validt_00;
-	  end // else: !if(valid_t00)
-	
-     end
+    end
    
 	
 endmodule // MUX1_L1

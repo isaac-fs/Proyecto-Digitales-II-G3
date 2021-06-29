@@ -1,5 +1,5 @@
-`include "logica_muxes/MUX1_L1.v"
-`include "logica_muxes/MUX_L2.v"
+`include "MUX1_L1.v"
+`include "MUX_L2.v"
 
 module MUXES (
 	output [7:0] data_000,

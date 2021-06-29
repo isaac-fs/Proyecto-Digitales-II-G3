@@ -16,14 +16,7 @@ module probador (
 		    input [7:0]      data_000_synth,
 		    input 	     valid_000_synth);
    
-		 
-  
-  
-
-   
-  
-
-   
+		
    //Reloj
 
    initial clk_f <= 0;

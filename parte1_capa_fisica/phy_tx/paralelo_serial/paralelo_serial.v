@@ -15,12 +15,12 @@ module paralelo_serial (
  always @ (posedge clk_32f)
    begin
       
-      if (~reset_L)
-	index <= 000;
+	if (~reset_L)
+	index <= 0;
       else
 	begin
 	   if(index <7)
-	     index <= index +1;
+	     index <= index + 1;
 	   else
 	     index <= 0;
 	end
