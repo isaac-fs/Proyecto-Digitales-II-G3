@@ -11,3 +11,5 @@ sed:
 	sed -i 's/module\sDEMUX_L1(/module DEMUX1_L1_synth(/' DEMUXES_synth.v
 	sed -i 's/module\sDEMUX_L2(/module DEMUX_L2_synth(/' DEMUXES_synth.v
 	sed -i 's/module\sDEMUXES(/module DEMUXES_synth(/' DEMUXES_synth.v
+	sed -i 's/DEMUX_L1 /DEMUX1_L1_synth /g' DEMUXES_synth.v
+	sed -i 's/DEMUX_L2 /DEMUX_L2_synth /g' DEMUXES_synth.v

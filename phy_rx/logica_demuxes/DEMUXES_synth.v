@@ -39,7 +39,7 @@ module DEMUXES_synth(data_0, data_1, data_2, data_3, valid_0, valid_1, valid_2, 
   output valid_3;
   (* module_not_derived = 32'd1 *)
   (* src = "DEMUXES.v:38" *)
-  DEMUX_L1 DEMUX_L1_1 (
+  DEMUX1_L1_synth DEMUX_L1_1 (
     .clk_2f(clk_2f),
     .clk_f(clk_f),
     .data_0(data_0),
@@ -57,7 +57,7 @@ module DEMUXES_synth(data_0, data_1, data_2, data_3, valid_0, valid_1, valid_2, 
   );
   (* module_not_derived = 32'd1 *)
   (* src = "DEMUXES.v:25" *)
-  DEMUX_L2 DEMUX_L2_1 (
+  DEMUX_L2_synth DEMUX_L2_1 (
     .clk_2f(clk_2f),
     .clk_4f(clk_4f),
     .data_00(data00),
