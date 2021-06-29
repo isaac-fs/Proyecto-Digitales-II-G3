@@ -5,13 +5,13 @@ module paralelo_serial_rx(
     input rst_L,
     output reg idle_out);
 
-    reg [2:0] 				 index = 000;
-    reg [7:0] 				 data2send = 000;
+    reg [2:0] 				 index;
+    reg [7:0] 				 data2send;
 
     //Lógica de index
     always @ (posedge clk_32f) begin
         if (~rst_L) begin
-            index <= 000;
+            index <= 0;
             //idle_out <= 8'h00;
         end
 	        
@@ -29,10 +29,16 @@ module paralelo_serial_rx(
     //Lógica de la salida
 
     always @ (posedge clk_4f) begin 
-        if (active)
-            data2send <= 8'h7C; // Enviar IDLE;
-        else
-            data2send <= 8'hBC; // Enviar COM;
+        if (~rst_L) begin
+            data2send <= 8'h7C;
+        end
+        else begin
+            if (active)
+                data2send <= 8'h7C; // Enviar IDLE;
+            else
+                data2send <= 8'hBC; // Enviar COM; 
+        end
+        
     end // always @ (*)
 
 endmodule

@@ -28,6 +28,7 @@ module serial_paralelo_rx (
     always @(posedge clk_4f) begin
         if(~rst_L) begin
             BCcounter <= 0;
+            sp_out <= 0;
             //sp_out <= 0;  
         end
         else begin
