@@ -35,6 +35,7 @@ module Serial_paralelo_tx (clk_4f, clk_32f, data_in, reset,  idle);
 	always @ (posedge clk_32f) begin
 		if (reset==0) begin
 			cont <= 0;
+			data2out <= 0;
 		end
 		else begin
 			cont <= cont + 1;
@@ -48,6 +49,7 @@ module Serial_paralelo_tx (clk_4f, clk_32f, data_in, reset,  idle);
 	end
 	
 	always @ (*) begin
+		active = 0;
 		if (BC_counter == 4) 
 			active = 1;
 		else
