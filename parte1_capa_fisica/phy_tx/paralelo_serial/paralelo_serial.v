@@ -5,7 +5,7 @@ module paralelo_serial (
 			input [7:0] data_in,
 			input 	    valid_in);
    
-   reg [2:0] 				 index = 000;
+   reg [2:0] 				 index;
    reg [7:0] 				 data2send;
    
   
@@ -38,9 +38,9 @@ module paralelo_serial (
       else
 	data2send = 8'hBC;
       if (~reset_L)
-	data_out <= 0;
+	data_out = 0;
       else
-	data_out <= data2send[7-index];
+	data_out = data2send[7-index];
    end // always @ (*)
     
 

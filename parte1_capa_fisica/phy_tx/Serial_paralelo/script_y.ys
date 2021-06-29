@@ -9,10 +9,10 @@ proc; opt; fsm; opt; memory; opt
 techmap; opt
 
 #mapea FF en cmos_cells
-dfflibmap -liberty cmos_cells.lib
+dfflibmap -liberty ../cmos_cells.lib
 
 #mapea compuertas logicas en cmos_cells
-abc -liberty cmos_cells.lib
+abc -liberty ../cmos_cells.lib
 
 #limpieza
 clean

@@ -39,267 +39,285 @@ module paralelo_serial_rx_synth(active, clk_4f, clk_32f, rst_L, idle_out);
   wire _31_;
   wire _32_;
   wire _33_;
+  wire _34_;
+  wire _35_;
+  wire _36_;
+  wire _37_;
   (* src = "paralelo_serial_rx.v:2" *)
   input active;
   (* src = "paralelo_serial_rx.v:4" *)
   input clk_32f;
   (* src = "paralelo_serial_rx.v:3" *)
   input clk_4f;
-  (* init = 8'h00 *)
   (* src = "paralelo_serial_rx.v:9" *)
   wire [7:0] data2send;
   (* src = "paralelo_serial_rx.v:6" *)
   output idle_out;
-  (* init = 3'h0 *)
   (* src = "paralelo_serial_rx.v:8" *)
   wire [2:0] index;
   (* src = "paralelo_serial_rx.v:5" *)
   input rst_L;
-  NOT _34_ (
+  NOT _38_ (
     .A(index[2]),
     .Y(_02_)
   );
-  NOT _35_ (
+  NOT _39_ (
     .A(index[1]),
     .Y(_03_)
   );
-  NOT _36_ (
+  NOT _40_ (
     .A(index[0]),
     .Y(_04_)
   );
-  NOT _37_ (
-    .A(rst_L),
+  NOT _41_ (
+    .A(data2send[4]),
     .Y(_05_)
   );
-  NOT _38_ (
-    .A(active),
-    .Y(_00_[7])
-  );
-  NOR _39_ (
-    .A(_02_),
-    .B(data2send[0]),
+  NOT _42_ (
+    .A(data2send[2]),
     .Y(_06_)
   );
-  NOR _40_ (
-    .A(index[2]),
-    .B(data2send[4]),
+  NOT _43_ (
+    .A(data2send[1]),
     .Y(_07_)
   );
-  NOR _41_ (
-    .A(_06_),
-    .B(_07_),
+  NOT _44_ (
+    .A(rst_L),
     .Y(_08_)
   );
-  NOR _42_ (
-    .A(_04_),
-    .B(_08_),
+  NOR _45_ (
+    .A(index[1]),
+    .B(index[0]),
     .Y(_09_)
   );
-  NOR _43_ (
-    .A(_02_),
-    .B(data2send[1]),
+  NOT _46_ (
+    .A(_09_),
     .Y(_10_)
   );
-  NOR _44_ (
-    .A(index[2]),
-    .B(data2send[5]),
+  NOR _47_ (
+    .A(_02_),
+    .B(data2send[3]),
     .Y(_11_)
   );
-  NOR _45_ (
-    .A(_10_),
-    .B(_11_),
+  NOR _48_ (
+    .A(index[2]),
+    .B(data2send[7]),
     .Y(_12_)
   );
-  NOR _46_ (
-    .A(index[0]),
-    .B(_12_),
+  NOT _49_ (
+    .A(_12_),
     .Y(_13_)
   );
-  NOR _47_ (
+  NAND _50_ (
     .A(_09_),
     .B(_13_),
     .Y(_14_)
   );
-  NOR _48_ (
-    .A(_03_),
+  NOR _51_ (
+    .A(_11_),
     .B(_14_),
     .Y(_15_)
   );
-  NOR _49_ (
-    .A(index[2]),
-    .B(data2send[6]),
+  NAND _52_ (
+    .A(index[1]),
+    .B(index[0]),
     .Y(_16_)
   );
-  NOR _50_ (
-    .A(_02_),
-    .B(data2send[2]),
-    .Y(_17_)
-  );
-  NOR _51_ (
+  NOT _53_ (
     .A(_16_),
-    .B(_17_),
-    .Y(_18_)
-  );
-  NOR _52_ (
-    .A(_04_),
-    .B(_18_),
-    .Y(_19_)
-  );
-  NOR _53_ (
-    .A(index[2]),
-    .B(data2send[7]),
-    .Y(_20_)
+    .Y(_17_)
   );
   NOR _54_ (
     .A(_02_),
-    .B(data2send[3]),
-    .Y(_21_)
+    .B(data2send[0]),
+    .Y(_18_)
   );
-  NOR _55_ (
-    .A(_20_),
-    .B(_21_),
-    .Y(_22_)
+  NAND _55_ (
+    .A(_02_),
+    .B(_05_),
+    .Y(_19_)
   );
-  NOR _56_ (
-    .A(index[0]),
-    .B(_22_),
-    .Y(_23_)
+  NAND _56_ (
+    .A(_17_),
+    .B(_19_),
+    .Y(_20_)
   );
   NOR _57_ (
-    .A(_19_),
-    .B(_23_),
-    .Y(_24_)
+    .A(_18_),
+    .B(_20_),
+    .Y(_21_)
   );
   NOR _58_ (
+    .A(index[2]),
+    .B(data2send[6]),
+    .Y(_22_)
+  );
+  NAND _59_ (
+    .A(index[2]),
+    .B(_06_),
+    .Y(_23_)
+  );
+  NOR _60_ (
     .A(index[1]),
+    .B(_04_),
+    .Y(_24_)
+  );
+  NAND _61_ (
+    .A(_23_),
     .B(_24_),
     .Y(_25_)
   );
-  NOR _59_ (
-    .A(_03_),
-    .B(_04_),
+  NOR _62_ (
+    .A(_22_),
+    .B(_25_),
     .Y(_26_)
   );
-  NAND _60_ (
-    .A(index[1]),
-    .B(index[0]),
+  NOR _63_ (
+    .A(index[2]),
+    .B(data2send[5]),
     .Y(_27_)
   );
-  NOR _61_ (
-    .A(_15_),
-    .B(_25_),
-    .Y(idle_out)
-  );
-  NOR _62_ (
-    .A(index[1]),
-    .B(index[0]),
+  NAND _64_ (
+    .A(index[2]),
+    .B(_07_),
     .Y(_28_)
   );
-  NOT _63_ (
-    .A(_28_),
+  NOR _65_ (
+    .A(_03_),
+    .B(index[0]),
     .Y(_29_)
   );
-  NAND _64_ (
-    .A(rst_L),
+  NAND _66_ (
+    .A(_28_),
     .B(_29_),
     .Y(_30_)
   );
-  NOR _65_ (
-    .A(_26_),
-    .B(_30_),
-    .Y(_01_[1])
-  );
-  NOR _66_ (
-    .A(index[0]),
-    .B(_05_),
-    .Y(_01_[0])
-  );
   NOR _67_ (
-    .A(_02_),
-    .B(_27_),
+    .A(_27_),
+    .B(_30_),
     .Y(_31_)
   );
-  NAND _68_ (
-    .A(_02_),
-    .B(_27_),
+  NOR _68_ (
+    .A(_21_),
+    .B(_31_),
     .Y(_32_)
   );
-  NAND _69_ (
-    .A(rst_L),
-    .B(_32_),
+  NOR _69_ (
+    .A(_15_),
+    .B(_26_),
     .Y(_33_)
   );
-  NOR _70_ (
-    .A(_31_),
+  NAND _70_ (
+    .A(_32_),
     .B(_33_),
-    .Y(_01_[2])
+    .Y(idle_out)
   );
-  BUF _71_ (
-    .A(active),
+  NAND _71_ (
+    .A(rst_L),
+    .B(_10_),
+    .Y(_34_)
+  );
+  NOR _72_ (
+    .A(_17_),
+    .B(_34_),
+    .Y(_01_[1])
+  );
+  NOR _73_ (
+    .A(index[0]),
+    .B(_08_),
+    .Y(_01_[0])
+  );
+  NOR _74_ (
+    .A(_08_),
+    .B(active),
+    .Y(_00_[7])
+  );
+  NOT _75_ (
+    .A(_00_[7]),
     .Y(_00_[6])
   );
+  NOR _76_ (
+    .A(_02_),
+    .B(_16_),
+    .Y(_35_)
+  );
+  NAND _77_ (
+    .A(_02_),
+    .B(_16_),
+    .Y(_36_)
+  );
+  NAND _78_ (
+    .A(rst_L),
+    .B(_36_),
+    .Y(_37_)
+  );
+  NOR _79_ (
+    .A(_35_),
+    .B(_37_),
+    .Y(_01_[2])
+  );
   (* src = "paralelo_serial_rx.v:31" *)
-  DFF _72_ (
+  DFF _80_ (
     .C(clk_4f),
     .D(1'h0),
     .Q(data2send[0])
   );
   (* src = "paralelo_serial_rx.v:31" *)
-  DFF _73_ (
+  DFF _81_ (
     .C(clk_4f),
     .D(1'h0),
     .Q(data2send[1])
   );
   (* src = "paralelo_serial_rx.v:31" *)
-  DFF _74_ (
+  DFF _82_ (
     .C(clk_4f),
     .D(1'h1),
     .Q(data2send[2])
   );
   (* src = "paralelo_serial_rx.v:31" *)
-  DFF _75_ (
+  DFF _83_ (
     .C(clk_4f),
     .D(1'h1),
     .Q(data2send[3])
   );
   (* src = "paralelo_serial_rx.v:31" *)
-  DFF _76_ (
+  DFF _84_ (
     .C(clk_4f),
     .D(1'h1),
     .Q(data2send[4])
   );
   (* src = "paralelo_serial_rx.v:31" *)
-  DFF _77_ (
+  DFF _85_ (
     .C(clk_4f),
     .D(1'h1),
     .Q(data2send[5])
   );
   (* src = "paralelo_serial_rx.v:31" *)
-  DFF _78_ (
+  DFF _86_ (
     .C(clk_4f),
     .D(_00_[6]),
     .Q(data2send[6])
   );
   (* src = "paralelo_serial_rx.v:31" *)
-  DFF _79_ (
+  DFF _87_ (
     .C(clk_4f),
     .D(_00_[7]),
     .Q(data2send[7])
   );
   (* src = "paralelo_serial_rx.v:12" *)
-  DFF _80_ (
+  DFF _88_ (
     .C(clk_32f),
     .D(_01_[0]),
     .Q(index[0])
   );
   (* src = "paralelo_serial_rx.v:12" *)
-  DFF _81_ (
+  DFF _89_ (
     .C(clk_32f),
     .D(_01_[1]),
     .Q(index[1])
   );
   (* src = "paralelo_serial_rx.v:12" *)
-  DFF _82_ (
+  DFF _90_ (
     .C(clk_32f),
     .D(_01_[2]),
     .Q(index[2])

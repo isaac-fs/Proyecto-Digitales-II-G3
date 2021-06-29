@@ -1,7 +1,7 @@
 `timescale 	1ns	/ 100ps
 `include "Serial_paralelo_tx.v"
 `include "serial_paralelo_synth.v"
-`include "cmos_cells.v"
+`include "../cmos_cells.v"
 `include "probador.v"
 
 module BancoPruebas_PtoS; 
