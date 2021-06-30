@@ -1,0 +1,80 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun 30 00:58:08 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/serial_paralelo_rx/serial_paralelo_rx.vcd"
+[dumpfile_mtime] "Tue Jun 29 22:13:50 2021"
+[dumpfile_size] 50247
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/serial_paralelo_rx/serial_paralelo_rx.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] -10 -83
+*-17.247072 331300 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BancoPruebas.
+[treeopen] BancoPruebas.module_serial_paralelo_0_synth.
+[sst_width] 251
+[signals_width] 179
+[sst_expanded] 1
+[sst_vpaned_height] 290
+@200
+-Relojes
+@28
+BancoPruebas.clk_4f
+BancoPruebas.clk_32f
+BancoPruebas.probador_.rst_L
+@200
+-
+-Entradas
+@28
+[color] 7
+BancoPruebas.data_in
+@22
+[color] 7
+BancoPruebas.probador_.data[7:0]
+@200
+-
+-Señales relevantes
+@29
+[color] 2
+BancoPruebas.module_serial_paralelo_0.BCcounter[2:0]
+@200
+-
+-Señales conductuales
+@c00022
+[color] 3
+BancoPruebas.sp_out_cond[7:0]
+@28
+[color] 3
+(0)BancoPruebas.sp_out_cond[7:0]
+[color] 3
+(1)BancoPruebas.sp_out_cond[7:0]
+[color] 3
+(2)BancoPruebas.sp_out_cond[7:0]
+[color] 3
+(3)BancoPruebas.sp_out_cond[7:0]
+[color] 3
+(4)BancoPruebas.sp_out_cond[7:0]
+[color] 3
+(5)BancoPruebas.sp_out_cond[7:0]
+[color] 3
+(6)BancoPruebas.sp_out_cond[7:0]
+[color] 3
+(7)BancoPruebas.sp_out_cond[7:0]
+@1401200
+-group_end
+@28
+BancoPruebas.valid_out_sp_cond
+BancoPruebas.active_cond
+@200
+-
+-Señales estructurales
+@22
+[color] 3
+BancoPruebas.probador_.sp_out_synth[7:0]
+@28
+BancoPruebas.probador_.valid_out_sp_synth
+BancoPruebas.probador_.active_synth
+@200
+-
+[pattern_trace] 1
+[pattern_trace] 0

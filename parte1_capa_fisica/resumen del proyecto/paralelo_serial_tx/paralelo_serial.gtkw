@@ -1,0 +1,57 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Tue Jun 29 23:56:32 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Correcion_final/paralelo_serial_tx/senales_paralelo_serial.vcd"
+[dumpfile_mtime] "Tue Jun 29 22:29:04 2021"
+[dumpfile_size] 11445
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Correcion_final/paralelo_serial_tx/paralelo_serial.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] 0 26
+*-13.560899 18790 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Banco_pruebas.
+[treeopen] Banco_pruebas.paralelo_serial_synth.
+[sst_width] 223
+[signals_width] 323
+[sst_expanded] 1
+[sst_vpaned_height] 294
+@200
+-Señales de reloj
+@28
+Banco_pruebas.clk_4f
+Banco_pruebas.clk_32f
+@200
+-Entradas
+@22
+[color] 3
+Banco_pruebas.data_in[7:0]
+@28
+Banco_pruebas.valid_in
+Banco_pruebas.reset_L
+@200
+-Señales internas
+@22
+[color] 2
+Banco_pruebas.paralelo_serial.data2send[7:0]
+@28
+[color] 2
+Banco_pruebas.paralelo_serial.data2send[7:0]
+@200
+-Salida
+@28
+[color] 5
+Banco_pruebas.data_out_cond
+Banco_pruebas.clk_32f
+@200
+-Salida synth
+@28
+[color] 5
+Banco_pruebas.data_out_synth
+Banco_pruebas.clk_32f
+@200
+-Checker (Alto para log eq)
+@420
+Banco_pruebas.probador.check
+[pattern_trace] 1
+[pattern_trace] 0

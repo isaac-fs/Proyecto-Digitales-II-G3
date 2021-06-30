@@ -1,0 +1,80 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun 30 00:59:37 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/phy_tx/phy_tx.vcd"
+[dumpfile_mtime] "Tue Jun 29 22:56:37 2021"
+[dumpfile_size] 192612
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/phy_tx/phy_tx.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] 0 26
+*-16.453388 67300 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[treeopen] testbench.phy_tx_synth_0.
+[treeopen] testbench.phy_tx_synth_0.paralelo_serial_tx.
+[sst_width] 211
+[signals_width] 451
+[sst_expanded] 1
+[sst_vpaned_height] 296
+@200
+-Relojes
+@28
+testbench.clk_f
+testbench.clk_2f
+testbench.clk_4f
+testbench.clk_32f
+@200
+-Reset
+@28
+testbench.reset_L
+@200
+-Entrada Probador -> Recirculador
+@22
+[color] 2
+testbench.data_in_0[7:0]
+[color] 2
+testbench.data_in_1[7:0]
+[color] 2
+testbench.data_in_2[7:0]
+[color] 2
+testbench.data_in_3[7:0]
+@28
+[color] 3
+testbench.valid_in_0
+[color] 3
+testbench.valid_in_1
+[color] 3
+testbench.valid_in_2
+[color] 3
+testbench.valid_in_3
+@200
+-Entrada Probador -> Serial_paralelo
+@28
+[color] 1
+testbench.data_in
+@200
+-Salida recirculador -> Probador
+@22
+[color] 4
+testbench.recirc_4[7:0]
+[color] 4
+testbench.recirc_5[7:0]
+[color] 4
+testbench.recirc_6[7:0]
+[color] 4
+testbench.recirc_7[7:0]
+@200
+-Salidas Recirculador -> Muxes
+-Salida Muxes -> Paralelo_serial
+-Salida Paralelo_serial -> Probador
+@28
+[color] 3
+testbench.data_out
+@200
+-Salida Paralelo_serial -> Probador (Sintetizado)
+@28
+[color] 3
+testbench.data_out_synth
+[pattern_trace] 1
+[pattern_trace] 0

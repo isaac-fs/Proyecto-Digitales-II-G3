@@ -1,0 +1,91 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun 30 00:57:55 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/demuxes/senales_DEMUX.vcd"
+[dumpfile_mtime] "Tue Jun 29 22:01:27 2021"
+[dumpfile_size] 82020
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/demuxes/DEMUXES.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] -10 -83
+*-14.833042 156700 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] Banco_pruebas.
+[treeopen] Banco_pruebas.DEMUXES_synth.
+[treeopen] Banco_pruebas.DEMUXES_synth.DEMUX_L1_1.
+[sst_width] 233
+[signals_width] 198
+[sst_expanded] 1
+[sst_vpaned_height] 285
+@200
+-Señales de reloj
+@28
+Banco_pruebas.clk_4f
+Banco_pruebas.clk_2f
+Banco_pruebas.clk_f
+@200
+-
+-Datos entrada
+@22
+[color] 2
+Banco_pruebas.data_000[7:0]
+@28
+Banco_pruebas.valid_000
+@200
+-
+-Salida L2 conductual
+@22
+[color] 7
+Banco_pruebas.DEMUXES.data00[7:0]
+[color] 7
+Banco_pruebas.DEMUXES.data11[7:0]
+@28
+Banco_pruebas.DEMUXES.valid00
+Banco_pruebas.DEMUXES.valid11
+@200
+-
+-Salida L1 conductual
+@22
+[color] 3
+Banco_pruebas.data_0_cond[7:0]
+[color] 3
+Banco_pruebas.data_1_cond[7:0]
+[color] 3
+Banco_pruebas.data_2_cond[7:0]
+[color] 3
+Banco_pruebas.data_3_cond[7:0]
+@28
+Banco_pruebas.valid_0_cond
+Banco_pruebas.valid_1_cond
+Banco_pruebas.valid_3_cond
+@200
+-
+-
+-Salida L2 estructural
+@22
+[color] 7
+Banco_pruebas.DEMUXES_synth.data00[7:0]
+[color] 7
+Banco_pruebas.DEMUXES_synth.data11[7:0]
+@28
+Banco_pruebas.DEMUXES_synth.valid00
+Banco_pruebas.DEMUXES_synth.valid11
+@200
+-
+-Salida L1 estructural
+@22
+[color] 3
+Banco_pruebas.data_0_synth[7:0]
+[color] 3
+Banco_pruebas.data_1_synth[7:0]
+[color] 3
+Banco_pruebas.data_2_synth[7:0]
+[color] 3
+Banco_pruebas.data_3_synth[7:0]
+@28
+Banco_pruebas.valid_0_synth
+Banco_pruebas.valid_1_synth
+Banco_pruebas.valid_2_synth
+Banco_pruebas.valid_3_synth
+[pattern_trace] 1
+[pattern_trace] 0

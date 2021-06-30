@@ -1,0 +1,118 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun 30 01:01:02 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/phy_rx/phy_rx.vcd"
+[dumpfile_mtime] "Tue Jun 29 22:25:46 2021"
+[dumpfile_size] 213844
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/phy_rx/phy_rx.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] -68 -68
+*-18.166424 157000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BancoPruebas.
+[treeopen] BancoPruebas.phy_rx_0.
+[treeopen] BancoPruebas.phy_rx_synth_0.
+[treeopen] BancoPruebas.phy_rx_synth_0.demux_L2_0.
+[sst_width] 211
+[signals_width] 177
+[sst_expanded] 1
+[sst_vpaned_height] 290
+@200
+-Clocks
+@28
+[color] 1
+BancoPruebas.phy_rx_0.clk_f
+[color] 2
+BancoPruebas.phy_rx_0.clk_2f
+[color] 3
+BancoPruebas.phy_rx_0.clk_4f
+[color] 4
+BancoPruebas.phy_rx_0.clk_32f
+@200
+-
+-Entradas
+@28
+[color] 1
+BancoPruebas.probador_.rst_L
+[color] 1
+BancoPruebas.datos_paralelo_serial
+@200
+-Datos relevantes
+@22
+[color] 3
+BancoPruebas.probador_.data[7:0]
+@28
+[color] 4
+BancoPruebas.phy_rx_0.serial_paralelo_rx_0.BCcounter[2:0]
+@200
+-
+-Salidas condicionales
+@22
+[color] 3
+BancoPruebas.probador_.data_out_0_cond[7:0]
+[color] 3
+BancoPruebas.probador_.data_out_1_cond[7:0]
+[color] 3
+BancoPruebas.probador_.data_out_2_cond[7:0]
+[color] 3
+BancoPruebas.probador_.data_out_3_cond[7:0]
+@200
+-
+-Datos relevantes
+@28
+[color] 2
+BancoPruebas.probador_.valid_out_0_cond
+[color] 2
+BancoPruebas.probador_.valid_out_1_cond
+[color] 2
+BancoPruebas.probador_.valid_out_2_cond
+[color] 2
+BancoPruebas.probador_.valid_out_3_cond
+@200
+-
+@28
+[color] 4
+BancoPruebas.probador_.idle_out_cond
+@200
+-Datos relevantes
+@23
+[color] 5
+BancoPruebas.phy_rx_synth_0.parelelo_serial_rx_0.data2send[7:0]
+@200
+-
+-Salidas estructurales
+@22
+[color] 3
+BancoPruebas.probador_.data_out_0_synth[7:0]
+[color] 3
+BancoPruebas.probador_.data_out_1_synth[7:0]
+[color] 3
+BancoPruebas.probador_.data_out_2_synth[7:0]
+[color] 3
+BancoPruebas.probador_.data_out_3_synth[7:0]
+@200
+-
+@28
+[color] 3
+BancoPruebas.probador_.valid_out_0_synth
+[color] 3
+BancoPruebas.probador_.valid_out_1_synth
+[color] 3
+BancoPruebas.probador_.valid_out_2_synth
+[color] 3
+BancoPruebas.probador_.valid_out_3_synth
+@200
+-
+@28
+[color] 4
+BancoPruebas.probador_.idle_out_synth
+@200
+-Datos relevantes
+@22
+[color] 5
+BancoPruebas.phy_rx_0.parelelo_serial_rx_0.data2send[7:0]
+@200
+-
+[pattern_trace] 1
+[pattern_trace] 0

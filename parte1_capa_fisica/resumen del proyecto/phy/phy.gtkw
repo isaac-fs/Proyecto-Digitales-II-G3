@@ -1,0 +1,152 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Wed Jun 30 01:03:47 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/phy/phy.vcd"
+[dumpfile_mtime] "Tue Jun 29 23:31:35 2021"
+[dumpfile_size] 504208
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/avances/correcion_final_G3/phy/phy.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] -10 -83
+*-16.976772 372700 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] BancoPruebas.
+[treeopen] BancoPruebas.phy.phy_rx.
+[treeopen] BancoPruebas.phy_synth.
+[treeopen] BancoPruebas.phy_synth.phy_synth_tx.
+[treeopen] BancoPruebas.phy_synth.phy_synth_tx.paralelo_serial_tx_synth.
+[sst_width] 233
+[signals_width] 198
+[sst_expanded] 1
+[sst_vpaned_height] 279
+@200
+-Relojes
+@28
+BancoPruebas.clk_f
+BancoPruebas.clk_2f
+BancoPruebas.clk_4f
+BancoPruebas.clk_32f
+@200
+-
+-Relevantes
+@28
+BancoPruebas.phy.idle_out
+BancoPruebas.phy.reset_L
+@200
+-
+-Entradas
+@22
+[color] 3
+BancoPruebas.data_in_0[7:0]
+[color] 3
+BancoPruebas.data_in_1[7:0]
+[color] 3
+BancoPruebas.data_in_2[7:0]
+[color] 3
+BancoPruebas.data_in_3[7:0]
+@28
+[color] 3
+BancoPruebas.valid_in_0
+[color] 3
+BancoPruebas.valid_in_1
+[color] 3
+BancoPruebas.valid_in_2
+[color] 3
+BancoPruebas.valid_in_3
+@200
+-
+-Salidas recirculacion
+-Condicional
+@22
+[color] 5
+BancoPruebas.recirc_4_cond[7:0]
+[color] 5
+BancoPruebas.recirc_5_cond[7:0]
+[color] 5
+BancoPruebas.recirc_6_cond[7:0]
+@23
+[color] 5
+BancoPruebas.recirc_7_cond[7:0]
+@200
+-
+@28
+[color] 4
+BancoPruebas.phy.valid_r_4
+[color] 4
+BancoPruebas.phy.valid_r_5
+[color] 4
+BancoPruebas.phy.valid_r_6
+[color] 4
+BancoPruebas.phy.valid_r_7
+@200
+-
+-Estructural
+@22
+[color] 5
+BancoPruebas.recirc_4_synth[7:0]
+[color] 5
+BancoPruebas.recirc_5_synth[7:0]
+[color] 5
+BancoPruebas.recirc_6_synth[7:0]
+[color] 5
+BancoPruebas.recirc_7_synth[7:0]
+@200
+-
+@28
+[color] 4
+BancoPruebas.phy_synth.valid_r_4
+[color] 4
+BancoPruebas.phy_synth.valid_r_5
+[color] 4
+BancoPruebas.phy_synth.valid_r_6
+[color] 4
+BancoPruebas.phy_synth.valid_r_7
+@200
+-
+-Salida rx
+-Condicional
+@22
+[color] 3
+BancoPruebas.data_out_0_cond[7:0]
+[color] 3
+BancoPruebas.data_out_1_cond[7:0]
+[color] 3
+BancoPruebas.data_out_2_cond[7:0]
+[color] 3
+BancoPruebas.data_out_3_cond[7:0]
+@200
+-
+@28
+[color] 2
+BancoPruebas.valid_out_0_cond
+[color] 2
+BancoPruebas.valid_out_1_cond
+[color] 2
+BancoPruebas.valid_out_2_cond
+[color] 2
+BancoPruebas.valid_out_3_cond
+@200
+-
+-Estructural
+@22
+[color] 3
+BancoPruebas.data_out_0_synth[7:0]
+[color] 3
+BancoPruebas.data_out_1_synth[7:0]
+[color] 3
+BancoPruebas.data_out_2_synth[7:0]
+[color] 3
+BancoPruebas.data_out_3_synth[7:0]
+@200
+-
+@28
+[color] 2
+BancoPruebas.valid_out_0_synth
+[color] 2
+BancoPruebas.valid_out_1_synth
+[color] 2
+BancoPruebas.valid_out_2_synth
+[color] 2
+BancoPruebas.valid_out_3_synth
+[pattern_trace] 1
+[pattern_trace] 0
