@@ -1,0 +1,35 @@
+module probador_memoria(output reg clk,
+			output reg 	 wr_en,
+			output reg 	 rd_en,
+			output reg 	 reset_L,
+			output reg [9:0] data_in,
+			output reg [3:0] wr_add,
+			output reg [3:0] rd_add,
+			input [7:0] 	 data_out_mem);
+   
+    //Reloj
+   initial clk <= 0;
+   always #1 clk <= ~clk;
+
+    //Secuencia de prueba 
+   initial begin
+      $dumpfile("memoria.vcd");
+      $dumpvars();
+      {reset_L,wr_en, rd_en}  <= 0;
+      {wr_add, rd_add} <= 0;
+      
+      @(posedge clk);
+      @(posedge clk);
+      reset_L <= 1;
+      @(posedge clk);
+      wr_en <= 1;
+      @(posedge clk);
+      data_in <= 'h0FF;
+      wr_add <= 'b000;
+      @(posedge clk);
+
+     
+      $finish;
+      
+   end // initial begin
+endmodule // probador_memoria
