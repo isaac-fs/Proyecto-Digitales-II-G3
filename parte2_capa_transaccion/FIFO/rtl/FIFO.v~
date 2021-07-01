@@ -1,0 +1,29 @@
+`include "memoria.v"
+module FIFO (
+    input clk;
+    input [9:0] fifo_data_in;
+    input fifo_wr_en; // En arquitectura fifo_wr
+    input fifo_rd_en; // En arquitectura fifo_rd
+    output reg [9:0] fifo_data_out;
+    output reg fifo_empty;
+    output reg fifo_full;
+);
+    
+// Un push es hacer un enable de write y poner el dato
+// Un pop es hacer un enable de read y sacar el dato
+
+/*AUTOWIRE*/
+/*AUTOREG*/
+memoria memoria_fifo(/*AUTOINST*/
+		     // Outputs
+		     .data_out		(data_out[9:0]),
+		     // Inputs
+		     .clk		(clk),
+		     .wr_en		(wr_en),
+		     .rd_en		(rd_en),
+		     .reset_L		(reset_L),
+		     .data_in		(data_in[9:0]),
+		     .wr_ptr		(wr_ptr[3:0]),
+		     .rd_ptr		(rd_ptr[3:0]));
+
+endmodule

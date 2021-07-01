@@ -1,0 +1,23 @@
+# Yosys script 
+
+# read desing
+read_verilog rtl/fsm_mux.v
+hierarchy -check -top fsm_mux
+
+# the high-level stuff
+proc; opt; fsm; opt; memory; opt
+
+# mapping to internal cell library
+techmap;
+
+# mapping flip-flops to <mycells.lib>
+dfflibmap -liberty synthesis/cmos_cells/cmos_cells.lib
+
+# mapping logic to <mycells.lib>
+abc -liberty synthesis/cmos_cells/cmos_cells.lib
+
+#cleanup
+clean
+
+# write synthesized design
+write_verilog rtl/fsm_mux_synth.v
