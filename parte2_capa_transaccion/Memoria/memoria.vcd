@@ -1,5 +1,5 @@
 $date
-	Wed Jun 30 00:46:54 2021
+	Wed Jun 30 20:35:37 2021
 $end
 $version
 	Icarus Verilog
@@ -19,33 +19,33 @@ $var wire 1 & S $end
 $var reg 1 ' Q $end
 $upscope $end
 $scope module testbench_memoria $end
-$var wire 1 ( wr_en $end
-$var wire 4 ) wr_add [3:0] $end
+$var wire 4 ( wr_ptr [3:0] $end
+$var wire 1 ) wr_en $end
 $var wire 1 * reset_L $end
-$var wire 1 + rd_en $end
-$var wire 4 , rd_add [3:0] $end
-$var wire 10 - data_out_mem_synth [9:0] $end
-$var wire 10 . data_out_mem [9:0] $end
+$var wire 4 + rd_ptr [3:0] $end
+$var wire 1 , rd_en $end
+$var wire 10 - data_out_synth [9:0] $end
+$var wire 10 . data_out [9:0] $end
 $var wire 10 / data_in [9:0] $end
 $var wire 1 0 clk $end
 $scope module memoria $end
-$var wire 1 ( wr_en $end
-$var wire 4 1 wr_add [3:0] $end
+$var wire 4 1 wr_ptr [3:0] $end
+$var wire 1 ) wr_en $end
 $var wire 1 * reset_L $end
-$var wire 1 + rd_en $end
-$var wire 4 2 rd_add [3:0] $end
+$var wire 4 2 rd_ptr [3:0] $end
+$var wire 1 , rd_en $end
 $var wire 10 3 data_in [9:0] $end
 $var wire 1 0 clk $end
-$var reg 10 4 data_out_mem [9:0] $end
+$var reg 10 4 data_out [9:0] $end
 $var integer 32 5 i [31:0] $end
 $upscope $end
 $scope module memoria_synth $end
 $var wire 32 6 i [31:0] $end
-$var wire 1 ( wr_en $end
-$var wire 4 7 wr_add [3:0] $end
+$var wire 4 7 wr_ptr [3:0] $end
+$var wire 1 ) wr_en $end
 $var wire 1 * reset_L $end
-$var wire 1 + rd_en $end
-$var wire 4 8 rd_add [3:0] $end
+$var wire 4 8 rd_ptr [3:0] $end
+$var wire 1 , rd_en $end
 $var wire 10 9 \mem[7] [9:0] $end
 $var wire 10 : \mem[6] [9:0] $end
 $var wire 10 ; \mem[5] [9:0] $end
@@ -54,7 +54,7 @@ $var wire 10 = \mem[3] [9:0] $end
 $var wire 10 > \mem[2] [9:0] $end
 $var wire 10 ? \mem[1] [9:0] $end
 $var wire 10 @ \mem[0] [9:0] $end
-$var wire 10 A data_out_mem [9:0] $end
+$var wire 10 A data_out [9:0] $end
 $var wire 10 B data_in [9:0] $end
 $var wire 1 0 clk $end
 $var wire 1 C _0681_ $end
@@ -797,7 +797,7 @@ $var wire 1 Z' Y $end
 $upscope $end
 $scope module _0696_ $end
 $var wire 1 Y' Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0697_ $end
 $var wire 1 i( A $end
@@ -912,7 +912,7 @@ $upscope $end
 $scope module _0719_ $end
 $var wire 1 x( A $end
 $var wire 1 B' Y $end
-$var wire 1 + B $end
+$var wire 1 , B $end
 $upscope $end
 $scope module _0720_ $end
 $var wire 1 B' A $end
@@ -1041,7 +1041,7 @@ $upscope $end
 $scope module _0745_ $end
 $var wire 1 +) B $end
 $var wire 1 )' Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0746_ $end
 $var wire 1 )' A $end
@@ -1170,7 +1170,7 @@ $upscope $end
 $scope module _0771_ $end
 $var wire 1 <) B $end
 $var wire 1 n& Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0772_ $end
 $var wire 1 n& A $end
@@ -1299,7 +1299,7 @@ $upscope $end
 $scope module _0797_ $end
 $var wire 1 M) B $end
 $var wire 1 U& Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0798_ $end
 $var wire 1 U& A $end
@@ -1428,7 +1428,7 @@ $upscope $end
 $scope module _0823_ $end
 $var wire 1 ^) B $end
 $var wire 1 <& Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0824_ $end
 $var wire 1 <& A $end
@@ -1557,7 +1557,7 @@ $upscope $end
 $scope module _0849_ $end
 $var wire 1 o) B $end
 $var wire 1 #& Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0850_ $end
 $var wire 1 #& A $end
@@ -1686,7 +1686,7 @@ $upscope $end
 $scope module _0875_ $end
 $var wire 1 "* B $end
 $var wire 1 h% Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0876_ $end
 $var wire 1 h% A $end
@@ -1815,7 +1815,7 @@ $upscope $end
 $scope module _0901_ $end
 $var wire 1 3* B $end
 $var wire 1 O% Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0902_ $end
 $var wire 1 O% A $end
@@ -1944,7 +1944,7 @@ $upscope $end
 $scope module _0927_ $end
 $var wire 1 D* B $end
 $var wire 1 6% Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0928_ $end
 $var wire 1 6% A $end
@@ -2073,7 +2073,7 @@ $upscope $end
 $scope module _0953_ $end
 $var wire 1 U* B $end
 $var wire 1 {$ Y $end
-$var wire 1 + A $end
+$var wire 1 , A $end
 $upscope $end
 $scope module _0954_ $end
 $var wire 1 {$ A $end
@@ -2092,12 +2092,12 @@ $upscope $end
 $scope module _0957_ $end
 $var wire 1 W* B $end
 $var wire 1 x$ Y $end
-$var wire 1 ( A $end
+$var wire 1 ) A $end
 $upscope $end
 $scope module _0958_ $end
 $var wire 1 X* B $end
 $var wire 1 w$ Y $end
-$var wire 1 ( A $end
+$var wire 1 ) A $end
 $upscope $end
 $scope module _0959_ $end
 $var wire 1 w$ B $end
@@ -2120,7 +2120,7 @@ $var wire 1 s$ Y $end
 $upscope $end
 $scope module _0963_ $end
 $var wire 1 r$ Y $end
-$var wire 1 ( B $end
+$var wire 1 ) B $end
 $var wire 1 * A $end
 $upscope $end
 $scope module _0964_ $end
@@ -2376,7 +2376,7 @@ $upscope $end
 $scope module _1016_ $end
 $var wire 1 m* B $end
 $var wire 1 G$ Y $end
-$var wire 1 ( A $end
+$var wire 1 ) A $end
 $upscope $end
 $scope module _1017_ $end
 $var wire 1 s$ A $end
@@ -4546,15 +4546,15 @@ $var reg 1 _, Q $end
 $upscope $end
 $upscope $end
 $scope module probador_memoria $end
-$var wire 10 `, data_out_mem [9:0] $end
-$var wire 10 a, data_out_mem_synth [9:0] $end
+$var wire 10 `, data_out [9:0] $end
+$var wire 10 a, data_out_synth [9:0] $end
 $var reg 1 0 clk $end
 $var reg 10 b, data_in [9:0] $end
-$var reg 4 c, rd_add [3:0] $end
-$var reg 1 + rd_en $end
+$var reg 1 , rd_en $end
+$var reg 4 c, rd_ptr [3:0] $end
 $var reg 1 * reset_L $end
-$var reg 4 d, wr_add [3:0] $end
-$var reg 1 ( wr_en $end
+$var reg 1 ) wr_en $end
+$var reg 4 d, wr_ptr [3:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
@@ -5650,11 +5650,11 @@ b0 1
 b0 /
 bx .
 bx -
-b0 ,
-0+
+0,
+b0 +
 0*
-b0 )
-0(
+0)
+b0 (
 x'
 z&
 z%
@@ -6189,7 +6189,7 @@ b11111111 /
 b11111111 3
 b11111111 B
 b11111111 b,
-1(
+1)
 10
 #60
 00
@@ -6324,7 +6324,7 @@ b11111111 b,
 1()
 1Y*
 1u(
-b10 )
+b10 (
 b10 1
 b10 7
 b10 d,
@@ -6403,7 +6403,7 @@ b11111111 @
 1B,
 b10001 >
 1F,
-b100 )
+b100 (
 b100 1
 b100 7
 b100 d,
@@ -6467,7 +6467,7 @@ b100010 b,
 1e)
 12+
 1!)
-b110 )
+b110 (
 b110 1
 b110 7
 b110 d,
@@ -6629,7 +6629,7 @@ b11111111 Z(
 1h+
 b110011 :
 1i+
-b1 )
+b1 (
 b1 1
 b1 7
 b1 d,
@@ -6637,7 +6637,7 @@ b1000100 /
 b1000100 3
 b1000100 B
 b1000100 b,
-1+
+1,
 10
 #140
 00
@@ -6799,11 +6799,11 @@ b10001 Z(
 1<)
 1+)
 1x(
-b10 ,
+b10 +
 b10 2
 b10 8
 b10 c,
-b11 )
+b11 (
 b11 1
 b11 7
 b11 d,
@@ -7053,11 +7053,11 @@ b10001 a,
 1<,
 b1010101 =
 1>,
-b100 ,
+b100 +
 b100 2
 b100 8
 b100 c,
-b101 )
+b101 (
 b101 1
 b101 7
 b101 d,
@@ -7205,11 +7205,11 @@ b110011 Z(
 0^)
 1+)
 0x(
-b110 ,
+b110 +
 b110 2
 b110 8
 b110 c,
-b111 )
+b111 (
 b111 1
 b111 7
 b111 d,
@@ -7527,7 +7527,7 @@ b110011 -
 b110011 A
 b110011 a,
 1w+
-b101 ,
+b101 +
 b101 2
 b101 8
 b101 c,
@@ -7535,7 +7535,7 @@ b10001000 /
 b10001000 3
 b10001000 B
 b10001000 b,
-0(
+0)
 10
 #220
 00
@@ -7611,7 +7611,7 @@ b1110111 Z(
 0^)
 1<)
 0x(
-b111 ,
+b111 +
 b111 2
 b111 8
 b111 c,

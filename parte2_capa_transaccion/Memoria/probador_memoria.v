@@ -3,10 +3,10 @@ module probador_memoria(output reg clk,
 			output reg 	 rd_en,
 			output reg 	 reset_L,
 			output reg [9:0] data_in,
-			output reg [3:0] wr_add,
-			output reg [3:0] rd_add,
-			input [9:0] 	 data_out_mem_synth,
-			input [9:0] 	 data_out_mem);
+			output reg [3:0] wr_ptr,
+			output reg [3:0] rd_ptr,
+			input [9:0] 	 data_out_synth,
+			input [9:0] 	 data_out);
    
    
     //Reloj
@@ -18,7 +18,7 @@ module probador_memoria(output reg clk,
       $dumpfile("memoria.vcd");
       $dumpvars();
       {reset_L,wr_en, rd_en}  <= 0;
-      {wr_add, rd_add} <= 0;
+      {wr_ptr, rd_ptr} <= 0;
       data_in <= 0;
       
       
@@ -29,42 +29,42 @@ module probador_memoria(output reg clk,
       @(posedge clk);
       wr_en <= 1;
       data_in <= 'h0FF;
-      wr_add <= 'b000;
+      wr_ptr <= 'b000;
       @(posedge clk);
       data_in <= 'h011;
-      wr_add <= 'b010;
+      wr_ptr <= 'b010;
       @(posedge clk);
       data_in <= 'h022;
-      wr_add <= 'b100;
+      wr_ptr <= 'b100;
        @(posedge clk);
       data_in <= 'h033;
-      wr_add <= 'b110;
+      wr_ptr <= 'b110;
       //Escritura y lectura
        @(posedge clk);
       rd_en <= 1;
       data_in <= 'h044;
-      wr_add <= 'b001;
-      rd_add <= 'b000;
+      wr_ptr <= 'b001;
+      rd_ptr <= 'b000;
       @(posedge clk);
       data_in <= 'h055;
-      wr_add <= 'b011;
-      rd_add <= 'b010;
+      wr_ptr <= 'b011;
+      rd_ptr <= 'b010;
        @(posedge clk);
       data_in <= 'h066;
-      wr_add <= 'b101;
-      rd_add <= 'b100;
+      wr_ptr <= 'b101;
+      rd_ptr <= 'b100;
       @(posedge clk);
       data_in <= 'h077;
-      wr_add <= 'b111;
-      rd_add <= 'b110;
+      wr_ptr <= 'b111;
+      rd_ptr <= 'b110;
       //Solo lectura
       @(posedge clk);
       wr_en <= 0; 
       data_in <= 'h088;
-      rd_add <= 'b101;
+      rd_ptr <= 'b101;
        @(posedge clk); 
       data_in <= 'h099;
-      rd_add <= 'b111;
+      rd_ptr <= 'b111;
       @(posedge clk);
       reset_L <= 0;
       @(posedge clk);

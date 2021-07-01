@@ -1,15 +1,16 @@
 [*]
-[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
-[*] Wed Jun 30 06:46:24 2021
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Thu Jul  1 02:38:36 2021
 [*]
-[dumpfile] "/home/avegaz97/Documents/Proyecto2/Memoria/memoria.vcd"
-[dumpfile_mtime] "Wed Jun 30 06:46:17 2021"
-[dumpfile_size] 114900
-[savefile] "/home/avegaz97/Documents/Proyecto2/Memoria/memoria.gtkw"
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Memoria/memoria.vcd"
+[dumpfile_mtime] "Thu Jul  1 02:35:37 2021"
+[dumpfile_size] 114876
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Memoria/memoria.gtkw"
 [timestart] 0
 [size] 1288 709
-[pos] 25 27
+[pos] 338 101
 *-13.009295 1360 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench_memoria.
 [sst_width] 223
 [signals_width] 262
 [sst_expanded] 1
@@ -28,7 +29,7 @@ testbench_memoria.data_in[9:0]
 testbench_memoria.wr_en
 @22
 [color] 2
-testbench_memoria.wr_add[3:0]
+testbench_memoria.memoria.wr_ptr[3:0]
 @200
 -Enable y dirección de read
 @28
@@ -36,7 +37,7 @@ testbench_memoria.wr_add[3:0]
 testbench_memoria.rd_en
 @22
 [color] 3
-testbench_memoria.rd_add[3:0]
+testbench_memoria.memoria.rd_ptr[3:0]
 @200
 -Memoria
 @22
@@ -60,8 +61,9 @@ testbench_memoria.memoria_synth.\mem[7][9:0]
 -Salida de datos (cond y estr)
 @22
 [color] 5
-testbench_memoria.data_out_mem[9:0]
+testbench_memoria.memoria.data_out[9:0]
+@23
 [color] 5
-testbench_memoria.data_out_mem_synth[9:0]
+testbench_memoria.memoria_synth.data_out[9:0]
 [pattern_trace] 1
 [pattern_trace] 0
