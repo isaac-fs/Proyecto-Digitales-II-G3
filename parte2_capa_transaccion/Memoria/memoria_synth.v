@@ -705,13 +705,13 @@ module memoria_synth(clk, wr_en, rd_en, reset_L, data_in, wr_ptr, rd_ptr, data_o
   (* src = "memoria.v:3" *)
   input rd_en;
   (* src = "memoria.v:7" *)
-  input [3:0] rd_ptr;
+  input [2:0] rd_ptr;
   (* src = "memoria.v:4" *)
   input reset_L;
   (* src = "memoria.v:2" *)
   input wr_en;
   (* src = "memoria.v:6" *)
-  input [3:0] wr_ptr;
+  input [2:0] wr_ptr;
   NOT _0682_ (
     .A(rd_ptr[0]),
     .Y(_0081_)

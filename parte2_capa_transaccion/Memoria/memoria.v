@@ -3,8 +3,8 @@ module memoria (input clk,
 	input rd_en,
 	input reset_L,
 	input [9:0] data_in,
-	input [3:0] wr_ptr, 
-	input [3:0] rd_ptr,
+	input [2:0] wr_ptr, 
+	input [2:0] rd_ptr,
 	output reg [9:0] data_out);
 
    // wr_en y rd_en permiten escritura y lectura respectivamente

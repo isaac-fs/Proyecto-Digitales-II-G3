@@ -3,8 +3,8 @@ module probador_memoria(output reg clk,
 			output reg 	 rd_en,
 			output reg 	 reset_L,
 			output reg [9:0] data_in,
-			output reg [3:0] wr_ptr,
-			output reg [3:0] rd_ptr,
+			output reg [2:0] wr_ptr,
+			output reg [2:0] rd_ptr,
 			input [9:0] 	 data_out_synth,
 			input [9:0] 	 data_out);
    

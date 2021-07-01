@@ -1,5 +1,5 @@
 $date
-	Wed Jun 30 20:35:37 2021
+	Wed Jun 30 21:32:21 2021
 $end
 $version
 	Icarus Verilog
@@ -19,20 +19,20 @@ $var wire 1 & S $end
 $var reg 1 ' Q $end
 $upscope $end
 $scope module testbench_memoria $end
-$var wire 4 ( wr_ptr [3:0] $end
+$var wire 3 ( wr_ptr [2:0] $end
 $var wire 1 ) wr_en $end
 $var wire 1 * reset_L $end
-$var wire 4 + rd_ptr [3:0] $end
+$var wire 3 + rd_ptr [2:0] $end
 $var wire 1 , rd_en $end
 $var wire 10 - data_out_synth [9:0] $end
 $var wire 10 . data_out [9:0] $end
 $var wire 10 / data_in [9:0] $end
 $var wire 1 0 clk $end
 $scope module memoria $end
-$var wire 4 1 wr_ptr [3:0] $end
+$var wire 3 1 wr_ptr [2:0] $end
 $var wire 1 ) wr_en $end
 $var wire 1 * reset_L $end
-$var wire 4 2 rd_ptr [3:0] $end
+$var wire 3 2 rd_ptr [2:0] $end
 $var wire 1 , rd_en $end
 $var wire 10 3 data_in [9:0] $end
 $var wire 1 0 clk $end
@@ -41,10 +41,10 @@ $var integer 32 5 i [31:0] $end
 $upscope $end
 $scope module memoria_synth $end
 $var wire 32 6 i [31:0] $end
-$var wire 4 7 wr_ptr [3:0] $end
+$var wire 3 7 wr_ptr [2:0] $end
 $var wire 1 ) wr_en $end
 $var wire 1 * reset_L $end
-$var wire 4 8 rd_ptr [3:0] $end
+$var wire 3 8 rd_ptr [2:0] $end
 $var wire 1 , rd_en $end
 $var wire 10 9 \mem[7] [9:0] $end
 $var wire 10 : \mem[6] [9:0] $end
@@ -4551,10 +4551,10 @@ $var wire 10 a, data_out_synth [9:0] $end
 $var reg 1 0 clk $end
 $var reg 10 b, data_in [9:0] $end
 $var reg 1 , rd_en $end
-$var reg 4 c, rd_ptr [3:0] $end
+$var reg 3 c, rd_ptr [2:0] $end
 $var reg 1 * reset_L $end
 $var reg 1 ) wr_en $end
-$var reg 4 d, wr_ptr [3:0] $end
+$var reg 3 d, wr_ptr [2:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end

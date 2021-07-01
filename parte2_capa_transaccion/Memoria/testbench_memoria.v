@@ -13,10 +13,10 @@ module testbench_memoria;
    wire [9:0]		data_in;		// From probador_memoria of probador_memoria.v
    wire [9:0]		data_out;		// From memoria of memoria.v
    wire [9:0]		data_out_synth;	// From memoria_synth of memoria_synth.v
-   wire [3:0]		rd_ptr;			// From probador_memoria of probador_memoria.v
+   wire [2:0]		rd_ptr;			// From probador_memoria of probador_memoria.v
    wire			rd_en;			// From probador_memoria of probador_memoria.v
    wire			reset_L;		// From probador_memoria of probador_memoria.v
-   wire [3:0]		wr_ptr;			// From probador_memoria of probador_memoria.v
+   wire [2:0]		wr_ptr;			// From probador_memoria of probador_memoria.v
    wire			wr_en;			// From probador_memoria of probador_memoria.v
    // End of automatics
 
@@ -32,8 +32,8 @@ module testbench_memoria;
 		   .rd_en		(rd_en),
 		   .reset_L		(reset_L),
 		   .data_in		(data_in[9:0]),
-		   .wr_ptr		(wr_ptr[3:0]),
-		   .rd_ptr		(rd_ptr[3:0]));
+		   .wr_ptr		(wr_ptr[2:0]),
+		   .rd_ptr		(rd_ptr[2:0]));
 
     //Instancia descripción estructural
     /* memoria_synth AUTO_TEMPLATE (
@@ -47,10 +47,10 @@ module testbench_memoria;
 			       // Inputs
 			       .clk		(clk),
 			       .data_in		(data_in[9:0]),
-			       .rd_ptr		(rd_ptr[3:0]),
+			       .rd_ptr		(rd_ptr[2:0]),
 			       .rd_en		(rd_en),
 			       .reset_L		(reset_L),
-			       .wr_ptr		(wr_ptr[3:0]),
+			       .wr_ptr		(wr_ptr[2:0]),
 			       .wr_en		(wr_en));
 
 
@@ -64,8 +64,8 @@ module testbench_memoria;
 				     .rd_en		(rd_en),
 				     .reset_L		(reset_L),
 				     .data_in		(data_in[9:0]),
-				     .wr_ptr		(wr_ptr[3:0]),
-				     .rd_ptr		(rd_ptr[3:0]),
+				     .wr_ptr		(wr_ptr[2:0]),
+				     .rd_ptr		(rd_ptr[2:0]),
 				     // Inputs
 				     .data_out_synth(data_out_synth[9:0]),
 				     .data_out	(data_out[9:0]));
