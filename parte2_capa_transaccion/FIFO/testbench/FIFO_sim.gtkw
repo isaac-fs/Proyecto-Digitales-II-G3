@@ -1,0 +1,131 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Fri Jul  2 11:37:16 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FIFO/testbench/simulacion.vcd"
+[dumpfile_mtime] "Fri Jul  2 11:31:59 2021"
+[dumpfile_size] 137960
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FIFO/testbench/FIFO_sim.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] -1 -1
+*-45.600597 20200000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[sst_width] 224
+[signals_width] 184
+[sst_expanded] 1
+[sst_vpaned_height] 288
+@200
+-Reloj
+@28
+testbench.fifo_cond.clk
+@200
+-
+-Control
+@28
+testbench.fifo_cond.reset_L
+@200
+-
+-Data in
+@22
+[color] 3
+testbench.fifo_cond.data_in[9:0]
+@200
+-
+-Control wr y rd 
+@28
+[color] 2
+testbench.fifo_cond.wr_en
+[color] 2
+testbench.fifo_cond.rd_en
+@200
+-
+@c00024
+[color] 2
+testbench.fifo_cond.wr_ptr[2:0]
+@28
+(0)testbench.fifo_cond.wr_ptr[2:0]
+(1)testbench.fifo_cond.wr_ptr[2:0]
+(2)testbench.fifo_cond.wr_ptr[2:0]
+@1401200
+-group_end
+@24
+[color] 2
+testbench.fifo_cond.rd_ptr[2:0]
+@200
+-
+-Memoria
+@22
+[color] 5
+testbench.fifo_synth.memoria_fifo.\mem[0][9:0]
+[color] 5
+testbench.fifo_synth.memoria_fifo.\mem[1][9:0]
+[color] 5
+testbench.fifo_synth.memoria_fifo.\mem[2][9:0]
+[color] 5
+testbench.fifo_synth.memoria_fifo.\mem[3][9:0]
+[color] 5
+testbench.fifo_synth.memoria_fifo.\mem[4][9:0]
+[color] 5
+testbench.fifo_synth.memoria_fifo.\mem[5][9:0]
+[color] 5
+testbench.fifo_synth.memoria_fifo.\mem[6][9:0]
+@c00022
+[color] 5
+testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+@28
+(0)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+(1)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+(2)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+(3)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+(4)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+(5)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+(6)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+(7)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+(8)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+(9)testbench.fifo_synth.memoria_fifo.\mem[7][9:0]
+@1401200
+-group_end
+@200
+-
+-Cant. datos
+@24
+testbench.fifo_cond.N[2:0]
+testbench.fifo_cond.ff_N[2:0]
+@200
+-
+-Banderas
+@29
+[color] 1
+testbench.fifo_cond.empty_flag
+[color] 2
+testbench.fifo_cond.almost_empty_flag
+[color] 3
+testbench.fifo_cond.almost_full_flag
+[color] 4
+testbench.fifo_cond.full_flag
+[color] 5
+testbench.fifo_cond.error_flag
+@200
+-
+@28
+[color] 1
+testbench.probador_0.empty_flag_SYNTH
+[color] 2
+testbench.probador_0.almost_empty_flag_SYNTH
+[color] 3
+testbench.probador_0.almost_full_flag_SYNTH
+[color] 4
+testbench.probador_0.full_flag_SYNTH
+[color] 5
+testbench.probador_0.error_flag_SYNTH
+@200
+-
+-Data out
+@22
+[color] 3
+testbench.fifo_cond.data_out[9:0]
+[color] 3
+testbench.probador_0.data_out_SYNTH[9:0]
+[pattern_trace] 1
+[pattern_trace] 0
