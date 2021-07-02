@@ -71,7 +71,7 @@ module probador #(
 			data_in <= 'h001;
 		end
 		
-		repeat (7) begin
+		repeat (8) begin
 			@(posedge clk) begin
 				wr_en <= 1;
 				data_in <= data_in + 1;

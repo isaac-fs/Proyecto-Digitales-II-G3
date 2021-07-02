@@ -58,11 +58,8 @@ always @(posedge clk) begin
 end
 
 // FIFO flag control logic -> IN: wr_ptr_to_control rd_ptr_to_control
-//                         -> OUT: empty_flag
-//                                 full_flag
-//                                 almost_full_flag
-//                                 almost_empty_flag
-//                                 error_flag
+//                         -> OUT: empty_flag full_flag almost_full_flag
+//                                 almost_empty_flag error_flag
 
 reg [FIFO_PTR_SIZE-1:0] N, ff_N;
 
@@ -99,8 +96,9 @@ always @(posedge clk) begin
             empty_flag <= 0;
             full_flag <= 0;
         end
+
         else if (N == 0) begin
-            if(!(ff_N == FIFO_DEPTH-1))
+            if(!(ff_N == FIFO_DEPTH-1) && !(ff_N == 1))
                 empty_flag <= 1;
             else
                 empty_flag <= 0;
@@ -111,6 +109,12 @@ always @(posedge clk) begin
                 full_flag <= 0;
         end
     end
+end
+
+// Logica de error
+always @(posedge clk) begin
+    if(wr_en && !rd_en && full_flag)
+        error_flag <= 1;
 end
 
 endmodule
