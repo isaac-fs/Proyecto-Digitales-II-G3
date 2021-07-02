@@ -4,7 +4,7 @@
 (* top =  1  *)
 (* src = "memoria.v:1" *)
 module memoria_synth(clk, wr_en, rd_en, reset_L, data_in, wr_ptr, rd_ptr, data_out);
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   wire [9:0] _0000_;
   wire _0001_;
   wire _0002_;
@@ -687,13 +687,13 @@ module memoria_synth(clk, wr_en, rd_en, reset_L, data_in, wr_ptr, rd_ptr, data_o
   wire _0679_;
   wire _0680_;
   wire _0681_;
-  (* src = "memoria.v:4" *)
+  (* src = "memoria.v:5" *)
   input clk;
-  (* src = "memoria.v:8" *)
+  (* src = "memoria.v:9" *)
   input [9:0] data_in;
-  (* src = "memoria.v:11" *)
+  (* src = "memoria.v:12" *)
   output [9:0] data_out;
-  (* src = "memoria.v:18" *)
+  (* src = "memoria.v:19" *)
   wire [31:0] i;
   wire [9:0] \mem[0] ;
   wire [9:0] \mem[1] ;
@@ -703,15 +703,15 @@ module memoria_synth(clk, wr_en, rd_en, reset_L, data_in, wr_ptr, rd_ptr, data_o
   wire [9:0] \mem[5] ;
   wire [9:0] \mem[6] ;
   wire [9:0] \mem[7] ;
-  (* src = "memoria.v:6" *)
-  input rd_en;
-  (* src = "memoria.v:10" *)
-  input [2:0] rd_ptr;
   (* src = "memoria.v:7" *)
+  input rd_en;
+  (* src = "memoria.v:11" *)
+  input [2:0] rd_ptr;
+  (* src = "memoria.v:8" *)
   input reset_L;
-  (* src = "memoria.v:5" *)
+  (* src = "memoria.v:6" *)
   input wr_en;
-  (* src = "memoria.v:9" *)
+  (* src = "memoria.v:10" *)
   input [2:0] wr_ptr;
   NOT _0682_ (
     .A(rd_ptr[0]),
@@ -4168,61 +4168,61 @@ module memoria_synth(clk, wr_en, rd_en, reset_L, data_in, wr_ptr, rd_ptr, data_o
     .D(_0070_),
     .Q(\mem[6] [9])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1393_ (
     .C(clk),
     .D(_0000_[0]),
     .Q(data_out[0])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1394_ (
     .C(clk),
     .D(_0000_[1]),
     .Q(data_out[1])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1395_ (
     .C(clk),
     .D(_0000_[2]),
     .Q(data_out[2])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1396_ (
     .C(clk),
     .D(_0000_[3]),
     .Q(data_out[3])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1397_ (
     .C(clk),
     .D(_0000_[4]),
     .Q(data_out[4])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1398_ (
     .C(clk),
     .D(_0000_[5]),
     .Q(data_out[5])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1399_ (
     .C(clk),
     .D(_0000_[6]),
     .Q(data_out[6])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1400_ (
     .C(clk),
     .D(_0000_[7]),
     .Q(data_out[7])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1401_ (
     .C(clk),
     .D(_0000_[8]),
     .Q(data_out[8])
   );
-  (* src = "memoria.v:20" *)
+  (* src = "memoria.v:21" *)
   DFF _1402_ (
     .C(clk),
     .D(_0000_[9]),

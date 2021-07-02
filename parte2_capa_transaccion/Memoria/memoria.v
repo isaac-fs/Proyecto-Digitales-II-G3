@@ -1,13 +1,14 @@
 module memoria #(
 	parameter MEM_DEPTH = 8,
-	parameter WORD_SIZE = 10
+	parameter WORD_SIZE = 10,
+	parameter PTR_SIZE = $clog2(MEM_DEPTH) // $clog2() calcular el logaritmo en base 2
 )(input clk,
 	input wr_en,
 	input rd_en,
 	input reset_L,
 	input [WORD_SIZE-1:0] data_in,
-	input [2:0] wr_ptr, 
-	input [2:0] rd_ptr,
+	input [PTR_SIZE-1:0] wr_ptr, 
+	input [PTR_SIZE-1:0] rd_ptr,
 	output reg [WORD_SIZE-1:0] data_out);
 
    // wr_en y rd_en permiten escritura y lectura respectivamente
