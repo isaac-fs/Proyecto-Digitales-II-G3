@@ -1,14 +1,14 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Fri Jul  2 12:34:10 2021
+[*] Fri Jul  2 23:16:36 2021
 [*]
 [dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FIFO/testbench/simulacion.vcd"
-[dumpfile_mtime] "Fri Jul  2 12:32:55 2021"
-[dumpfile_size] 138740
+[dumpfile_mtime] "Fri Jul  2 23:16:31 2021"
+[dumpfile_size] 140399
 [savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FIFO/testbench/FIFO_sim.gtkw"
 [timestart] 0
 [size] 1920 1007
-[pos] -1 -1
+[pos] -10 -83
 *-45.707512 393500000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
 [sst_width] 224

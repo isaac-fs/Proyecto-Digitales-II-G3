@@ -58,10 +58,11 @@ Removed 1 unused modules.
 Cleaned up 0 empty switches.
 
 3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$rtl/FIFO.v:116$83 in module FIFO.
 Marked 6 switch rules as full_case in process $proc$rtl/FIFO.v:70$65 in module FIFO.
 Marked 1 switch rules as full_case in process $proc$rtl/FIFO.v:53$60 in module FIFO.
 Marked 1 switch rules as full_case in process $proc$rtl/FIFO.v:45$57 in module FIFO.
-Marked 1 switch rules as full_case in process $proc$rtl/memoria.v:21$104 in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
+Marked 1 switch rules as full_case in process $proc$rtl/memoria.v:21$106 in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
 Removed a total of 0 dead cases.
 
 3.3. Executing PROC_INIT pass (extract init attributes).
@@ -69,137 +70,142 @@ Removed a total of 0 dead cases.
 3.4. Executing PROC_ARST pass (detect async resets in processes).
 
 3.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\FIFO.$proc$rtl/FIFO.v:115$83'.
-     1/1: $1\error_flag[0:0]
+Creating decoders for process `\FIFO.$proc$rtl/FIFO.v:126$85'.
+     1/1: $0\error_flag[0:0]
+Creating decoders for process `\FIFO.$proc$rtl/FIFO.v:116$83'.
+     1/2: $0\ff_wr_en[0:0]
+     2/2: $0\ff_rd_en[0:0]
 Creating decoders for process `\FIFO.$proc$rtl/FIFO.v:70$65'.
-     1/6: $0\almost_full_flag[0:0]
-     2/6: $0\almost_empty_flag[0:0]
-     3/6: $0\empty_flag[0:0]
-     4/6: $0\ff_N[2:0]
-     5/6: $0\error_flag[0:0]
-     6/6: $0\full_flag[0:0]
+     1/5: $0\almost_full_flag[0:0]
+     2/5: $0\almost_empty_flag[0:0]
+     3/5: $0\empty_flag[0:0]
+     4/5: $0\ff_N[2:0]
+     5/5: $0\full_flag[0:0]
 Creating decoders for process `\FIFO.$proc$rtl/FIFO.v:66$63'.
      1/1: $0\N[2:0]
 Creating decoders for process `\FIFO.$proc$rtl/FIFO.v:53$60'.
      1/1: $0\rd_ptr[2:0]
 Creating decoders for process `\FIFO.$proc$rtl/FIFO.v:45$57'.
      1/1: $0\wr_ptr[2:0]
-Creating decoders for process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating decoders for process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
      1/30: $1\i[31:0]
      2/30: $0\i[31:0]
-     3/30: $0$memwr$\mem$rtl/memoria.v:26$95_EN[9:0]$107
-     4/30: $0$memwr$\mem$rtl/memoria.v:26$95_DATA[9:0]$106
-     5/30: $0$memwr$\mem$rtl/memoria.v:26$95_ADDR[31:0]$112
-     6/30: $0$memwr$\mem$rtl/memoria.v:26$96_EN[9:0]$109
-     7/30: $0$memwr$\mem$rtl/memoria.v:26$96_DATA[9:0]$108
-     8/30: $0$memwr$\mem$rtl/memoria.v:26$96_ADDR[31:0]$113
-     9/30: $0$memwr$\mem$rtl/memoria.v:26$97_EN[9:0]$105
-    10/30: $0$memwr$\mem$rtl/memoria.v:26$97_DATA[9:0]$111
-    11/30: $0$memwr$\mem$rtl/memoria.v:26$97_ADDR[31:0]$110
-    12/30: $0$memwr$\mem$rtl/memoria.v:26$98_EN[9:0]$116
-    13/30: $0$memwr$\mem$rtl/memoria.v:26$98_DATA[9:0]$115
-    14/30: $0$memwr$\mem$rtl/memoria.v:26$98_ADDR[31:0]$114
-    15/30: $0$memwr$\mem$rtl/memoria.v:26$99_EN[9:0]$119
-    16/30: $0$memwr$\mem$rtl/memoria.v:26$99_DATA[9:0]$118
-    17/30: $0$memwr$\mem$rtl/memoria.v:26$99_ADDR[31:0]$117
-    18/30: $0$memwr$\mem$rtl/memoria.v:26$100_EN[9:0]$122
-    19/30: $0$memwr$\mem$rtl/memoria.v:26$100_DATA[9:0]$121
-    20/30: $0$memwr$\mem$rtl/memoria.v:26$100_ADDR[31:0]$120
-    21/30: $0$memwr$\mem$rtl/memoria.v:26$101_EN[9:0]$125
-    22/30: $0$memwr$\mem$rtl/memoria.v:26$101_DATA[9:0]$124
-    23/30: $0$memwr$\mem$rtl/memoria.v:26$101_ADDR[31:0]$123
-    24/30: $0$memwr$\mem$rtl/memoria.v:26$102_EN[9:0]$128
-    25/30: $0$memwr$\mem$rtl/memoria.v:26$102_DATA[9:0]$127
-    26/30: $0$memwr$\mem$rtl/memoria.v:26$102_ADDR[31:0]$126
-    27/30: $0$memwr$\mem$rtl/memoria.v:32$103_EN[9:0]$131
-    28/30: $0$memwr$\mem$rtl/memoria.v:32$103_DATA[9:0]$130
-    29/30: $0$memwr$\mem$rtl/memoria.v:32$103_ADDR[2:0]$129
+     3/30: $0$memwr$\mem$rtl/memoria.v:26$97_EN[9:0]$110
+     4/30: $0$memwr$\mem$rtl/memoria.v:26$97_DATA[9:0]$109
+     5/30: $0$memwr$\mem$rtl/memoria.v:26$97_ADDR[31:0]$108
+     6/30: $0$memwr$\mem$rtl/memoria.v:26$98_EN[9:0]$112
+     7/30: $0$memwr$\mem$rtl/memoria.v:26$98_DATA[9:0]$111
+     8/30: $0$memwr$\mem$rtl/memoria.v:26$98_ADDR[31:0]$115
+     9/30: $0$memwr$\mem$rtl/memoria.v:26$99_EN[9:0]$114
+    10/30: $0$memwr$\mem$rtl/memoria.v:26$99_DATA[9:0]$107
+    11/30: $0$memwr$\mem$rtl/memoria.v:26$99_ADDR[31:0]$113
+    12/30: $0$memwr$\mem$rtl/memoria.v:26$100_EN[9:0]$118
+    13/30: $0$memwr$\mem$rtl/memoria.v:26$100_DATA[9:0]$117
+    14/30: $0$memwr$\mem$rtl/memoria.v:26$100_ADDR[31:0]$116
+    15/30: $0$memwr$\mem$rtl/memoria.v:26$101_EN[9:0]$121
+    16/30: $0$memwr$\mem$rtl/memoria.v:26$101_DATA[9:0]$120
+    17/30: $0$memwr$\mem$rtl/memoria.v:26$101_ADDR[31:0]$119
+    18/30: $0$memwr$\mem$rtl/memoria.v:26$102_EN[9:0]$124
+    19/30: $0$memwr$\mem$rtl/memoria.v:26$102_DATA[9:0]$123
+    20/30: $0$memwr$\mem$rtl/memoria.v:26$102_ADDR[31:0]$122
+    21/30: $0$memwr$\mem$rtl/memoria.v:26$103_EN[9:0]$127
+    22/30: $0$memwr$\mem$rtl/memoria.v:26$103_DATA[9:0]$126
+    23/30: $0$memwr$\mem$rtl/memoria.v:26$103_ADDR[31:0]$125
+    24/30: $0$memwr$\mem$rtl/memoria.v:26$104_EN[9:0]$130
+    25/30: $0$memwr$\mem$rtl/memoria.v:26$104_DATA[9:0]$129
+    26/30: $0$memwr$\mem$rtl/memoria.v:26$104_ADDR[31:0]$128
+    27/30: $0$memwr$\mem$rtl/memoria.v:32$105_EN[9:0]$133
+    28/30: $0$memwr$\mem$rtl/memoria.v:32$105_DATA[9:0]$132
+    29/30: $0$memwr$\mem$rtl/memoria.v:32$105_ADDR[2:0]$131
     30/30: $0\data_out[9:0]
 
 3.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\FIFO.\error_flag' from process `\FIFO.$proc$rtl/FIFO.v:126$85'.
 No latch inferred for signal `\FIFO.\N' from process `\FIFO.$proc$rtl/FIFO.v:66$63'.
 
 3.7. Executing PROC_DFF pass (convert process syncs to FFs).
-Creating register for signal `\FIFO.\error_flag' using process `\FIFO.$proc$rtl/FIFO.v:115$83'.
-  created $dff cell `$procdff$294' with positive edge clock.
-Creating register for signal `\FIFO.\full_flag' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
-  created $dff cell `$procdff$295' with positive edge clock.
-Creating register for signal `\FIFO.\error_flag' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
-  created $dff cell `$procdff$296' with positive edge clock.
-Creating register for signal `\FIFO.\ff_N' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
-  created $dff cell `$procdff$297' with positive edge clock.
-Creating register for signal `\FIFO.\empty_flag' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
-  created $dff cell `$procdff$298' with positive edge clock.
-Creating register for signal `\FIFO.\almost_empty_flag' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
+Creating register for signal `\FIFO.\ff_rd_en' using process `\FIFO.$proc$rtl/FIFO.v:116$83'.
   created $dff cell `$procdff$299' with positive edge clock.
-Creating register for signal `\FIFO.\almost_full_flag' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
+Creating register for signal `\FIFO.\ff_wr_en' using process `\FIFO.$proc$rtl/FIFO.v:116$83'.
   created $dff cell `$procdff$300' with positive edge clock.
-Creating register for signal `\FIFO.\rd_ptr' using process `\FIFO.$proc$rtl/FIFO.v:53$60'.
+Creating register for signal `\FIFO.\full_flag' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
   created $dff cell `$procdff$301' with positive edge clock.
-Creating register for signal `\FIFO.\wr_ptr' using process `\FIFO.$proc$rtl/FIFO.v:45$57'.
+Creating register for signal `\FIFO.\ff_N' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
   created $dff cell `$procdff$302' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.\data_out' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `\FIFO.\empty_flag' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
   created $dff cell `$procdff$303' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.\i' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `\FIFO.\almost_empty_flag' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
   created $dff cell `$procdff$304' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$97_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `\FIFO.\almost_full_flag' using process `\FIFO.$proc$rtl/FIFO.v:70$65'.
   created $dff cell `$procdff$305' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$95_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `\FIFO.\rd_ptr' using process `\FIFO.$proc$rtl/FIFO.v:53$60'.
   created $dff cell `$procdff$306' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$95_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `\FIFO.\wr_ptr' using process `\FIFO.$proc$rtl/FIFO.v:45$57'.
   created $dff cell `$procdff$307' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$96_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.\data_out' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$308' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$96_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.\i' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$309' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$97_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$99_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$310' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$97_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$97_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$311' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$95_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$97_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$312' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$96_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$97_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$313' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$98_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$98_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$314' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$98_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$98_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$315' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$98_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$99_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$316' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$99_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$99_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$317' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$99_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$98_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$318' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$99_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$100_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$319' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$100_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$100_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$320' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$100_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$100_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$321' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$100_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$101_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$322' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$101_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$101_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$323' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$101_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$101_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$324' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$101_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$102_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$325' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$102_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$102_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$326' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$102_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$102_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$327' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$102_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$103_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$328' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:32$103_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$103_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$329' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:32$103_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$103_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$330' with positive edge clock.
-Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:32$103_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$104_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
   created $dff cell `$procdff$331' with positive edge clock.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$104_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
+  created $dff cell `$procdff$332' with positive edge clock.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$104_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
+  created $dff cell `$procdff$333' with positive edge clock.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:32$105_ADDR' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
+  created $dff cell `$procdff$334' with positive edge clock.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:32$105_DATA' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
+  created $dff cell `$procdff$335' with positive edge clock.
+Creating register for signal `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:32$105_EN' using process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
+  created $dff cell `$procdff$336' with positive edge clock.
 
 3.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 1 empty switch in `\FIFO.$proc$rtl/FIFO.v:115$83'.
-Removing empty process `FIFO.$proc$rtl/FIFO.v:115$83'.
+Found and cleaned up 1 empty switch in `\FIFO.$proc$rtl/FIFO.v:126$85'.
+Removing empty process `FIFO.$proc$rtl/FIFO.v:126$85'.
+Found and cleaned up 1 empty switch in `\FIFO.$proc$rtl/FIFO.v:116$83'.
+Removing empty process `FIFO.$proc$rtl/FIFO.v:116$83'.
 Found and cleaned up 8 empty switches in `\FIFO.$proc$rtl/FIFO.v:70$65'.
 Removing empty process `FIFO.$proc$rtl/FIFO.v:70$65'.
 Removing empty process `FIFO.$proc$rtl/FIFO.v:66$63'.
@@ -207,23 +213,23 @@ Found and cleaned up 2 empty switches in `\FIFO.$proc$rtl/FIFO.v:53$60'.
 Removing empty process `FIFO.$proc$rtl/FIFO.v:53$60'.
 Found and cleaned up 2 empty switches in `\FIFO.$proc$rtl/FIFO.v:45$57'.
 Removing empty process `FIFO.$proc$rtl/FIFO.v:45$57'.
-Found and cleaned up 3 empty switches in `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
-Removing empty process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$104'.
-Cleaned up 16 empty switches.
+Found and cleaned up 3 empty switches in `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
+Removing empty process `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$proc$rtl/memoria.v:21$106'.
+Cleaned up 17 empty switches.
 
 4. Executing OPT pass (performing simple optimizations).
 
 4.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module FIFO.
-<suppressed ~10 debug messages>
+<suppressed ~11 debug messages>
 Optimizing module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
 <suppressed ~29 debug messages>
 
 4.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\FIFO'.
-<suppressed ~15 debug messages>
+<suppressed ~18 debug messages>
 Finding identical cells in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3'.
-Removed a total of 5 cells.
+Removed a total of 6 cells.
 
 4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \FIFO..
@@ -235,52 +241,52 @@ Running muxtree optimizer on module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PT
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~38 debug messages>
+<suppressed ~39 debug messages>
 
 4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \FIFO.
   Optimizing cells in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
-    Consolidated identical input bits for $mux cell $procmux$274:
-      Old ports: A=10'0000000000, B=10'1111111111, Y=$procmux$274_Y
-      New ports: A=1'0, B=1'1, Y=$procmux$274_Y [0]
-      New connections: $procmux$274_Y [9:1] = { $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] $procmux$274_Y [0] }
-    Consolidated identical input bits for $mux cell $procmux$266:
-      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$266_Y
-      New ports: A=1'1, B=1'0, Y=$procmux$266_Y [0]
-      New connections: $procmux$266_Y [9:1] = { $procmux$266_Y [0] $procmux$266_Y [0] $procmux$266_Y [0] $procmux$266_Y [0] $procmux$266_Y [0] $procmux$266_Y [0] $procmux$266_Y [0] $procmux$266_Y [0] $procmux$266_Y [0] }
-    Consolidated identical input bits for $mux cell $procmux$257:
-      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$257_Y
-      New ports: A=1'1, B=1'0, Y=$procmux$257_Y [0]
-      New connections: $procmux$257_Y [9:1] = { $procmux$257_Y [0] $procmux$257_Y [0] $procmux$257_Y [0] $procmux$257_Y [0] $procmux$257_Y [0] $procmux$257_Y [0] $procmux$257_Y [0] $procmux$257_Y [0] $procmux$257_Y [0] }
-    Consolidated identical input bits for $mux cell $procmux$248:
-      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$248_Y
-      New ports: A=1'1, B=1'0, Y=$procmux$248_Y [0]
-      New connections: $procmux$248_Y [9:1] = { $procmux$248_Y [0] $procmux$248_Y [0] $procmux$248_Y [0] $procmux$248_Y [0] $procmux$248_Y [0] $procmux$248_Y [0] $procmux$248_Y [0] $procmux$248_Y [0] $procmux$248_Y [0] }
-    Consolidated identical input bits for $mux cell $procmux$239:
-      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$239_Y
-      New ports: A=1'1, B=1'0, Y=$procmux$239_Y [0]
-      New connections: $procmux$239_Y [9:1] = { $procmux$239_Y [0] $procmux$239_Y [0] $procmux$239_Y [0] $procmux$239_Y [0] $procmux$239_Y [0] $procmux$239_Y [0] $procmux$239_Y [0] $procmux$239_Y [0] $procmux$239_Y [0] }
-    Consolidated identical input bits for $mux cell $procmux$230:
-      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$230_Y
-      New ports: A=1'1, B=1'0, Y=$procmux$230_Y [0]
-      New connections: $procmux$230_Y [9:1] = { $procmux$230_Y [0] $procmux$230_Y [0] $procmux$230_Y [0] $procmux$230_Y [0] $procmux$230_Y [0] $procmux$230_Y [0] $procmux$230_Y [0] $procmux$230_Y [0] $procmux$230_Y [0] }
-    Consolidated identical input bits for $mux cell $procmux$221:
-      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$221_Y
-      New ports: A=1'1, B=1'0, Y=$procmux$221_Y [0]
-      New connections: $procmux$221_Y [9:1] = { $procmux$221_Y [0] $procmux$221_Y [0] $procmux$221_Y [0] $procmux$221_Y [0] $procmux$221_Y [0] $procmux$221_Y [0] $procmux$221_Y [0] $procmux$221_Y [0] $procmux$221_Y [0] }
-    Consolidated identical input bits for $mux cell $procmux$212:
-      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$212_Y
-      New ports: A=1'1, B=1'0, Y=$procmux$212_Y [0]
-      New connections: $procmux$212_Y [9:1] = { $procmux$212_Y [0] $procmux$212_Y [0] $procmux$212_Y [0] $procmux$212_Y [0] $procmux$212_Y [0] $procmux$212_Y [0] $procmux$212_Y [0] $procmux$212_Y [0] $procmux$212_Y [0] }
-    Consolidated identical input bits for $mux cell $procmux$203:
-      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$203_Y
-      New ports: A=1'1, B=1'0, Y=$procmux$203_Y [0]
-      New connections: $procmux$203_Y [9:1] = { $procmux$203_Y [0] $procmux$203_Y [0] $procmux$203_Y [0] $procmux$203_Y [0] $procmux$203_Y [0] $procmux$203_Y [0] $procmux$203_Y [0] $procmux$203_Y [0] $procmux$203_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$279:
+      Old ports: A=10'0000000000, B=10'1111111111, Y=$procmux$279_Y
+      New ports: A=1'0, B=1'1, Y=$procmux$279_Y [0]
+      New connections: $procmux$279_Y [9:1] = { $procmux$279_Y [0] $procmux$279_Y [0] $procmux$279_Y [0] $procmux$279_Y [0] $procmux$279_Y [0] $procmux$279_Y [0] $procmux$279_Y [0] $procmux$279_Y [0] $procmux$279_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$271:
+      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$271_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$271_Y [0]
+      New connections: $procmux$271_Y [9:1] = { $procmux$271_Y [0] $procmux$271_Y [0] $procmux$271_Y [0] $procmux$271_Y [0] $procmux$271_Y [0] $procmux$271_Y [0] $procmux$271_Y [0] $procmux$271_Y [0] $procmux$271_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$262:
+      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$262_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$262_Y [0]
+      New connections: $procmux$262_Y [9:1] = { $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] $procmux$262_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$253:
+      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$253_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$253_Y [0]
+      New connections: $procmux$253_Y [9:1] = { $procmux$253_Y [0] $procmux$253_Y [0] $procmux$253_Y [0] $procmux$253_Y [0] $procmux$253_Y [0] $procmux$253_Y [0] $procmux$253_Y [0] $procmux$253_Y [0] $procmux$253_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$244:
+      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$244_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$244_Y [0]
+      New connections: $procmux$244_Y [9:1] = { $procmux$244_Y [0] $procmux$244_Y [0] $procmux$244_Y [0] $procmux$244_Y [0] $procmux$244_Y [0] $procmux$244_Y [0] $procmux$244_Y [0] $procmux$244_Y [0] $procmux$244_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$235:
+      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$235_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$235_Y [0]
+      New connections: $procmux$235_Y [9:1] = { $procmux$235_Y [0] $procmux$235_Y [0] $procmux$235_Y [0] $procmux$235_Y [0] $procmux$235_Y [0] $procmux$235_Y [0] $procmux$235_Y [0] $procmux$235_Y [0] $procmux$235_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$226:
+      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$226_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$226_Y [0]
+      New connections: $procmux$226_Y [9:1] = { $procmux$226_Y [0] $procmux$226_Y [0] $procmux$226_Y [0] $procmux$226_Y [0] $procmux$226_Y [0] $procmux$226_Y [0] $procmux$226_Y [0] $procmux$226_Y [0] $procmux$226_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$217:
+      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$217_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$217_Y [0]
+      New connections: $procmux$217_Y [9:1] = { $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] $procmux$217_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$208:
+      Old ports: A=10'1111111111, B=10'0000000000, Y=$procmux$208_Y
+      New ports: A=1'1, B=1'0, Y=$procmux$208_Y [0]
+      New connections: $procmux$208_Y [9:1] = { $procmux$208_Y [0] $procmux$208_Y [0] $procmux$208_Y [0] $procmux$208_Y [0] $procmux$208_Y [0] $procmux$208_Y [0] $procmux$208_Y [0] $procmux$208_Y [0] $procmux$208_Y [0] }
   Optimizing cells in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
-    Consolidated identical input bits for $mux cell $procmux$277:
-      Old ports: A=10'0000000000, B=$procmux$274_Y, Y=$procmux$277_Y
-      New ports: A=1'0, B=$procmux$274_Y [0], Y=$procmux$277_Y [0]
-      New connections: $procmux$277_Y [9:1] = { $procmux$277_Y [0] $procmux$277_Y [0] $procmux$277_Y [0] $procmux$277_Y [0] $procmux$277_Y [0] $procmux$277_Y [0] $procmux$277_Y [0] $procmux$277_Y [0] $procmux$277_Y [0] }
+    Consolidated identical input bits for $mux cell $procmux$282:
+      Old ports: A=10'0000000000, B=$procmux$279_Y, Y=$procmux$282_Y
+      New ports: A=1'0, B=$procmux$279_Y [0], Y=$procmux$282_Y [0]
+      New connections: $procmux$282_Y [9:1] = { $procmux$282_Y [0] $procmux$282_Y [0] $procmux$282_Y [0] $procmux$282_Y [0] $procmux$282_Y [0] $procmux$282_Y [0] $procmux$282_Y [0] $procmux$282_Y [0] $procmux$282_Y [0] }
   Optimizing cells in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
 Performed a total of 10 changes.
 
@@ -291,16 +297,14 @@ Finding identical cells in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR
 Removed a total of 28 cells.
 
 4.6. Executing OPT_RMDFF pass (remove dff with constant values).
-Removing $procdff$296 ($dff) from module FIFO.
-Removing $procdff$294 ($dff) from module FIFO.
-Removing $procdff$304 ($dff) from module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
-Replaced 3 DFF cells.
+Removing $procdff$309 ($dff) from module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
+Replaced 1 DFF cells.
 
 4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \FIFO..
 Finding unused cells or wires in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3..
-Removed 8 unused cells and 136 unused wires.
-<suppressed ~10 debug messages>
+Removed 3 unused cells and 135 unused wires.
+<suppressed ~5 debug messages>
 
 4.8. Executing OPT_EXPR pass (perform const folding).
 Optimizing module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
@@ -318,7 +322,7 @@ Running muxtree optimizer on module \FIFO..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~21 debug messages>
+<suppressed ~24 debug messages>
 
 4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
@@ -355,9 +359,9 @@ Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl
     Users of register don't seem to benefit from recoding.
 Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$102_ADDR as FSM state register:
     Users of register don't seem to benefit from recoding.
-Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$95_ADDR as FSM state register:
+Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$103_ADDR as FSM state register:
     Users of register don't seem to benefit from recoding.
-Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$96_ADDR as FSM state register:
+Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$104_ADDR as FSM state register:
     Users of register don't seem to benefit from recoding.
 Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$97_ADDR as FSM state register:
     Users of register don't seem to benefit from recoding.
@@ -365,7 +369,7 @@ Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl
     Users of register don't seem to benefit from recoding.
 Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:26$99_ADDR as FSM state register:
     Users of register don't seem to benefit from recoding.
-Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:32$103_EN as FSM state register:
+Not marking $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.$memwr$\mem$rtl/memoria.v:32$105_EN as FSM state register:
     Users of register don't seem to benefit from recoding.
 
 5.2. Executing FSM_EXTRACT pass (extracting FSM from design).
@@ -405,7 +409,7 @@ Running muxtree optimizer on module \FIFO..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~21 debug messages>
+<suppressed ~24 debug messages>
 
 6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
@@ -432,16 +436,16 @@ Optimizing module FIFO.
 7. Executing MEMORY pass.
 
 7.1. Executing MEMORY_DFF pass (merging $dff cells to $memrd and $memwr).
-Checking cell `$memwr$\mem$rtl/memoria.v:26$134' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
-Checking cell `$memwr$\mem$rtl/memoria.v:26$135' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
 Checking cell `$memwr$\mem$rtl/memoria.v:26$136' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
 Checking cell `$memwr$\mem$rtl/memoria.v:26$137' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
 Checking cell `$memwr$\mem$rtl/memoria.v:26$138' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
 Checking cell `$memwr$\mem$rtl/memoria.v:26$139' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
 Checking cell `$memwr$\mem$rtl/memoria.v:26$140' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
 Checking cell `$memwr$\mem$rtl/memoria.v:26$141' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
-Checking cell `$memwr$\mem$rtl/memoria.v:32$142' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
-Checking cell `$memrd$\mem$rtl/memoria.v:34$133' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': no (compatible) $dff found.
+Checking cell `$memwr$\mem$rtl/memoria.v:26$142' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
+Checking cell `$memwr$\mem$rtl/memoria.v:26$143' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
+Checking cell `$memwr$\mem$rtl/memoria.v:32$144' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': merged $dff to cell.
+Checking cell `$memrd$\mem$rtl/memoria.v:34$135' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3': no (compatible) $dff found.
 
 7.2. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3..
@@ -452,34 +456,34 @@ Removed 13 unused cells and 13 unused wires.
 7.3. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
 Consolidating write ports of memory $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.mem by address:
   New clock domain: posedge \clk
-    Port 0 ($memwr$\mem$rtl/memoria.v:26$134) has addr 0.
+    Port 0 ($memwr$\mem$rtl/memoria.v:26$136) has addr 0.
       Active bits: 1111111111
-    Port 1 ($memwr$\mem$rtl/memoria.v:26$135) has addr 1.
+    Port 1 ($memwr$\mem$rtl/memoria.v:26$137) has addr 1.
       Active bits: 1111111111
-    Port 2 ($memwr$\mem$rtl/memoria.v:26$136) has addr 2.
+    Port 2 ($memwr$\mem$rtl/memoria.v:26$138) has addr 2.
       Active bits: 1111111111
-    Port 3 ($memwr$\mem$rtl/memoria.v:26$137) has addr 3.
+    Port 3 ($memwr$\mem$rtl/memoria.v:26$139) has addr 3.
       Active bits: 1111111111
-    Port 4 ($memwr$\mem$rtl/memoria.v:26$138) has addr 4.
+    Port 4 ($memwr$\mem$rtl/memoria.v:26$140) has addr 4.
       Active bits: 1111111111
-    Port 5 ($memwr$\mem$rtl/memoria.v:26$139) has addr 5.
+    Port 5 ($memwr$\mem$rtl/memoria.v:26$141) has addr 5.
       Active bits: 1111111111
-    Port 6 ($memwr$\mem$rtl/memoria.v:26$140) has addr 6.
+    Port 6 ($memwr$\mem$rtl/memoria.v:26$142) has addr 6.
       Active bits: 1111111111
-    Port 7 ($memwr$\mem$rtl/memoria.v:26$141) has addr 7.
+    Port 7 ($memwr$\mem$rtl/memoria.v:26$143) has addr 7.
       Active bits: 1111111111
-    Port 8 ($memwr$\mem$rtl/memoria.v:32$142) has addr \wr_ptr.
+    Port 8 ($memwr$\mem$rtl/memoria.v:32$144) has addr \wr_ptr.
       Active bits: 1111111111
 Consolidating write ports of memory $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.mem using sat-based resource sharing:
-  Port 0 ($memwr$\mem$rtl/memoria.v:26$134) on posedge \clk: considered
-  Port 1 ($memwr$\mem$rtl/memoria.v:26$135) on posedge \clk: considered
-  Port 2 ($memwr$\mem$rtl/memoria.v:26$136) on posedge \clk: considered
-  Port 3 ($memwr$\mem$rtl/memoria.v:26$137) on posedge \clk: considered
-  Port 4 ($memwr$\mem$rtl/memoria.v:26$138) on posedge \clk: considered
-  Port 5 ($memwr$\mem$rtl/memoria.v:26$139) on posedge \clk: considered
-  Port 6 ($memwr$\mem$rtl/memoria.v:26$140) on posedge \clk: considered
-  Port 7 ($memwr$\mem$rtl/memoria.v:26$141) on posedge \clk: considered
-  Port 8 ($memwr$\mem$rtl/memoria.v:32$142) on posedge \clk: considered
+  Port 0 ($memwr$\mem$rtl/memoria.v:26$136) on posedge \clk: considered
+  Port 1 ($memwr$\mem$rtl/memoria.v:26$137) on posedge \clk: considered
+  Port 2 ($memwr$\mem$rtl/memoria.v:26$138) on posedge \clk: considered
+  Port 3 ($memwr$\mem$rtl/memoria.v:26$139) on posedge \clk: considered
+  Port 4 ($memwr$\mem$rtl/memoria.v:26$140) on posedge \clk: considered
+  Port 5 ($memwr$\mem$rtl/memoria.v:26$141) on posedge \clk: considered
+  Port 6 ($memwr$\mem$rtl/memoria.v:26$142) on posedge \clk: considered
+  Port 7 ($memwr$\mem$rtl/memoria.v:26$143) on posedge \clk: considered
+  Port 8 ($memwr$\mem$rtl/memoria.v:32$144) on posedge \clk: considered
   Common input cone for all EN signals: 3 cells.
   Size of unconstrained SAT problem: 23 variables, 53 clauses
   According to SAT solver sharing of port 0 with port 1 is not possible.
@@ -497,15 +501,15 @@ Finding unused cells or wires in module \FIFO..
 
 7.5. Executing MEMORY_COLLECT pass (generating $mem cells).
 Collecting $memrd, $memwr and $meminit for memory `\mem' in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3':
-  $memwr$\mem$rtl/memoria.v:26$134 ($memwr)
-  $memwr$\mem$rtl/memoria.v:26$135 ($memwr)
   $memwr$\mem$rtl/memoria.v:26$136 ($memwr)
   $memwr$\mem$rtl/memoria.v:26$137 ($memwr)
   $memwr$\mem$rtl/memoria.v:26$138 ($memwr)
   $memwr$\mem$rtl/memoria.v:26$139 ($memwr)
   $memwr$\mem$rtl/memoria.v:26$140 ($memwr)
-  $memwr$\mem$rtl/memoria.v:32$142 ($memwr)
-  $memrd$\mem$rtl/memoria.v:34$133 ($memrd)
+  $memwr$\mem$rtl/memoria.v:26$141 ($memwr)
+  $memwr$\mem$rtl/memoria.v:26$142 ($memwr)
+  $memwr$\mem$rtl/memoria.v:32$144 ($memwr)
+  $memrd$\mem$rtl/memoria.v:34$135 ($memrd)
 
 7.6. Executing MEMORY_MAP pass (converting $mem cells to logic and flip-flops).
 Mapping memory cell \mem in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3:
@@ -529,14 +533,14 @@ Removed a total of 0 cells.
 Running muxtree optimizer on module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
-      Replacing known input bits on port B of cell $auto$memory_share.cc:646:consolidate_wr_using_sat$339: $0$memwr$\mem$rtl/memoria.v:32$103_EN[9:0]$131 [9] -> 1'1
+      Replacing known input bits on port B of cell $auto$memory_share.cc:646:consolidate_wr_using_sat$344: $0$memwr$\mem$rtl/memoria.v:32$105_EN[9:0]$133 [9] -> 1'1
   Analyzing evaluation results.
 Running muxtree optimizer on module \FIFO..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~29 debug messages>
+<suppressed ~32 debug messages>
 
 8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module $paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3.
@@ -619,7 +623,7 @@ Using template $paramod\_90_lcu\WIDTH=32 for cells of type $lcu.
 Using extmapper simplemap for cells of type $pos.
 Using template $paramod\_90_lcu\WIDTH=3 for cells of type $lcu.
 No more expansions possible.
-<suppressed ~1656 debug messages>
+<suppressed ~1664 debug messages>
 
 10. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
   cell DFF (noninv, pins=3, area=18.00) is a direct match for cell type $_DFF_P_.
@@ -662,7 +666,7 @@ No more expansions possible.
 Mapping DFF cells in module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3':
   mapped 90 $_DFF_P_ cells to \DFF cells.
 Mapping DFF cells in module `\FIFO':
-  mapped 13 $_DFF_P_ cells to \DFF cells.
+  mapped 15 $_DFF_P_ cells to \DFF cells.
 
 11. Executing ABC pass (technology mapping using ABC).
 
@@ -707,7 +711,7 @@ ABC RESULTS:          output signals:       90
 Removing temp directory.
 
 11.2. Extracting gate netlist of module `\FIFO' to `<abc-temp-dir>/input.blif'..
-Extracted 1994 gates and 2012 wires to a netlist network with 16 inputs and 13 outputs.
+Extracted 2000 gates and 2020 wires to a netlist network with 18 inputs and 16 outputs.
 
 11.2.1. Executing ABC.
 Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
@@ -738,20 +742,20 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 11.2.2. Re-integrating ABC results.
-ABC RESULTS:              NAND cells:       37
-ABC RESULTS:               NOR cells:       34
-ABC RESULTS:               NOT cells:       21
-ABC RESULTS:        internal signals:     1983
-ABC RESULTS:           input signals:       16
-ABC RESULTS:          output signals:       13
+ABC RESULTS:              NAND cells:       43
+ABC RESULTS:               NOR cells:       36
+ABC RESULTS:               NOT cells:       22
+ABC RESULTS:        internal signals:     1986
+ABC RESULTS:           input signals:       18
+ABC RESULTS:          output signals:       16
 Removing temp directory.
-Removed 0 unused cells and 1373 unused wires.
+Removed 0 unused cells and 1381 unused wires.
 
 12. Executing Verilog backend.
 Dumping module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3'.
 Dumping module `\FIFO'.
 
-End of script. Logfile hash: 2f8d4f8483
-CPU: user 0.58s system 0.01s, MEM: 24.17 MB total, 18.29 MB resident
+End of script. Logfile hash: 702e38cd90
+CPU: user 0.59s system 0.01s, MEM: 24.28 MB total, 18.36 MB resident
 Yosys 0.9 (git sha1 1979e0b)
-Time spent: 22% 2x write_verilog (0 sec), 19% 1x techmap (0 sec), ...
+Time spent: 23% 2x write_verilog (0 sec), 17% 1x techmap (0 sec), ...

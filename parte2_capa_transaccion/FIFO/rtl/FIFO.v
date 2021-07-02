@@ -74,7 +74,6 @@ always @(posedge clk) begin
         full_flag <= 0;
         almost_full_flag <= 0;
         almost_empty_flag <= 0;
-        error_flag <= 0;
     end
     else begin
         ff_N <= N;
@@ -111,9 +110,22 @@ always @(posedge clk) begin
     end
 end
 
+reg ff_rd_en, ff_wr_en;
+
 // Logica de error
 always @(posedge clk) begin
-    if(wr_en && !rd_en && full_flag)
+    if(~reset_L) begin
+        ff_rd_en <= 0;
+        ff_rd_en <= 0; 
+    end else begin
+        ff_rd_en <= rd_en;
+        ff_wr_en <= wr_en;
+    end
+end
+
+always @(*) begin
+    error_flag = 0;
+    if(ff_wr_en && !ff_rd_en && full_flag)
         error_flag <= 1;
 end
 
