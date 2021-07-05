@@ -2,7 +2,7 @@ module arbitro (input clk,
 		input 		 empty_p0,
 		input 		 empty_p1,
 		input 		 empty_p2,
-		input 		 empty_p3
+		input 		 empty_p3,
 		input 		 almostfull_p0,
 		input 		 almostfull_p1,
 		input 		 almostfull_p2,
