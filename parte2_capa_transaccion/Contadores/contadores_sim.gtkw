@@ -1,0 +1,93 @@
+[*]
+[*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
+[*] Tue Jul  6 22:02:32 2021
+[*]
+[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Contadores/test.vcd"
+[dumpfile_mtime] "Tue Jul  6 22:01:25 2021"
+[dumpfile_size] 25367
+[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Contadores/contadores_sim.gtkw"
+[timestart] 0
+[size] 1920 1007
+[pos] -1 -1
+*-11.960073 6250 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] banco_pruebas.
+[sst_width] 211
+[signals_width] 152
+[sst_expanded] 1
+[sst_vpaned_height] 289
+@200
+-clk
+@28
+banco_pruebas.contadores.clk
+@200
+-
+-control
+@28
+banco_pruebas.contadores.rst_l
+@200
+-
+-datos de salida
+@22
+[color] 5
+banco_pruebas.data_in0[9:0]
+[color] 5
+banco_pruebas.data_in1[9:0]
+[color] 5
+banco_pruebas.data_in2[9:0]
+[color] 5
+banco_pruebas.data_in3[9:0]
+@200
+-
+-pops de salida
+@28
+[color] 3
+banco_pruebas.contadores.pop_0
+[color] 3
+banco_pruebas.contadores.pop_1
+@29
+[color] 3
+banco_pruebas.contadores.pop_2
+@28
+[color] 3
+banco_pruebas.contadores.pop_3
+@200
+-
+-contadores
+@24
+[color] 2
+banco_pruebas.contadores_synth_0.\contador[0][4:0]
+[color] 2
+banco_pruebas.contadores_synth_0.\contador[1][4:0]
+[color] 2
+banco_pruebas.contadores_synth_0.\contador[2][4:0]
+[color] 2
+banco_pruebas.contadores_synth_0.\contador[3][4:0]
+@200
+-
+-control de cont
+@28
+[color] 4
+banco_pruebas.contadores.req
+[color] 5
+banco_pruebas.contadores.idle
+@24
+[color] 6
+banco_pruebas.contadores.idx[1:0]
+@200
+-
+-conductual
+@24
+banco_pruebas.contadores.data[4:0]
+@28
+[color] 5
+banco_pruebas.valid
+@200
+-
+-estructural
+@24
+banco_pruebas.data_E[4:0]
+@28
+[color] 5
+banco_pruebas.valid_E
+[pattern_trace] 1
+[pattern_trace] 0
