@@ -3,7 +3,7 @@
 (* dynports =  1  *)
 (* top =  1  *)
 (* src = "rtl/arbitro.v:1" *)
-module arbitro_synth(clk, empty_p0, empty_p1, empty_p2, empty_p3, almostfull_p0, almostfull_p1, almostfull_p2, almostfull_p3, data_in_0, data_in_1, data_in_2, data_in_3, data_out_0, data_out_1, data_out_2, data_out_3, pop_p0, pop_p1, pop_p2, pop_p3, push_p0, push_p1, push_p2, push_p3);
+module arbitro_synth(empty_p0, empty_p1, empty_p2, empty_p3, almostfull_p0, almostfull_p1, almostfull_p2, almostfull_p3, data_in_0, data_in_1, data_in_2, data_in_3, data_out_0, data_out_1, data_out_2, data_out_3, pop_p0, pop_p1, pop_p2, pop_p3, push_p0, push_p1, push_p2, push_p3);
   wire _00_;
   wire _01_;
   wire _02_;
@@ -20,165 +20,199 @@ module arbitro_synth(clk, empty_p0, empty_p1, empty_p2, empty_p3, almostfull_p0,
   wire _13_;
   wire _14_;
   wire _15_;
-  (* src = "rtl/arbitro.v:11" *)
+  wire _16_;
+  wire _17_;
+  wire _18_;
+  wire _19_;
+  wire _20_;
+  (* src = "rtl/arbitro.v:10" *)
   input almostfull_p0;
-  (* src = "rtl/arbitro.v:12" *)
+  (* src = "rtl/arbitro.v:11" *)
   input almostfull_p1;
-  (* src = "rtl/arbitro.v:13" *)
+  (* src = "rtl/arbitro.v:12" *)
   input almostfull_p2;
-  (* src = "rtl/arbitro.v:14" *)
+  (* src = "rtl/arbitro.v:13" *)
   input almostfull_p3;
-  (* src = "rtl/arbitro.v:4" *)
-  input clk;
-  (* src = "rtl/arbitro.v:16" *)
+  (* src = "rtl/arbitro.v:15" *)
   input [9:0] data_in_0;
-  (* src = "rtl/arbitro.v:17" *)
+  (* src = "rtl/arbitro.v:16" *)
   input [9:0] data_in_1;
-  (* src = "rtl/arbitro.v:18" *)
+  (* src = "rtl/arbitro.v:17" *)
   input [9:0] data_in_2;
-  (* src = "rtl/arbitro.v:19" *)
+  (* src = "rtl/arbitro.v:18" *)
   input [9:0] data_in_3;
-  (* src = "rtl/arbitro.v:22" *)
+  (* src = "rtl/arbitro.v:21" *)
   output data_out_0;
-  (* src = "rtl/arbitro.v:23" *)
+  (* src = "rtl/arbitro.v:22" *)
   output data_out_1;
-  (* src = "rtl/arbitro.v:24" *)
+  (* src = "rtl/arbitro.v:23" *)
   output data_out_2;
-  (* src = "rtl/arbitro.v:25" *)
+  (* src = "rtl/arbitro.v:24" *)
   output data_out_3;
-  (* src = "rtl/arbitro.v:72" *)
+  (* src = "rtl/arbitro.v:71" *)
   wire [1:0] dest;
-  (* src = "rtl/arbitro.v:6" *)
+  (* src = "rtl/arbitro.v:5" *)
   input empty_p0;
-  (* src = "rtl/arbitro.v:7" *)
+  (* src = "rtl/arbitro.v:6" *)
   input empty_p1;
-  (* src = "rtl/arbitro.v:8" *)
+  (* src = "rtl/arbitro.v:7" *)
   input empty_p2;
-  (* src = "rtl/arbitro.v:9" *)
+  (* src = "rtl/arbitro.v:8" *)
   input empty_p3;
-  (* src = "rtl/arbitro.v:28" *)
+  (* src = "rtl/arbitro.v:72" *)
+  (* unused_bits = "1 2 3 4 5 6 7 8 9" *)
+  wire [9:0] mux_out;
+  (* src = "rtl/arbitro.v:27" *)
   output pop_p0;
-  (* src = "rtl/arbitro.v:29" *)
+  (* src = "rtl/arbitro.v:28" *)
   output pop_p1;
-  (* src = "rtl/arbitro.v:30" *)
+  (* src = "rtl/arbitro.v:29" *)
   output pop_p2;
-  (* src = "rtl/arbitro.v:31" *)
+  (* src = "rtl/arbitro.v:30" *)
   output pop_p3;
-  (* src = "rtl/arbitro.v:33" *)
+  (* src = "rtl/arbitro.v:32" *)
   output push_p0;
-  (* src = "rtl/arbitro.v:34" *)
+  (* src = "rtl/arbitro.v:33" *)
   output push_p1;
-  (* src = "rtl/arbitro.v:35" *)
+  (* src = "rtl/arbitro.v:34" *)
   output push_p2;
-  (* src = "rtl/arbitro.v:36" *)
+  (* src = "rtl/arbitro.v:35" *)
   output push_p3;
-  NOT _16_ (
+  NOT _21_ (
+    .A(data_in_2[0]),
+    .Y(_00_)
+  );
+  NOT _22_ (
     .A(empty_p1),
     .Y(_01_)
   );
-  NOT _17_ (
-    .A(empty_p2),
-    .Y(_02_)
-  );
-  NOT _18_ (
+  NOT _23_ (
     .A(empty_p3),
-    .Y(_03_)
-  );
-  NAND _19_ (
-    .A(empty_p0),
-    .B(empty_p1),
-    .Y(_04_)
-  );
-  NOT _20_ (
-    .A(_04_),
-    .Y(_05_)
-  );
-  NOR _21_ (
-    .A(_02_),
-    .B(_04_),
-    .Y(_06_)
-  );
-  NAND _22_ (
-    .A(empty_p2),
-    .B(_05_),
-    .Y(_07_)
-  );
-  NOR _23_ (
-    .A(_03_),
-    .B(_07_),
-    .Y(_08_)
+    .Y(_02_)
   );
   NOR _24_ (
     .A(almostfull_p0),
     .B(almostfull_p1),
-    .Y(_09_)
+    .Y(_03_)
   );
   NOR _25_ (
     .A(almostfull_p2),
     .B(almostfull_p3),
-    .Y(_10_)
+    .Y(_04_)
   );
   NAND _26_ (
-    .A(_09_),
-    .B(_10_),
-    .Y(_11_)
+    .A(_03_),
+    .B(_04_),
+    .Y(_05_)
   );
-  NOR _27_ (
-    .A(_08_),
-    .B(_11_),
-    .Y(_00_)
+  NOT _27_ (
+    .A(_05_),
+    .Y(_06_)
   );
   NAND _28_ (
-    .A(_03_),
-    .B(_06_),
-    .Y(_12_)
-  );
-  NOR _29_ (
-    .A(_11_),
-    .B(_12_),
-    .Y(pop_p3)
-  );
-  NOR _30_ (
-    .A(empty_p2),
-    .B(_04_),
-    .Y(_13_)
-  );
-  NOT _31_ (
-    .A(_13_),
-    .Y(_14_)
-  );
-  NOR _32_ (
-    .A(_11_),
-    .B(_14_),
-    .Y(pop_p2)
-  );
-  NAND _33_ (
     .A(empty_p0),
     .B(_01_),
-    .Y(_15_)
+    .Y(_07_)
   );
-  NOR _34_ (
-    .A(_11_),
-    .B(_15_),
+  NOR _29_ (
+    .A(_05_),
+    .B(_07_),
     .Y(pop_p1)
   );
-  NOR _35_ (
+  NOR _30_ (
     .A(empty_p0),
-    .B(_11_),
+    .B(_05_),
     .Y(pop_p0)
   );
-  (* src = "rtl/arbitro.v:104" *)
-  \$_DLATCH_P_  _36_ (
-    .D(1'h1),
-    .E(_00_),
-    .Q(push_p1)
+  NAND _31_ (
+    .A(empty_p0),
+    .B(empty_p1),
+    .Y(_08_)
   );
-  assign data_out_0 = 1'h0;
+  NOT _32_ (
+    .A(_08_),
+    .Y(_09_)
+  );
+  NAND _33_ (
+    .A(empty_p2),
+    .B(_09_),
+    .Y(_10_)
+  );
+  NAND _34_ (
+    .A(_02_),
+    .B(_06_),
+    .Y(_11_)
+  );
+  NOR _35_ (
+    .A(_10_),
+    .B(_11_),
+    .Y(pop_p3)
+  );
+  NAND _36_ (
+    .A(data_in_3[0]),
+    .B(pop_p3),
+    .Y(_12_)
+  );
+  NOR _37_ (
+    .A(empty_p2),
+    .B(_08_),
+    .Y(_13_)
+  );
+  NAND _38_ (
+    .A(_06_),
+    .B(_13_),
+    .Y(_14_)
+  );
+  NOT _39_ (
+    .A(_14_),
+    .Y(pop_p2)
+  );
+  NOR _40_ (
+    .A(_00_),
+    .B(_14_),
+    .Y(_15_)
+  );
+  NAND _41_ (
+    .A(data_in_0[0]),
+    .B(pop_p0),
+    .Y(_16_)
+  );
+  NAND _42_ (
+    .A(data_in_1[0]),
+    .B(pop_p1),
+    .Y(_17_)
+  );
+  NAND _43_ (
+    .A(_16_),
+    .B(_17_),
+    .Y(_18_)
+  );
+  NOR _44_ (
+    .A(_15_),
+    .B(_18_),
+    .Y(_19_)
+  );
+  NAND _45_ (
+    .A(_12_),
+    .B(_19_),
+    .Y(data_out_0)
+  );
+  NOR _46_ (
+    .A(_02_),
+    .B(_10_),
+    .Y(_20_)
+  );
+  NOR _47_ (
+    .A(_05_),
+    .B(_20_),
+    .Y(push_p0)
+  );
   assign data_out_1 = 1'h0;
   assign data_out_2 = 1'h0;
   assign data_out_3 = 1'h0;
-  assign dest = 2'hx;
-  assign push_p0 = push_p1;
-  assign push_p2 = push_p1;
-  assign push_p3 = push_p1;
+  assign dest = 2'h0;
+  assign mux_out[0] = data_out_0;
+  assign push_p1 = 1'h0;
+  assign push_p2 = 1'h0;
+  assign push_p3 = 1'h0;
 endmodule

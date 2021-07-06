@@ -35,20 +35,20 @@ module probador #(
 	input push_p3_synth,
     // Salidas del generador de señales
     // Señales de empty de los FIFOS de entrada
-	input empty_p0,
-	input empty_p1,
-	input empty_p2,
-	input empty_p3,
+	output reg empty_p0,
+	output reg empty_p1,
+	output reg empty_p2,
+	output reg empty_p3,
 	// Señales de almost full de los FIFOS de salida
-	input almostfull_p0,
-	input almostfull_p1,
-	input almostfull_p2,
-	input almostfull_p3,
+	output reg almostfull_p0,
+	output reg almostfull_p1,
+	output reg almostfull_p2,
+	output reg almostfull_p3,
 	// Desde los FIFOS de entrada hacia el mux
-	input [FIFO_WORD_SIZE-1:0] data_in_0,
-	input [FIFO_WORD_SIZE-1:0] data_in_1,
-	input [FIFO_WORD_SIZE-1:0] data_in_2,
-	input [FIFO_WORD_SIZE-1:0] data_in_3);
+	output reg [FIFO_WORD_SIZE-1:0] data_in_0,
+	output reg [FIFO_WORD_SIZE-1:0] data_in_1,
+	output reg [FIFO_WORD_SIZE-1:0] data_in_2,
+	output reg [FIFO_WORD_SIZE-1:0] data_in_3);
 	
 
     integer prob_i; // contador
@@ -57,13 +57,14 @@ module probador #(
     integer check = 1;
     always @(*) begin
 		check = 0;
-        if (data_out_0 == data_out_SYNTH_0 && data_out_1 == data_out_SYNTH_1 && data_out_2 == data_out_SYNTH_2 && data_out_3 == data_out_SYNTH_3) 
+        if (data_out_0 == data_out_0_synth && data_out_1 == data_out_1_synth && data_out_2 == data_out_2_synth && data_out_3 == data_out_3_synth) 
             check = 1;    
         else
             check = 0;    
     end 
 
     // Reloj
+	reg clk;
 	initial	clk <= 0;			// Valor inicial al reloj, sino siempre será indeterminado
 	always #10 clk <= ~clk;		// Hace "toggle" cada 2*1ns
 
@@ -78,40 +79,9 @@ module probador #(
 		// Mensaje que se imprime en consola cada vez que un elemento de la lista cambia
 		$monitor($time,"\t%b%d", clk, check);
         
-        // Inicialización de datos
 		// ** MODIFICAR A PARTIR DE ACÁ
-		reset_L = 0;
-		wr_en = 0;
-		rd_en = 0;
-		data_in = 10'h000;
-		// Inicio de pruebas
-		
-		@(posedge clk);
-			reset_L <= 1;	
-		
-		@(posedge clk) begin
-			wr_en <= 1;
-			data_in <= 'h001;
-		end
-		
-		repeat (8) begin
-			@(posedge clk) begin
-				wr_en <= 1;
-				data_in <= data_in + 1;
-			end
-		end
+        // Inicialización de datos
 
-		repeat (8) begin
-			@(posedge clk) begin
-				wr_en <= 0; 
-				rd_en <= 1;
-				data_in <= data_in + 1;
-			end
-		end
-
-		@(posedge clk) begin
-			reset_L <= 0;
-		end
 		#50
 		// Final de pruebas
 

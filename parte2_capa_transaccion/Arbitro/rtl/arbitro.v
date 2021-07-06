@@ -1,7 +1,6 @@
 module arbitro #( // Un árbitro para 4 FIFOS
 	parameter FIFO_WORD_SIZE = 10
 ) (
-	input clk,
 	// Señales de empty de los FIFOS de entrada
 	input empty_p0,
 	input empty_p1,
@@ -70,9 +69,10 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	// Lógica MUX/DEMUX -> El FIFO donde SI escribe lo determina el push
 
 	reg [1:0] dest; // Selector del demux 
+	reg [FIFO_WORD_SIZE-1:0] mux_out;
 
 	always @(*) begin
-		//mux_out = 0; // Valor por defecto
+		mux_out = 0; // Valor por defecto
 		dest = mux_out[FIFO_WORD_SIZE-1:FIFO_WORD_SIZE-2]; // -> DEST sólo puede tomar valores 0, 1, 2 y 3.
 		// Multiplexor
 		if(pop_p0)
@@ -81,43 +81,38 @@ module arbitro #( // Un árbitro para 4 FIFOS
 			mux_out = data_in_1;
 		else if (pop_p2)
 			mux_out = data_in_2;
-		else if (pop_3)
+		else if (pop_p3)
 			mux_out = data_in_3;
 
 		// Demultiplexor
+		// Valores por defecto
+		data_out_0 = 0; 
+		data_out_1 = 0; 
+		data_out_2 = 0; 
+		data_out_3 = 0;
 		case(dest)
 			'b00: data_out_0 = mux_out;
 			'b01: data_out_1 = mux_out;
 			'b10: data_out_2 = mux_out;
 			'b11: data_out_3 = mux_out;
-			default: begin
-				// Valores por defecto
-				data_out_0 = 0; 
-				data_out_1 = 0; 
-				data_out_2 = 0; 
-				data_out_3 = 0;
-			end
 		endcase
 	end
 
 	//Lógica de PUSH
 	always @(*) begin
+		push_p0 = 0;
+		push_p1 = 0;
+		push_p2 = 0;
+		push_p3 = 0;
 		if(!in_FIFOS_empty && !out_FIFOS_almost_full) begin
 		/* El árbitro hace push siempre y cuando los fifos de entrada 
 		no estén vacíos y no haya ningún fifo de salida en almost full - Freddy (2021)*/
-				case(dest)
-					'b00: push_p0 = 1;
-					'b01: push_p1 = 1;
-					'b10: push_p2 = 1;
-					'b11: push_p3 = 1;
-					default: begin
-						// Valores por defecto
-						push_p0 = 0;
-						push_p1 = 0;
-						push_p2 = 0;
-						push_p3 = 0;
-					end
-				endcase						
+			case(dest)
+				'b00: push_p0 = 1;
+				'b01: push_p1 = 1;
+				'b10: push_p2 = 1;
+				'b11: push_p3 = 1;
+			endcase						
 		end // end // if (!out_FIFOS_almost_full && !in_FIFOS_empty)
 	end// always @ (*)
 endmodule // arbitro
