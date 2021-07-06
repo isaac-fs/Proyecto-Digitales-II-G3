@@ -11,17 +11,18 @@ module arbitro (
 	input almostfull_p2,
 	input almostfull_p3,
 	// Desde los FIFOS de entrada hacia el mux
-	input [9:0] data_in0,
-	input [9:0] data_in1,
-	input [9:0] data_in2,
-	input [9:0] data_in3,
+	input [9:0] data_in_0,
+	input [9:0] data_in_1,
+	input [9:0] data_in_2,
+	input [9:0] data_in_3,
 	// Desde el demux a los FIFOS de salida
 	// Hacia los FIFOS de salida
     output reg data_out_0;
     output reg data_out_1;
     output reg data_out_2;
     output reg data_out_3;
-	// Señales de pop hacia los FIFOS de entrada
+	// Los POP y PUSH son READ_ENABLE y WRITE_ENABLE, respectivamente en los FIFOS
+	// Señales de pop hacia los FIFOS de entrada 
 	output reg pop_p0,
 	output reg pop_p1,
 	output reg pop_p2,
@@ -34,7 +35,6 @@ module arbitro (
 
 	reg almost_full; // Si se asignan valores acá luego hay problemas en la sísntesis
 	reg FIFOs_empty; // Lo mejor es tratarlos con señales de reset o valores por defecto en el always.
-	reg [1:0] dest;
 
 	// almost_full ->Indica que por lo menos uno de los FIFOs de salida está almost full
 	// FIFOs_empty -> Indica que todos los FIFO de entrada están vacíos
@@ -42,17 +42,17 @@ module arbitro (
 	    // Señal que indica si al menos un FIFO de salida está almost full
 		almost_full = (almostfull_p0 || almostfull_p1 || almostfull_p2 || almostfull_p3);
 		FIFOs_empty = (empty_p0 && empty_p1 && empty_p2 && empty_p3);
-		dest = data2send[9:8];
 	end
 
 	//Lógica POP
 	always @(*) begin
 		// Valores predeterminados. Necesarios para que no aparezcan LATCH D en síntesis.
+		// Además si no se cumple ningún if por defecto cae acá
 		pop_p0 = 0;
 		pop_p1 = 0;
 		pop_p2 = 0;
 		pop_p3 = 0;
-		
+
 		if(!almost_full)
 			begin
 				if(!empty_p0)
@@ -66,69 +66,64 @@ module arbitro (
 			end // if (!almost_full)
 	end // always @ (*)
 
-	// Lógica MUX/DEMUX ->  data2send se conecta a los 4 FIFOs de salida. El FIFO donde SI escribe lo determina el push
+	// Lógica MUX/DEMUX -> El FIFO donde SI escribe lo determina el push
+
+	reg [1:0] dest; // Selector del demux 
+	dest = mux_out[9:8]; // -> DEST sólo puede tomar valores 0, 1, 2 y 3.
+
 	always(*) begin
+		
+		// Multiplexor
+		mux_out = 0; // Valor por defecto
 		if(pop_p0)
-			data2send = data_in0;
+			mux_out = data_in_0;
 		else if (pop_p1)
-			data2send = data_in1;
+			mux_out = data_in_1;
 		else if (pop_p2)
-			data2send = data_in2;
+			mux_out = data_in_2;
 		else if (pop_3)
-			data2send = data_in3;
-		else
-			data2send = 0;
+			mux_out = data_in_3;
+
+		// Demultiplexor
+		case(dest)
+			'b00: data_out_0 = mux_out;
+			'b01: data_out_1 = mux_out;
+			'b10: data_out_2 = mux_out;
+			'b11: data_out_3 = mux_out;
+			default: begin
+				// Valores por defecto
+				data_out_0 = 0; 
+				data_out_1 = 0; 
+				data_out_2 = 0; 
+				data_out_3 = 0; 
+			end
+		endcase
 	end
 
 	//Lógica de PUSH
 	always @(*) begin
+		// Valores por defecto
+		push_p0 = 0;
+		push_p1 = 0;
+		push_p2 = 0;
+		push_p3 = 0;
 		if(!almost_full) begin
 			if(!FIFOs_empty) begin
-				if (dest == 'b00) begin
-						push_p0 = 1;
-						push_p1 = 0;
-						push_p2 = 0;
-						push_p3 = 0;
+				case(dest)
+					'b00: push_p0 = 1;
+					'b01: push_p1 = 1;
+					'b10: push_p2 = 1;
+					'b11: push_p3 = 1;
+					default: begin
+						// Valores por defecto
+						data_out_0 = 0; 
+						data_out_1 = 0; 
+						data_out_2 = 0; 
+						data_out_3 = 0; 
 					end
-					else if (dest == 'b01) begin
-						push_p0 = 0;
-						push_p1 = 1;
-						push_p2 = 0;
-						push_p3 = 0;
-					end
-					else if (dest == 'b10) begin
-						push_p0 = 0;
-						push_p1 = 0;
-						push_p2 = 1;
-						push_p3 = 0;
-					end
-					else if (dest == 'b11) begin
-						push_p0 = 0;
-						push_p1 = 0;
-						push_p2 = 0;
-						push_p3 = 1;
-					end
-					else begin
-						push_p0 = 0;
-						push_p1 = 0;
-						push_p2 = 0;
-						push_p3 = 0;
-					end
-					
+				endcase					
 			end // if (!FIFOs_empty)
-			else begin
-				push_p0 = 0;
-				push_p1 = 0;
-				push_p2 = 0;
-				push_p3 = 0;
-			end // else: !if(!FIFOs_empty)
 		end // if (!almost_full)
-		else begin
-			push_p0 = 0;
-			push_p1 = 0;
-			push_p2 = 0;
-			push_p3 = 0;
-		end
 	end // always @ (*)
 endmodule // arbitro
 
