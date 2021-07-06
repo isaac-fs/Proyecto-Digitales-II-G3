@@ -1,6 +1,6 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Tue Jul  6 05:01:21 2021
+[*] Tue Jul  6 05:02:14 2021
 [*]
 [dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/testbench/simulacion.vcd"
 [dumpfile_mtime] "Tue Jul  6 04:58:09 2021"
@@ -9,7 +9,7 @@
 [timestart] 0
 [size] 1920 1007
 [pos] -1 -1
-*-45.730389 30600000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-45.730389 263800000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
 [sst_width] 233
 [signals_width] 198
@@ -75,7 +75,7 @@ testbench.arbitro_cond.data_out_2[9:0]
 testbench.arbitro_cond.data_out_3[9:0]
 @200
 -
-@28
+@24
 testbench.arbitro_cond.dest[1:0]
 [pattern_trace] 1
 [pattern_trace] 0
