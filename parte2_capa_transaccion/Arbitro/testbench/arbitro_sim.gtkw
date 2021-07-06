@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Tue Jul  6 04:51:20 2021
+[*] Tue Jul  6 04:58:18 2021
 [*]
 [dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/testbench/simulacion.vcd"
-[dumpfile_mtime] "Tue Jul  6 04:48:09 2021"
-[dumpfile_size] 10813
+[dumpfile_mtime] "Tue Jul  6 04:58:09 2021"
+[dumpfile_size] 27994
 [savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/testbench/arbitro_sim.gtkw"
 [timestart] 0
 [size] 1920 1007
-[pos] -242 -242
-*-45.730389 50700000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-45.730389 52500000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
 [sst_width] 233
 [signals_width] 198
@@ -70,5 +70,11 @@ testbench.arbitro_cond.push_p3
 testbench.arbitro_cond.dest[1:0]
 @200
 -
+@22
+testbench.arbitro_cond.data_out_0[9:0]
+testbench.arbitro_cond.data_out_1[9:0]
+testbench.arbitro_cond.data_out_2[9:0]
+@28
+testbench.arbitro_cond.dest[1:0]
 [pattern_trace] 1
 [pattern_trace] 0

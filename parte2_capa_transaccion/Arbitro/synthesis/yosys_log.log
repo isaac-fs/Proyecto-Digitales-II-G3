@@ -70,18 +70,18 @@ Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:102$15'.
     11/12: $0\push_p1[0:0]
     12/12: $0\push_p0[0:0]
 Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:74$14'.
-     1/14: $1\data_out_0[0:0]
-     2/14: $1\data_out_3[0:0]
-     3/14: $1\data_out_2[0:0]
-     4/14: $1\data_out_1[0:0]
+     1/14: $1\data_out_0[9:0]
+     2/14: $1\data_out_3[9:0]
+     3/14: $1\data_out_2[9:0]
+     4/14: $1\data_out_1[9:0]
      5/14: $4\mux_out[9:0]
      6/14: $3\mux_out[9:0]
      7/14: $2\mux_out[9:0]
      8/14: $1\mux_out[9:0]
-     9/14: $0\data_out_3[0:0]
-    10/14: $0\data_out_2[0:0]
-    11/14: $0\data_out_1[0:0]
-    12/14: $0\data_out_0[0:0]
+     9/14: $0\data_out_3[9:0]
+    10/14: $0\data_out_2[9:0]
+    11/14: $0\data_out_1[9:0]
+    12/14: $0\data_out_0[9:0]
     13/14: $0\mux_out[9:0]
     14/14: $0\dest[1:0]
 Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:48$8'.
@@ -419,10 +419,11 @@ Using extmapper simplemap for cells of type $reduce_or.
 Using extmapper simplemap for cells of type $logic_not.
 Using template $paramod\_90_pmux\WIDTH=1\S_WIDTH=2 for cells of type $pmux.
 Using extmapper simplemap for cells of type $mux.
+Using template $paramod\_90_pmux\WIDTH=10\S_WIDTH=2 for cells of type $pmux.
 Using extmapper simplemap for cells of type $eq.
 Using extmapper simplemap for cells of type $and.
 No more expansions possible.
-<suppressed ~98 debug messages>
+<suppressed ~145 debug messages>
 
 10. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
   cell DFF (noninv, pins=3, area=18.00) is a direct match for cell type $_DFF_P_.
@@ -467,7 +468,7 @@ Mapping DFF cells in module `\arbitro':
 11. Executing ABC pass (technology mapping using ABC).
 
 11.1. Extracting gate netlist of module `\arbitro' to `<abc-temp-dir>/input.blif'..
-Extracted 129 gates and 180 wires to a netlist network with 48 inputs and 12 outputs.
+Extracted 273 gates and 324 wires to a netlist network with 48 inputs and 48 outputs.
 
 11.1.1. Executing ABC.
 Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
@@ -498,19 +499,20 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 11.1.2. Re-integrating ABC results.
-ABC RESULTS:              NAND cells:       30
-ABC RESULTS:               NOR cells:       18
-ABC RESULTS:               NOT cells:        9
-ABC RESULTS:        internal signals:      120
+ABC RESULTS:              NAND cells:       74
+ABC RESULTS:               NOR cells:       53
+ABC RESULTS:               NOT cells:       13
+ABC RESULTS:          _const0_ cells:        4
+ABC RESULTS:        internal signals:      228
 ABC RESULTS:           input signals:       48
-ABC RESULTS:          output signals:       12
+ABC RESULTS:          output signals:       48
 Removing temp directory.
-Removed 0 unused cells and 226 unused wires.
+Removed 0 unused cells and 370 unused wires.
 
 12. Executing Verilog backend.
 Dumping module `\arbitro'.
 
-End of script. Logfile hash: 54bd65ce51
-CPU: user 0.12s system 0.00s, MEM: 16.48 MB total, 10.89 MB resident
+End of script. Logfile hash: 4a628ada30
+CPU: user 0.15s system 0.00s, MEM: 16.97 MB total, 11.43 MB resident
 Yosys 0.9 (git sha1 1979e0b)
-Time spent: 14% 8x opt_clean (0 sec), 13% 3x read_verilog (0 sec), ...
+Time spent: 17% 2x write_verilog (0 sec), 12% 8x opt_clean (0 sec), ...

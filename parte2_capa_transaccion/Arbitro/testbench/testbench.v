@@ -19,13 +19,13 @@ module testbench; // Testbench
 	wire [FIFO_WORD_SIZE-1:0] data_in_1;	// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] data_in_2;	// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] data_in_3;	// From probador_0 of probador.v
-	wire		data_out_0;		// From arbitro_cond of arbitro.v
+	wire [FIFO_WORD_SIZE-1:0] data_out_0;	// From arbitro_cond of arbitro.v
 	wire		data_out_0_synth;	// From arbitro_synth of arbitro_synth.v
-	wire		data_out_1;		// From arbitro_cond of arbitro.v
+	wire [FIFO_WORD_SIZE-1:0] data_out_1;	// From arbitro_cond of arbitro.v
 	wire		data_out_1_synth;	// From arbitro_synth of arbitro_synth.v
-	wire		data_out_2;		// From arbitro_cond of arbitro.v
+	wire [FIFO_WORD_SIZE-1:0] data_out_2;	// From arbitro_cond of arbitro.v
 	wire		data_out_2_synth;	// From arbitro_synth of arbitro_synth.v
-	wire		data_out_3;		// From arbitro_cond of arbitro.v
+	wire [FIFO_WORD_SIZE-1:0] data_out_3;	// From arbitro_cond of arbitro.v
 	wire		data_out_3_synth;	// From arbitro_synth of arbitro_synth.v
 	wire		empty_p0;		// From probador_0 of probador.v
 	wire		empty_p1;		// From probador_0 of probador.v
@@ -53,10 +53,10 @@ module testbench; // Testbench
 	arbitro arbitro_cond (	
 		/*AUTOINST*/
 			      // Outputs
-			      .data_out_0	(data_out_0),
-			      .data_out_1	(data_out_1),
-			      .data_out_2	(data_out_2),
-			      .data_out_3	(data_out_3),
+			      .data_out_0	(data_out_0[FIFO_WORD_SIZE-1:0]),
+			      .data_out_1	(data_out_1[FIFO_WORD_SIZE-1:0]),
+			      .data_out_2	(data_out_2[FIFO_WORD_SIZE-1:0]),
+			      .data_out_3	(data_out_3[FIFO_WORD_SIZE-1:0]),
 			      .pop_p0		(pop_p0),
 			      .pop_p1		(pop_p1),
 			      .pop_p2		(pop_p2),

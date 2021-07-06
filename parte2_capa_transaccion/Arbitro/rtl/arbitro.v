@@ -18,10 +18,10 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	input [FIFO_WORD_SIZE-1:0] data_in_3,
 	// Desde el demux a los FIFOS de salida
 	// Hacia los FIFOS de salida
-    output reg data_out_0,
-    output reg data_out_1,
-    output reg data_out_2,
-    output reg data_out_3,
+    output reg [FIFO_WORD_SIZE-1:0] data_out_0,
+    output reg [FIFO_WORD_SIZE-1:0] data_out_1,
+    output reg [FIFO_WORD_SIZE-1:0] data_out_2,
+    output reg [FIFO_WORD_SIZE-1:0] data_out_3,
 	// Los POP y PUSH son READ_ENABLE y WRITE_ENABLE, respectivamente en los FIFOS
 	// Señales de pop hacia los FIFOS de entrada 
 	output reg pop_p0,
