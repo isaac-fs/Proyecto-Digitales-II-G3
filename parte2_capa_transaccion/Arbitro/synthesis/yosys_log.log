@@ -1,0 +1,466 @@
+
+ /----------------------------------------------------------------------------\
+ |                                                                            |
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |                                                                            |
+ |  Copyright (C) 2012 - 2019  Clifford Wolf <clifford@clifford.at>           |
+ |                                                                            |
+ |  Permission to use, copy, modify, and/or distribute this software for any  |
+ |  purpose with or without fee is hereby granted, provided that the above    |
+ |  copyright notice and this permission notice appear in all copies.         |
+ |                                                                            |
+ |  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES  |
+ |  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF          |
+ |  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR   |
+ |  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES    |
+ |  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN     |
+ |  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF   |
+ |  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.            |
+ |                                                                            |
+ \----------------------------------------------------------------------------/
+
+ Yosys 0.9 (git sha1 1979e0b)
+
+
+-- Executing script file `synthesis/synth_script.ys' --
+
+1. Executing Verilog-2005 frontend: rtl/arbitro.v
+Parsing Verilog input from `rtl/arbitro.v' to AST representation.
+Generating RTLIL representation for module `\arbitro'.
+Warning: wire '\mux_out' is assigned in a block at rtl/arbitro.v:79.
+Warning: wire '\mux_out' is assigned in a block at rtl/arbitro.v:81.
+Warning: wire '\mux_out' is assigned in a block at rtl/arbitro.v:83.
+Warning: wire '\mux_out' is assigned in a block at rtl/arbitro.v:85.
+rtl/arbitro.v:79: Warning: Identifier `\mux_out' is implicitly declared.
+rtl/arbitro.v:76: Warning: Range select [9:8] out of bounds on signal `\mux_out': Setting all 2 result bits to undef.
+rtl/arbitro.v:84: Warning: Identifier `\pop_3' is implicitly declared.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \arbitro
+
+2.2. Analyzing design hierarchy..
+Top module:  \arbitro
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$rtl/arbitro.v:104$15 in module arbitro.
+Marked 2 switch rules as full_case in process $proc$rtl/arbitro.v:104$15 in module arbitro.
+Marked 5 switch rules as full_case in process $proc$rtl/arbitro.v:74$14 in module arbitro.
+Marked 5 switch rules as full_case in process $proc$rtl/arbitro.v:49$8 in module arbitro.
+Removed a total of 1 dead cases.
+
+3.3. Executing PROC_INIT pass (extract init attributes).
+
+3.4. Executing PROC_ARST pass (detect async resets in processes).
+
+3.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:104$15'.
+     1/12: $2\push_p0[0:0]
+     2/12: $2\push_p3[0:0]
+     3/12: $2\push_p2[0:0]
+     4/12: $2\push_p1[0:0]
+     5/12: $1\push_p3[0:0]
+     6/12: $1\push_p2[0:0]
+     7/12: $1\push_p1[0:0]
+     8/12: $1\push_p0[0:0]
+     9/12: $0\push_p3[0:0]
+    10/12: $0\push_p2[0:0]
+    11/12: $0\push_p1[0:0]
+    12/12: $0\push_p0[0:0]
+Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:74$14'.
+     1/14: $1\data_out_3[0:0]
+     2/14: $1\data_out_2[0:0]
+     3/14: $1\data_out_1[0:0]
+     4/14: $1\data_out_0[0:0]
+     5/14: $4\mux_out[0:0]
+     6/14: $3\mux_out[0:0]
+     7/14: $2\mux_out[0:0]
+     8/14: $1\mux_out[0:0]
+     9/14: $0\data_out_3[0:0]
+    10/14: $0\data_out_2[0:0]
+    11/14: $0\data_out_1[0:0]
+    12/14: $0\data_out_0[0:0]
+    13/14: $0\mux_out[0:0]
+    14/14: $0\dest[1:0]
+Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:49$8'.
+     1/18: $5\pop_p3[0:0]
+     2/18: $4\pop_p2[0:0]
+     3/18: $4\pop_p3[0:0]
+     4/18: $3\pop_p1[0:0]
+     5/18: $3\pop_p3[0:0]
+     6/18: $3\pop_p2[0:0]
+     7/18: $2\pop_p0[0:0]
+     8/18: $2\pop_p3[0:0]
+     9/18: $2\pop_p2[0:0]
+    10/18: $2\pop_p1[0:0]
+    11/18: $1\pop_p3[0:0]
+    12/18: $1\pop_p2[0:0]
+    13/18: $1\pop_p1[0:0]
+    14/18: $1\pop_p0[0:0]
+    15/18: $0\pop_p3[0:0]
+    16/18: $0\pop_p2[0:0]
+    17/18: $0\pop_p1[0:0]
+    18/18: $0\pop_p0[0:0]
+Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:41$1'.
+     1/2: $0\in_FIFOS_empty[0:0]
+     2/2: $0\out_FIFOS_almost_full[0:0]
+
+3.6. Executing PROC_DLATCH pass (convert process syncs to latches).
+Latch inferred for signal `\arbitro.\push_p0' from process `\arbitro.$proc$rtl/arbitro.v:104$15': $auto$proc_dlatch.cc:409:proc_dlatch$233
+Latch inferred for signal `\arbitro.\push_p1' from process `\arbitro.$proc$rtl/arbitro.v:104$15': $auto$proc_dlatch.cc:409:proc_dlatch$262
+Latch inferred for signal `\arbitro.\push_p2' from process `\arbitro.$proc$rtl/arbitro.v:104$15': $auto$proc_dlatch.cc:409:proc_dlatch$291
+Latch inferred for signal `\arbitro.\push_p3' from process `\arbitro.$proc$rtl/arbitro.v:104$15': $auto$proc_dlatch.cc:409:proc_dlatch$320
+No latch inferred for signal `\arbitro.\data_out_0' from process `\arbitro.$proc$rtl/arbitro.v:74$14'.
+No latch inferred for signal `\arbitro.\data_out_1' from process `\arbitro.$proc$rtl/arbitro.v:74$14'.
+No latch inferred for signal `\arbitro.\data_out_2' from process `\arbitro.$proc$rtl/arbitro.v:74$14'.
+No latch inferred for signal `\arbitro.\data_out_3' from process `\arbitro.$proc$rtl/arbitro.v:74$14'.
+No latch inferred for signal `\arbitro.\dest' from process `\arbitro.$proc$rtl/arbitro.v:74$14'.
+Latch inferred for signal `\arbitro.\mux_out' from process `\arbitro.$proc$rtl/arbitro.v:74$14': $auto$proc_dlatch.cc:409:proc_dlatch$403
+No latch inferred for signal `\arbitro.\pop_p0' from process `\arbitro.$proc$rtl/arbitro.v:49$8'.
+No latch inferred for signal `\arbitro.\pop_p1' from process `\arbitro.$proc$rtl/arbitro.v:49$8'.
+No latch inferred for signal `\arbitro.\pop_p2' from process `\arbitro.$proc$rtl/arbitro.v:49$8'.
+No latch inferred for signal `\arbitro.\pop_p3' from process `\arbitro.$proc$rtl/arbitro.v:49$8'.
+No latch inferred for signal `\arbitro.\out_FIFOS_almost_full' from process `\arbitro.$proc$rtl/arbitro.v:41$1'.
+No latch inferred for signal `\arbitro.\in_FIFOS_empty' from process `\arbitro.$proc$rtl/arbitro.v:41$1'.
+
+3.7. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 2 empty switches in `\arbitro.$proc$rtl/arbitro.v:104$15'.
+Removing empty process `arbitro.$proc$rtl/arbitro.v:104$15'.
+Found and cleaned up 5 empty switches in `\arbitro.$proc$rtl/arbitro.v:74$14'.
+Removing empty process `arbitro.$proc$rtl/arbitro.v:74$14'.
+Found and cleaned up 5 empty switches in `\arbitro.$proc$rtl/arbitro.v:49$8'.
+Removing empty process `arbitro.$proc$rtl/arbitro.v:49$8'.
+Removing empty process `arbitro.$proc$rtl/arbitro.v:41$1'.
+Cleaned up 12 empty switches.
+
+4. Executing OPT pass (performing simple optimizations).
+
+4.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbitro.
+<suppressed ~136 debug messages>
+
+4.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbitro'.
+<suppressed ~66 debug messages>
+Removed a total of 22 cells.
+
+4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbitro..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$152.
+    dead port 2/2 on $mux $procmux$150.
+    dead port 1/2 on $mux $procmux$143.
+    dead port 2/2 on $mux $procmux$141.
+    dead port 1/2 on $mux $procmux$134.
+    dead port 2/2 on $mux $procmux$132.
+    dead port 2/2 on $mux $procmux$129.
+    dead port 1/2 on $mux $procmux$122.
+    dead port 2/2 on $mux $procmux$120.
+    dead port 2/2 on $mux $procmux$117.
+    dead port 1/2 on $mux $procmux$110.
+    dead port 2/2 on $mux $procmux$108.
+    dead port 2/2 on $mux $procmux$105.
+    dead port 2/2 on $mux $procmux$102.
+    dead port 2/2 on $mux $procmux$159.
+    dead port 1/2 on $mux $procmux$173.
+    dead port 1/2 on $mux $procmux$185.
+    dead port 1/2 on $mux $procmux$161.
+    dead port 1/2 on $mux $procmux$167.
+    dead port 1/2 on $mux $procmux$179.
+Removed 20 multiplexer ports.
+<suppressed ~5 debug messages>
+
+4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbitro.
+    New input vector for $reduce_or cell $auto$proc_dlatch.cc:247:make_hold$258: { $auto$rtlil.cc:1832:Not$200 $auto$rtlil.cc:1862:And$257 }
+  Optimizing cells in module \arbitro.
+Performed a total of 1 changes.
+
+4.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbitro'.
+Removed a total of 0 cells.
+
+4.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbitro..
+Removed 22 unused cells and 264 unused wires.
+<suppressed ~25 debug messages>
+
+4.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbitro.
+
+4.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbitro..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbitro.
+Performed a total of 0 changes.
+
+4.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbitro'.
+Removed a total of 0 cells.
+
+4.13. Executing OPT_RMDFF pass (remove dff with constant values).
+
+4.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbitro..
+
+4.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbitro.
+
+4.16. Finished OPT passes. (There is nothing left to do.)
+
+5. Executing FSM pass (extract and optimize FSM).
+
+5.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+5.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+5.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbitro..
+
+5.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+5.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+5.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+5.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+6. Executing OPT pass (performing simple optimizations).
+
+6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbitro.
+
+6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbitro'.
+Removed a total of 0 cells.
+
+6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbitro..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbitro.
+Performed a total of 0 changes.
+
+6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbitro'.
+Removed a total of 0 cells.
+
+6.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbitro..
+
+6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbitro.
+
+6.9. Finished OPT passes. (There is nothing left to do.)
+
+7. Executing MEMORY pass.
+
+7.1. Executing MEMORY_DFF pass (merging $dff cells to $memrd and $memwr).
+
+7.2. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbitro..
+
+7.3. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbitro..
+
+7.5. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.6. Executing MEMORY_MAP pass (converting $mem cells to logic and flip-flops).
+
+8. Executing OPT pass (performing simple optimizations).
+
+8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbitro.
+
+8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbitro'.
+Removed a total of 0 cells.
+
+8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbitro..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbitro.
+Performed a total of 0 changes.
+
+8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbitro'.
+Removed a total of 0 cells.
+
+8.6. Executing OPT_RMDFF pass (remove dff with constant values).
+
+8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbitro..
+
+8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbitro.
+
+8.9. Finished OPT passes. (There is nothing left to do.)
+
+9. Executing TECHMAP pass (map to technology primitives).
+
+9.1. Executing Verilog-2005 frontend: <techmap.v>
+Parsing Verilog input from `<techmap.v>' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+9.2. Continuing TECHMAP pass.
+Using extmapper simplemap for cells of type $logic_or.
+Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $logic_not.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+Using extmapper simplemap for cells of type $and.
+Using extmapper simplemap for cells of type $reduce_or.
+Using extmapper simplemap for cells of type $dlatch.
+No more expansions possible.
+<suppressed ~29 debug messages>
+
+10. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
+  cell DFF (noninv, pins=3, area=18.00) is a direct match for cell type $_DFF_P_.
+  cell DFFSR (noninv, pins=5, area=18.00) is a direct match for cell type $_DFFSR_PPP_.
+  create mapping for $_DFFSR_PNP_ from mapping for $_DFFSR_PPP_.
+  create mapping for $_DFFSR_PNN_ from mapping for $_DFFSR_PNP_.
+  create mapping for $_DFFSR_PPN_ from mapping for $_DFFSR_PNN_.
+  create mapping for $_DFF_N_ from mapping for $_DFF_P_.
+  create mapping for $_DFFSR_NNN_ from mapping for $_DFFSR_PNN_.
+  create mapping for $_DFFSR_NPN_ from mapping for $_DFFSR_NNN_.
+  create mapping for $_DFFSR_NNP_ from mapping for $_DFFSR_NNN_.
+  create mapping for $_DFFSR_NPP_ from mapping for $_DFFSR_NNP_.
+  create mapping for $_DFF_NN0_ from mapping for $_DFFSR_NNN_.
+  create mapping for $_DFF_NN1_ from mapping for $_DFFSR_NNN_.
+  create mapping for $_DFF_NP0_ from mapping for $_DFFSR_NPP_.
+  create mapping for $_DFF_NP1_ from mapping for $_DFFSR_NPP_.
+  create mapping for $_DFF_PN0_ from mapping for $_DFFSR_PNN_.
+  create mapping for $_DFF_PN1_ from mapping for $_DFFSR_PNN_.
+  create mapping for $_DFF_PP0_ from mapping for $_DFFSR_PPP_.
+  create mapping for $_DFF_PP1_ from mapping for $_DFFSR_PPP_.
+  final dff cell mappings:
+    DFF _DFF_N_ (.C(~C), .D( D), .Q( Q));
+    DFF _DFF_P_ (.C( C), .D( D), .Q( Q));
+    DFFSR _DFF_NN0_ (.C(~C), .D( D), .Q( Q), .R(~R), .S( 0));
+    DFFSR _DFF_NN1_ (.C(~C), .D( D), .Q( Q), .R( 0), .S(~R));
+    DFFSR _DFF_NP0_ (.C(~C), .D( D), .Q( Q), .R( R), .S( 0));
+    DFFSR _DFF_NP1_ (.C(~C), .D( D), .Q( Q), .R( 0), .S( R));
+    DFFSR _DFF_PN0_ (.C( C), .D( D), .Q( Q), .R(~R), .S( 0));
+    DFFSR _DFF_PN1_ (.C( C), .D( D), .Q( Q), .R( 0), .S(~R));
+    DFFSR _DFF_PP0_ (.C( C), .D( D), .Q( Q), .R( R), .S( 0));
+    DFFSR _DFF_PP1_ (.C( C), .D( D), .Q( Q), .R( 0), .S( R));
+    DFFSR _DFFSR_NNN_ (.C(~C), .D( D), .Q( Q), .R(~R), .S(~S));
+    DFFSR _DFFSR_NNP_ (.C(~C), .D( D), .Q( Q), .R( R), .S(~S));
+    DFFSR _DFFSR_NPN_ (.C(~C), .D( D), .Q( Q), .R(~R), .S( S));
+    DFFSR _DFFSR_NPP_ (.C(~C), .D( D), .Q( Q), .R( R), .S( S));
+    DFFSR _DFFSR_PNN_ (.C( C), .D( D), .Q( Q), .R(~R), .S(~S));
+    DFFSR _DFFSR_PNP_ (.C( C), .D( D), .Q( Q), .R( R), .S(~S));
+    DFFSR _DFFSR_PPN_ (.C( C), .D( D), .Q( Q), .R(~R), .S( S));
+    DFFSR _DFFSR_PPP_ (.C( C), .D( D), .Q( Q), .R( R), .S( S));
+Mapping DFF cells in module `\arbitro':
+
+11. Executing ABC pass (technology mapping using ABC).
+
+11.1. Extracting gate netlist of module `\arbitro' to `<abc-temp-dir>/input.blif'..
+Extracted 28 gates and 39 wires to a netlist network with 8 inputs and 5 outputs.
+
+11.1.1. Executing ABC.
+Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lib -w /mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/synthesis/cmos_cells/cmos_cells.lib 
+ABC: Parsing finished successfully.  Parsing time =     0.00 sec
+ABC: Warning: Templates are not defined.
+ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
+ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
+ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
+ABC: Library "demo" from "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Memory =    0.00 MB. Time =     0.00 sec
+ABC: + strash 
+ABC: + ifraig 
+ABC: + scorr 
+ABC: Warning: The network is combinational (run "fraig" or "fraig_sweep").
+ABC: + dc2 
+ABC: + dretime 
+ABC: + retime 
+ABC: + strash 
+ABC: + &get -n 
+ABC: + &dch -f 
+ABC: + &nf 
+ABC: + &put 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+11.1.2. Re-integrating ABC results.
+ABC RESULTS:              NAND cells:        5
+ABC RESULTS:               NOR cells:       10
+ABC RESULTS:               NOT cells:        5
+ABC RESULTS:        internal signals:       26
+ABC RESULTS:           input signals:        8
+ABC RESULTS:          output signals:        5
+Removing temp directory.
+Removed 0 unused cells and 37 unused wires.
+
+12. Executing Verilog backend.
+Dumping module `\arbitro'.
+
+Warnings: 7 unique messages, 7 total
+End of script. Logfile hash: 110a299f48
+CPU: user 0.09s system 0.00s, MEM: 16.47 MB total, 11.04 MB resident
+Yosys 0.9 (git sha1 1979e0b)
+Time spent: 17% 3x read_verilog (0 sec), 14% 7x opt_clean (0 sec), ...

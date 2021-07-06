@@ -1,8 +1,8 @@
 # Yosys script 
 
 # read desing
-read_verilog rtl/FIFO.v
-hierarchy -check -top FIFO
+read_verilog rtl/arbitro.v
+hierarchy -check -top arbitro
 
 # the high-level stuff
 proc; opt; fsm; opt; memory; opt
@@ -20,4 +20,4 @@ abc -liberty synthesis/cmos_cells/cmos_cells.lib
 clean
 
 # write synthesized design
-write_verilog synthesis/FIFO_synth.v
+write_verilog synthesis/arbitro_synth.v
