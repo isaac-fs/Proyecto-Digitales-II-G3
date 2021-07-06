@@ -33,15 +33,14 @@ module arbitro (
 	output reg push_p2,
 	output reg push_p3);
 
-	reg almost_full; // Si se asignan valores acá luego hay problemas en la sísntesis
-	reg FIFOs_empty; // Lo mejor es tratarlos con señales de reset o valores por defecto en el always.
+	reg out_FIFOS_almost_full;
+	reg in_FIFOS_empty;
 
-	// almost_full ->Indica que por lo menos uno de los FIFOs de salida está almost full
-	// FIFOs_empty -> Indica que todos los FIFO de entrada están vacíos
 	always @(*) begin
-	    // Señal que indica si al menos un FIFO de salida está almost full
-		almost_full = (almostfull_p0 || almostfull_p1 || almostfull_p2 || almostfull_p3);
-		FIFOs_empty = (empty_p0 && empty_p1 && empty_p2 && empty_p3);
+	    // out_FIFOS_almost_full -> Señal que indica que por lo menos uno de los FIFOs de salida está almost full
+		out_FIFOS_almost_full = (almostfull_p0 || almostfull_p1 || almostfull_p2 || almostfull_p3);
+		// in_FIFOS_empty -> Señal que indica que todos los FIFO de entrada están vacíos
+		in_FIFOS_empty = (empty_p0 && empty_p1 && empty_p2 && empty_p3);
 	end
 
 	//Lógica POP
@@ -53,7 +52,7 @@ module arbitro (
 		pop_p2 = 0;
 		pop_p3 = 0;
 
-		if(!almost_full)
+		if(!out_FIFOS_almost_full)
 			begin
 				if(!empty_p0)
 					pop_p0 = 1;
@@ -63,7 +62,7 @@ module arbitro (
 					pop_p2 = 1;
 				else if (!empty_p3)
 					pop_p3 = 1;
-			end // if (!almost_full)
+			end // if (!out_FIFOS_almost_full)
 	end // always @ (*)
 
 	// Lógica MUX/DEMUX -> El FIFO donde SI escribe lo determina el push
@@ -90,12 +89,12 @@ module arbitro (
 			'b01: data_out_1 = mux_out;
 			'b10: data_out_2 = mux_out;
 			'b11: data_out_3 = mux_out;
-			default: begin
+			default: begin // Puede que esto de problema de síntesis
 				// Valores por defecto
 				data_out_0 = 0; 
 				data_out_1 = 0; 
 				data_out_2 = 0; 
-				data_out_3 = 0; 
+				data_out_3 = 0; // Puede que esto de problema de síntesis
 			end
 		endcase
 	end
@@ -107,14 +106,16 @@ module arbitro (
 		push_p1 = 0;
 		push_p2 = 0;
 		push_p3 = 0;
-		if(!almost_full) begin
-			if(!FIFOs_empty) begin
+		
+		if(!in_FIFOS_empty && !out_FIFOS_almost_full) begin
+		/* El árbitro hace push siempre y cuando los fifos de entrada 
+		no estén vacíos y no haya ningún fifo de salida en almost full - Freddy (2021)*/
 				case(dest)
 					'b00: push_p0 = 1;
 					'b01: push_p1 = 1;
 					'b10: push_p2 = 1;
 					'b11: push_p3 = 1;
-					default: begin
+					default: begin // Puede que esto de problema de síntesis
 						// Valores por defecto
 						data_out_0 = 0; 
 						data_out_1 = 0; 
@@ -122,8 +123,7 @@ module arbitro (
 						data_out_3 = 0; 
 					end
 				endcase					
-			end // if (!FIFOs_empty)
-		end // if (!almost_full)
+			// end // if (!out_FIFOS_almost_full && !in_FIFOS_empty)
 	end // always @ (*)
 endmodule // arbitro
 
