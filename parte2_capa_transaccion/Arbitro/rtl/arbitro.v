@@ -18,10 +18,10 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	input [FIFO_WORD_SIZE-1:0] data_in_3,
 	// Desde el demux a los FIFOS de salida
 	// Hacia los FIFOS de salida
-    output reg data_out_0,
-    output reg data_out_1,
-    output reg data_out_2,
-    output reg data_out_3,
+    output reg [FIFO_WORD_SIZE-1:0] data_out_0,
+    output reg [FIFO_WORD_SIZE-1:0] data_out_1,
+    output reg [FIFO_WORD_SIZE-1:0] data_out_2,
+    output reg [FIFO_WORD_SIZE-1:0] data_out_3,
 	// Los POP y PUSH son READ_ENABLE y WRITE_ENABLE, respectivamente en los FIFOS
 	// Señales de pop hacia los FIFOS de entrada 
 	output reg pop_p0,
@@ -72,7 +72,7 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	reg [FIFO_WORD_SIZE-1:0] mux_out;
 
 	always @(*) begin
-		dest = mux_out[FIFO_WORD_SIZE-1:FIFO_WORD_SIZE-2]; // -> DEST sólo puede tomar valores 0, 1, 2 y 3.
+		 
 		// Multiplexor
 		mux_out = 0; // Valor por defecto
 		if(pop_p0)
@@ -90,6 +90,8 @@ module arbitro #( // Un árbitro para 4 FIFOS
 		data_out_1 = 0; 
 		data_out_2 = 0; 
 		data_out_3 = 0;
+		
+		dest = mux_out[FIFO_WORD_SIZE-1:FIFO_WORD_SIZE-2];// -> DEST sólo puede tomar valores 0, 1, 2 y 3.
 		case(dest)
 			'b00: data_out_0 = mux_out;
 			'b01: data_out_1 = mux_out;
