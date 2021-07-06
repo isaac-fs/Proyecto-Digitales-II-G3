@@ -5,10 +5,10 @@ module probador #(
 	// Entradas del monitor de datos
 	// Condicional
 	// Hacia los FIFOS de salida
-	input data_out_0,
-	input data_out_1,
-	input data_out_2,
-	input data_out_3,
+	input [FIFO_WORD_SIZE-1:0] data_out_0,
+	input [FIFO_WORD_SIZE-1:0] data_out_1,
+	input [FIFO_WORD_SIZE-1:0] data_out_2,
+	input [FIFO_WORD_SIZE-1:0] data_out_3,
 	// Los POP y PUSH son READ_ENABLE y WRITE_ENABLE, respectivamente en los FIFOS
 	// Señales de pop hacia los FIFOS de entrada 
 	input pop_p0,
@@ -21,10 +21,10 @@ module probador #(
 	input push_p2,
 	input push_p3,
 	// Síntesis
-	input data_out_0_synth,
-	input data_out_1_synth,
-	input data_out_2_synth,
-	input data_out_3_synth,
+	input [FIFO_WORD_SIZE-1:0] data_out_0_synth,
+	input [FIFO_WORD_SIZE-1:0] data_out_1_synth,
+	input [FIFO_WORD_SIZE-1:0] data_out_2_synth,
+	input [FIFO_WORD_SIZE-1:0] data_out_3_synth,
 	input pop_p0_synth,
 	input pop_p1_synth,
 	input pop_p2_synth,
@@ -181,16 +181,16 @@ module probador #(
 		
 		@(posedge clk) begin
 		data_in_3 <= 10'h1A6;
-		data_in_0 <= 10'h2B7;
+		data_in_0 <= 10'h3B7;
 		data_in_1 <= 10'h017;
 		data_in_2 <= 10'h345;
 		end
 		
 		@(posedge clk) begin
-		data_in_3 <= 10'h2A6;
+		data_in_3 <= 10'h1A6;
 		data_in_2 <= 10'h1B7;
 		data_in_1 <= 10'h317;
-		data_in_0 <= 10'h145;
+		data_in_0 <= 10'h345;
 		end
 
 		#50

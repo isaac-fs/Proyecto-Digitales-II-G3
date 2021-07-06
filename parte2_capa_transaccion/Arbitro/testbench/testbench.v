@@ -20,13 +20,13 @@ module testbench; // Testbench
 	wire [FIFO_WORD_SIZE-1:0] data_in_2;	// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] data_in_3;	// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] data_out_0;	// From arbitro_cond of arbitro.v
-	wire		data_out_0_synth;	// From arbitro_synth of arbitro_synth.v
+	wire [FIFO_WORD_SIZE-1:0] data_out_0_synth;// From arbitro_synth of arbitro_synth.v
 	wire [FIFO_WORD_SIZE-1:0] data_out_1;	// From arbitro_cond of arbitro.v
-	wire		data_out_1_synth;	// From arbitro_synth of arbitro_synth.v
+	wire [FIFO_WORD_SIZE-1:0] data_out_1_synth;// From arbitro_synth of arbitro_synth.v
 	wire [FIFO_WORD_SIZE-1:0] data_out_2;	// From arbitro_cond of arbitro.v
-	wire		data_out_2_synth;	// From arbitro_synth of arbitro_synth.v
+	wire [FIFO_WORD_SIZE-1:0] data_out_2_synth;// From arbitro_synth of arbitro_synth.v
 	wire [FIFO_WORD_SIZE-1:0] data_out_3;	// From arbitro_cond of arbitro.v
-	wire		data_out_3_synth;	// From arbitro_synth of arbitro_synth.v
+	wire [FIFO_WORD_SIZE-1:0] data_out_3_synth;// From arbitro_synth of arbitro_synth.v
 	wire		empty_p0;		// From probador_0 of probador.v
 	wire		empty_p1;		// From probador_0 of probador.v
 	wire		empty_p2;		// From probador_0 of probador.v
@@ -81,10 +81,10 @@ module testbench; // Testbench
 	
 	// Descripción estructural
 	/*arbitro_synth AUTO_TEMPLATE (
-			.data_out_0	(data_out_0_synth),
-			.data_out_1	(data_out_1_synth),
-			.data_out_2	(data_out_2_synth),
-			.data_out_3	(data_out_3_synth),
+			.data_out_0	(data_out_0_synth[FIFO_WORD_SIZE-1:0]),
+			.data_out_1	(data_out_1_synth[FIFO_WORD_SIZE-1:0]),
+			.data_out_2	(data_out_2_synth[FIFO_WORD_SIZE-1:0]),
+			.data_out_3	(data_out_3_synth[FIFO_WORD_SIZE-1:0]),
 			.pop_p0		(pop_p0_synth),
 			.pop_p1		(pop_p1_synth),
 			.pop_p2		(pop_p2_synth),
@@ -101,10 +101,10 @@ module testbench; // Testbench
 	arbitro_synth arbitro_synth (
 		/*AUTOINST*/
 				     // Outputs
-				     .data_out_0	(data_out_0_synth), // Templated
-				     .data_out_1	(data_out_1_synth), // Templated
-				     .data_out_2	(data_out_2_synth), // Templated
-				     .data_out_3	(data_out_3_synth), // Templated
+				     .data_out_0	(data_out_0_synth[FIFO_WORD_SIZE-1:0]), // Templated
+				     .data_out_1	(data_out_1_synth[FIFO_WORD_SIZE-1:0]), // Templated
+				     .data_out_2	(data_out_2_synth[FIFO_WORD_SIZE-1:0]), // Templated
+				     .data_out_3	(data_out_3_synth[FIFO_WORD_SIZE-1:0]), // Templated
 				     .pop_p0		(pop_p0_synth),	 // Templated
 				     .pop_p1		(pop_p1_synth),	 // Templated
 				     .pop_p2		(pop_p2_synth),	 // Templated
@@ -144,10 +144,10 @@ module testbench; // Testbench
 			    .data_in_2		(data_in_2[FIFO_WORD_SIZE-1:0]),
 			    .data_in_3		(data_in_3[FIFO_WORD_SIZE-1:0]),
 			    // Inputs
-			    .data_out_0		(data_out_0),
-			    .data_out_1		(data_out_1),
-			    .data_out_2		(data_out_2),
-			    .data_out_3		(data_out_3),
+			    .data_out_0		(data_out_0[FIFO_WORD_SIZE-1:0]),
+			    .data_out_1		(data_out_1[FIFO_WORD_SIZE-1:0]),
+			    .data_out_2		(data_out_2[FIFO_WORD_SIZE-1:0]),
+			    .data_out_3		(data_out_3[FIFO_WORD_SIZE-1:0]),
 			    .pop_p0		(pop_p0),
 			    .pop_p1		(pop_p1),
 			    .pop_p2		(pop_p2),
@@ -156,10 +156,10 @@ module testbench; // Testbench
 			    .push_p1		(push_p1),
 			    .push_p2		(push_p2),
 			    .push_p3		(push_p3),
-			    .data_out_0_synth	(data_out_0_synth),
-			    .data_out_1_synth	(data_out_1_synth),
-			    .data_out_2_synth	(data_out_2_synth),
-			    .data_out_3_synth	(data_out_3_synth),
+			    .data_out_0_synth	(data_out_0_synth[FIFO_WORD_SIZE-1:0]),
+			    .data_out_1_synth	(data_out_1_synth[FIFO_WORD_SIZE-1:0]),
+			    .data_out_2_synth	(data_out_2_synth[FIFO_WORD_SIZE-1:0]),
+			    .data_out_3_synth	(data_out_3_synth[FIFO_WORD_SIZE-1:0]),
 			    .pop_p0_synth	(pop_p0_synth),
 			    .pop_p1_synth	(pop_p1_synth),
 			    .pop_p2_synth	(pop_p2_synth),

@@ -44,8 +44,8 @@ Removed 0 unused modules.
 Cleaned up 0 empty switches.
 
 3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
-Removed 1 dead cases from process $proc$rtl/arbitro.v:102$15 in module arbitro.
-Marked 2 switch rules as full_case in process $proc$rtl/arbitro.v:102$15 in module arbitro.
+Removed 1 dead cases from process $proc$rtl/arbitro.v:104$15 in module arbitro.
+Marked 2 switch rules as full_case in process $proc$rtl/arbitro.v:104$15 in module arbitro.
 Removed 1 dead cases from process $proc$rtl/arbitro.v:74$14 in module arbitro.
 Marked 5 switch rules as full_case in process $proc$rtl/arbitro.v:74$14 in module arbitro.
 Marked 5 switch rules as full_case in process $proc$rtl/arbitro.v:48$8 in module arbitro.
@@ -56,7 +56,7 @@ Removed a total of 2 dead cases.
 3.4. Executing PROC_ARST pass (detect async resets in processes).
 
 3.5. Executing PROC_MUX pass (convert decision trees to multiplexers).
-Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:102$15'.
+Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:104$15'.
      1/12: $2\push_p0[0:0]
      2/12: $2\push_p3[0:0]
      3/12: $2\push_p2[0:0]
@@ -82,8 +82,8 @@ Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:74$14'.
     10/14: $0\data_out_2[9:0]
     11/14: $0\data_out_1[9:0]
     12/14: $0\data_out_0[9:0]
-    13/14: $0\mux_out[9:0]
-    14/14: $0\dest[1:0]
+    13/14: $0\dest[1:0]
+    14/14: $0\mux_out[9:0]
 Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:48$8'.
      1/18: $5\pop_p3[0:0]
      2/18: $4\pop_p2[0:0]
@@ -108,10 +108,10 @@ Creating decoders for process `\arbitro.$proc$rtl/arbitro.v:40$1'.
      2/2: $0\out_FIFOS_almost_full[0:0]
 
 3.6. Executing PROC_DLATCH pass (convert process syncs to latches).
-No latch inferred for signal `\arbitro.\push_p0' from process `\arbitro.$proc$rtl/arbitro.v:102$15'.
-No latch inferred for signal `\arbitro.\push_p1' from process `\arbitro.$proc$rtl/arbitro.v:102$15'.
-No latch inferred for signal `\arbitro.\push_p2' from process `\arbitro.$proc$rtl/arbitro.v:102$15'.
-No latch inferred for signal `\arbitro.\push_p3' from process `\arbitro.$proc$rtl/arbitro.v:102$15'.
+No latch inferred for signal `\arbitro.\push_p0' from process `\arbitro.$proc$rtl/arbitro.v:104$15'.
+No latch inferred for signal `\arbitro.\push_p1' from process `\arbitro.$proc$rtl/arbitro.v:104$15'.
+No latch inferred for signal `\arbitro.\push_p2' from process `\arbitro.$proc$rtl/arbitro.v:104$15'.
+No latch inferred for signal `\arbitro.\push_p3' from process `\arbitro.$proc$rtl/arbitro.v:104$15'.
 No latch inferred for signal `\arbitro.\data_out_0' from process `\arbitro.$proc$rtl/arbitro.v:74$14'.
 No latch inferred for signal `\arbitro.\data_out_1' from process `\arbitro.$proc$rtl/arbitro.v:74$14'.
 No latch inferred for signal `\arbitro.\data_out_2' from process `\arbitro.$proc$rtl/arbitro.v:74$14'.
@@ -128,8 +128,8 @@ No latch inferred for signal `\arbitro.\in_FIFOS_empty' from process `\arbitro.$
 3.7. Executing PROC_DFF pass (convert process syncs to FFs).
 
 3.8. Executing PROC_CLEAN pass (remove empty switches from decision trees).
-Found and cleaned up 2 empty switches in `\arbitro.$proc$rtl/arbitro.v:102$15'.
-Removing empty process `arbitro.$proc$rtl/arbitro.v:102$15'.
+Found and cleaned up 2 empty switches in `\arbitro.$proc$rtl/arbitro.v:104$15'.
+Removing empty process `arbitro.$proc$rtl/arbitro.v:104$15'.
 Found and cleaned up 5 empty switches in `\arbitro.$proc$rtl/arbitro.v:74$14'.
 Removing empty process `arbitro.$proc$rtl/arbitro.v:74$14'.
 Found and cleaned up 5 empty switches in `\arbitro.$proc$rtl/arbitro.v:48$8'.
@@ -475,14 +475,14 @@ Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/synthesis/cmos_cells/cmos_cells.lib 
+ABC: + read_lib -w /home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/synthesis/cmos_cells/cmos_cells.lib 
 ABC: Parsing finished successfully.  Parsing time =     0.00 sec
 ABC: Warning: Templates are not defined.
 ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
 ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
-ABC: Library "demo" from "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Library "demo" from "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
 ABC: Memory =    0.00 MB. Time =     0.00 sec
 ABC: + strash 
 ABC: + ifraig 
@@ -512,7 +512,7 @@ Removed 0 unused cells and 370 unused wires.
 12. Executing Verilog backend.
 Dumping module `\arbitro'.
 
-End of script. Logfile hash: 4a628ada30
-CPU: user 0.15s system 0.00s, MEM: 16.97 MB total, 11.43 MB resident
+End of script. Logfile hash: 21b85cca42
+CPU: user 0.30s system 0.01s, MEM: 16.88 MB total, 11.34 MB resident
 Yosys 0.9 (git sha1 1979e0b)
-Time spent: 17% 2x write_verilog (0 sec), 12% 8x opt_clean (0 sec), ...
+Time spent: 18% 2x write_verilog (0 sec), 16% 3x read_verilog (0 sec), ...
