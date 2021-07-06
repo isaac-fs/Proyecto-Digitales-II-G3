@@ -7,11 +7,7 @@
 
 module testbench; // Testbench
 
-	parameter ALMOST_EMPTY_THRESHOLD = 2;
-    parameter ALMOST_FULL_THRESHOLD = 6;
-    parameter FIFO_DEPTH = 8; // DEBE SER UNA POTENCIA DE 2
     parameter FIFO_WORD_SIZE = 10;
-    parameter FIFO_PTR_SIZE = $clog2(FIFO_DEPTH);
 
 	/*AUTOWIRE*/
 	// Beginning of automatic wires (for undeclared instantiated-module outputs)
