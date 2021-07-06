@@ -7,8 +7,6 @@
 
 module testbench; // Testbench
 
-	parameter ALMOST_EMPTY_THRESHOLD = 2;
-    parameter ALMOST_FULL_THRESHOLD = 6;
     parameter FIFO_DEPTH = 8; // DEBE SER UNA POTENCIA DE 2
     parameter FIFO_WORD_SIZE = 10;
     parameter FIFO_PTR_SIZE = $clog2(FIFO_DEPTH);
@@ -17,8 +15,10 @@ module testbench; // Testbench
 	// Beginning of automatic wires (for undeclared instantiated-module outputs)
 	wire		almost_empty_flag;	// From fifo_cond of FIFO.v
 	wire		almost_empty_flag_SYNTH;// From fifo_synth of FIFO_synth.v
+	wire [FIFO_PTR_SIZE-1:0] almost_empty_threshold_input;// From probador_0 of probador.v
 	wire		almost_full_flag;	// From fifo_cond of FIFO.v
 	wire		almost_full_flag_SYNTH;	// From fifo_synth of FIFO_synth.v
+	wire [FIFO_PTR_SIZE-1:0] almost_full_threshold_input;// From probador_0 of probador.v
 	wire		clk;			// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] data_in;	// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] data_out;	// From fifo_cond of FIFO.v
@@ -29,6 +29,7 @@ module testbench; // Testbench
 	wire		error_flag_SYNTH;	// From fifo_synth of FIFO_synth.v
 	wire		full_flag;		// From fifo_cond of FIFO.v
 	wire		full_flag_SYNTH;	// From fifo_synth of FIFO_synth.v
+	wire		init;			// From probador_0 of probador.v
 	wire		rd_en;			// From probador_0 of probador.v
 	wire		reset_L;		// From probador_0 of probador.v
 	wire		wr_en;			// From probador_0 of probador.v
@@ -50,7 +51,10 @@ module testbench; // Testbench
 			.reset_L	(reset_L),
 			.data_in	(data_in[FIFO_WORD_SIZE-1:0]),
 			.wr_en		(wr_en),
-			.rd_en		(rd_en));
+			.rd_en		(rd_en),
+			.init		(init),
+			.almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]),
+			.almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]));
 	
 	// Descripción estructural
 	/*FIFO_synth AUTO_TEMPLATE (
@@ -71,8 +75,11 @@ module testbench; // Testbench
 			       .error_flag	(error_flag_SYNTH), // Templated
 			       .full_flag	(full_flag_SYNTH), // Templated
 			       // Inputs
+			       .almost_empty_threshold_input(almost_empty_threshold_input[2:0]),
+			       .almost_full_threshold_input(almost_full_threshold_input[2:0]),
 			       .clk		(clk),
 			       .data_in		(data_in[9:0]),
+			       .init		(init),
 			       .rd_en		(rd_en),
 			       .reset_L		(reset_L),
 			       .wr_en		(wr_en));
@@ -86,6 +93,9 @@ module testbench; // Testbench
 			    .data_in		(data_in[FIFO_WORD_SIZE-1:0]),
 			    .wr_en		(wr_en),
 			    .rd_en		(rd_en),
+			    .init		(init),
+			    .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]),
+			    .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]),
 			    // Inputs
 			    .data_out		(data_out[FIFO_WORD_SIZE-1:0]),
 			    .empty_flag		(empty_flag),

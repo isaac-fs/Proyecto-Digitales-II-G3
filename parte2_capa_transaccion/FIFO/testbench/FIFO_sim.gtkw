@@ -1,18 +1,18 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Fri Jul  2 23:16:36 2021
+[*] Tue Jul  6 07:06:56 2021
 [*]
 [dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FIFO/testbench/simulacion.vcd"
-[dumpfile_mtime] "Fri Jul  2 23:16:31 2021"
-[dumpfile_size] 140399
+[dumpfile_mtime] "Tue Jul  6 07:06:21 2021"
+[dumpfile_size] 149006
 [savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FIFO/testbench/FIFO_sim.gtkw"
 [timestart] 0
 [size] 1920 1007
-[pos] -10 -83
-*-45.707512 393500000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[pos] -1 -1
+*-45.707512 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
-[sst_width] 224
-[signals_width] 184
+[sst_width] 231
+[signals_width] 260
 [sst_expanded] 1
 [sst_vpaned_height] 288
 @200
@@ -117,7 +117,6 @@ testbench.probador_0.almost_empty_flag_SYNTH
 testbench.probador_0.almost_full_flag_SYNTH
 [color] 4
 testbench.probador_0.full_flag_SYNTH
-@29
 [color] 5
 testbench.probador_0.error_flag_SYNTH
 @200
@@ -128,5 +127,25 @@ testbench.probador_0.error_flag_SYNTH
 testbench.fifo_cond.data_out[9:0]
 [color] 3
 testbench.probador_0.data_out_SYNTH[9:0]
+@200
+-
+-init
+@28
+[color] 1
+testbench.fifo_synth.init
+@200
+-
+@24
+[color] 5
+testbench.fifo_synth.almost_empty_threshold[2:0]
+[color] 4
+testbench.fifo_synth.almost_empty_threshold_input[2:0]
+@200
+-
+@24
+[color] 5
+testbench.fifo_synth.almost_full_threshold[2:0]
+[color] 3
+testbench.fifo_synth.almost_full_threshold_input[2:0]
 [pattern_trace] 1
 [pattern_trace] 0

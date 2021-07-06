@@ -1,7 +1,5 @@
 `include "rtl/memoria.v"
 module FIFO  #(
-    parameter ALMOST_EMPTY_THRESHOLD = 2,
-    parameter ALMOST_FULL_THRESHOLD = 6,
     parameter FIFO_DEPTH = 8, // DEBE SER UNA POTENCIA DE 2
     parameter FIFO_WORD_SIZE = 10,
     parameter FIFO_PTR_SIZE = $clog2(FIFO_DEPTH)
@@ -11,6 +9,9 @@ module FIFO  #(
     input [FIFO_WORD_SIZE-1:0] data_in,
     input wr_en, // En arquitectura fifo_wr
     input rd_en, // En arquitectura fifo_rd
+    input init, // Estado de cambio de thresholds
+    input [FIFO_PTR_SIZE-1:0] almost_empty_threshold_input,
+    input [FIFO_PTR_SIZE-1:0] almost_full_threshold_input,
     output [FIFO_WORD_SIZE-1:0] data_out,
     output reg empty_flag,
     output reg full_flag,
@@ -20,6 +21,19 @@ module FIFO  #(
     
 // Un push es hacer un enable de write y poner el dato
 // Un pop es hacer un enable de read y sacar el dato
+
+// Set de parámetros internos
+reg [FIFO_PTR_SIZE-1:0] almost_empty_threshold, almost_full_threshold;
+always @(posedge clk) begin
+    if(~reset_L) begin
+        almost_empty_threshold <= 2;
+        almost_full_threshold <= 6;
+    end
+    else if(reset_L && init) begin
+        almost_empty_threshold <= almost_empty_threshold_input;
+        almost_full_threshold <= almost_full_threshold_input;
+    end
+end
 
 // Memoria del FIFO
 reg [FIFO_PTR_SIZE-1:0] rd_ptr, wr_ptr;
@@ -80,12 +94,12 @@ always @(posedge clk) begin
 
         if (N > 0 && N < FIFO_DEPTH) begin // Si tiene datos
 
-            if(N <= ALMOST_EMPTY_THRESHOLD)
+            if(N <= almost_empty_threshold)
                 almost_empty_flag <= 1;
             else 
                 almost_empty_flag <= 0;
 
-            if(N >= ALMOST_FULL_THRESHOLD && !(ff_N == FIFO_DEPTH-1))
+            if(N >= almost_full_threshold && !(ff_N == FIFO_DEPTH-1))
                 almost_full_flag <= 1;
             else    
                 almost_full_flag <= 0;

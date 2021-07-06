@@ -1,6 +1,4 @@
 module probador #(
-    parameter ALMOST_EMPTY_THRESHOLD = 2,
-    parameter ALMOST_FULL_THRESHOLD = 6,
     parameter FIFO_DEPTH = 8, // DEBE SER UNA POTENCIA DE 2
     parameter FIFO_WORD_SIZE = 10,
     parameter FIFO_PTR_SIZE = $clog2(FIFO_DEPTH)
@@ -26,7 +24,10 @@ module probador #(
     output reg reset_L,
     output reg [FIFO_WORD_SIZE-1:0] data_in,
     output reg wr_en, // En arquitectura fifo_wr
-    output reg rd_en); // En arquitectura fifo_rd
+    output reg rd_en, // En arquitectura fifo_rd
+	output reg init, // Estado de cambio de thresholds
+    output reg [FIFO_PTR_SIZE-1:0] almost_empty_threshold_input,
+    output reg [FIFO_PTR_SIZE-1:0] almost_full_threshold_input);
 	
 
     integer prob_i; // contador
@@ -61,14 +62,20 @@ module probador #(
 		wr_en = 0;
 		rd_en = 0;
 		data_in = 10'h000;
+		init = 1; // Estado de cambio de thresholds
+    	almost_empty_threshold_input = 2;
+    	almost_full_threshold_input = 6;
 		// Inicio de pruebas
 		
 		@(posedge clk);
 			reset_L <= 1;	
 		
 		@(posedge clk) begin
+			init <= 0;
 			wr_en <= 1;
 			data_in <= 'h001;
+			almost_empty_threshold_input <= 0;
+    		almost_full_threshold_input <= 0;
 		end
 		
 		repeat (8) begin
