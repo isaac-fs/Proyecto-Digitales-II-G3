@@ -4,27 +4,51 @@
 (* top =  1  *)
 (* src = "rtl/arbitro.v:1" *)
 module arbitro_synth(empty_p0, empty_p1, empty_p2, empty_p3, almostfull_p0, almostfull_p1, almostfull_p2, almostfull_p3, data_in_0, data_in_1, data_in_2, data_in_3, data_out_0, data_out_1, data_out_2, data_out_3, pop_p0, pop_p1, pop_p2, pop_p3, push_p0, push_p1, push_p2, push_p3);
-  wire _00_;
-  wire _01_;
-  wire _02_;
-  wire _03_;
-  wire _04_;
-  wire _05_;
-  wire _06_;
-  wire _07_;
-  wire _08_;
-  wire _09_;
-  wire _10_;
-  wire _11_;
-  wire _12_;
-  wire _13_;
-  wire _14_;
-  wire _15_;
-  wire _16_;
-  wire _17_;
-  wire _18_;
-  wire _19_;
-  wire _20_;
+  wire _000_;
+  wire _001_;
+  wire _002_;
+  wire _003_;
+  wire _004_;
+  wire _005_;
+  wire _006_;
+  wire _007_;
+  wire _008_;
+  wire _009_;
+  wire _010_;
+  wire _011_;
+  wire _012_;
+  wire _013_;
+  wire _014_;
+  wire _015_;
+  wire _016_;
+  wire _017_;
+  wire _018_;
+  wire _019_;
+  wire _020_;
+  wire _021_;
+  wire _022_;
+  wire _023_;
+  wire _024_;
+  wire _025_;
+  wire _026_;
+  wire _027_;
+  wire _028_;
+  wire _029_;
+  wire _030_;
+  wire _031_;
+  wire _032_;
+  wire _033_;
+  wire _034_;
+  wire _035_;
+  wire _036_;
+  wire _037_;
+  wire _038_;
+  wire _039_;
+  wire _040_;
+  wire _041_;
+  wire _042_;
+  wire _043_;
+  wire _044_;
   (* src = "rtl/arbitro.v:10" *)
   input almostfull_p0;
   (* src = "rtl/arbitro.v:11" *)
@@ -49,8 +73,6 @@ module arbitro_synth(empty_p0, empty_p1, empty_p2, empty_p3, almostfull_p0, almo
   output data_out_2;
   (* src = "rtl/arbitro.v:24" *)
   output data_out_3;
-  (* src = "rtl/arbitro.v:71" *)
-  wire [1:0] dest;
   (* src = "rtl/arbitro.v:5" *)
   input empty_p0;
   (* src = "rtl/arbitro.v:6" *)
@@ -59,9 +81,6 @@ module arbitro_synth(empty_p0, empty_p1, empty_p2, empty_p3, almostfull_p0, almo
   input empty_p2;
   (* src = "rtl/arbitro.v:8" *)
   input empty_p3;
-  (* src = "rtl/arbitro.v:72" *)
-  (* unused_bits = "1 2 3 4 5 6 7 8 9" *)
-  wire [9:0] mux_out;
   (* src = "rtl/arbitro.v:27" *)
   output pop_p0;
   (* src = "rtl/arbitro.v:28" *)
@@ -78,141 +97,280 @@ module arbitro_synth(empty_p0, empty_p1, empty_p2, empty_p3, almostfull_p0, almo
   output push_p2;
   (* src = "rtl/arbitro.v:35" *)
   output push_p3;
-  NOT _21_ (
-    .A(data_in_2[0]),
-    .Y(_00_)
-  );
-  NOT _22_ (
+  NOT _045_ (
     .A(empty_p1),
-    .Y(_01_)
+    .Y(_010_)
   );
-  NOT _23_ (
-    .A(empty_p3),
-    .Y(_02_)
+  NOT _046_ (
+    .A(empty_p2),
+    .Y(_011_)
   );
-  NOR _24_ (
+  NOR _047_ (
     .A(almostfull_p0),
     .B(almostfull_p1),
-    .Y(_03_)
+    .Y(_012_)
   );
-  NOR _25_ (
+  NOR _048_ (
     .A(almostfull_p2),
     .B(almostfull_p3),
-    .Y(_04_)
+    .Y(_013_)
   );
-  NAND _26_ (
-    .A(_03_),
-    .B(_04_),
-    .Y(_05_)
+  NAND _049_ (
+    .A(_012_),
+    .B(_013_),
+    .Y(_014_)
   );
-  NOT _27_ (
-    .A(_05_),
-    .Y(_06_)
+  NOT _050_ (
+    .A(_014_),
+    .Y(_015_)
   );
-  NAND _28_ (
+  NAND _051_ (
     .A(empty_p0),
-    .B(_01_),
-    .Y(_07_)
+    .B(_010_),
+    .Y(_016_)
   );
-  NOR _29_ (
-    .A(_05_),
-    .B(_07_),
+  NOR _052_ (
+    .A(_014_),
+    .B(_016_),
     .Y(pop_p1)
   );
-  NOR _30_ (
+  NOR _053_ (
     .A(empty_p0),
-    .B(_05_),
+    .B(_014_),
     .Y(pop_p0)
   );
-  NAND _31_ (
+  NAND _054_ (
     .A(empty_p0),
     .B(empty_p1),
-    .Y(_08_)
+    .Y(_017_)
   );
-  NOT _32_ (
-    .A(_08_),
-    .Y(_09_)
-  );
-  NAND _33_ (
+  NOR _055_ (
     .A(empty_p2),
-    .B(_09_),
-    .Y(_10_)
+    .B(_017_),
+    .Y(_018_)
   );
-  NAND _34_ (
-    .A(_02_),
-    .B(_06_),
-    .Y(_11_)
+  NOT _056_ (
+    .A(_018_),
+    .Y(_019_)
   );
-  NOR _35_ (
-    .A(_10_),
-    .B(_11_),
-    .Y(pop_p3)
-  );
-  NAND _36_ (
-    .A(data_in_3[0]),
-    .B(pop_p3),
-    .Y(_12_)
-  );
-  NOR _37_ (
-    .A(empty_p2),
-    .B(_08_),
-    .Y(_13_)
-  );
-  NAND _38_ (
-    .A(_06_),
-    .B(_13_),
-    .Y(_14_)
-  );
-  NOT _39_ (
-    .A(_14_),
+  NOR _057_ (
+    .A(_014_),
+    .B(_019_),
     .Y(pop_p2)
   );
-  NOR _40_ (
-    .A(_00_),
-    .B(_14_),
-    .Y(_15_)
+  NOR _058_ (
+    .A(_011_),
+    .B(_017_),
+    .Y(_020_)
   );
-  NAND _41_ (
+  NAND _059_ (
+    .A(_015_),
+    .B(_020_),
+    .Y(_021_)
+  );
+  NOR _060_ (
+    .A(empty_p3),
+    .B(_021_),
+    .Y(pop_p3)
+  );
+  NAND _061_ (
+    .A(data_in_3[0]),
+    .B(pop_p3),
+    .Y(_022_)
+  );
+  NAND _062_ (
+    .A(data_in_2[0]),
+    .B(pop_p2),
+    .Y(_023_)
+  );
+  NAND _063_ (
     .A(data_in_0[0]),
     .B(pop_p0),
-    .Y(_16_)
+    .Y(_024_)
   );
-  NAND _42_ (
+  NAND _064_ (
     .A(data_in_1[0]),
     .B(pop_p1),
-    .Y(_17_)
+    .Y(_025_)
   );
-  NAND _43_ (
-    .A(_16_),
-    .B(_17_),
-    .Y(_18_)
+  NAND _065_ (
+    .A(_022_),
+    .B(_024_),
+    .Y(_026_)
   );
-  NOR _44_ (
-    .A(_15_),
-    .B(_18_),
-    .Y(_19_)
+  NAND _066_ (
+    .A(_023_),
+    .B(_025_),
+    .Y(_027_)
   );
-  NAND _45_ (
-    .A(_12_),
-    .B(_19_),
+  NOR _067_ (
+    .A(_026_),
+    .B(_027_),
+    .Y(_028_)
+  );
+  NAND _068_ (
+    .A(data_in_3[8]),
+    .B(pop_p3),
+    .Y(_029_)
+  );
+  NAND _069_ (
+    .A(data_in_1[8]),
+    .B(pop_p1),
+    .Y(_030_)
+  );
+  NAND _070_ (
+    .A(data_in_2[8]),
+    .B(pop_p2),
+    .Y(_031_)
+  );
+  NAND _071_ (
+    .A(_030_),
+    .B(_031_),
+    .Y(_032_)
+  );
+  NAND _072_ (
+    .A(data_in_0[8]),
+    .B(pop_p0),
+    .Y(_033_)
+  );
+  NOT _073_ (
+    .A(_033_),
+    .Y(_034_)
+  );
+  NOR _074_ (
+    .A(_032_),
+    .B(_034_),
+    .Y(_035_)
+  );
+  NAND _075_ (
+    .A(_029_),
+    .B(_033_),
+    .Y(_036_)
+  );
+  NOR _076_ (
+    .A(_032_),
+    .B(_036_),
+    .Y(_037_)
+  );
+  NAND _077_ (
+    .A(_029_),
+    .B(_035_),
+    .Y(_038_)
+  );
+  NAND _078_ (
+    .A(data_in_3[9]),
+    .B(pop_p3),
+    .Y(_039_)
+  );
+  NAND _079_ (
+    .A(data_in_2[9]),
+    .B(pop_p2),
+    .Y(_040_)
+  );
+  NAND _080_ (
+    .A(data_in_1[9]),
+    .B(pop_p1),
+    .Y(_041_)
+  );
+  NAND _081_ (
+    .A(_040_),
+    .B(_041_),
+    .Y(_042_)
+  );
+  NAND _082_ (
+    .A(data_in_0[9]),
+    .B(pop_p0),
+    .Y(_043_)
+  );
+  NOT _083_ (
+    .A(_043_),
+    .Y(_044_)
+  );
+  NOR _084_ (
+    .A(_042_),
+    .B(_044_),
+    .Y(_000_)
+  );
+  NAND _085_ (
+    .A(_039_),
+    .B(_043_),
+    .Y(_001_)
+  );
+  NOR _086_ (
+    .A(_042_),
+    .B(_001_),
+    .Y(_002_)
+  );
+  NAND _087_ (
+    .A(_039_),
+    .B(_000_),
+    .Y(_003_)
+  );
+  NAND _088_ (
+    .A(_038_),
+    .B(_002_),
+    .Y(_004_)
+  );
+  NOT _089_ (
+    .A(_004_),
+    .Y(push_p1)
+  );
+  NOR _090_ (
+    .A(_028_),
+    .B(_004_),
+    .Y(data_out_1)
+  );
+  NAND _091_ (
+    .A(_037_),
+    .B(_003_),
+    .Y(_005_)
+  );
+  NOT _092_ (
+    .A(_005_),
+    .Y(push_p2)
+  );
+  NOR _093_ (
+    .A(_028_),
+    .B(_005_),
+    .Y(data_out_2)
+  );
+  NAND _094_ (
+    .A(_038_),
+    .B(_003_),
+    .Y(_006_)
+  );
+  NOT _095_ (
+    .A(_006_),
+    .Y(push_p3)
+  );
+  NOR _096_ (
+    .A(_028_),
+    .B(_006_),
+    .Y(data_out_3)
+  );
+  NAND _097_ (
+    .A(_037_),
+    .B(_002_),
+    .Y(_007_)
+  );
+  NOR _098_ (
+    .A(_028_),
+    .B(_007_),
     .Y(data_out_0)
   );
-  NOR _46_ (
-    .A(_02_),
-    .B(_10_),
-    .Y(_20_)
+  NAND _099_ (
+    .A(empty_p3),
+    .B(_020_),
+    .Y(_008_)
   );
-  NOR _47_ (
-    .A(_05_),
-    .B(_20_),
+  NAND _100_ (
+    .A(_015_),
+    .B(_008_),
+    .Y(_009_)
+  );
+  NOR _101_ (
+    .A(_007_),
+    .B(_009_),
     .Y(push_p0)
   );
-  assign data_out_1 = 1'h0;
-  assign data_out_2 = 1'h0;
-  assign data_out_3 = 1'h0;
-  assign dest = 2'h0;
-  assign mux_out[0] = data_out_0;
-  assign push_p1 = 1'h0;
-  assign push_p2 = 1'h0;
-  assign push_p3 = 1'h0;
 endmodule

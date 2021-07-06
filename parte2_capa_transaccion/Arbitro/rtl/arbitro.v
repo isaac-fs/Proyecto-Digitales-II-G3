@@ -72,9 +72,9 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	reg [FIFO_WORD_SIZE-1:0] mux_out;
 
 	always @(*) begin
-		mux_out = 0; // Valor por defecto
 		dest = mux_out[FIFO_WORD_SIZE-1:FIFO_WORD_SIZE-2]; // -> DEST sólo puede tomar valores 0, 1, 2 y 3.
 		// Multiplexor
+		mux_out = 0; // Valor por defecto
 		if(pop_p0)
 			mux_out = data_in_0;
 		else if (pop_p1)

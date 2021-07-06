@@ -46,9 +46,10 @@ Cleaned up 0 empty switches.
 3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
 Removed 1 dead cases from process $proc$rtl/arbitro.v:102$15 in module arbitro.
 Marked 2 switch rules as full_case in process $proc$rtl/arbitro.v:102$15 in module arbitro.
+Removed 1 dead cases from process $proc$rtl/arbitro.v:74$14 in module arbitro.
 Marked 5 switch rules as full_case in process $proc$rtl/arbitro.v:74$14 in module arbitro.
 Marked 5 switch rules as full_case in process $proc$rtl/arbitro.v:48$8 in module arbitro.
-Removed a total of 1 dead cases.
+Removed a total of 2 dead cases.
 
 3.3. Executing PROC_INIT pass (extract init attributes).
 
@@ -140,84 +141,82 @@ Cleaned up 12 empty switches.
 
 4.1. Executing OPT_EXPR pass (perform const folding).
 Optimizing module arbitro.
-<suppressed ~66 debug messages>
+<suppressed ~42 debug messages>
 
 4.2. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\arbitro'.
-<suppressed ~3 debug messages>
-Removed a total of 1 cells.
+<suppressed ~87 debug messages>
+Removed a total of 29 cells.
 
 4.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
 Running muxtree optimizer on module \arbitro..
   Creating internal representation of mux trees.
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
-    dead port 1/2 on $mux $procmux$143.
-    dead port 2/2 on $mux $procmux$141.
-    dead port 1/2 on $mux $procmux$134.
-    dead port 2/2 on $mux $procmux$132.
-    dead port 2/2 on $mux $procmux$129.
-    dead port 1/2 on $mux $procmux$122.
-    dead port 2/2 on $mux $procmux$120.
-    dead port 2/2 on $mux $procmux$117.
-    dead port 1/2 on $mux $procmux$110.
-    dead port 2/2 on $mux $procmux$108.
-    dead port 2/2 on $mux $procmux$105.
-    dead port 2/2 on $mux $procmux$102.
-    dead port 1/2 on $mux $procmux$92.
-    dead port 1/2 on $mux $procmux$86.
-    dead port 1/2 on $mux $procmux$83.
-    dead port 1/2 on $mux $procmux$77.
-    dead port 1/2 on $mux $procmux$74.
-    dead port 1/2 on $mux $procmux$71.
+    dead port 1/2 on $mux $procmux$126.
+    dead port 2/2 on $mux $procmux$124.
+    dead port 2/2 on $mux $procmux$121.
+    dead port 2/2 on $mux $procmux$118.
+    dead port 1/2 on $mux $procmux$108.
+    dead port 1/2 on $mux $procmux$102.
+    dead port 1/2 on $mux $procmux$99.
+    dead port 1/2 on $mux $procmux$93.
+    dead port 1/2 on $mux $procmux$90.
+    dead port 1/2 on $mux $procmux$87.
+    dead port 1/2 on $mux $procmux$201.
+    dead port 1/2 on $mux $procmux$195.
+    dead port 1/2 on $mux $procmux$189.
+    dead port 1/2 on $mux $procmux$183.
     dead port 2/2 on $mux $procmux$49.
-    dead port 1/2 on $mux $procmux$152.
-    dead port 2/2 on $mux $procmux$159.
-    dead port 1/5 on $pmux $procmux$44.
-    dead port 2/5 on $pmux $procmux$44.
-    dead port 3/5 on $pmux $procmux$44.
-    dead port 5/5 on $pmux $procmux$44.
-    dead port 1/2 on $mux $procmux$161.
+    dead port 1/2 on $mux $procmux$177.
+    dead port 2/2 on $mux $procmux$175.
+    dead port 1/2 on $mux $procmux$168.
     dead port 2/2 on $mux $procmux$41.
-    dead port 1/2 on $mux $procmux$167.
-    dead port 1/5 on $pmux $procmux$36.
-    dead port 2/5 on $pmux $procmux$36.
-    dead port 3/5 on $pmux $procmux$36.
-    dead port 5/5 on $pmux $procmux$36.
-    dead port 1/2 on $mux $procmux$173.
+    dead port 2/2 on $mux $procmux$166.
+    dead port 1/2 on $mux $procmux$159.
+    dead port 2/2 on $mux $procmux$157.
     dead port 2/2 on $mux $procmux$33.
-    dead port 1/2 on $mux $procmux$179.
-    dead port 1/5 on $pmux $procmux$28.
-    dead port 2/5 on $pmux $procmux$28.
-    dead port 3/5 on $pmux $procmux$28.
-    dead port 5/5 on $pmux $procmux$28.
-    dead port 1/2 on $mux $procmux$185.
+    dead port 1/2 on $mux $procmux$150.
+    dead port 2/2 on $mux $procmux$148.
+    dead port 2/2 on $mux $procmux$145.
     dead port 2/2 on $mux $procmux$25.
-    dead port 1/5 on $pmux $procmux$20.
-    dead port 2/5 on $pmux $procmux$20.
-    dead port 3/5 on $pmux $procmux$20.
-    dead port 5/5 on $pmux $procmux$20.
-    dead port 2/2 on $mux $procmux$150.
-Removed 46 multiplexer ports.
-<suppressed ~9 debug messages>
+    dead port 1/2 on $mux $procmux$138.
+    dead port 2/2 on $mux $procmux$136.
+    dead port 2/2 on $mux $procmux$133.
+Removed 30 multiplexer ports.
+<suppressed ~13 debug messages>
 
 4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \arbitro.
-    New ctrl vector for $mux cell $procmux$58: { }
-    New ctrl vector for $mux cell $procmux$55: { }
-    New ctrl vector for $mux cell $procmux$52: { }
+    New ctrl vector for $pmux cell $procmux$63: { $procmux$82_CMP $auto$opt_reduce.cc:132:opt_mux$216 }
+    New ctrl vector for $pmux cell $procmux$44: { $procmux$81_CMP $auto$opt_reduce.cc:132:opt_mux$218 }
+    New ctrl vector for $pmux cell $procmux$78: { $procmux$81_CMP $auto$opt_reduce.cc:132:opt_mux$220 }
+    New ctrl vector for $pmux cell $procmux$36: { $procmux$80_CMP $auto$opt_reduce.cc:132:opt_mux$222 }
+    New ctrl vector for $pmux cell $procmux$73: { $procmux$80_CMP $auto$opt_reduce.cc:132:opt_mux$224 }
+    New ctrl vector for $pmux cell $procmux$28: { $auto$opt_reduce.cc:132:opt_mux$226 $procmux$79_CMP }
+    New ctrl vector for $pmux cell $procmux$68: { $auto$opt_reduce.cc:132:opt_mux$228 $procmux$79_CMP }
+    New ctrl vector for $pmux cell $procmux$20: { $procmux$82_CMP $auto$opt_reduce.cc:132:opt_mux$230 }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$215: { $procmux$79_CMP $procmux$80_CMP $procmux$81_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$217: { $procmux$82_CMP $procmux$79_CMP $procmux$80_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$219: { $procmux$82_CMP $procmux$79_CMP $procmux$80_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$221: { $procmux$82_CMP $procmux$79_CMP $procmux$81_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$223: { $procmux$82_CMP $procmux$79_CMP $procmux$81_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$225: { $procmux$82_CMP $procmux$80_CMP $procmux$81_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$227: { $procmux$82_CMP $procmux$80_CMP $procmux$81_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$229: { $procmux$79_CMP $procmux$80_CMP $procmux$81_CMP }
   Optimizing cells in module \arbitro.
-Performed a total of 3 changes.
+Performed a total of 16 changes.
 
 4.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\arbitro'.
-Removed a total of 0 cells.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
 
 4.6. Executing OPT_RMDFF pass (remove dff with constant values).
 
 4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \arbitro..
-Removed 4 unused cells and 164 unused wires.
+Removed 4 unused cells and 180 unused wires.
 <suppressed ~5 debug messages>
 
 4.8. Executing OPT_EXPR pass (perform const folding).
@@ -231,11 +230,16 @@ Running muxtree optimizer on module \arbitro..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~6 debug messages>
+<suppressed ~13 debug messages>
 
 4.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \arbitro.
-Performed a total of 0 changes.
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$229: { $procmux$22_CMP $procmux$21_CMP $procmux$23_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$227: { $procmux$22_CMP $procmux$23_CMP $procmux$24_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$223: { $procmux$21_CMP $procmux$23_CMP $procmux$24_CMP }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:126:opt_mux$219: { $procmux$22_CMP $procmux$21_CMP $procmux$24_CMP }
+  Optimizing cells in module \arbitro.
+Performed a total of 4 changes.
 
 4.12. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\arbitro'.
@@ -249,7 +253,33 @@ Finding unused cells or wires in module \arbitro..
 4.15. Executing OPT_EXPR pass (perform const folding).
 Optimizing module arbitro.
 
-4.16. Finished OPT passes. (There is nothing left to do.)
+4.16. Rerunning OPT passes. (Maybe there is more to do..)
+
+4.17. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \arbitro..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~13 debug messages>
+
+4.18. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \arbitro.
+Performed a total of 0 changes.
+
+4.19. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\arbitro'.
+Removed a total of 0 cells.
+
+4.20. Executing OPT_RMDFF pass (remove dff with constant values).
+
+4.21. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \arbitro..
+
+4.22. Executing OPT_EXPR pass (perform const folding).
+Optimizing module arbitro.
+
+4.23. Finished OPT passes. (There is nothing left to do.)
 
 5. Executing FSM pass (extract and optimize FSM).
 
@@ -285,7 +315,7 @@ Running muxtree optimizer on module \arbitro..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~6 debug messages>
+<suppressed ~13 debug messages>
 
 6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \arbitro.
@@ -336,7 +366,7 @@ Running muxtree optimizer on module \arbitro..
   Evaluating internal representation of mux trees.
   Analyzing evaluation results.
 Removed 0 multiplexer ports.
-<suppressed ~6 debug messages>
+<suppressed ~13 debug messages>
 
 8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \arbitro.
@@ -385,10 +415,14 @@ Successfully finished Verilog frontend.
 9.2. Continuing TECHMAP pass.
 Using extmapper simplemap for cells of type $logic_or.
 Using extmapper simplemap for cells of type $logic_and.
+Using extmapper simplemap for cells of type $reduce_or.
 Using extmapper simplemap for cells of type $logic_not.
+Using template $paramod\_90_pmux\WIDTH=1\S_WIDTH=2 for cells of type $pmux.
 Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $eq.
+Using extmapper simplemap for cells of type $and.
 No more expansions possible.
-<suppressed ~28 debug messages>
+<suppressed ~98 debug messages>
 
 10. Executing DFFLIBMAP pass (mapping DFF cells to sequential cells from liberty file).
   cell DFF (noninv, pins=3, area=18.00) is a direct match for cell type $_DFF_P_.
@@ -433,7 +467,7 @@ Mapping DFF cells in module `\arbitro':
 11. Executing ABC pass (technology mapping using ABC).
 
 11.1. Extracting gate netlist of module `\arbitro' to `<abc-temp-dir>/input.blif'..
-Extracted 64 gates and 114 wires to a netlist network with 48 inputs and 6 outputs.
+Extracted 129 gates and 180 wires to a netlist network with 48 inputs and 12 outputs.
 
 11.1.1. Executing ABC.
 Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
@@ -464,19 +498,19 @@ ABC: + &put
 ABC: + write_blif <abc-temp-dir>/output.blif 
 
 11.1.2. Re-integrating ABC results.
-ABC RESULTS:              NAND cells:       11
-ABC RESULTS:               NOR cells:       10
-ABC RESULTS:               NOT cells:        6
-ABC RESULTS:        internal signals:       60
+ABC RESULTS:              NAND cells:       30
+ABC RESULTS:               NOR cells:       18
+ABC RESULTS:               NOT cells:        9
+ABC RESULTS:        internal signals:      120
 ABC RESULTS:           input signals:       48
-ABC RESULTS:          output signals:        6
+ABC RESULTS:          output signals:       12
 Removing temp directory.
-Removed 0 unused cells and 76 unused wires.
+Removed 0 unused cells and 226 unused wires.
 
 12. Executing Verilog backend.
 Dumping module `\arbitro'.
 
-End of script. Logfile hash: 1770517137
-CPU: user 0.08s system 0.00s, MEM: 16.49 MB total, 10.86 MB resident
+End of script. Logfile hash: 54bd65ce51
+CPU: user 0.12s system 0.00s, MEM: 16.48 MB total, 10.89 MB resident
 Yosys 0.9 (git sha1 1979e0b)
-Time spent: 17% 3x read_verilog (0 sec), 13% 7x opt_clean (0 sec), ...
+Time spent: 14% 8x opt_clean (0 sec), 13% 3x read_verilog (0 sec), ...
