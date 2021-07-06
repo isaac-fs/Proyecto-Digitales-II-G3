@@ -81,6 +81,117 @@ module probador #(
         
 		// ** MODIFICAR A PARTIR DE ACÁ
         // Inicialización de datos
+		empty_p0 <= 0;
+		empty_p1 <= 0;
+		empty_p2 <= 0;
+		empty_p3 <= 0;
+		almostfull_p0 <= 0;
+		almostfull_p1 <= 0;
+		almostfull_p2 <= 0;
+		almostfull_p3 <= 0;		
+		data_in_0 <= 10'h000;
+		data_in_1 <= 10'h000;
+		data_in_2 <= 10'h000;
+		data_in_3 <= 10'h000;
+		// Inicio de pruebas
+		
+		@(posedge clk) begin
+		data_in_0 <= 10'h1A6;
+		data_in_1 <= 10'h2B7;
+		data_in_2 <= 10'h017;
+		data_in_3 <= 10'h345;
+		end
+		
+		@(posedge clk) begin
+		data_in_0 <= 10'h2A6;
+		data_in_1 <= 10'h1B7;
+		data_in_2 <= 10'h317;
+		data_in_3 <= 10'h145;
+		end
+		
+		@(posedge clk) begin
+		data_in_0 <= 10'h1A6;
+		data_in_1 <= 10'h2B7;
+		data_in_2 <= 10'h317;
+		data_in_3 <= 10'h145;
+		almostfull_p0 <= 1;
+		end
+		
+		@(posedge clk) begin
+		data_in_0 <= 10'h0A6;
+		data_in_1 <= 10'h1B7;
+		data_in_2 <= 10'h217;
+		data_in_3 <= 10'h345;
+		end
+		
+		
+		@(posedge clk) begin
+		almostfull_p0 <= 0;
+		end
+		
+		
+		@(posedge clk) begin
+		empty_p0 <= 1;
+		end
+		
+		@(posedge clk);
+		@(posedge clk);
+		 
+		@(posedge clk) begin
+		empty_p1 <= 1;
+		end
+		
+		@(posedge clk);
+		@(posedge clk);
+		
+		@(posedge clk) begin
+		empty_p2 <= 1;
+		end
+		
+		@(posedge clk) begin
+		empty_p3 <= 1;
+		end
+		
+		@(posedge clk) begin
+		empty_p0 <= 0;
+		empty_p1 <= 0;
+		empty_p2 <= 0;
+		empty_p3 <= 0;
+		almostfull_p1 <= 1;
+		end
+
+
+		@(posedge clk) begin
+		almostfull_p1 <= 0;
+		end
+		
+		@(posedge clk) begin
+		data_in_0 <= 10'h1A6;
+		data_in_1 <= 10'h2B7;
+		data_in_2 <= 10'h117;
+		data_in_3 <= 10'h345;
+		end
+		
+		@(posedge clk) begin
+		data_in_0 <= 10'h2A6;
+		data_in_1 <= 10'h1B7;
+		data_in_2 <= 10'h317;
+		data_in_3 <= 10'h145;
+		end
+		
+		@(posedge clk) begin
+		data_in_3 <= 10'h1A6;
+		data_in_0 <= 10'h2B7;
+		data_in_1 <= 10'h017;
+		data_in_2 <= 10'h345;
+		end
+		
+		@(posedge clk) begin
+		data_in_3 <= 10'h2A6;
+		data_in_2 <= 10'h1B7;
+		data_in_1 <= 10'h317;
+		data_in_0 <= 10'h145;
+		end
 
 		#50
 		// Final de pruebas
