@@ -37,13 +37,13 @@ module contadores ( // Contador de salida de datos para 4 salidas
             if (pop_0 && !empty_FIFO_0)
                 contador[0] <= contador[0] + 1;
 
-            if (pop_1 && !empty_FIFO_0)
+            if (pop_1 && !empty_FIFO_1)
                 contador[1] <= contador[1] + 1;
 
-            if (pop_2 && !empty_FIFO_0)
+            if (pop_2 && !empty_FIFO_2)
                 contador[2] <= contador[2] + 1;
 
-            if (pop_3 && !empty_FIFO_0)
+            if (pop_3 && !empty_FIFO_3)
                 contador[3] <= contador[3] + 1;
         end // if ~rst
     end // always posedge clk
