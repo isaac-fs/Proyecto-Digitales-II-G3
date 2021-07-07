@@ -12,10 +12,14 @@ module banco_pruebas;
 wire			clk;			// From probador of probador.v
 wire [4:0]		data;			// From contadores of contadores.v
 wire [4:0]		data_E;			// From contadores_synth_0 of contadores_synth.v
-wire [9:0]		data_in0;		// From probador of probador.v
-wire [9:0]		data_in1;		// From probador of probador.v
-wire [9:0]		data_in2;		// From probador of probador.v
-wire [9:0]		data_in3;		// From probador of probador.v
+wire [9:0]		data_out_FIFO_0;	// From probador of probador.v
+wire [9:0]		data_out_FIFO_1;	// From probador of probador.v
+wire [9:0]		data_out_FIFO_2;	// From probador of probador.v
+wire [9:0]		data_out_FIFO_3;	// From probador of probador.v
+wire			empty_FIFO_0;		// From probador of probador.v
+wire			empty_FIFO_1;		// From probador of probador.v
+wire			empty_FIFO_2;		// From probador of probador.v
+wire			empty_FIFO_3;		// From probador of probador.v
 wire			idle;			// From probador of probador.v
 wire [1:0]		idx;			// From probador of probador.v
 wire			pop_0;			// From probador of probador.v
@@ -42,7 +46,11 @@ contadores contadores(/*AUTOINST*/
 		      .pop_2		(pop_2),
 		      .pop_3		(pop_3),
 		      .idx		(idx[1:0]),
-		      .idle		(idle));
+		      .idle		(idle),
+		      .empty_FIFO_0	(empty_FIFO_0),
+		      .empty_FIFO_1	(empty_FIFO_1),
+		      .empty_FIFO_2	(empty_FIFO_2),
+		      .empty_FIFO_3	(empty_FIFO_3));
 
 /*contadores_synth AUTO_TEMPLATE(
 	.data		(data_E[4:0]),
@@ -53,6 +61,10 @@ contadores_synth contadores_synth_0 (/*AUTOINST*/
 				     .valid		(valid_E),	 // Templated
 				     // Inputs
 				     .clk		(clk),
+				     .empty_FIFO_0	(empty_FIFO_0),
+				     .empty_FIFO_1	(empty_FIFO_1),
+				     .empty_FIFO_2	(empty_FIFO_2),
+				     .empty_FIFO_3	(empty_FIFO_3),
 				     .idle		(idle),
 				     .idx		(idx[1:0]),
 				     .pop_0		(pop_0),
@@ -67,16 +79,20 @@ probador probador(/*AUTOINST*/
 		  .clk			(clk),
 		  .rst_l		(rst_l),
 		  .req			(req),
-		  .data_in0		(data_in0[9:0]),
-		  .data_in1		(data_in1[9:0]),
-		  .data_in2		(data_in2[9:0]),
-		  .data_in3		(data_in3[9:0]),
+		  .data_out_FIFO_0	(data_out_FIFO_0[9:0]),
+		  .data_out_FIFO_1	(data_out_FIFO_1[9:0]),
+		  .data_out_FIFO_2	(data_out_FIFO_2[9:0]),
+		  .data_out_FIFO_3	(data_out_FIFO_3[9:0]),
 		  .pop_0		(pop_0),
 		  .pop_1		(pop_1),
 		  .pop_2		(pop_2),
 		  .pop_3		(pop_3),
 		  .idx			(idx[1:0]),
 		  .idle			(idle),
+		  .empty_FIFO_0		(empty_FIFO_0),
+		  .empty_FIFO_1		(empty_FIFO_1),
+		  .empty_FIFO_2		(empty_FIFO_2),
+		  .empty_FIFO_3		(empty_FIFO_3),
 		  // Inputs
 		  .data			(data[4:0]),
 		  .data_E		(data_E[4:0]),

@@ -8,6 +8,11 @@ module contadores ( // Contador de salida de datos para 4 salidas
     input pop_3,
     input [1:0] idx, // indice de cual FIFO leer
     input idle, // desde la FSM
+    // empty de los FIFOs de salida
+    input empty_FIFO_0,    
+    input empty_FIFO_1,
+    input empty_FIFO_2,
+    input empty_FIFO_3,    
     output reg [4:0] data, // cuenta del idx seleccionados
     output reg valid); // si la cuenta es válida i.e. si se leyó en idle
     /*
@@ -29,16 +34,16 @@ module contadores ( // Contador de salida de datos para 4 salidas
                 contador[i] <= 0;
             end
         end else begin
-            if (pop_0)
+            if (pop_0 && !empty_FIFO_0)
                 contador[0] <= contador[0] + 1;
 
-            if (pop_1)
+            if (pop_1 && !empty_FIFO_0)
                 contador[1] <= contador[1] + 1;
 
-            if (pop_2)
+            if (pop_2 && !empty_FIFO_0)
                 contador[2] <= contador[2] + 1;
 
-            if (pop_3)
+            if (pop_3 && !empty_FIFO_0)
                 contador[3] <= contador[3] + 1;
         end // if ~rst
     end // always posedge clk
