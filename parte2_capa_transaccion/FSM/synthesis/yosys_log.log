@@ -19,7 +19,7 @@
  |                                                                            |
  \----------------------------------------------------------------------------/
 
- Yosys 0.9 (git sha1 1979e0b)
+ Yosys 0.9 (git sha1 UNKNOWN, clang 6.0.0-1ubuntu2 -fPIC -Os)
 
 
 -- Executing script file `synthesis/synth_script.ys' --
@@ -77,8 +77,8 @@ Creating decoders for process `\FSM.$proc$rtl/FSM.v:26$1'.
 3.6. Executing PROC_DLATCH pass (convert process syncs to latches).
 No latch inferred for signal `\FSM.\idle' from process `\FSM.$proc$rtl/FSM.v:38$3'.
 No latch inferred for signal `\FSM.\proximo_estado' from process `\FSM.$proc$rtl/FSM.v:38$3'.
-Latch inferred for signal `\FSM.\almost_empty_threshold' from process `\FSM.$proc$rtl/FSM.v:38$3': $auto$proc_dlatch.cc:409:proc_dlatch$116
-Latch inferred for signal `\FSM.\almost_full_threshold' from process `\FSM.$proc$rtl/FSM.v:38$3': $auto$proc_dlatch.cc:409:proc_dlatch$137
+Latch inferred for signal `\FSM.\almost_empty_threshold' from process `\FSM.$proc$rtl/FSM.v:38$3': $auto$proc_dlatch.cc:409:proc_dlatch$88
+Latch inferred for signal `\FSM.\almost_full_threshold' from process `\FSM.$proc$rtl/FSM.v:38$3': $auto$proc_dlatch.cc:409:proc_dlatch$117
 
 3.7. Executing PROC_DFF pass (convert process syncs to FFs).
 Creating register for signal `\FSM.\almost_empty_threshold' using process `\FSM.$proc$rtl/FSM.v:26$1'.
@@ -122,10 +122,9 @@ Removed 6 multiplexer ports.
 
 4.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
   Optimizing cells in module \FSM.
-    New input vector for $reduce_or cell $auto$proc_dlatch.cc:247:make_hold$133: { $auto$rtlil.cc:1832:Not$118 $auto$rtlil.cc:1862:And$132 }
     New input vector for $reduce_and cell $reduce_and$rtl/FSM.v:78$5: { \FIFOs_empty [0] \FIFOs_empty [1] \FIFOs_empty [2] \FIFOs_empty [3] \FIFOs_empty [4] \FIFOs_empty [5] \FIFOs_empty [6] \FIFOs_empty [7] }
   Optimizing cells in module \FSM.
-Performed a total of 2 changes.
+Performed a total of 1 changes.
 
 4.5. Executing OPT_MERGE pass (detect identical cells).
 Finding identical cells in module `\FSM'.
@@ -139,12 +138,12 @@ Replaced 2 DFF cells.
 
 4.7. Executing OPT_CLEAN pass (remove unused cells and wires).
 Finding unused cells or wires in module \FSM..
-Warning: Driver-driver conflict for \almost_full_threshold [2] between cell $auto$proc_dlatch.cc:409:proc_dlatch$137.Q and constant 1'1 in FSM: Resolved using constant.
-Warning: Driver-driver conflict for \almost_full_threshold [1] between cell $auto$proc_dlatch.cc:409:proc_dlatch$137.Q and constant 1'1 in FSM: Resolved using constant.
-Warning: Driver-driver conflict for \almost_full_threshold [0] between cell $auto$proc_dlatch.cc:409:proc_dlatch$137.Q and constant 1'0 in FSM: Resolved using constant.
-Warning: Driver-driver conflict for \almost_empty_threshold [2] between cell $auto$proc_dlatch.cc:409:proc_dlatch$116.Q and constant 1'0 in FSM: Resolved using constant.
-Warning: Driver-driver conflict for \almost_empty_threshold [1] between cell $auto$proc_dlatch.cc:409:proc_dlatch$116.Q and constant 1'1 in FSM: Resolved using constant.
-Warning: Driver-driver conflict for \almost_empty_threshold [0] between cell $auto$proc_dlatch.cc:409:proc_dlatch$116.Q and constant 1'0 in FSM: Resolved using constant.
+Warning: Driver-driver conflict for \almost_full_threshold [2] between cell $auto$proc_dlatch.cc:409:proc_dlatch$117.Q and constant 1'1 in FSM: Resolved using constant.
+Warning: Driver-driver conflict for \almost_full_threshold [1] between cell $auto$proc_dlatch.cc:409:proc_dlatch$117.Q and constant 1'1 in FSM: Resolved using constant.
+Warning: Driver-driver conflict for \almost_full_threshold [0] between cell $auto$proc_dlatch.cc:409:proc_dlatch$117.Q and constant 1'0 in FSM: Resolved using constant.
+Warning: Driver-driver conflict for \almost_empty_threshold [2] between cell $auto$proc_dlatch.cc:409:proc_dlatch$88.Q and constant 1'0 in FSM: Resolved using constant.
+Warning: Driver-driver conflict for \almost_empty_threshold [1] between cell $auto$proc_dlatch.cc:409:proc_dlatch$88.Q and constant 1'1 in FSM: Resolved using constant.
+Warning: Driver-driver conflict for \almost_empty_threshold [0] between cell $auto$proc_dlatch.cc:409:proc_dlatch$88.Q and constant 1'0 in FSM: Resolved using constant.
 Removed 11 unused cells and 81 unused wires.
 <suppressed ~12 debug messages>
 
@@ -532,18 +531,18 @@ Mapping DFF cells in module `\FSM':
 Extracted 34 gates and 50 wires to a netlist network with 14 inputs and 5 outputs.
 
 11.1.1. Executing ABC.
-Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
+Running ABC command: <yosys-exe-dir>/yosys-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /home/isaac/Desktop/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FSM/synthesis/cmos_cells/cmos_cells.lib 
+ABC: + read_lib -w /home/avegaz97/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FSM/synthesis/cmos_cells/cmos_cells.lib 
 ABC: Parsing finished successfully.  Parsing time =     0.00 sec
 ABC: Warning: Templates are not defined.
 ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
 ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
-ABC: Library "demo" from "/home/isaac/Desktop/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FSM/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Library "demo" from "/home/avegaz97/Proyecto-Digitales-II-G3/parte2_capa_transaccion/FSM/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
 ABC: Memory =    0.00 MB. Time =     0.00 sec
 ABC: + strash 
 ABC: + ifraig 
@@ -573,7 +572,7 @@ Removed 0 unused cells and 46 unused wires.
 Dumping module `\FSM'.
 
 Warnings: 6 unique messages, 6 total
-End of script. Logfile hash: e4b50cb897
-CPU: user 0.09s system 0.00s, MEM: 16.40 MB total, 11.02 MB resident
-Yosys 0.9 (git sha1 1979e0b)
-Time spent: 19% 3x read_verilog (0 sec), 16% 9x opt_clean (0 sec), ...
+End of script. Logfile hash: 6fd7f3ee06
+CPU: user 0.04s system 0.03s, MEM: 43.18 MB total, 10.92 MB resident
+Yosys 0.9 (git sha1 UNKNOWN, clang 6.0.0-1ubuntu2 -fPIC -Os)
+Time spent: 16% 3x read_verilog (0 sec), 13% 9x opt_expr (0 sec), ...
