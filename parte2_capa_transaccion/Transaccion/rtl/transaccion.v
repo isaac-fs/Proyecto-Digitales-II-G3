@@ -4,7 +4,7 @@
 `include "rtl/FSM.v"
 
 module transaccion #(
-	parameter NUM_FIFOS = 8,
+		parameter NUM_FIFOS = 8,
     	parameter FIFO_DEPTH = 8, // DEBE SER UNA POTENCIA DE 2
     	parameter FIFO_WORD_SIZE = 10,
     	parameter FIFO_PTR_SIZE = $clog2(FIFO_DEPTH)
@@ -480,12 +480,15 @@ module transaccion #(
 			 .empty_FIFO_2		(empty_flag_out_2),
 			 .empty_FIFO_3		(empty_flag_out_3));
 
+wire [NUM_FIFOS-1:0] FIFOs_empty = {empty_flag_in0, empty_flag_in1, empty_flag_in2, empty_flag_in3, empty_flag_out0, empty_flag_out1, empty_flag_out2, empty_flag_out3};
+
    //FSM
    FSM #(   
+	.NUM_FIFOS (NUM_FIFOS),
     .FIFO_DEPTH (FIFO_DEPTH),
     .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
     .FIFO_PTR_SIZE (FIFO_PTR_SIZE),
-    .NUM_FIFOS (NUM_FIFOS),
+    .NUM_FIFOS (NUM_FIFOS)
 ) FSM(/*AUTOINST*/
       // Outputs
       .idle				(idle),
@@ -499,9 +502,4 @@ module transaccion #(
       .almost_full_threshold_input	(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]),
       .FIFOs_empty			(FIFOs_empty[NUM_FIFOS-1:0]));
 
-   
-   
-
-   
-   
 endmodule // transaccion
