@@ -1,16 +1,22 @@
-`include "Bloques/FIFO.v"
-`include "Bloques/arbitro.v"
-`include "Bloques/contadores.v"
-`include "Bloques/FSM.v"
+`include "rtl/FIFO.v"
+`include "rtl/arbitro.v"
+`include "rtl/contadores.v"
+`include "rtl/FSM.v"
 
-module transaccion( //Entradas hacia FIFOS in 
-		    input [9:0]  dest&data_in0,
+module transaccion #(
+    parameter FIFO_DEPTH = 8, // DEBE SER UNA POTENCIA DE 2
+    parameter FIFO_WORD_SIZE = 10,
+    parameter FIFO_PTR_SIZE = $clog2(FIFO_DEPTH)
+)( 			// Reloj		
+			input clk, 
+			//Entradas hacia FIFOS in 
+		    input [FIFO_WORD_SIZE-1:0]  dest_n_data_in0,
 		    input 	 push_FIFO_in0,
-		    input [9:0]  dest&data_in1,
+		    input [FIFO_WORD_SIZE-1:0]  dest_n_data_in1,
 		    input 	 push_FIFO_in1,
-		    input [9:0]  dest&data_in2,
+		    input [FIFO_WORD_SIZE-1:0]  dest_n_data_in2,
 		    input 	 push_FIFO_in2,
-		    input [9:0]  dest&data_in3,
+		    input [FIFO_WORD_SIZE-1:0]  dest_n_data_in3,
 		    input 	 push_FIFO_in3,
 		    //Entradas hacia contadores 
 		    input 	 req,
@@ -18,22 +24,22 @@ module transaccion( //Entradas hacia FIFOS in
 		    //Entradas hacia FSM
 		    input 	 reset_L,
 		    input 	 init,
-		    input [2:0]  almost_empty_threshold_input,
-		    input [2:] 	 almost_full_threshold_input,
+		    input [FIFO_PTR_SIZE-1:0]  almost_empty_threshold_input,
+		    input [FIFO_PTR_SIZE-1:0]  almost_full_threshold_input,
 		    //Salidas desde FIFOs out
-		    output [9:0] data_out0,
+		    output [FIFO_WORD_SIZE-1:0] data_out0,
 		    output 	 pop_FIFO_out0,
-		    output [9:0] data_out1,
+		    output [FIFO_WORD_SIZE-1:0] data_out1,
 		    output 	 pop_FIFO_out1,
-		    output [9:0] data_out2,
+		    output [FIFO_WORD_SIZE-1:0] data_out2,
 		    output 	 pop_FIFO_out2,
-		    output [9:0] data_out3,
+		    output [FIFO_WORD_SIZE-1:0] data_out3,
 		    output 	 pop_FIFO_out3,
 		    //Salidas desde contadores
 		    output [4:0] data,
 		    output 	 valid);
 
-   /*AUTOWIRE*/
+   // Quité el AUTOWIRE para que no se borren los cables puestos a mano
    // Beginning of automatic wires (for undeclared instantiated-module outputs)
    wire			almost_empty_flag_in0;	// From FIFO_in0 of FIFO.v
    wire			almost_empty_flag_in1;	// From FIFO_in1 of FIFO.v
@@ -57,6 +63,10 @@ module transaccion( //Entradas hacia FIFOS in
    wire [FIFO_WORD_SIZE-1:0] data_F_A_1;	// From FIFO_in1 of FIFO.v
    wire [FIFO_WORD_SIZE-1:0] data_F_A_2;	// From FIFO_in2 of FIFO.v
    wire [FIFO_WORD_SIZE-1:0] data_F_A_3;	// From FIFO_in3 of FIFO.v
+   wire [FIFO_WORD_SIZE-1:0] data_A_F_0;	// A mano
+   wire [FIFO_WORD_SIZE-1:0] data_A_F_1;	// A mano
+   wire [FIFO_WORD_SIZE-1:0] data_A_F_2;	// A mano
+   wire [FIFO_WORD_SIZE-1:0] data_A_F_3;	// A mano
    wire			empty_flag_in0;		// From FIFO_in0 of FIFO.v
    wire			empty_flag_in1;		// From FIFO_in1 of FIFO.v
    wire			empty_flag_in2;		// From FIFO_in2 of FIFO.v
@@ -101,7 +111,7 @@ module transaccion( //Entradas hacia FIFOS in
 		 // Inputs
 		 .clk			(clk),
 		 .reset_L		(reset_L),
-		 .data_in		(dest&data_in0[FIFO_WORD_SIZE-1:0]),
+		 .data_in		(dest_n_data_in0[FIFO_WORD_SIZE-1:0]),
 		 .wr_en			(push_FIFO_in0),
 		 .rd_en			(pop_A_F_0),
 		 .init			(init),
@@ -112,23 +122,27 @@ module transaccion( //Entradas hacia FIFOS in
   
 
     
-   FIFO FIFO_in0(/*AUTOINST*/
-		 // Outputs
-		 .data_out		(data_F_A_0[FIFO_WORD_SIZE-1:0]), // Templated
-		 .empty_flag		(empty_flag_in0),	 // Templated
-		 .full_flag		(full_flag_in0),	 // Templated
-		 .almost_empty_flag	(almost_empty_flag_in0), // Templated
-		 .almost_full_flag	(almost_full_flag_in0),	 // Templated
-		 .error_flag		(error_flag_in0),	 // Templated
-		 // Inputs
-		 .clk			(clk),			 // Templated
-		 .reset_L		(reset_L),		 // Templated
-		 .data_in		(dest&data_in0[FIFO_WORD_SIZE-1:0]), // Templated
-		 .wr_en			(push_FIFO_in0),	 // Templated
-		 .rd_en			(pop_A_F_0),		 // Templated
-		 .init			(init),			 // Templated
-		 .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
-		 .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
+   FIFO #(
+    .FIFO_DEPTH (FIFO_DEPTH),
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
+    .FIFO_PTR_SIZE (FIFO_PTR_SIZE)
+) FIFO_in0(/*AUTOINST*/
+	   // Outputs
+	   .data_out			(data_F_A_0[FIFO_WORD_SIZE-1:0]), // Templated
+	   .empty_flag			(empty_flag_in0),	 // Templated
+	   .full_flag			(full_flag_in0),	 // Templated
+	   .almost_empty_flag		(almost_empty_flag_in0), // Templated
+	   .almost_full_flag		(almost_full_flag_in0),	 // Templated
+	   .error_flag			(error_flag_in0),	 // Templated
+	   // Inputs
+	   .clk				(clk),			 // Templated
+	   .reset_L			(reset_L),		 // Templated
+	   .data_in			(dest_n_data_in0[FIFO_WORD_SIZE-1:0]), // Templated
+	   .wr_en			(push_FIFO_in0),	 // Templated
+	   .rd_en			(pop_A_F_0),		 // Templated
+	   .init			(init),			 // Templated
+	   .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
+	   .almost_full_threshold_input	(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
 
    /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_F_A_1[FIFO_WORD_SIZE-1:0]),
@@ -140,30 +154,34 @@ module transaccion( //Entradas hacia FIFOS in
 		 // Inputs
 		 .clk			(clk),
 		 .reset_L		(reset_L),
-		 .data_in		(dest&data_in1[FIFO_WORD_SIZE-1:0]),
+		 .data_in		(dest_n_data_in1[FIFO_WORD_SIZE-1:0]),
 		 .wr_en			(push_FIFO_in1),
 		 .rd_en			(pop_A_F_1),
 		 .init			(init),
 		 .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]),
 		 .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]));
  */
-   FIFO FIFO_in1(/*AUTOINST*/
-		 // Outputs
-		 .data_out		(data_F_A_1[FIFO_WORD_SIZE-1:0]), // Templated
-		 .empty_flag		(empty_flag_in1),	 // Templated
-		 .full_flag		(full_flag_in1),	 // Templated
-		 .almost_empty_flag	(almost_empty_flag_in1), // Templated
-		 .almost_full_flag	(almost_full_flag_in1),	 // Templated
-		 .error_flag		(error_flag_in1),	 // Templated
-		 // Inputs
-		 .clk			(clk),			 // Templated
-		 .reset_L		(reset_L),		 // Templated
-		 .data_in		(dest&data_in1[FIFO_WORD_SIZE-1:0]), // Templated
-		 .wr_en			(push_FIFO_in1),	 // Templated
-		 .rd_en			(pop_A_F_1),		 // Templated
-		 .init			(init),			 // Templated
-		 .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
-		 .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
+   FIFO #(
+    .FIFO_DEPTH (FIFO_DEPTH),
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
+    .FIFO_PTR_SIZE (FIFO_PTR_SIZE)
+) FIFO_in1(/*AUTOINST*/
+	   // Outputs
+	   .data_out			(data_F_A_1[FIFO_WORD_SIZE-1:0]), // Templated
+	   .empty_flag			(empty_flag_in1),	 // Templated
+	   .full_flag			(full_flag_in1),	 // Templated
+	   .almost_empty_flag		(almost_empty_flag_in1), // Templated
+	   .almost_full_flag		(almost_full_flag_in1),	 // Templated
+	   .error_flag			(error_flag_in1),	 // Templated
+	   // Inputs
+	   .clk				(clk),			 // Templated
+	   .reset_L			(reset_L),		 // Templated
+	   .data_in			(dest_n_data_in1[FIFO_WORD_SIZE-1:0]), // Templated
+	   .wr_en			(push_FIFO_in1),	 // Templated
+	   .rd_en			(pop_A_F_1),		 // Templated
+	   .init			(init),			 // Templated
+	   .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
+	   .almost_full_threshold_input	(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
 
     /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_F_A_2[FIFO_WORD_SIZE-1:0]),
@@ -175,30 +193,34 @@ module transaccion( //Entradas hacia FIFOS in
 		 // Inputs
 		 .clk			(clk),
 		 .reset_L		(reset_L),
-		 .data_in		(dest&data_in2[FIFO_WORD_SIZE-1:0]),
+		 .data_in		(dest_n_data_in2[FIFO_WORD_SIZE-1:0]),
 		 .wr_en			(push_FIFO_in2),
 		 .rd_en			(pop_A_F_2),
 		 .init			(init),
 		 .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]),
 		 .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]));
      */
-   FIFO FIFO_in2(/*AUTOINST*/
-		 // Outputs
-		 .data_out		(data_F_A_2[FIFO_WORD_SIZE-1:0]), // Templated
-		 .empty_flag		(empty_flag_in2),	 // Templated
-		 .full_flag		(full_flag_in2),	 // Templated
-		 .almost_empty_flag	(almost_empty_flag_in2), // Templated
-		 .almost_full_flag	(almost_full_flag_in2),	 // Templated
-		 .error_flag		(error_flag_in2),	 // Templated
-		 // Inputs
-		 .clk			(clk),			 // Templated
-		 .reset_L		(reset_L),		 // Templated
-		 .data_in		(dest&data_in2[FIFO_WORD_SIZE-1:0]), // Templated
-		 .wr_en			(push_FIFO_in2),	 // Templated
-		 .rd_en			(pop_A_F_2),		 // Templated
-		 .init			(init),			 // Templated
-		 .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
-		 .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
+   FIFO #(
+    .FIFO_DEPTH (FIFO_DEPTH),
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
+    .FIFO_PTR_SIZE (FIFO_PTR_SIZE)
+) FIFO_in2(/*AUTOINST*/
+	   // Outputs
+	   .data_out			(data_F_A_2[FIFO_WORD_SIZE-1:0]), // Templated
+	   .empty_flag			(empty_flag_in2),	 // Templated
+	   .full_flag			(full_flag_in2),	 // Templated
+	   .almost_empty_flag		(almost_empty_flag_in2), // Templated
+	   .almost_full_flag		(almost_full_flag_in2),	 // Templated
+	   .error_flag			(error_flag_in2),	 // Templated
+	   // Inputs
+	   .clk				(clk),			 // Templated
+	   .reset_L			(reset_L),		 // Templated
+	   .data_in			(dest_n_data_in2[FIFO_WORD_SIZE-1:0]), // Templated
+	   .wr_en			(push_FIFO_in2),	 // Templated
+	   .rd_en			(pop_A_F_2),		 // Templated
+	   .init			(init),			 // Templated
+	   .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
+	   .almost_full_threshold_input	(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
 
    /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_F_A_3[FIFO_WORD_SIZE-1:0]),
@@ -210,7 +232,7 @@ module transaccion( //Entradas hacia FIFOS in
 		 // Inputs
 		 .clk			(clk),
 		 .reset_L		(reset_L),
-		 .data_in		(dest&data_in3[FIFO_WORD_SIZE-1:0]),
+		 .data_in		(dest_n_data_in3[FIFO_WORD_SIZE-1:0]),
 		 .wr_en			(push_FIFO_in3),
 		 .rd_en			(pop_A_F_3),
 		 .init			(init),
@@ -218,27 +240,33 @@ module transaccion( //Entradas hacia FIFOS in
 		 .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]));
      */
    
-   FIFO FIFO_in3(/*AUTOINST*/
-		 // Outputs
-		 .data_out		(data_F_A_3[FIFO_WORD_SIZE-1:0]), // Templated
-		 .empty_flag		(empty_flag_in3),	 // Templated
-		 .full_flag		(full_flag_in3),	 // Templated
-		 .almost_empty_flag	(almost_empty_flag_in3), // Templated
-		 .almost_full_flag	(almost_full_flag_in3),	 // Templated
-		 .error_flag		(error_flag_in3),	 // Templated
-		 // Inputs
-		 .clk			(clk),			 // Templated
-		 .reset_L		(reset_L),		 // Templated
-		 .data_in		(dest&data_in3[FIFO_WORD_SIZE-1:0]), // Templated
-		 .wr_en			(push_FIFO_in3),	 // Templated
-		 .rd_en			(pop_A_F_3),		 // Templated
-		 .init			(init),			 // Templated
-		 .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
-		 .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
+   FIFO #(
+    .FIFO_DEPTH (FIFO_DEPTH),
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
+    .FIFO_PTR_SIZE (FIFO_PTR_SIZE)
+) FIFO_in3(/*AUTOINST*/
+	   // Outputs
+	   .data_out			(data_F_A_3[FIFO_WORD_SIZE-1:0]), // Templated
+	   .empty_flag			(empty_flag_in3),	 // Templated
+	   .full_flag			(full_flag_in3),	 // Templated
+	   .almost_empty_flag		(almost_empty_flag_in3), // Templated
+	   .almost_full_flag		(almost_full_flag_in3),	 // Templated
+	   .error_flag			(error_flag_in3),	 // Templated
+	   // Inputs
+	   .clk				(clk),			 // Templated
+	   .reset_L			(reset_L),		 // Templated
+	   .data_in			(dest_n_data_in3[FIFO_WORD_SIZE-1:0]), // Templated
+	   .wr_en			(push_FIFO_in3),	 // Templated
+	   .rd_en			(pop_A_F_3),		 // Templated
+	   .init			(init),			 // Templated
+	   .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
+	   .almost_full_threshold_input	(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
 
    //Arbitro
 
-   arbitro arbitro(
+   arbitro #(
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE)
+) arbitro(
 		   // Outputs
 		   .data_out_0		(data_A_F_0[FIFO_WORD_SIZE-1:0]),
 		   .data_out_1		(data_A_F_1[FIFO_WORD_SIZE-1:0]),
@@ -287,23 +315,27 @@ module transaccion( //Entradas hacia FIFOS in
  */
 
    
-   FIFO FIFO_out0(/*AUTOINST*/
-		  // Outputs
-		  .data_out		(data_out0[FIFO_WORD_SIZE-1:0]), // Templated
-		  .empty_flag		(empty_flag_out0),	 // Templated
-		  .full_flag		(full_flag_out0),	 // Templated
-		  .almost_empty_flag	(almost_empty_flag_out0), // Templated
-		  .almost_full_flag	(almost_full_flag_out0), // Templated
-		  .error_flag		(error_flag_out0),	 // Templated
-		  // Inputs
-		  .clk			(clk),			 // Templated
-		  .reset_L		(reset_L),		 // Templated
-		  .data_in		(data_A_F_0[FIFO_WORD_SIZE-1:0]), // Templated
-		  .wr_en		(push_A_F_0),		 // Templated
-		  .rd_en		(pop_FIFO_out0),	 // Templated
-		  .init			(init),			 // Templated
-		  .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
-		  .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
+   FIFO #(
+    .FIFO_DEPTH (FIFO_DEPTH),
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
+    .FIFO_PTR_SIZE (FIFO_PTR_SIZE)
+) FIFO_out0(/*AUTOINST*/
+	    // Outputs
+	    .data_out			(data_out0[FIFO_WORD_SIZE-1:0]), // Templated
+	    .empty_flag			(empty_flag_out0),	 // Templated
+	    .full_flag			(full_flag_out0),	 // Templated
+	    .almost_empty_flag		(almost_empty_flag_out0), // Templated
+	    .almost_full_flag		(almost_full_flag_out0), // Templated
+	    .error_flag			(error_flag_out0),	 // Templated
+	    // Inputs
+	    .clk			(clk),			 // Templated
+	    .reset_L			(reset_L),		 // Templated
+	    .data_in			(data_A_F_0[FIFO_WORD_SIZE-1:0]), // Templated
+	    .wr_en			(push_A_F_0),		 // Templated
+	    .rd_en			(pop_FIFO_out0),	 // Templated
+	    .init			(init),			 // Templated
+	    .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
+	    .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
 
 /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_out1[FIFO_WORD_SIZE-1:0]),
@@ -324,23 +356,27 @@ module transaccion( //Entradas hacia FIFOS in
  */
 
    
-   FIFO FIFO_out1(/*AUTOINST*/
-		  // Outputs
-		  .data_out		(data_out1[FIFO_WORD_SIZE-1:0]), // Templated
-		  .empty_flag		(empty_flag_out1),	 // Templated
-		  .full_flag		(full_flag_out1),	 // Templated
-		  .almost_empty_flag	(almost_empty_flag_out1), // Templated
-		  .almost_full_flag	(almost_full_flag_out1), // Templated
-		  .error_flag		(error_flag_out1),	 // Templated
-		  // Inputs
-		  .clk			(clk),			 // Templated
-		  .reset_L		(reset_L),		 // Templated
-		  .data_in		(data_A_F_1[FIFO_WORD_SIZE-1:0]), // Templated
-		  .wr_en		(push_A_F_1),		 // Templated
-		  .rd_en		(pop_FIFO_out1),	 // Templated
-		  .init			(init),			 // Templated
-		  .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
-		  .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
+   FIFO #(
+    .FIFO_DEPTH (FIFO_DEPTH),
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
+    .FIFO_PTR_SIZE (FIFO_PTR_SIZE)
+) FIFO_out1(/*AUTOINST*/
+	    // Outputs
+	    .data_out			(data_out1[FIFO_WORD_SIZE-1:0]), // Templated
+	    .empty_flag			(empty_flag_out1),	 // Templated
+	    .full_flag			(full_flag_out1),	 // Templated
+	    .almost_empty_flag		(almost_empty_flag_out1), // Templated
+	    .almost_full_flag		(almost_full_flag_out1), // Templated
+	    .error_flag			(error_flag_out1),	 // Templated
+	    // Inputs
+	    .clk			(clk),			 // Templated
+	    .reset_L			(reset_L),		 // Templated
+	    .data_in			(data_A_F_1[FIFO_WORD_SIZE-1:0]), // Templated
+	    .wr_en			(push_A_F_1),		 // Templated
+	    .rd_en			(pop_FIFO_out1),	 // Templated
+	    .init			(init),			 // Templated
+	    .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
+	    .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
 
 /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_out2[FIFO_WORD_SIZE-1:0]),
@@ -360,23 +396,27 @@ module transaccion( //Entradas hacia FIFOS in
 		 .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]));
  */
    
-   FIFO FIFO_out2(/*AUTOINST*/
-		  // Outputs
-		  .data_out		(data_out2[FIFO_WORD_SIZE-1:0]), // Templated
-		  .empty_flag		(empty_flag_out2),	 // Templated
-		  .full_flag		(full_flag_out2),	 // Templated
-		  .almost_empty_flag	(almost_empty_flag_out2), // Templated
-		  .almost_full_flag	(almost_full_flag_out2), // Templated
-		  .error_flag		(error_flag_out2),	 // Templated
-		  // Inputs
-		  .clk			(clk),			 // Templated
-		  .reset_L		(reset_L),		 // Templated
-		  .data_in		(data_A_F_2[FIFO_WORD_SIZE-1:0]), // Templated
-		  .wr_en		(push_A_F_2),		 // Templated
-		  .rd_en		(pop_FIFO_out2),	 // Templated
-		  .init			(init),			 // Templated
-		  .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
-		  .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
+   FIFO #(
+    .FIFO_DEPTH (FIFO_DEPTH),
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
+    .FIFO_PTR_SIZE (FIFO_PTR_SIZE)
+) FIFO_out2(/*AUTOINST*/
+	    // Outputs
+	    .data_out			(data_out2[FIFO_WORD_SIZE-1:0]), // Templated
+	    .empty_flag			(empty_flag_out2),	 // Templated
+	    .full_flag			(full_flag_out2),	 // Templated
+	    .almost_empty_flag		(almost_empty_flag_out2), // Templated
+	    .almost_full_flag		(almost_full_flag_out2), // Templated
+	    .error_flag			(error_flag_out2),	 // Templated
+	    // Inputs
+	    .clk			(clk),			 // Templated
+	    .reset_L			(reset_L),		 // Templated
+	    .data_in			(data_A_F_2[FIFO_WORD_SIZE-1:0]), // Templated
+	    .wr_en			(push_A_F_2),		 // Templated
+	    .rd_en			(pop_FIFO_out2),	 // Templated
+	    .init			(init),			 // Templated
+	    .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
+	    .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
 
 /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_out3[FIFO_WORD_SIZE-1:0]),
@@ -396,23 +436,27 @@ module transaccion( //Entradas hacia FIFOS in
 		 .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]));
  */
    
-   FIFO FIFO_out3(/*AUTOINST*/
-		  // Outputs
-		  .data_out		(data_out3[FIFO_WORD_SIZE-1:0]), // Templated
-		  .empty_flag		(empty_flag_out3),	 // Templated
-		  .full_flag		(full_flag_out3),	 // Templated
-		  .almost_empty_flag	(almost_empty_flag_out3), // Templated
-		  .almost_full_flag	(almost_full_flag_out3), // Templated
-		  .error_flag		(error_flag_out3),	 // Templated
-		  // Inputs
-		  .clk			(clk),			 // Templated
-		  .reset_L		(reset_L),		 // Templated
-		  .data_in		(data_A_F_3[FIFO_WORD_SIZE-1:0]), // Templated
-		  .wr_en		(push_A_F_3),		 // Templated
-		  .rd_en		(pop_FIFO_out3),	 // Templated
-		  .init			(init),			 // Templated
-		  .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
-		  .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
+   FIFO #(
+    .FIFO_DEPTH (FIFO_DEPTH),
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
+    .FIFO_PTR_SIZE (FIFO_PTR_SIZE)
+) FIFO_out3(/*AUTOINST*/
+	    // Outputs
+	    .data_out			(data_out3[FIFO_WORD_SIZE-1:0]), // Templated
+	    .empty_flag			(empty_flag_out3),	 // Templated
+	    .full_flag			(full_flag_out3),	 // Templated
+	    .almost_empty_flag		(almost_empty_flag_out3), // Templated
+	    .almost_full_flag		(almost_full_flag_out3), // Templated
+	    .error_flag			(error_flag_out3),	 // Templated
+	    // Inputs
+	    .clk			(clk),			 // Templated
+	    .reset_L			(reset_L),		 // Templated
+	    .data_in			(data_A_F_3[FIFO_WORD_SIZE-1:0]), // Templated
+	    .wr_en			(push_A_F_3),		 // Templated
+	    .rd_en			(pop_FIFO_out3),	 // Templated
+	    .init			(init),			 // Templated
+	    .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]), // Templated
+	    .almost_full_threshold_input(almost_full_threshold_input[FIFO_PTR_SIZE-1:0])); // Templated
 
    //Contadores
    contadores contadores(
@@ -435,18 +479,22 @@ module transaccion( //Entradas hacia FIFOS in
 			 .empty_FIFO_3		(empty_flag_out_3));
 
    //FSM
-   FSM FSM(/*AUTOINST*/
-	   // Outputs
-	   .idle			(idle),
-	   .almost_empty_threshold	(almost_empty_threshold[FIFO_PTR_SIZE-1:0]),
-	   .almost_full_threshold	(almost_full_threshold[FIFO_PTR_SIZE-1:0]),
-	   // Inputs
-	   .clk				(clk),
-	   .reset_L			(reset_L),
-	   .init			(init),
-	   .almost_empty_threshold_input(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]),
-	   .almost_full_threshold_input	(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]),
-	   .FIFOs_empty			(FIFOs_empty[NUM_FIFOS-1:0]));
+   FSM #(
+    .FIFO_DEPTH (FIFO_DEPTH),
+    .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
+    .FIFO_PTR_SIZE (FIFO_PTR_SIZE),
+) FSM(/*AUTOINST*/
+      // Outputs
+      .idle				(idle),
+      .almost_empty_threshold		(almost_empty_threshold[FIFO_PTR_SIZE-1:0]),
+      .almost_full_threshold		(almost_full_threshold[FIFO_PTR_SIZE-1:0]),
+      // Inputs
+      .clk				(clk),
+      .reset_L				(reset_L),
+      .init				(init),
+      .almost_empty_threshold_input	(almost_empty_threshold_input[FIFO_PTR_SIZE-1:0]),
+      .almost_full_threshold_input	(almost_full_threshold_input[FIFO_PTR_SIZE-1:0]),
+      .FIFOs_empty			(FIFOs_empty[NUM_FIFOS-1:0]));
 
    
    
