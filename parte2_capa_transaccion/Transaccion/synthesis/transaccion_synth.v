@@ -7773,6 +7773,8 @@ endmodule
 (* top =  1  *)
 (* src = "rtl/transaccion_synth.v:6" *)
 module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, push_FIFO_in1, dest_n_data_in2, push_FIFO_in2, dest_n_data_in3, push_FIFO_in3, pop_FIFO_out0, pop_FIFO_out1, pop_FIFO_out2, pop_FIFO_out3, req, idx, reset_L, init, almost_empty_threshold_input, almost_full_threshold_input, data_out0, data_out1, data_out2, data_out3, data, valid);
+  (* src = "rtl/transaccion_synth.v:483" *)
+  wire [7:0] FIFOs_empty;
   (* src = "rtl/transaccion_synth.v:46" *)
   (* unused_bits = "0" *)
   wire almost_empty_flag_in0;
@@ -7884,16 +7886,12 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
   (* src = "rtl/transaccion_synth.v:75" *)
   wire empty_flag_in3;
   (* src = "rtl/transaccion_synth.v:76" *)
-  (* unused_bits = "0" *)
   wire empty_flag_out0;
   (* src = "rtl/transaccion_synth.v:77" *)
-  (* unused_bits = "0" *)
   wire empty_flag_out1;
   (* src = "rtl/transaccion_synth.v:78" *)
-  (* unused_bits = "0" *)
   wire empty_flag_out2;
   (* src = "rtl/transaccion_synth.v:79" *)
-  (* unused_bits = "0" *)
   wire empty_flag_out3;
   (* src = "rtl/transaccion_synth.v:478" *)
   wire empty_flag_out_0;
@@ -8131,9 +8129,9 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .reset_L(reset_L),
     .wr_en(push_A_F_3)
   );
-  (* src = "rtl/transaccion_synth.v:484" *)
+  (* src = "rtl/transaccion_synth.v:486" *)
   \$paramod\FSM_synth\NUM_FIFOS=8\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FSM (
-    .FIFOs_empty(8'hxx),
+    .FIFOs_empty({ empty_flag_in0, empty_flag_in1, empty_flag_in2, empty_flag_in3, empty_flag_out0, empty_flag_out1, empty_flag_out2, empty_flag_out3 }),
     .almost_empty_threshold(almost_empty_threshold),
     .almost_empty_threshold_input(almost_empty_threshold_input),
     .almost_full_threshold(almost_full_threshold),
@@ -8189,4 +8187,5 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .rst_l(reset_L),
     .valid(valid)
   );
+  assign FIFOs_empty = { empty_flag_in0, empty_flag_in1, empty_flag_in2, empty_flag_in3, empty_flag_out0, empty_flag_out1, empty_flag_out2, empty_flag_out3 };
 endmodule
