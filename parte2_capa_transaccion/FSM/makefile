@@ -33,10 +33,10 @@ synth: $(RTL_DIR)/$(TOP_MODULE).v
 # Añadir sufijos _synth	
 	@echo -e "\nRenombrando módulos de $(TOP_MODULE)_synth.v con sed"
 	@sed -i 's/\<$(TOP_MODULE)\>/$(TOP_MODULE)_synth/' ./$(SYNTH_DIR)/$(TOP_MODULE)_synth.v;
-	@sed -i 's/$(TOP_MODULE).*.v/$(TOP_MODULE).v/' ./$(SYNTH_DIR)/$(TOP_MODULE)_synth.v;
+	@sed -i 's/$(TOP_MODULE).*\\.v/$(TOP_MODULE).v/' ./$(SYNTH_DIR)/$(TOP_MODULE)_synth.v;
 	@for module in $(MODULES); do \
 		sed -i 's/\<'$$module'\>/'$$module'_synth/' ./$(SYNTH_DIR)/$(TOP_MODULE)_synth.v; \
-		sed -i 's/'$$module'.*.v/'$$module'.v/' ./$(SYNTH_DIR)/$(TOP_MODULE)_synth.v; \
+		sed -i 's/'$$module'.*\\.v/'$$module'.v/' ./$(SYNTH_DIR)/$(TOP_MODULE)_synth.v; \
 	done
 	
 # Los \\ en sed son \ escapados.
@@ -52,4 +52,4 @@ gtk:
 	@gtkwave $(TB_DIR)/$(SIM_NAME).vcd $(TB_DIR)/$(TOP_MODULE)_sim.gtkw & disown
 
 clean: 
-	@rm -r $(TB_DIR)/*.vcd $(TB_DIR)/*.vvp
+	@rm -r $(TB_DIR)/*.vcd $(TB_DIR)/*.vvp $(TB_DIR)/*.v~ $(RTL_DIR)/*.v~
