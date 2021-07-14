@@ -1049,7 +1049,7 @@ endmodule
 
 (* dynports =  1  *)
 (* src = "rtl/FSM_synth.v:1" *)
-module \$paramod\FSM_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3 (clk, reset_L, init, almost_empty_threshold_input, almost_full_threshold_input, FIFOs_empty, idle, almost_empty_threshold, almost_full_threshold);
+module \$paramod\FSM_synth\NUM_FIFOS=8\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3 (clk, reset_L, init, almost_empty_threshold_input, almost_full_threshold_input, FIFOs_empty, idle, almost_empty_threshold, almost_full_threshold);
   wire _00_;
   wire _01_;
   wire _02_;
@@ -3546,13 +3546,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0000_[7])
   );
   NOR _0846_ (
-    .A(\mem[3] [6]),
-    .B(rd_ptr[2]),
+    .A(\mem[7] [6]),
+    .B(_0094_),
     .Y(_0225_)
   );
   NOR _0847_ (
-    .A(\mem[7] [6]),
-    .B(_0094_),
+    .A(\mem[3] [6]),
+    .B(rd_ptr[2]),
     .Y(_0226_)
   );
   NOR _0848_ (
@@ -3566,13 +3566,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0228_)
   );
   NOR _0850_ (
-    .A(\mem[5] [6]),
-    .B(_0094_),
+    .A(\mem[1] [6]),
+    .B(rd_ptr[2]),
     .Y(_0229_)
   );
   NOR _0851_ (
-    .A(\mem[1] [6]),
-    .B(rd_ptr[2]),
+    .A(\mem[5] [6]),
+    .B(_0094_),
     .Y(_0230_)
   );
   NOR _0852_ (
@@ -3596,13 +3596,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0234_)
   );
   NOR _0856_ (
-    .A(\mem[2] [6]),
-    .B(rd_ptr[2]),
+    .A(\mem[6] [6]),
+    .B(_0094_),
     .Y(_0235_)
   );
   NOR _0857_ (
-    .A(\mem[6] [6]),
-    .B(_0094_),
+    .A(\mem[2] [6]),
+    .B(rd_ptr[2]),
     .Y(_0236_)
   );
   NOR _0858_ (
@@ -3616,13 +3616,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0238_)
   );
   NOR _0860_ (
-    .A(\mem[4] [6]),
-    .B(_0094_),
+    .A(\mem[0] [6]),
+    .B(rd_ptr[2]),
     .Y(_0239_)
   );
   NOR _0861_ (
-    .A(\mem[0] [6]),
-    .B(rd_ptr[2]),
+    .A(\mem[4] [6]),
+    .B(_0094_),
     .Y(_0240_)
   );
   NOR _0862_ (
@@ -3675,13 +3675,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0000_[6])
   );
   NOR _0872_ (
-    .A(\mem[3] [5]),
-    .B(rd_ptr[2]),
+    .A(\mem[7] [5]),
+    .B(_0094_),
     .Y(_0250_)
   );
   NOR _0873_ (
-    .A(\mem[7] [5]),
-    .B(_0094_),
+    .A(\mem[3] [5]),
+    .B(rd_ptr[2]),
     .Y(_0251_)
   );
   NOR _0874_ (
@@ -3695,13 +3695,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0253_)
   );
   NOR _0876_ (
-    .A(\mem[5] [5]),
-    .B(_0094_),
+    .A(\mem[1] [5]),
+    .B(rd_ptr[2]),
     .Y(_0254_)
   );
   NOR _0877_ (
-    .A(\mem[1] [5]),
-    .B(rd_ptr[2]),
+    .A(\mem[5] [5]),
+    .B(_0094_),
     .Y(_0255_)
   );
   NOR _0878_ (
@@ -3725,13 +3725,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0259_)
   );
   NOR _0882_ (
-    .A(\mem[2] [5]),
-    .B(rd_ptr[2]),
+    .A(\mem[6] [5]),
+    .B(_0094_),
     .Y(_0260_)
   );
   NOR _0883_ (
-    .A(\mem[6] [5]),
-    .B(_0094_),
+    .A(\mem[2] [5]),
+    .B(rd_ptr[2]),
     .Y(_0261_)
   );
   NOR _0884_ (
@@ -3745,13 +3745,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0263_)
   );
   NOR _0886_ (
-    .A(\mem[4] [5]),
-    .B(_0094_),
+    .A(\mem[0] [5]),
+    .B(rd_ptr[2]),
     .Y(_0264_)
   );
   NOR _0887_ (
-    .A(\mem[0] [5]),
-    .B(rd_ptr[2]),
+    .A(\mem[4] [5]),
+    .B(_0094_),
     .Y(_0265_)
   );
   NOR _0888_ (
@@ -3804,13 +3804,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0000_[5])
   );
   NOR _0898_ (
-    .A(\mem[3] [4]),
-    .B(rd_ptr[2]),
+    .A(\mem[7] [4]),
+    .B(_0094_),
     .Y(_0275_)
   );
   NOR _0899_ (
-    .A(\mem[7] [4]),
-    .B(_0094_),
+    .A(\mem[3] [4]),
+    .B(rd_ptr[2]),
     .Y(_0276_)
   );
   NOR _0900_ (
@@ -3824,13 +3824,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0278_)
   );
   NOR _0902_ (
-    .A(\mem[5] [4]),
-    .B(_0094_),
+    .A(\mem[1] [4]),
+    .B(rd_ptr[2]),
     .Y(_0279_)
   );
   NOR _0903_ (
-    .A(\mem[1] [4]),
-    .B(rd_ptr[2]),
+    .A(\mem[5] [4]),
+    .B(_0094_),
     .Y(_0280_)
   );
   NOR _0904_ (
@@ -3854,13 +3854,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0284_)
   );
   NOR _0908_ (
-    .A(\mem[2] [4]),
-    .B(rd_ptr[2]),
+    .A(\mem[6] [4]),
+    .B(_0094_),
     .Y(_0285_)
   );
   NOR _0909_ (
-    .A(\mem[6] [4]),
-    .B(_0094_),
+    .A(\mem[2] [4]),
+    .B(rd_ptr[2]),
     .Y(_0286_)
   );
   NOR _0910_ (
@@ -3874,13 +3874,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0288_)
   );
   NOR _0912_ (
-    .A(\mem[4] [4]),
-    .B(_0094_),
+    .A(\mem[0] [4]),
+    .B(rd_ptr[2]),
     .Y(_0289_)
   );
   NOR _0913_ (
-    .A(\mem[0] [4]),
-    .B(rd_ptr[2]),
+    .A(\mem[4] [4]),
+    .B(_0094_),
     .Y(_0290_)
   );
   NOR _0914_ (
@@ -4062,13 +4062,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0000_[3])
   );
   NOR _0950_ (
-    .A(\mem[3] [2]),
-    .B(rd_ptr[2]),
+    .A(\mem[7] [2]),
+    .B(_0094_),
     .Y(_0325_)
   );
   NOR _0951_ (
-    .A(\mem[7] [2]),
-    .B(_0094_),
+    .A(\mem[3] [2]),
+    .B(rd_ptr[2]),
     .Y(_0326_)
   );
   NOR _0952_ (
@@ -4082,13 +4082,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0328_)
   );
   NOR _0954_ (
-    .A(\mem[5] [2]),
-    .B(_0094_),
+    .A(\mem[1] [2]),
+    .B(rd_ptr[2]),
     .Y(_0329_)
   );
   NOR _0955_ (
-    .A(\mem[1] [2]),
-    .B(rd_ptr[2]),
+    .A(\mem[5] [2]),
+    .B(_0094_),
     .Y(_0330_)
   );
   NOR _0956_ (
@@ -4112,13 +4112,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0334_)
   );
   NOR _0960_ (
-    .A(\mem[2] [2]),
-    .B(rd_ptr[2]),
+    .A(\mem[6] [2]),
+    .B(_0094_),
     .Y(_0335_)
   );
   NOR _0961_ (
-    .A(\mem[6] [2]),
-    .B(_0094_),
+    .A(\mem[2] [2]),
+    .B(rd_ptr[2]),
     .Y(_0336_)
   );
   NOR _0962_ (
@@ -4132,13 +4132,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0338_)
   );
   NOR _0964_ (
-    .A(\mem[4] [2]),
-    .B(_0094_),
+    .A(\mem[0] [2]),
+    .B(rd_ptr[2]),
     .Y(_0339_)
   );
   NOR _0965_ (
-    .A(\mem[0] [2]),
-    .B(rd_ptr[2]),
+    .A(\mem[4] [2]),
+    .B(_0094_),
     .Y(_0340_)
   );
   NOR _0966_ (
@@ -4191,13 +4191,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0000_[2])
   );
   NOR _0976_ (
-    .A(\mem[3] [1]),
-    .B(rd_ptr[2]),
+    .A(\mem[7] [1]),
+    .B(_0094_),
     .Y(_0350_)
   );
   NOR _0977_ (
-    .A(\mem[7] [1]),
-    .B(_0094_),
+    .A(\mem[3] [1]),
+    .B(rd_ptr[2]),
     .Y(_0351_)
   );
   NOR _0978_ (
@@ -4211,13 +4211,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0353_)
   );
   NOR _0980_ (
-    .A(\mem[5] [1]),
-    .B(_0094_),
+    .A(\mem[1] [1]),
+    .B(rd_ptr[2]),
     .Y(_0354_)
   );
   NOR _0981_ (
-    .A(\mem[1] [1]),
-    .B(rd_ptr[2]),
+    .A(\mem[5] [1]),
+    .B(_0094_),
     .Y(_0355_)
   );
   NOR _0982_ (
@@ -4241,13 +4241,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0359_)
   );
   NOR _0986_ (
-    .A(\mem[2] [1]),
-    .B(rd_ptr[2]),
+    .A(\mem[6] [1]),
+    .B(_0094_),
     .Y(_0360_)
   );
   NOR _0987_ (
-    .A(\mem[6] [1]),
-    .B(_0094_),
+    .A(\mem[2] [1]),
+    .B(rd_ptr[2]),
     .Y(_0361_)
   );
   NOR _0988_ (
@@ -4261,13 +4261,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0363_)
   );
   NOR _0990_ (
-    .A(\mem[4] [1]),
-    .B(_0094_),
+    .A(\mem[0] [1]),
+    .B(rd_ptr[2]),
     .Y(_0364_)
   );
   NOR _0991_ (
-    .A(\mem[0] [1]),
-    .B(rd_ptr[2]),
+    .A(\mem[4] [1]),
+    .B(_0094_),
     .Y(_0365_)
   );
   NOR _0992_ (
@@ -4454,8 +4454,8 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0400_)
   );
   NAND _1029_ (
-    .A(\mem[6] [8]),
-    .B(reset_L),
+    .A(reset_L),
+    .B(\mem[6] [8]),
     .Y(_0401_)
   );
   NAND _1030_ (
@@ -4478,8 +4478,8 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0069_)
   );
   NAND _1034_ (
-    .A(\mem[6] [7]),
-    .B(reset_L),
+    .A(reset_L),
+    .B(\mem[6] [7]),
     .Y(_0405_)
   );
   NAND _1035_ (
@@ -4502,8 +4502,8 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0068_)
   );
   NAND _1039_ (
-    .A(\mem[6] [6]),
-    .B(reset_L),
+    .A(reset_L),
+    .B(\mem[6] [6]),
     .Y(_0409_)
   );
   NAND _1040_ (
@@ -4526,32 +4526,32 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0067_)
   );
   NAND _1044_ (
-    .A(\mem[6] [5]),
-    .B(reset_L),
+    .A(reset_L),
+    .B(\mem[6] [5]),
     .Y(_0413_)
   );
-  NAND _1045_ (
-    .A(_0122_),
-    .B(_0400_),
-    .Y(_0414_)
-  );
-  NOR _1046_ (
+  NOR _1045_ (
     .A(_0400_),
     .B(_0413_),
+    .Y(_0414_)
+  );
+  NOT _1046_ (
+    .A(_0414_),
     .Y(_0415_)
   );
-  NOT _1047_ (
-    .A(_0415_),
+  NAND _1047_ (
+    .A(_0122_),
+    .B(_0400_),
     .Y(_0416_)
   );
   NAND _1048_ (
-    .A(_0414_),
+    .A(_0415_),
     .B(_0416_),
     .Y(_0066_)
   );
   NAND _1049_ (
-    .A(\mem[6] [4]),
-    .B(reset_L),
+    .A(reset_L),
+    .B(\mem[6] [4]),
     .Y(_0417_)
   );
   NAND _1050_ (
@@ -4574,8 +4574,8 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0065_)
   );
   NAND _1054_ (
-    .A(\mem[6] [3]),
-    .B(reset_L),
+    .A(reset_L),
+    .B(\mem[6] [3]),
     .Y(_0421_)
   );
   NAND _1055_ (
@@ -4598,8 +4598,8 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0064_)
   );
   NAND _1059_ (
-    .A(\mem[6] [2]),
-    .B(reset_L),
+    .A(reset_L),
+    .B(\mem[6] [2]),
     .Y(_0425_)
   );
   NAND _1060_ (
@@ -4622,8 +4622,8 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0063_)
   );
   NAND _1064_ (
-    .A(\mem[6] [1]),
-    .B(reset_L),
+    .A(reset_L),
+    .B(\mem[6] [1]),
     .Y(_0429_)
   );
   NAND _1065_ (
@@ -4646,8 +4646,8 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0062_)
   );
   NAND _1069_ (
-    .A(\mem[6] [0]),
-    .B(reset_L),
+    .A(reset_L),
+    .B(\mem[6] [0]),
     .Y(_0433_)
   );
   NAND _1070_ (
@@ -4982,22 +4982,22 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .B(\mem[1] [5]),
     .Y(_0489_)
   );
-  NAND _1139_ (
-    .A(_0122_),
-    .B(_0476_),
-    .Y(_0490_)
-  );
-  NOR _1140_ (
+  NOR _1139_ (
     .A(_0476_),
     .B(_0489_),
+    .Y(_0490_)
+  );
+  NOT _1140_ (
+    .A(_0490_),
     .Y(_0491_)
   );
-  NOT _1141_ (
-    .A(_0491_),
+  NAND _1141_ (
+    .A(_0122_),
+    .B(_0476_),
     .Y(_0492_)
   );
   NAND _1142_ (
-    .A(_0490_),
+    .A(_0491_),
     .B(_0492_),
     .Y(_0016_)
   );
@@ -5212,22 +5212,22 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .B(\mem[2] [5]),
     .Y(_0528_)
   );
-  NAND _1187_ (
-    .A(_0122_),
-    .B(_0515_),
-    .Y(_0529_)
-  );
-  NOR _1188_ (
+  NOR _1187_ (
     .A(_0515_),
     .B(_0528_),
+    .Y(_0529_)
+  );
+  NOT _1188_ (
+    .A(_0529_),
     .Y(_0530_)
   );
-  NOT _1189_ (
-    .A(_0530_),
+  NAND _1189_ (
+    .A(_0122_),
+    .B(_0515_),
     .Y(_0531_)
   );
   NAND _1190_ (
-    .A(_0529_),
+    .A(_0530_),
     .B(_0531_),
     .Y(_0026_)
   );
@@ -5630,22 +5630,22 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .B(\mem[4] [6]),
     .Y(_0598_)
   );
-  NAND _1274_ (
-    .A(_0117_),
-    .B(_0589_),
-    .Y(_0599_)
-  );
-  NOR _1275_ (
+  NOR _1274_ (
     .A(_0589_),
     .B(_0598_),
+    .Y(_0599_)
+  );
+  NOT _1275_ (
+    .A(_0599_),
     .Y(_0600_)
   );
-  NOT _1276_ (
-    .A(_0600_),
+  NAND _1276_ (
+    .A(_0117_),
+    .B(_0589_),
     .Y(_0601_)
   );
   NAND _1277_ (
-    .A(_0599_),
+    .A(_0600_),
     .B(_0601_),
     .Y(_0047_)
   );
@@ -5654,22 +5654,22 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .B(\mem[4] [5]),
     .Y(_0602_)
   );
-  NAND _1279_ (
-    .A(_0122_),
-    .B(_0589_),
-    .Y(_0603_)
-  );
-  NOR _1280_ (
+  NOR _1279_ (
     .A(_0589_),
     .B(_0602_),
+    .Y(_0603_)
+  );
+  NOT _1280_ (
+    .A(_0603_),
     .Y(_0604_)
   );
-  NOT _1281_ (
-    .A(_0604_),
+  NAND _1281_ (
+    .A(_0122_),
+    .B(_0589_),
     .Y(_0605_)
   );
   NAND _1282_ (
-    .A(_0603_),
+    .A(_0604_),
     .B(_0605_),
     .Y(_0046_)
   );
@@ -5899,22 +5899,22 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .B(\mem[4] [9]),
     .Y(_0643_)
   );
-  NOR _1330_ (
-    .A(_0589_),
-    .B(_0643_),
-    .Y(_0644_)
-  );
-  NOT _1331_ (
-    .A(_0644_),
-    .Y(_0645_)
-  );
-  NAND _1332_ (
+  NAND _1330_ (
     .A(_0589_),
     .B(_0631_),
+    .Y(_0644_)
+  );
+  NOR _1331_ (
+    .A(_0589_),
+    .B(_0643_),
+    .Y(_0645_)
+  );
+  NOT _1332_ (
+    .A(_0645_),
     .Y(_0646_)
   );
   NAND _1333_ (
-    .A(_0645_),
+    .A(_0644_),
     .B(_0646_),
     .Y(_0050_)
   );
@@ -5947,22 +5947,22 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .B(\mem[6] [9]),
     .Y(_0651_)
   );
-  NAND _1340_ (
-    .A(_0400_),
-    .B(_0631_),
-    .Y(_0652_)
-  );
-  NOR _1341_ (
+  NOR _1340_ (
     .A(_0400_),
     .B(_0651_),
+    .Y(_0652_)
+  );
+  NOT _1341_ (
+    .A(_0652_),
     .Y(_0653_)
   );
-  NOT _1342_ (
-    .A(_0653_),
+  NAND _1342_ (
+    .A(_0400_),
+    .B(_0631_),
     .Y(_0654_)
   );
   NAND _1343_ (
-    .A(_0652_),
+    .A(_0653_),
     .B(_0654_),
     .Y(_0070_)
   );
@@ -5982,13 +5982,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0080_)
   );
   NOR _1347_ (
-    .A(_0094_),
-    .B(\mem[7] [9]),
+    .A(rd_ptr[2]),
+    .B(\mem[3] [9]),
     .Y(_0657_)
   );
   NOR _1348_ (
-    .A(rd_ptr[2]),
-    .B(\mem[3] [9]),
+    .A(_0094_),
+    .B(\mem[7] [9]),
     .Y(_0658_)
   );
   NOR _1349_ (
@@ -6002,13 +6002,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0660_)
   );
   NOR _1351_ (
-    .A(rd_ptr[2]),
-    .B(\mem[1] [9]),
+    .A(_0094_),
+    .B(\mem[5] [9]),
     .Y(_0661_)
   );
   NOR _1352_ (
-    .A(_0094_),
-    .B(\mem[5] [9]),
+    .A(rd_ptr[2]),
+    .B(\mem[1] [9]),
     .Y(_0662_)
   );
   NOR _1353_ (
@@ -6032,13 +6032,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0666_)
   );
   NOR _1357_ (
-    .A(_0094_),
-    .B(\mem[6] [9]),
+    .A(rd_ptr[2]),
+    .B(\mem[2] [9]),
     .Y(_0667_)
   );
   NOR _1358_ (
-    .A(rd_ptr[2]),
-    .B(\mem[2] [9]),
+    .A(_0094_),
+    .B(\mem[6] [9]),
     .Y(_0668_)
   );
   NOR _1359_ (
@@ -6052,13 +6052,13 @@ module \$paramod\memoria_synth\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3 (clk, wr_en, 
     .Y(_0670_)
   );
   NOR _1361_ (
-    .A(rd_ptr[2]),
-    .B(\mem[0] [9]),
+    .A(_0094_),
+    .B(\mem[4] [9]),
     .Y(_0671_)
   );
   NOR _1362_ (
-    .A(_0094_),
-    .B(\mem[4] [9]),
+    .A(rd_ptr[2]),
+    .B(\mem[0] [9]),
     .Y(_0672_)
   );
   NOR _1363_ (
@@ -7772,232 +7772,230 @@ endmodule
 (* dynports =  1  *)
 (* top =  1  *)
 (* src = "rtl/transaccion_synth.v:6" *)
-module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, push_FIFO_in1, dest_n_data_in2, push_FIFO_in2, dest_n_data_in3, push_FIFO_in3, req, idx, reset_L, init, almost_empty_threshold_input, almost_full_threshold_input, data_out0, pop_FIFO_out0, data_out1, pop_FIFO_out1, data_out2, pop_FIFO_out2, data_out3, pop_FIFO_out3, data, valid);
-  (* src = "rtl/transaccion_synth.v:497" *)
-  wire FIFOs_empty;
-  (* src = "rtl/transaccion_synth.v:44" *)
-  (* unused_bits = "0" *)
-  wire almost_empty_flag_in0;
-  (* src = "rtl/transaccion_synth.v:45" *)
-  (* unused_bits = "0" *)
-  wire almost_empty_flag_in1;
+module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, push_FIFO_in1, dest_n_data_in2, push_FIFO_in2, dest_n_data_in3, push_FIFO_in3, pop_FIFO_out0, pop_FIFO_out1, pop_FIFO_out2, pop_FIFO_out3, req, idx, reset_L, init, almost_empty_threshold_input, almost_full_threshold_input, data_out0, data_out1, data_out2, data_out3, data, valid);
   (* src = "rtl/transaccion_synth.v:46" *)
   (* unused_bits = "0" *)
-  wire almost_empty_flag_in2;
+  wire almost_empty_flag_in0;
   (* src = "rtl/transaccion_synth.v:47" *)
   (* unused_bits = "0" *)
-  wire almost_empty_flag_in3;
+  wire almost_empty_flag_in1;
   (* src = "rtl/transaccion_synth.v:48" *)
   (* unused_bits = "0" *)
-  wire almost_empty_flag_out0;
+  wire almost_empty_flag_in2;
   (* src = "rtl/transaccion_synth.v:49" *)
   (* unused_bits = "0" *)
-  wire almost_empty_flag_out1;
+  wire almost_empty_flag_in3;
   (* src = "rtl/transaccion_synth.v:50" *)
   (* unused_bits = "0" *)
-  wire almost_empty_flag_out2;
+  wire almost_empty_flag_out0;
   (* src = "rtl/transaccion_synth.v:51" *)
   (* unused_bits = "0" *)
-  wire almost_empty_flag_out3;
+  wire almost_empty_flag_out1;
   (* src = "rtl/transaccion_synth.v:52" *)
-  (* unused_bits = "0 1 2" *)
-  wire [2:0] almost_empty_threshold;
-  (* src = "rtl/transaccion_synth.v:27" *)
-  input [2:0] almost_empty_threshold_input;
+  (* unused_bits = "0" *)
+  wire almost_empty_flag_out2;
   (* src = "rtl/transaccion_synth.v:53" *)
   (* unused_bits = "0" *)
-  wire almost_full_flag_in0;
+  wire almost_empty_flag_out3;
   (* src = "rtl/transaccion_synth.v:54" *)
-  (* unused_bits = "0" *)
-  wire almost_full_flag_in1;
+  (* unused_bits = "0 1 2" *)
+  wire [2:0] almost_empty_threshold;
+  (* src = "rtl/transaccion_synth.v:33" *)
+  input [2:0] almost_empty_threshold_input;
   (* src = "rtl/transaccion_synth.v:55" *)
   (* unused_bits = "0" *)
-  wire almost_full_flag_in2;
+  wire almost_full_flag_in0;
   (* src = "rtl/transaccion_synth.v:56" *)
   (* unused_bits = "0" *)
-  wire almost_full_flag_in3;
+  wire almost_full_flag_in1;
   (* src = "rtl/transaccion_synth.v:57" *)
   (* unused_bits = "0" *)
-  wire almost_full_flag_out0;
+  wire almost_full_flag_in2;
   (* src = "rtl/transaccion_synth.v:58" *)
   (* unused_bits = "0" *)
-  wire almost_full_flag_out1;
+  wire almost_full_flag_in3;
   (* src = "rtl/transaccion_synth.v:59" *)
   (* unused_bits = "0" *)
-  wire almost_full_flag_out2;
+  wire almost_full_flag_out0;
   (* src = "rtl/transaccion_synth.v:60" *)
   (* unused_bits = "0" *)
-  wire almost_full_flag_out3;
+  wire almost_full_flag_out1;
   (* src = "rtl/transaccion_synth.v:61" *)
+  (* unused_bits = "0" *)
+  wire almost_full_flag_out2;
+  (* src = "rtl/transaccion_synth.v:62" *)
+  (* unused_bits = "0" *)
+  wire almost_full_flag_out3;
+  (* src = "rtl/transaccion_synth.v:63" *)
   (* unused_bits = "0 1 2" *)
   wire [2:0] almost_full_threshold;
-  (* src = "rtl/transaccion_synth.v:28" *)
-  input [2:0] almost_full_threshold_input;
-  (* src = "rtl/transaccion_synth.v:288" *)
-  wire almostfull_flag_out0;
-  (* src = "rtl/transaccion_synth.v:289" *)
-  wire almostfull_flag_out1;
-  (* src = "rtl/transaccion_synth.v:290" *)
-  wire almostfull_flag_out2;
-  (* src = "rtl/transaccion_synth.v:291" *)
-  wire almostfull_flag_out3;
-  (* src = "rtl/transaccion_synth.v:11" *)
-  input clk;
-  (* src = "rtl/transaccion_synth.v:39" *)
-  output [4:0] data;
-  (* src = "rtl/transaccion_synth.v:66" *)
-  wire [9:0] data_A_F_0;
-  (* src = "rtl/transaccion_synth.v:67" *)
-  wire [9:0] data_A_F_1;
-  (* src = "rtl/transaccion_synth.v:68" *)
-  wire [9:0] data_A_F_2;
-  (* src = "rtl/transaccion_synth.v:69" *)
-  wire [9:0] data_A_F_3;
-  (* src = "rtl/transaccion_synth.v:62" *)
-  wire [9:0] data_F_A_0;
-  (* src = "rtl/transaccion_synth.v:63" *)
-  wire [9:0] data_F_A_1;
-  (* src = "rtl/transaccion_synth.v:64" *)
-  wire [9:0] data_F_A_2;
-  (* src = "rtl/transaccion_synth.v:65" *)
-  wire [9:0] data_F_A_3;
-  (* src = "rtl/transaccion_synth.v:30" *)
-  output [9:0] data_out0;
-  (* src = "rtl/transaccion_synth.v:32" *)
-  output [9:0] data_out1;
   (* src = "rtl/transaccion_synth.v:34" *)
-  output [9:0] data_out2;
-  (* src = "rtl/transaccion_synth.v:36" *)
-  output [9:0] data_out3;
-  (* src = "rtl/transaccion_synth.v:13" *)
-  input [9:0] dest_n_data_in0;
-  (* src = "rtl/transaccion_synth.v:15" *)
-  input [9:0] dest_n_data_in1;
-  (* src = "rtl/transaccion_synth.v:17" *)
-  input [9:0] dest_n_data_in2;
-  (* src = "rtl/transaccion_synth.v:19" *)
-  input [9:0] dest_n_data_in3;
+  input [2:0] almost_full_threshold_input;
+  (* src = "rtl/transaccion_synth.v:290" *)
+  wire almostfull_flag_out0;
+  (* src = "rtl/transaccion_synth.v:291" *)
+  wire almostfull_flag_out1;
+  (* src = "rtl/transaccion_synth.v:292" *)
+  wire almostfull_flag_out2;
+  (* src = "rtl/transaccion_synth.v:293" *)
+  wire almostfull_flag_out3;
+  (* src = "rtl/transaccion_synth.v:12" *)
+  input clk;
+  (* src = "rtl/transaccion_synth.v:41" *)
+  output [4:0] data;
+  (* src = "rtl/transaccion_synth.v:68" *)
+  wire [9:0] data_A_F_0;
+  (* src = "rtl/transaccion_synth.v:69" *)
+  wire [9:0] data_A_F_1;
   (* src = "rtl/transaccion_synth.v:70" *)
-  wire empty_flag_in0;
+  wire [9:0] data_A_F_2;
   (* src = "rtl/transaccion_synth.v:71" *)
-  wire empty_flag_in1;
+  wire [9:0] data_A_F_3;
+  (* src = "rtl/transaccion_synth.v:64" *)
+  wire [9:0] data_F_A_0;
+  (* src = "rtl/transaccion_synth.v:65" *)
+  wire [9:0] data_F_A_1;
+  (* src = "rtl/transaccion_synth.v:66" *)
+  wire [9:0] data_F_A_2;
+  (* src = "rtl/transaccion_synth.v:67" *)
+  wire [9:0] data_F_A_3;
+  (* src = "rtl/transaccion_synth.v:36" *)
+  output [9:0] data_out0;
+  (* src = "rtl/transaccion_synth.v:37" *)
+  output [9:0] data_out1;
+  (* src = "rtl/transaccion_synth.v:38" *)
+  output [9:0] data_out2;
+  (* src = "rtl/transaccion_synth.v:39" *)
+  output [9:0] data_out3;
+  (* src = "rtl/transaccion_synth.v:14" *)
+  input [9:0] dest_n_data_in0;
+  (* src = "rtl/transaccion_synth.v:16" *)
+  input [9:0] dest_n_data_in1;
+  (* src = "rtl/transaccion_synth.v:18" *)
+  input [9:0] dest_n_data_in2;
+  (* src = "rtl/transaccion_synth.v:20" *)
+  input [9:0] dest_n_data_in3;
   (* src = "rtl/transaccion_synth.v:72" *)
-  wire empty_flag_in2;
+  wire empty_flag_in0;
   (* src = "rtl/transaccion_synth.v:73" *)
-  wire empty_flag_in3;
+  wire empty_flag_in1;
   (* src = "rtl/transaccion_synth.v:74" *)
-  (* unused_bits = "0" *)
-  wire empty_flag_out0;
+  wire empty_flag_in2;
   (* src = "rtl/transaccion_synth.v:75" *)
-  (* unused_bits = "0" *)
-  wire empty_flag_out1;
+  wire empty_flag_in3;
   (* src = "rtl/transaccion_synth.v:76" *)
   (* unused_bits = "0" *)
-  wire empty_flag_out2;
+  wire empty_flag_out0;
   (* src = "rtl/transaccion_synth.v:77" *)
   (* unused_bits = "0" *)
-  wire empty_flag_out3;
-  (* src = "rtl/transaccion_synth.v:476" *)
-  wire empty_flag_out_0;
-  (* src = "rtl/transaccion_synth.v:477" *)
-  wire empty_flag_out_1;
-  (* src = "rtl/transaccion_synth.v:478" *)
-  wire empty_flag_out_2;
-  (* src = "rtl/transaccion_synth.v:479" *)
-  wire empty_flag_out_3;
+  wire empty_flag_out1;
   (* src = "rtl/transaccion_synth.v:78" *)
   (* unused_bits = "0" *)
-  wire error_flag_in0;
+  wire empty_flag_out2;
   (* src = "rtl/transaccion_synth.v:79" *)
   (* unused_bits = "0" *)
-  wire error_flag_in1;
+  wire empty_flag_out3;
+  (* src = "rtl/transaccion_synth.v:478" *)
+  wire empty_flag_out_0;
+  (* src = "rtl/transaccion_synth.v:479" *)
+  wire empty_flag_out_1;
+  (* src = "rtl/transaccion_synth.v:480" *)
+  wire empty_flag_out_2;
+  (* src = "rtl/transaccion_synth.v:481" *)
+  wire empty_flag_out_3;
   (* src = "rtl/transaccion_synth.v:80" *)
   (* unused_bits = "0" *)
-  wire error_flag_in2;
+  wire error_flag_in0;
   (* src = "rtl/transaccion_synth.v:81" *)
   (* unused_bits = "0" *)
-  wire error_flag_in3;
+  wire error_flag_in1;
   (* src = "rtl/transaccion_synth.v:82" *)
   (* unused_bits = "0" *)
-  wire error_flag_out0;
+  wire error_flag_in2;
   (* src = "rtl/transaccion_synth.v:83" *)
   (* unused_bits = "0" *)
-  wire error_flag_out1;
+  wire error_flag_in3;
   (* src = "rtl/transaccion_synth.v:84" *)
   (* unused_bits = "0" *)
-  wire error_flag_out2;
+  wire error_flag_out0;
   (* src = "rtl/transaccion_synth.v:85" *)
   (* unused_bits = "0" *)
-  wire error_flag_out3;
+  wire error_flag_out1;
   (* src = "rtl/transaccion_synth.v:86" *)
   (* unused_bits = "0" *)
-  wire full_flag_in0;
+  wire error_flag_out2;
   (* src = "rtl/transaccion_synth.v:87" *)
   (* unused_bits = "0" *)
-  wire full_flag_in1;
+  wire error_flag_out3;
   (* src = "rtl/transaccion_synth.v:88" *)
   (* unused_bits = "0" *)
-  wire full_flag_in2;
+  wire full_flag_in0;
   (* src = "rtl/transaccion_synth.v:89" *)
   (* unused_bits = "0" *)
-  wire full_flag_in3;
+  wire full_flag_in1;
   (* src = "rtl/transaccion_synth.v:90" *)
   (* unused_bits = "0" *)
-  wire full_flag_out0;
+  wire full_flag_in2;
   (* src = "rtl/transaccion_synth.v:91" *)
   (* unused_bits = "0" *)
-  wire full_flag_out1;
+  wire full_flag_in3;
   (* src = "rtl/transaccion_synth.v:92" *)
   (* unused_bits = "0" *)
-  wire full_flag_out2;
+  wire full_flag_out0;
   (* src = "rtl/transaccion_synth.v:93" *)
   (* unused_bits = "0" *)
-  wire full_flag_out3;
+  wire full_flag_out1;
   (* src = "rtl/transaccion_synth.v:94" *)
+  (* unused_bits = "0" *)
+  wire full_flag_out2;
+  (* src = "rtl/transaccion_synth.v:95" *)
+  (* unused_bits = "0" *)
+  wire full_flag_out3;
+  (* src = "rtl/transaccion_synth.v:96" *)
   wire idle;
-  (* src = "rtl/transaccion_synth.v:23" *)
+  (* src = "rtl/transaccion_synth.v:29" *)
   input [1:0] idx;
-  (* src = "rtl/transaccion_synth.v:26" *)
+  (* src = "rtl/transaccion_synth.v:32" *)
   input init;
-  (* src = "rtl/transaccion_synth.v:142" *)
+  (* src = "rtl/transaccion_synth.v:144" *)
   wire pop_A_F_0;
-  (* src = "rtl/transaccion_synth.v:181" *)
+  (* src = "rtl/transaccion_synth.v:183" *)
   wire pop_A_F_1;
-  (* src = "rtl/transaccion_synth.v:220" *)
+  (* src = "rtl/transaccion_synth.v:222" *)
   wire pop_A_F_2;
-  (* src = "rtl/transaccion_synth.v:260" *)
+  (* src = "rtl/transaccion_synth.v:262" *)
   wire pop_A_F_3;
-  (* src = "rtl/transaccion_synth.v:31" *)
-  output pop_FIFO_out0;
-  (* src = "rtl/transaccion_synth.v:33" *)
-  output pop_FIFO_out1;
-  (* src = "rtl/transaccion_synth.v:35" *)
-  output pop_FIFO_out2;
-  (* src = "rtl/transaccion_synth.v:37" *)
-  output pop_FIFO_out3;
-  (* src = "rtl/transaccion_synth.v:279" *)
-  wire push_A_F_0;
-  (* src = "rtl/transaccion_synth.v:280" *)
-  wire push_A_F_1;
-  (* src = "rtl/transaccion_synth.v:281" *)
-  wire push_A_F_2;
-  (* src = "rtl/transaccion_synth.v:282" *)
-  wire push_A_F_3;
-  (* src = "rtl/transaccion_synth.v:14" *)
-  input push_FIFO_in0;
-  (* src = "rtl/transaccion_synth.v:16" *)
-  input push_FIFO_in1;
-  (* src = "rtl/transaccion_synth.v:18" *)
-  input push_FIFO_in2;
-  (* src = "rtl/transaccion_synth.v:20" *)
-  input push_FIFO_in3;
-  (* src = "rtl/transaccion_synth.v:22" *)
-  input req;
+  (* src = "rtl/transaccion_synth.v:23" *)
+  input pop_FIFO_out0;
+  (* src = "rtl/transaccion_synth.v:24" *)
+  input pop_FIFO_out1;
   (* src = "rtl/transaccion_synth.v:25" *)
+  input pop_FIFO_out2;
+  (* src = "rtl/transaccion_synth.v:26" *)
+  input pop_FIFO_out3;
+  (* src = "rtl/transaccion_synth.v:281" *)
+  wire push_A_F_0;
+  (* src = "rtl/transaccion_synth.v:282" *)
+  wire push_A_F_1;
+  (* src = "rtl/transaccion_synth.v:283" *)
+  wire push_A_F_2;
+  (* src = "rtl/transaccion_synth.v:284" *)
+  wire push_A_F_3;
+  (* src = "rtl/transaccion_synth.v:15" *)
+  input push_FIFO_in0;
+  (* src = "rtl/transaccion_synth.v:17" *)
+  input push_FIFO_in1;
+  (* src = "rtl/transaccion_synth.v:19" *)
+  input push_FIFO_in2;
+  (* src = "rtl/transaccion_synth.v:21" *)
+  input push_FIFO_in3;
+  (* src = "rtl/transaccion_synth.v:28" *)
+  input req;
+  (* src = "rtl/transaccion_synth.v:31" *)
   input reset_L;
-  (* src = "rtl/transaccion_synth.v:40" *)
+  (* src = "rtl/transaccion_synth.v:42" *)
   output valid;
-  (* src = "rtl/transaccion_synth.v:125" *)
+  (* src = "rtl/transaccion_synth.v:127" *)
   \$paramod\FIFO_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FIFO_in0 (
     .almost_empty_flag(almost_empty_flag_in0),
     .almost_empty_threshold_input(almost_empty_threshold_input),
@@ -8014,7 +8012,7 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .reset_L(reset_L),
     .wr_en(push_FIFO_in0)
   );
-  (* src = "rtl/transaccion_synth.v:164" *)
+  (* src = "rtl/transaccion_synth.v:166" *)
   \$paramod\FIFO_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FIFO_in1 (
     .almost_empty_flag(almost_empty_flag_in1),
     .almost_empty_threshold_input(almost_empty_threshold_input),
@@ -8031,7 +8029,7 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .reset_L(reset_L),
     .wr_en(push_FIFO_in1)
   );
-  (* src = "rtl/transaccion_synth.v:203" *)
+  (* src = "rtl/transaccion_synth.v:205" *)
   \$paramod\FIFO_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FIFO_in2 (
     .almost_empty_flag(almost_empty_flag_in2),
     .almost_empty_threshold_input(almost_empty_threshold_input),
@@ -8048,7 +8046,7 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .reset_L(reset_L),
     .wr_en(push_FIFO_in2)
   );
-  (* src = "rtl/transaccion_synth.v:243" *)
+  (* src = "rtl/transaccion_synth.v:245" *)
   \$paramod\FIFO_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FIFO_in3 (
     .almost_empty_flag(almost_empty_flag_in3),
     .almost_empty_threshold_input(almost_empty_threshold_input),
@@ -8065,7 +8063,7 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .reset_L(reset_L),
     .wr_en(push_FIFO_in3)
   );
-  (* src = "rtl/transaccion_synth.v:318" *)
+  (* src = "rtl/transaccion_synth.v:320" *)
   \$paramod\FIFO_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FIFO_out0 (
     .almost_empty_flag(almost_empty_flag_out0),
     .almost_empty_threshold_input(almost_empty_threshold_input),
@@ -8082,7 +8080,7 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .reset_L(reset_L),
     .wr_en(push_A_F_0)
   );
-  (* src = "rtl/transaccion_synth.v:359" *)
+  (* src = "rtl/transaccion_synth.v:361" *)
   \$paramod\FIFO_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FIFO_out1 (
     .almost_empty_flag(almost_empty_flag_out1),
     .almost_empty_threshold_input(almost_empty_threshold_input),
@@ -8099,7 +8097,7 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .reset_L(reset_L),
     .wr_en(push_A_F_1)
   );
-  (* src = "rtl/transaccion_synth.v:399" *)
+  (* src = "rtl/transaccion_synth.v:401" *)
   \$paramod\FIFO_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FIFO_out2 (
     .almost_empty_flag(almost_empty_flag_out2),
     .almost_empty_threshold_input(almost_empty_threshold_input),
@@ -8116,7 +8114,7 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .reset_L(reset_L),
     .wr_en(push_A_F_2)
   );
-  (* src = "rtl/transaccion_synth.v:439" *)
+  (* src = "rtl/transaccion_synth.v:441" *)
   \$paramod\FIFO_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FIFO_out3 (
     .almost_empty_flag(almost_empty_flag_out3),
     .almost_empty_threshold_input(almost_empty_threshold_input),
@@ -8133,9 +8131,9 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .reset_L(reset_L),
     .wr_en(push_A_F_3)
   );
-  (* src = "rtl/transaccion_synth.v:482" *)
-  \$paramod\FSM_synth\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FSM (
-    .FIFOs_empty({ 7'h00, FIFOs_empty }),
+  (* src = "rtl/transaccion_synth.v:484" *)
+  \$paramod\FSM_synth\NUM_FIFOS=8\FIFO_DEPTH=8\FIFO_WORD_SIZE=10\FIFO_PTR_SIZE=3  FSM (
+    .FIFOs_empty(8'hxx),
     .almost_empty_threshold(almost_empty_threshold),
     .almost_empty_threshold_input(almost_empty_threshold_input),
     .almost_full_threshold(almost_full_threshold),
@@ -8145,7 +8143,7 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .init(init),
     .reset_L(reset_L)
   );
-  (* src = "rtl/transaccion_synth.v:267" *)
+  (* src = "rtl/transaccion_synth.v:269" *)
   \$paramod\arbitro_synth\FIFO_WORD_SIZE=10  arbitro (
     .almostfull_p0(almostfull_flag_out0),
     .almostfull_p1(almostfull_flag_out1),
@@ -8173,7 +8171,7 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
     .push_p3(push_A_F_3)
   );
   (* module_not_derived = 32'd1 *)
-  (* src = "rtl/transaccion_synth.v:462" *)
+  (* src = "rtl/transaccion_synth.v:464" *)
   contadores_synth contadores (
     .clk(clk),
     .data(data),

@@ -4,9 +4,10 @@
 `include "rtl/FSM.v"
 
 module transaccion #(
-    parameter FIFO_DEPTH = 8, // DEBE SER UNA POTENCIA DE 2
-    parameter FIFO_WORD_SIZE = 10,
-    parameter FIFO_PTR_SIZE = $clog2(FIFO_DEPTH)
+	parameter NUM_FIFOS = 8,
+    	parameter FIFO_DEPTH = 8, // DEBE SER UNA POTENCIA DE 2
+    	parameter FIFO_WORD_SIZE = 10,
+    	parameter FIFO_PTR_SIZE = $clog2(FIFO_DEPTH)
 )( 			// Reloj		
 			input clk, 
 			//Entradas hacia FIFOS in 
@@ -18,6 +19,11 @@ module transaccion #(
 		    input 	 push_FIFO_in2,
 		    input [FIFO_WORD_SIZE-1:0]  dest_n_data_in3,
 		    input 	 push_FIFO_in3,
+		    // Entradas hacia FIFOS out
+		    input 	 pop_FIFO_out0,
+		    input 	 pop_FIFO_out1,
+		    input 	 pop_FIFO_out2,
+		    input 	 pop_FIFO_out3,
 		    //Entradas hacia contadores 
 		    input 	 req,
 		    input [1:0]  idx,
@@ -28,13 +34,9 @@ module transaccion #(
 		    input [FIFO_PTR_SIZE-1:0]  almost_full_threshold_input,
 		    //Salidas desde FIFOs out
 		    output [FIFO_WORD_SIZE-1:0] data_out0,
-		    output 	 pop_FIFO_out0,
 		    output [FIFO_WORD_SIZE-1:0] data_out1,
-		    output 	 pop_FIFO_out1,
 		    output [FIFO_WORD_SIZE-1:0] data_out2,
-		    output 	 pop_FIFO_out2,
 		    output [FIFO_WORD_SIZE-1:0] data_out3,
-		    output 	 pop_FIFO_out3,
 		    //Salidas desde contadores
 		    output [4:0] data,
 		    output 	 valid);
@@ -479,10 +481,11 @@ module transaccion #(
 			 .empty_FIFO_3		(empty_flag_out_3));
 
    //FSM
-   FSM #(
+   FSM #(   
     .FIFO_DEPTH (FIFO_DEPTH),
     .FIFO_WORD_SIZE (FIFO_WORD_SIZE),
     .FIFO_PTR_SIZE (FIFO_PTR_SIZE),
+    .NUM_FIFOS (NUM_FIFOS),
 ) FSM(/*AUTOINST*/
       // Outputs
       .idle				(idle),
