@@ -41,10 +41,6 @@ rtl/transaccion.v:281: Warning: Identifier `\push_A_F_0' is implicitly declared.
 rtl/transaccion.v:282: Warning: Identifier `\push_A_F_1' is implicitly declared.
 rtl/transaccion.v:283: Warning: Identifier `\push_A_F_2' is implicitly declared.
 rtl/transaccion.v:284: Warning: Identifier `\push_A_F_3' is implicitly declared.
-rtl/transaccion.v:290: Warning: Identifier `\almostfull_flag_out0' is implicitly declared.
-rtl/transaccion.v:291: Warning: Identifier `\almostfull_flag_out1' is implicitly declared.
-rtl/transaccion.v:292: Warning: Identifier `\almostfull_flag_out2' is implicitly declared.
-rtl/transaccion.v:293: Warning: Identifier `\almostfull_flag_out3' is implicitly declared.
 rtl/transaccion.v:478: Warning: Identifier `\empty_flag_out_0' is implicitly declared.
 rtl/transaccion.v:479: Warning: Identifier `\empty_flag_out_1' is implicitly declared.
 rtl/transaccion.v:480: Warning: Identifier `\empty_flag_out_2' is implicitly declared.
@@ -1649,8 +1645,8 @@ Dumping module `$paramod\memoria\MEM_DEPTH=8\WORD_SIZE=10\PTR_SIZE=3'.
 Dumping module `\contadores'.
 Dumping module `\transaccion'.
 
-Warnings: 23 unique messages, 23 total
-End of script. Logfile hash: cf6a30bea0
-CPU: user 1.01s system 0.02s, MEM: 27.38 MB total, 21.31 MB resident
+Warnings: 19 unique messages, 19 total
+End of script. Logfile hash: 81c898bf1a
+CPU: user 1.02s system 0.01s, MEM: 27.33 MB total, 21.42 MB resident
 Yosys 0.9 (git sha1 1979e0b)
-Time spent: 22% 2x write_verilog (0 sec), 15% 1x techmap (0 sec), ...
+Time spent: 23% 2x write_verilog (0 sec), 15% 1x techmap (0 sec), ...

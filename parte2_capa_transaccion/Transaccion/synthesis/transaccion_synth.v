@@ -7817,30 +7817,18 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
   (* unused_bits = "0" *)
   wire almost_full_flag_in3;
   (* src = "rtl/transaccion_synth.v:59" *)
-  (* unused_bits = "0" *)
   wire almost_full_flag_out0;
   (* src = "rtl/transaccion_synth.v:60" *)
-  (* unused_bits = "0" *)
   wire almost_full_flag_out1;
   (* src = "rtl/transaccion_synth.v:61" *)
-  (* unused_bits = "0" *)
   wire almost_full_flag_out2;
   (* src = "rtl/transaccion_synth.v:62" *)
-  (* unused_bits = "0" *)
   wire almost_full_flag_out3;
   (* src = "rtl/transaccion_synth.v:63" *)
   (* unused_bits = "0 1 2" *)
   wire [2:0] almost_full_threshold;
   (* src = "rtl/transaccion_synth.v:34" *)
   input [2:0] almost_full_threshold_input;
-  (* src = "rtl/transaccion_synth.v:290" *)
-  wire almostfull_flag_out0;
-  (* src = "rtl/transaccion_synth.v:291" *)
-  wire almostfull_flag_out1;
-  (* src = "rtl/transaccion_synth.v:292" *)
-  wire almostfull_flag_out2;
-  (* src = "rtl/transaccion_synth.v:293" *)
-  wire almostfull_flag_out3;
   (* src = "rtl/transaccion_synth.v:12" *)
   input clk;
   (* src = "rtl/transaccion_synth.v:41" *)
@@ -8143,10 +8131,10 @@ module transaccion_synth(clk, dest_n_data_in0, push_FIFO_in0, dest_n_data_in1, p
   );
   (* src = "rtl/transaccion_synth.v:269" *)
   \$paramod\arbitro_synth\FIFO_WORD_SIZE=10  arbitro (
-    .almostfull_p0(almostfull_flag_out0),
-    .almostfull_p1(almostfull_flag_out1),
-    .almostfull_p2(almostfull_flag_out2),
-    .almostfull_p3(almostfull_flag_out3),
+    .almostfull_p0(almost_full_flag_out0),
+    .almostfull_p1(almost_full_flag_out1),
+    .almostfull_p2(almost_full_flag_out2),
+    .almostfull_p3(almost_full_flag_out3),
     .data_in_0(data_F_A_0),
     .data_in_1(data_F_A_1),
     .data_in_2(data_F_A_2),
