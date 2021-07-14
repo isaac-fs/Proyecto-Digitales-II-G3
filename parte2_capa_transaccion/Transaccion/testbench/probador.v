@@ -54,7 +54,7 @@ module probador #(
     integer check;
     always @(*) begin
 		check = 0;
-        if (idle == idle_synth && almost_empty_threshold == almost_empty_threshold_synth && almost_full_threshold == almost_full_threshold_synth) 
+        if (data_out0 == data_out0_synth && data_out1 == data_out1_synth && data_out2 == data_out2_synth&& data_out3 == data_out3_synth) 
             check = 1;    
         else
             check = 0;    
@@ -68,7 +68,7 @@ module probador #(
 	// Generalmente, los initial sólo se usan en los testbench o probadores.
 	// Se recomienda siempre sincronizar con el reloj y utilizar asignaciones no bloqueantes en la generación de señales.
 	initial begin
-		$dumpfile("testbench/FSM_sim.vcd");	// Nombre de archivo del "dump"
+		$dumpfile("testbench/transaccion_sim.vcd");	// Nombre de archivo del "dump"
 		$dumpvars;              // Directiva para "dumpear" variables
 		// Mensaje que se imprime en consola una vez
 		$display ("\t\ttime\tclk,\tcheck");
