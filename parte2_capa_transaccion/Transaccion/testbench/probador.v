@@ -177,6 +177,12 @@ module probador #(
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h0A6;
+		dest_n_data_in1 <= 0;
+		dest_n_data_in2 <= 0;
+		dest_n_data_in3 <= 0;
+		end
+		@(posedge clk) begin
+		dest_n_data_in0 <= 0;
 		end
 		@(posedge clk); 
 		@(posedge clk);
@@ -200,6 +206,9 @@ module probador #(
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h1A6;
 		end
+		@(posedge clk) begin
+		dest_n_data_in0 <= 0;
+		end
 		@(posedge clk); 
 		@(posedge clk);
 		@(posedge clk);
@@ -221,6 +230,9 @@ module probador #(
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h2A6;
 		end
+		@(posedge clk) begin
+		dest_n_data_in0 <= 0;
+		end
 		@(posedge clk); 
 		@(posedge clk);
 		@(posedge clk);
@@ -241,6 +253,9 @@ module probador #(
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h3A6;
+		end
+		@(posedge clk) begin
+		dest_n_data_in0 <= 0;
 		end
 		@(posedge clk); 
 		@(posedge clk);
@@ -487,6 +502,12 @@ module probador #(
 		dest_n_data_in1 <= 10'h37E;
 		dest_n_data_in2 <= 10'h0F8;
 		dest_n_data_in3 <= 10'h129;
+		end
+		@(posedge clk) begin
+		dest_n_data_in0 <= 0;
+		dest_n_data_in1 <= 0;
+		dest_n_data_in2 <= 0;
+		dest_n_data_in3 <= 0;
 		end
 		// Se dan varios ciclos de reloj para que los datos lleguen
 		@(posedge clk); 

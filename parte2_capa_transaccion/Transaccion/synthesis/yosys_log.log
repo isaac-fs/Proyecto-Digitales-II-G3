@@ -1438,14 +1438,14 @@ Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
+ABC: + read_lib -w /home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
 ABC: Parsing finished successfully.  Parsing time =     0.00 sec
 ABC: Warning: Templates are not defined.
 ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
 ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
-ABC: Library "demo" from "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Library "demo" from "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
 ABC: Memory =    0.00 MB. Time =     0.00 sec
 ABC: + strash 
 ABC: + ifraig 
@@ -1478,14 +1478,14 @@ Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
+ABC: + read_lib -w /home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
 ABC: Parsing finished successfully.  Parsing time =     0.00 sec
 ABC: Warning: Templates are not defined.
 ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
 ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
-ABC: Library "demo" from "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Library "demo" from "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
 ABC: Memory =    0.00 MB. Time =     0.00 sec
 ABC: + strash 
 ABC: + ifraig 
@@ -1518,14 +1518,14 @@ Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
+ABC: + read_lib -w /home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
 ABC: Parsing finished successfully.  Parsing time =     0.00 sec
 ABC: Warning: Templates are not defined.
 ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
 ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
-ABC: Library "demo" from "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Library "demo" from "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
 ABC: Memory =    0.00 MB. Time =     0.00 sec
 ABC: + strash 
 ABC: + ifraig 
@@ -1559,14 +1559,14 @@ Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
+ABC: + read_lib -w /home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
 ABC: Parsing finished successfully.  Parsing time =     0.00 sec
 ABC: Warning: Templates are not defined.
 ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
 ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
-ABC: Library "demo" from "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Library "demo" from "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
 ABC: Memory =    0.00 MB. Time =     0.00 sec
 ABC: + strash 
 ABC: + ifraig 
@@ -1599,14 +1599,14 @@ Running ABC command: berkeley-abc -s -f <abc-temp-dir>/abc.script 2>&1
 ABC: ABC command line: "source <abc-temp-dir>/abc.script".
 ABC: 
 ABC: + read_blif <abc-temp-dir>/input.blif 
-ABC: + read_lib -w /mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
+ABC: + read_lib -w /home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib 
 ABC: Parsing finished successfully.  Parsing time =     0.00 sec
 ABC: Warning: Templates are not defined.
 ABC: Libery parser cannot read "time_unit".  Assuming   time_unit : "1ns".
 ABC: Libery parser cannot read "capacitive_load_unit". Assuming   capacitive_load_unit(1, pf).
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFF".
 ABC: Scl_LibertyReadGenlib() skipped sequential cell "DFFSR".
-ABC: Library "demo" from "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
+ABC: Library "demo" from "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/synthesis/cmos_cells/cmos_cells.lib" has 4 cells (2 skipped: 2 seq; 0 tri-state; 0 no func; 0 dont_use).  Time =     0.00 sec
 ABC: Memory =    0.00 MB. Time =     0.00 sec
 ABC: + strash 
 ABC: + ifraig 
@@ -1646,7 +1646,7 @@ Dumping module `\contadores'.
 Dumping module `\transaccion'.
 
 Warnings: 19 unique messages, 19 total
-End of script. Logfile hash: 81c898bf1a
-CPU: user 1.02s system 0.01s, MEM: 27.33 MB total, 21.42 MB resident
+End of script. Logfile hash: 77c1139c9b
+CPU: user 2.09s system 0.02s, MEM: 27.34 MB total, 21.05 MB resident
 Yosys 0.9 (git sha1 1979e0b)
-Time spent: 23% 2x write_verilog (0 sec), 15% 1x techmap (0 sec), ...
+Time spent: 26% 2x write_verilog (0 sec), 15% 1x techmap (0 sec), ...
