@@ -1662,6 +1662,6 @@ Dumping module `\transaccion'.
 
 Warnings: 15 unique messages, 15 total
 End of script. Logfile hash: 5b8554aabb
-CPU: user 2.01s system 0.01s, MEM: 27.35 MB total, 21.25 MB resident
+CPU: user 2.54s system 0.03s, MEM: 27.35 MB total, 21.28 MB resident
 Yosys 0.9 (git sha1 1979e0b)
-Time spent: 27% 2x write_verilog (0 sec), 15% 1x techmap (0 sec), ...
+Time spent: 26% 2x write_verilog (0 sec), 23% 1x techmap (0 sec), ...
