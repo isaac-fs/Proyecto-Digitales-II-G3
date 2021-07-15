@@ -84,10 +84,10 @@ end
 always @(posedge clk) begin
     if (~reset_L) begin
         ff_N <= 0;
-        empty_flag <= 1; 
-        full_flag <= 0;
-        almost_full_flag <= 0;
-        almost_empty_flag <= 0;
+        // empty_flag <= 1; 
+        // full_flag <= 0;
+        // almost_full_flag <= 0;
+        // almost_empty_flag <= 0;
     end
     else begin
         ff_N <= N;
@@ -95,6 +95,11 @@ always @(posedge clk) begin
 end
 
 always @(*) begin
+    empty_flag = 0;
+    full_flag = 0;
+    almost_empty_flag = 0;
+    almost_full_flag = 0;
+
     if (N > 0 && N < FIFO_DEPTH) begin // Si tiene datos
 
         if(N <= almost_empty_threshold)

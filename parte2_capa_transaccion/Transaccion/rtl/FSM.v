@@ -37,7 +37,7 @@ module FSM #(
 
     always @(*) begin // Lógica de estado próximo
         proximo_estado = estado_actual;
-        idle = 1;
+        idle = 0;
 
         case(estado_actual) 
             RESET: // 1

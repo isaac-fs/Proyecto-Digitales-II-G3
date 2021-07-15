@@ -45,6 +45,7 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	end
 
 	//Lógica POP
+
 	always @(*) begin
 		// Valores predeterminados. Necesarios para que no aparezcan LATCH D en síntesis.
 		// Además si no se cumple ningún if por defecto cae acá
@@ -100,13 +101,26 @@ module arbitro #( // Un árbitro para 4 FIFOS
 		endcase
 	end
 
+	// reg in_FIFOS_empty_ff, out_FIFOS_almost_full_ff;
+
+	// always @(posedge clk) begin
+	// 	// if(~reset_L) begin
+	// 	// 	in_FIFOS_empty_ff <= 0;
+	// 	// 	out_FIFOS_almost_full_ff <= 0;
+	// 	// end
+	// 	// else begin
+	// 		in_FIFOS_empty_ff <= in_FIFOS_empty;
+	// 		out_FIFOS_almost_full_ff <= out_FIFOS_almost_full;
+	// 	// end
+	// end
+
 	//Lógica de PUSH
 	always @(*) begin
 		push_p0 = 0;
 		push_p1 = 0;
 		push_p2 = 0;
 		push_p3 = 0;
-		if(!in_FIFOS_empty && !out_FIFOS_almost_full) begin
+		if(!in_FIFOS_empty && !out_FIFOS_almost_full && mux_out) begin
 		/* El árbitro hace push siempre y cuando los fifos de entrada 
 		no estén vacíos y no haya ningún fifo de salida en almost full - Freddy (2021)*/
 			case(dest)
