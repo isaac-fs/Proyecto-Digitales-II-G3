@@ -1,15 +1,15 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Thu Jul 15 02:50:22 2021
+[*] Thu Jul 15 03:59:01 2021
 [*]
 [dumpfile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.vcd"
-[dumpfile_mtime] "Thu Jul 15 02:31:28 2021"
-[dumpfile_size] 1629150
+[dumpfile_mtime] "Thu Jul 15 03:39:18 2021"
+[dumpfile_size] 1335811
 [savefile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.gtkw"
 [timestart] 0
 [size] 928 486
 [pos] -1 -1
-*-48.184898 455000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-47.184898 110000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
 [treeopen] testbench.transaccion_0.
 [sst_width] 48
@@ -44,7 +44,6 @@ testbench.transaccion_0.FIFO_in0.almost_empty_threshold[2:0]
 testbench.transaccion_0.FIFO_in0.almost_full_threshold[2:0]
 @22
 testbench.transaccion_0.FIFO_in0.data_in[9:0]
-@23
 testbench.transaccion_0.FIFO_in0.data_out[9:0]
 @24
 testbench.transaccion_0.FIFO_in0.N[2:0]
@@ -78,6 +77,10 @@ testbench.transaccion_0.FIFO_in2.N[2:0]
 @200
 -
 -FIFO_OUT0
+@28
+testbench.transaccion_0.FIFO_out0.wr_en
+@29
+testbench.transaccion_0.FIFO_out0.rd_en
 @22
 testbench.transaccion_0.FIFO_out0.data_in[9:0]
 testbench.transaccion_0.FIFO_out0.data_out[9:0]
@@ -89,22 +92,16 @@ testbench.transaccion_0.FIFO_out0.almost_full_flag
 @22
 testbench.transaccion_0.FIFO_out1.data_in[9:0]
 testbench.transaccion_0.FIFO_out1.data_out[9:0]
-@28
-testbench.transaccion_0.FIFO_out1.almost_full_flag
 @200
 -FIFO_OUT2
 @22
 testbench.transaccion_0.FIFO_out2.data_in[9:0]
 testbench.transaccion_0.FIFO_out2.data_out[9:0]
-@28
-testbench.transaccion_0.FIFO_out2.almost_full_flag
 @200
 -FIFO_OUT3
 @22
 testbench.transaccion_0.FIFO_out3.data_in[9:0]
 testbench.transaccion_0.FIFO_out3.data_out[9:0]
-@28
-testbench.transaccion_0.FIFO_out3.almost_full_flag
 @200
 -Probador (entrada)
 @22

@@ -175,28 +175,53 @@ module probador #(
 		end
 		// Se dejan todos los FIFO out con 5 datos para luego provocar nada mas el almost 			full en el FIFO out 0.
 		@(posedge clk) begin
-		push_FIFO_in0 <= 1;
+		push_FIFO_in0 <= 0;
 		push_FIFO_in1 <= 0;
 		push_FIFO_in2 <= 0;
 		push_FIFO_in3 <= 0;
-		dest_n_data_in0 <= 10'h0A6;
+		dest_n_data_in0 <= 0;
 		dest_n_data_in1 <= 0;
 		dest_n_data_in2 <= 0;
 		dest_n_data_in3 <= 0;
 		end
-		@(posedge clk) begin
-		push_FIFO_in0 <= 0;
-		dest_n_data_in0 <= 0;
-		end
+		@(posedge clk); 
+		@(posedge clk);
 		@(posedge clk); 
 		@(posedge clk);
 		@(posedge clk);
 		@(posedge clk);
 		@(posedge clk);
 		@(posedge clk);
+		@(posedge clk); 
 		@(posedge clk);
 		@(posedge clk);
 		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk); 
+		@(posedge clk);
+		@(posedge clk) begin
+		push_FIFO_in0 <= 1;
+		dest_n_data_in0 <= 10'h0A6;
+		end
+		@(posedge clk) begin
+		push_FIFO_in0 <= 0;
+		dest_n_data_in0 <= 0;
+		end
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk); 
 		@(posedge clk);
 		@(posedge clk);
 		@(posedge clk);
