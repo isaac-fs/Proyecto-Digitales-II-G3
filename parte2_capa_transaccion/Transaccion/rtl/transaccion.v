@@ -475,10 +475,10 @@ module transaccion #(
 			 .pop_3			(pop_FIFO_out3),
 			 .idx			(idx[1:0]),
 			 .idle			(idle),
-			 .empty_FIFO_0		(empty_flag_out_0),
-			 .empty_FIFO_1		(empty_flag_out_1),
-			 .empty_FIFO_2		(empty_flag_out_2),
-			 .empty_FIFO_3		(empty_flag_out_3));
+			 .empty_FIFO_0		(empty_flag_out0),
+			 .empty_FIFO_1		(empty_flag_out1),
+			 .empty_FIFO_2		(empty_flag_out2),
+			 .empty_FIFO_3		(empty_flag_out3));
 
 wire [NUM_FIFOS-1:0] FIFOs_empty = {empty_flag_in0, empty_flag_in1, empty_flag_in2, empty_flag_in3, empty_flag_out0, empty_flag_out1, empty_flag_out2, empty_flag_out3};
 
