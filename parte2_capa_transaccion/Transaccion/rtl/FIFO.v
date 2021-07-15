@@ -91,36 +91,38 @@ always @(posedge clk) begin
     end
     else begin
         ff_N <= N;
+    end
+end
 
-        if (N > 0 && N < FIFO_DEPTH) begin // Si tiene datos
+always @(*) begin
+    if (N > 0 && N < FIFO_DEPTH) begin // Si tiene datos
 
-            if(N <= almost_empty_threshold)
-                almost_empty_flag <= 1;
-            else 
-                almost_empty_flag <= 0;
+        if(N <= almost_empty_threshold)
+            almost_empty_flag = 1;
+        else 
+            almost_empty_flag = 0;
 
-            if(N >= almost_full_threshold && !(ff_N == FIFO_DEPTH-1))
-                almost_full_flag <= 1;
-            else    
-                almost_full_flag <= 0;
-        end   
+        if(N >= almost_full_threshold && !(ff_N == FIFO_DEPTH-1))
+            almost_full_flag = 1;
+        else    
+            almost_full_flag = 0;
+    end   
 
-        if (N != 0) begin
-            empty_flag <= 0;
-            full_flag <= 0;
-        end
+    if (N != 0) begin
+        empty_flag = 0;
+        full_flag = 0;
+    end
 
-        else if (N == 0) begin
-            if(!(ff_N == FIFO_DEPTH-1) && !(ff_N == 1))
-                empty_flag <= 1;
-            else
-                empty_flag <= 0;
+    else if (N == 0) begin
+        if(!(ff_N == FIFO_DEPTH-1) && (ff_N == 1 || ff_N == 0))
+            empty_flag = 1;
+        else
+            empty_flag = 0;
 
-            if((ff_N == FIFO_DEPTH-1))
-                full_flag <= 1;
-            else    
-                full_flag <= 0;
-        end
+        if((ff_N == FIFO_DEPTH-1))
+            full_flag = 1;
+        else    
+            full_flag = 0;
     end
 end
 
