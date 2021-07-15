@@ -1,20 +1,20 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Thu Jul 15 02:13:47 2021
+[*] Thu Jul 15 02:50:22 2021
 [*]
 [dumpfile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.vcd"
-[dumpfile_mtime] "Thu Jul 15 01:10:39 2021"
-[dumpfile_size] 1764047
+[dumpfile_mtime] "Thu Jul 15 02:31:28 2021"
+[dumpfile_size] 1629150
 [savefile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.gtkw"
-[timestart] 42800000000000
+[timestart] 0
 [size] 928 486
 [pos] -1 -1
-*-46.184898 330000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-48.184898 455000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
 [treeopen] testbench.transaccion_0.
-[sst_width] 233
+[sst_width] 48
 [signals_width] 294
-[sst_expanded] 1
+[sst_expanded] 0
 [sst_vpaned_height] 191
 @200
 -Clock y control
@@ -36,11 +36,16 @@ testbench.almost_full_threshold_input[2:0]
 @200
 -
 -FIFO_IN0
+@28
+testbench.transaccion_0.FIFO_in0.wr_en
+testbench.transaccion_0.FIFO_in0.rd_en
 @24
 testbench.transaccion_0.FIFO_in0.almost_empty_threshold[2:0]
 testbench.transaccion_0.FIFO_in0.almost_full_threshold[2:0]
 @22
 testbench.transaccion_0.FIFO_in0.data_in[9:0]
+@23
+testbench.transaccion_0.FIFO_in0.data_out[9:0]
 @24
 testbench.transaccion_0.FIFO_in0.N[2:0]
 @28
@@ -76,9 +81,8 @@ testbench.transaccion_0.FIFO_in2.N[2:0]
 @22
 testbench.transaccion_0.FIFO_out0.data_in[9:0]
 testbench.transaccion_0.FIFO_out0.data_out[9:0]
-@29
-testbench.transaccion_0.FIFO_out0.N[2:0]
 @28
+testbench.transaccion_0.FIFO_out0.N[2:0]
 testbench.transaccion_0.FIFO_out0.almost_full_flag
 @200
 -FIFO_OUT1
