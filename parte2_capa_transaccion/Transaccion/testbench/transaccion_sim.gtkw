@@ -1,19 +1,19 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Thu Jul 15 03:59:01 2021
+[*] Thu Jul 15 22:24:00 2021
 [*]
 [dumpfile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.vcd"
-[dumpfile_mtime] "Thu Jul 15 03:39:18 2021"
-[dumpfile_size] 1335811
+[dumpfile_mtime] "Thu Jul 15 22:08:13 2021"
+[dumpfile_size] 1218133
 [savefile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.gtkw"
-[timestart] 0
-[size] 928 486
+[timestart] 13000000000000
+[size] 1040 563
 [pos] -1 -1
-*-47.184898 110000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-50.231270 4044000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
 [treeopen] testbench.transaccion_0.
 [sst_width] 48
-[signals_width] 294
+[signals_width] 314
 [sst_expanded] 0
 [sst_vpaned_height] 191
 @200
@@ -60,6 +60,8 @@ testbench.transaccion_0.FIFO_in1.data_in[9:0]
 testbench.transaccion_0.FIFO_in1.data_out[9:0]
 @28
 testbench.transaccion_0.FIFO_in1.N[2:0]
+testbench.transaccion_0.FIFO_in1.almost_full_flag
+testbench.transaccion_0.FIFO_in1.empty_flag
 @200
 -FIFO_IN2
 @22
@@ -67,6 +69,8 @@ testbench.transaccion_0.FIFO_in2.data_in[9:0]
 testbench.transaccion_0.FIFO_in2.data_out[9:0]
 @28
 testbench.transaccion_0.FIFO_in2.N[2:0]
+testbench.transaccion_0.FIFO_in2.almost_full_flag
+testbench.transaccion_0.FIFO_in2.empty_flag
 @200
 -FIFO_IN3
 @22
@@ -74,12 +78,14 @@ testbench.transaccion_0.FIFO_in3.data_in[9:0]
 testbench.transaccion_0.FIFO_in3.data_out[9:0]
 @28
 testbench.transaccion_0.FIFO_in2.N[2:0]
+testbench.transaccion_0.FIFO_in3.almost_full_flag
+@29
+testbench.transaccion_0.FIFO_in3.empty_flag
 @200
 -
 -FIFO_OUT0
 @28
 testbench.transaccion_0.FIFO_out0.wr_en
-@29
 testbench.transaccion_0.FIFO_out0.rd_en
 @22
 testbench.transaccion_0.FIFO_out0.data_in[9:0]
@@ -87,21 +93,34 @@ testbench.transaccion_0.FIFO_out0.data_out[9:0]
 @28
 testbench.transaccion_0.FIFO_out0.N[2:0]
 testbench.transaccion_0.FIFO_out0.almost_full_flag
+testbench.transaccion_0.FIFO_out1.empty_flag
 @200
 -FIFO_OUT1
 @22
 testbench.transaccion_0.FIFO_out1.data_in[9:0]
 testbench.transaccion_0.FIFO_out1.data_out[9:0]
+@28
+testbench.transaccion_0.FIFO_out1.N[2:0]
+testbench.transaccion_0.FIFO_out1.almost_full_flag
+testbench.transaccion_0.FIFO_out1.empty_flag
 @200
 -FIFO_OUT2
 @22
 testbench.transaccion_0.FIFO_out2.data_in[9:0]
 testbench.transaccion_0.FIFO_out2.data_out[9:0]
+@28
+testbench.transaccion_0.FIFO_out2.N[2:0]
+testbench.transaccion_0.FIFO_out2.almost_full_flag
+testbench.transaccion_0.FIFO_out1.empty_flag
 @200
 -FIFO_OUT3
 @22
 testbench.transaccion_0.FIFO_out3.data_in[9:0]
 testbench.transaccion_0.FIFO_out3.data_out[9:0]
+@28
+testbench.transaccion_0.FIFO_out3.N[2:0]
+testbench.transaccion_0.FIFO_out3.almost_full_flag
+testbench.transaccion_0.FIFO_out1.empty_flag
 @200
 -Probador (entrada)
 @22
