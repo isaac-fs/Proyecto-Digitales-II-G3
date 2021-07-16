@@ -38,7 +38,7 @@ module transaccion #(
 		    output [FIFO_WORD_SIZE-1:0] data_out2,
 		    output [FIFO_WORD_SIZE-1:0] data_out3,
 		    //Salidas desde contadores
-		    output [4:0] data,
+		    output [5:0] data,
 		    output 	 valid);
 
    // Quité el AUTOWIRE para que no se borren los cables puestos a mano
@@ -463,7 +463,7 @@ module transaccion #(
    //Contadores
    contadores contadores(
 			 // Outputs
-			 .data			(data[4:0]),
+			 .data			(data[5:0]),
 			 .valid			(valid),
 			 // Inputs
 			 .clk			(clk),

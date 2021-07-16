@@ -1,6 +1,8 @@
 module arbitro #( // Un árbitro para 4 FIFOS
 	parameter FIFO_WORD_SIZE = 10
-) (	
+) (
+	input clk,
+    input reset_L,
 	// Señales de empty de los FIFOS de entrada
 	input empty_p0,
 	input empty_p1,
@@ -45,6 +47,7 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	end
 
 	//Lógica POP
+
 	always @(*) begin
 		// Valores predeterminados. Necesarios para que no aparezcan LATCH D en síntesis.
 		// Además si no se cumple ningún if por defecto cae acá
@@ -101,22 +104,36 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	end
 
 	//Lógica de PUSH
-	reg data_in;
+	reg push_p0_2out, push_p1_2out, push_p2_2out, push_p3_2out;
 	always @(*) begin
-		push_p0 = 0;
-		push_p1 = 0;
-		push_p2 = 0;
-		push_p3 = 0;
-		data_in =  (data_in_0 || data_in_1  || data_in_2  || data_in_3);
-		if(!in_FIFOS_empty && !out_FIFOS_almost_full && data_in) begin
+		push_p0_2out = 0;
+		push_p1_2out = 0;
+		push_p2_2out = 0;
+		push_p3_2out = 0;
+		if(!in_FIFOS_empty && !out_FIFOS_almost_full && data_in_0!=0) begin
 		/* El árbitro hace push siempre y cuando los fifos de entrada 
 		no estén vacíos y no haya ningún fifo de salida en almost full - Freddy (2021)*/
 			case(dest)
-				'b00: push_p0 = 1;
-				'b01: push_p1 = 1;
-				'b10: push_p2 = 1;
-				'b11: push_p3 = 1;
+				'b00: push_p0_2out = 1;
+				'b01: push_p1_2out = 1;
+				'b10: push_p2_2out = 1;
+				'b11: push_p3_2out = 1;
 			endcase						
 		end // end // if (!out_FIFOS_almost_full && !in_FIFOS_empty)
 	end// always @ (*)
+	
+	always @(posedge clk) begin
+		if(~reset_L) begin
+			push_p0 <= 0;
+			push_p1 <= 0;
+			push_p2 <= 0;
+			push_p3 <= 0;
+		end
+		else begin
+			push_p0 <= push_p0_2out;
+			push_p1 <= push_p1_2out;
+			push_p2 <= push_p2_2out;
+			push_p3 <= push_p3_2out;
+		end
+	end
 endmodule // arbitro

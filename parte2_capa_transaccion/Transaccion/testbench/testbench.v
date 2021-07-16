@@ -18,7 +18,7 @@ module testbench; // Testbench
 	wire [FIFO_PTR_SIZE-1:0] almost_empty_threshold_input;// From probador_0 of probador.v
 	wire [FIFO_PTR_SIZE-1:0] almost_full_threshold_input;// From probador_0 of probador.v
 	wire		clk;			// From probador_0 of probador.v
-	wire [4:0]	data;			// From transaccion_0 of transaccion.v
+	wire [5:0]	data;			// From transaccion_0 of transaccion.v
 	wire [FIFO_WORD_SIZE-1:0] data_out0;	// From transaccion_0 of transaccion.v
 	wire [FIFO_WORD_SIZE-1:0] data_out0_synth;// From transaccion_synth_0 of transaccion_synth.v
 	wire [FIFO_WORD_SIZE-1:0] data_out1;	// From transaccion_0 of transaccion.v
@@ -27,7 +27,7 @@ module testbench; // Testbench
 	wire [FIFO_WORD_SIZE-1:0] data_out2_synth;// From transaccion_synth_0 of transaccion_synth.v
 	wire [FIFO_WORD_SIZE-1:0] data_out3;	// From transaccion_0 of transaccion.v
 	wire [FIFO_WORD_SIZE-1:0] data_out3_synth;// From transaccion_synth_0 of transaccion_synth.v
-	wire [4:0]	data_synth;		// From transaccion_synth_0 of transaccion_synth.v
+	wire [5:0]	data_synth;		// From transaccion_synth_0 of transaccion_synth.v
 	wire [FIFO_WORD_SIZE-1:0] dest_n_data_in0;// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] dest_n_data_in1;// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] dest_n_data_in2;// From probador_0 of probador.v
@@ -55,7 +55,7 @@ module testbench; // Testbench
 				   .data_out1		(data_out1[FIFO_WORD_SIZE-1:0]),
 				   .data_out2		(data_out2[FIFO_WORD_SIZE-1:0]),
 				   .data_out3		(data_out3[FIFO_WORD_SIZE-1:0]),
-				   .data		(data[4:0]),
+				   .data		(data[5:0]),
 				   .valid		(valid),
 				   // Inputs
 				   .clk			(clk),
@@ -81,12 +81,12 @@ module testbench; // Testbench
 	// Descripción estructural
 	/* transaccion_synth AUTO_TEMPLATE (
 				.data_out@  (data_out\1_synth[FIFO_WORD_SIZE-1:0]),
-			       .data	(data_synth[4:0]),
+			       .data	(data_synth[5:0]),
 			       .valid		(valid_synth));
 	 */
         transaccion_synth transaccion_synth_0 (/*AUTOINST*/
 					       // Outputs
-					       .data		(data_synth[4:0]), // Templated
+					       .data		(data_synth[5:0]), // Templated
 					       .data_out0	(data_out0_synth[FIFO_WORD_SIZE-1:0]), // Templated
 					       .data_out1	(data_out1_synth[FIFO_WORD_SIZE-1:0]), // Templated
 					       .data_out2	(data_out2_synth[FIFO_WORD_SIZE-1:0]), // Templated
