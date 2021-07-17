@@ -1,19 +1,19 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Tue Jul  6 06:29:08 2021
+[*] Sat Jul 17 09:49:56 2021
 [*]
-[dumpfile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/testbench/simulacion.vcd"
-[dumpfile_mtime] "Tue Jul  6 06:24:00 2021"
-[dumpfile_size] 28778
-[savefile] "/mnt/c/Users/Isaac/Desktop/VII/Circuitos_digitales_II/Proyecto/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/testbench/arbitro_sim.gtkw"
+[dumpfile] "/home/isaac/Desktop/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/testbench/simulacion.vcd"
+[dumpfile_mtime] "Sat Jul 17 09:47:58 2021"
+[dumpfile_size] 41473
+[savefile] "/home/isaac/Desktop/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Arbitro/testbench/arbitro_sim.gtkw"
 [timestart] 0
-[size] 1920 1007
-[pos] -213 -213
-*-45.730389 51900000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[size] 1224 958
+[pos] 271 2
+*-46.461349 51900000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
-[sst_width] 233
-[signals_width] 198
-[sst_expanded] 1
+[sst_width] 48
+[signals_width] 259
+[sst_expanded] 0
 [sst_vpaned_height] 408
 @28
 testbench.probador_0.clk
@@ -124,12 +124,5 @@ testbench.probador_0.push_p2_synth
 testbench.arbitro_cond.push_p3
 [color] 5
 testbench.probador_0.push_p3_synth
-@200
--
-@25
-testbench.arbitro_cond.dest[1:0]
-@200
--
--
 [pattern_trace] 1
 [pattern_trace] 0

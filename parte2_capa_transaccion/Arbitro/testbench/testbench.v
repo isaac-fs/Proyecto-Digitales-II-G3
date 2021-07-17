@@ -15,6 +15,7 @@ module testbench; // Testbench
 	wire		almostfull_p1;		// From probador_0 of probador.v
 	wire		almostfull_p2;		// From probador_0 of probador.v
 	wire		almostfull_p3;		// From probador_0 of probador.v
+	wire		clk;			// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] data_in_0;	// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] data_in_1;	// From probador_0 of probador.v
 	wire [FIFO_WORD_SIZE-1:0] data_in_2;	// From probador_0 of probador.v
@@ -47,6 +48,7 @@ module testbench; // Testbench
 	wire		push_p2_synth;		// From arbitro_synth of arbitro_synth.v
 	wire		push_p3;		// From arbitro_cond of arbitro.v
 	wire		push_p3_synth;		// From arbitro_synth of arbitro_synth.v
+	wire		reset_L;		// From probador_0 of probador.v
 	// End of automatics
 
 	// Descripción conductual
@@ -66,6 +68,8 @@ module testbench; // Testbench
 			      .push_p2		(push_p2),
 			      .push_p3		(push_p3),
 			      // Inputs
+			      .clk		(clk),
+			      .reset_L		(reset_L),
 			      .empty_p0		(empty_p0),
 			      .empty_p1		(empty_p1),
 			      .empty_p2		(empty_p2),
@@ -118,6 +122,7 @@ module testbench; // Testbench
 				     .almostfull_p1	(almostfull_p1),
 				     .almostfull_p2	(almostfull_p2),
 				     .almostfull_p3	(almostfull_p3),
+				     .clk		(clk),
 				     .data_in_0		(data_in_0[FIFO_WORD_SIZE-1:0]), // Templated
 				     .data_in_1		(data_in_1[FIFO_WORD_SIZE-1:0]), // Templated
 				     .data_in_2		(data_in_2[FIFO_WORD_SIZE-1:0]), // Templated
@@ -125,12 +130,15 @@ module testbench; // Testbench
 				     .empty_p0		(empty_p0),
 				     .empty_p1		(empty_p1),
 				     .empty_p2		(empty_p2),
-				     .empty_p3		(empty_p3));
+				     .empty_p3		(empty_p3),
+				     .reset_L		(reset_L));
 
 	// Probador: generador de señales y monitor
 	probador probador_0(
 		/*AUTOINST*/
 			    // Outputs
+			    .clk		(clk),
+			    .reset_L		(reset_L),
 			    .empty_p0		(empty_p0),
 			    .empty_p1		(empty_p1),
 			    .empty_p2		(empty_p2),

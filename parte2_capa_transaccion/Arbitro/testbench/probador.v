@@ -35,6 +35,8 @@ module probador #(
 	input push_p3_synth,
     // Salidas del generador de señales
     // Señales de empty de los FIFOS de entrada
+	output reg clk,
+	output reg reset_L,
 	output reg empty_p0,
 	output reg empty_p1,
 	output reg empty_p2,
@@ -64,7 +66,7 @@ module probador #(
     end 
 
     // Reloj
-	reg clk;
+
 	initial	clk <= 0;			// Valor inicial al reloj, sino siempre será indeterminado
 	always #10 clk <= ~clk;		// Hace "toggle" cada 2*1ns
 
@@ -81,6 +83,7 @@ module probador #(
         
 		// ** MODIFICAR A PARTIR DE ACÁ
         // Inicialización de datos
+		reset_L <= 0;
 		empty_p0 <= 0;
 		empty_p1 <= 0;
 		empty_p2 <= 0;
@@ -96,6 +99,7 @@ module probador #(
 		// Inicio de pruebas
 		
 		@(posedge clk) begin
+		reset_L <= 1;
 		data_in_0 <= 10'h1A6;
 		data_in_1 <= 10'h2B7;
 		data_in_2 <= 10'h017;
