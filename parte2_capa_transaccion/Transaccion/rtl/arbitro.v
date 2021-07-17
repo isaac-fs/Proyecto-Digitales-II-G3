@@ -1,6 +1,8 @@
 module arbitro #( // Un árbitro para 4 FIFOS
 	parameter FIFO_WORD_SIZE = 10
 ) (	
+	input clk,
+    input reset_L,
 	// Señales de empty de los FIFOS de entrada
 	input empty_p0,
 	input empty_p1,
@@ -68,20 +70,35 @@ module arbitro #( // Un árbitro para 4 FIFOS
 
 	// Lógica MUX/DEMUX -> El FIFO donde SI escribe lo determina el push
 
+	reg pop_p0_d, pop_p1_d, pop_p2_d, pop_p3_d;
+	always @(posedge clk) begin
+		if(~reset_L)begin
+			pop_p0_d <= 0;
+			pop_p1_d <= 0;
+			pop_p2_d <= 0;
+			pop_p3_d <= 0;
+		end
+		else begin
+			pop_p0_d <= pop_p0;
+			pop_p1_d <= pop_p1;
+			pop_p2_d <= pop_p2;
+			pop_p3_d <= pop_p3;
+		end
+	end
+
 	reg [1:0] dest; // Selector del demux 
 	reg [FIFO_WORD_SIZE-1:0] mux_out;
 
-	always @(*) begin
-		 
+	always @(*) begin	 
 		// Multiplexor
 		mux_out = 0; // Valor por defecto
-		if(pop_p0)
+		if(pop_p0_d)
 			mux_out = data_in_0;
-		else if (pop_p1)
+		else if (pop_p1_d)
 			mux_out = data_in_1;
-		else if (pop_p2)
+		else if (pop_p2_d)
 			mux_out = data_in_2;
-		else if (pop_p3)
+		else if (pop_p3_d)
 			mux_out = data_in_3;
 
 		// Demultiplexor
@@ -101,14 +118,14 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	end
 
 	//Lógica de PUSH
-	reg data_in;
+	reg data_valid;
 	always @(*) begin
 		push_p0 = 0;
 		push_p1 = 0;
 		push_p2 = 0;
 		push_p3 = 0;
-		data_in =  (data_in_0 || data_in_1  || data_in_2  || data_in_3);
-		if(!in_FIFOS_empty && !out_FIFOS_almost_full && data_in) begin
+		data_valid = (mux_out != 10'h0);
+		if(!out_FIFOS_almost_full && data_valid) begin // !in_FIFOS_empty && ?
 		/* El árbitro hace push siempre y cuando los fifos de entrada 
 		no estén vacíos y no haya ningún fifo de salida en almost full - Freddy (2021)*/
 			case(dest)

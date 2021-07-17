@@ -1,23 +1,22 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Sat Jul 17 05:12:56 2021
+[*] Sat Jul 17 09:42:19 2021
 [*]
-[dumpfile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.vcd"
-[dumpfile_mtime] "Sat Jul 17 05:11:51 2021"
-[dumpfile_size] 1468407
-[savefile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.gtkw"
-[timestart] 2305000000000000
-[size] 1040 563
+[dumpfile] "/home/isaac/Desktop/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.vcd"
+[dumpfile_mtime] "Sat Jul 17 09:23:46 2021"
+[dumpfile_size] 1430789
+[savefile] "/home/isaac/Desktop/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.gtkw"
+[timestart] 198000000000000
+[size] 1848 894
 [pos] -1 -1
-*-48.751167 3411000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-49.231018 4043000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
 [treeopen] testbench.transaccion_0.
 [treeopen] testbench.transaccion_synth_0.
 [treeopen] testbench.transaccion_synth_0.FIFO_in0.
-[treeopen] testbench.transaccion_synth_0.FIFO_out0.
-[sst_width] 48
-[signals_width] 294
-[sst_expanded] 0
+[sst_width] 297
+[signals_width] 333
+[sst_expanded] 1
 [sst_vpaned_height] 268
 @200
 >49011035675
@@ -31,9 +30,13 @@ testbench.reset_L
 -
 @22
 >0
+[color] 1
 testbench.probador_0.dest_n_data_in0[9:0]
+[color] 2
 testbench.probador_0.dest_n_data_in1[9:0]
+[color] 3
 testbench.probador_0.dest_n_data_in2[9:0]
+[color] 4
 testbench.probador_0.dest_n_data_in3[9:0]
 @200
 -
@@ -62,81 +65,125 @@ testbench.transaccion_0.FSM.almost_full_threshold_input[2:0]
 -
 >49011035675
 -FIFO_IN0
-@22
+@28
 >0
+[color] 7
+testbench.transaccion_0.FIFO_in0.init
+@24
+[color] 7
+testbench.transaccion_0.FIFO_in0.almost_empty_threshold[2:0]
+[color] 7
+testbench.transaccion_0.FIFO_in0.almost_full_threshold[2:0]
+[color] 2
+testbench.transaccion_0.FIFO_in0.N[2:0]
+@22
 testbench.transaccion_0.FIFO_in0.data_in[9:0]
 testbench.transaccion_0.FIFO_in0.data_out[9:0]
-@24
-testbench.transaccion_0.FIFO_in0.N[2:0]
 @28
 testbench.transaccion_0.FIFO_in0.almost_empty_flag
-testbench.transaccion_0.FIFO_in0.almost_full_flag
-testbench.transaccion_0.FIFO_in0.empty_flag
 testbench.transaccion_0.FIFO_in0.error_flag
+[color] 5
+testbench.transaccion_0.FIFO_in0.empty_flag
+[color] 2
+testbench.transaccion_0.FIFO_in0.almost_full_flag
 @200
 >49011035675
 -FIFO_IN1
-@22
+@c00022
 >0
-testbench.transaccion_0.FIFO_in1.data_in[9:0]
-testbench.transaccion_0.FIFO_in1.data_out[9:0]
+[color] 2
 testbench.transaccion_0.FIFO_in1.N[2:0]
 @28
-testbench.transaccion_0.FIFO_in1.almost_full_flag
+[color] 2
+(0)testbench.transaccion_0.FIFO_in1.N[2:0]
+[color] 2
+(1)testbench.transaccion_0.FIFO_in1.N[2:0]
+[color] 2
+(2)testbench.transaccion_0.FIFO_in1.N[2:0]
+@1401200
+-group_end
+@22
+testbench.transaccion_0.FIFO_in1.data_in[9:0]
+testbench.transaccion_0.FIFO_in1.data_out[9:0]
+@28
+[color] 5
 testbench.transaccion_0.FIFO_in1.empty_flag
+[color] 2
+testbench.transaccion_0.FIFO_in1.almost_full_flag
 @200
 >49011035675
 -FIFO_IN2
 @22
 >0
-testbench.transaccion_0.FIFO_in2.data_out[9:0]
+[color] 2
 testbench.transaccion_0.FIFO_in2.N[2:0]
+testbench.transaccion_0.FIFO_in2.data_in[9:0]
+testbench.transaccion_0.FIFO_in2.data_out[9:0]
 @28
+[color] 5
 testbench.transaccion_0.FIFO_in2.empty_flag
+[color] 2
 testbench.transaccion_0.FIFO_in2.almost_full_flag
 @200
 >49011035675
 -FIFO_IN3
 @22
 >0
+[color] 2
+testbench.transaccion_0.FIFO_in3.N[2:0]
 testbench.transaccion_0.FIFO_in3.data_in[9:0]
 testbench.transaccion_0.FIFO_in3.data_out[9:0]
-testbench.transaccion_0.FIFO_in3.N[2:0]
 @28
-testbench.transaccion_0.FIFO_in3.almost_full_flag
+[color] 5
 testbench.transaccion_0.FIFO_in3.empty_flag
+[color] 2
+testbench.transaccion_0.FIFO_in3.almost_full_flag
 @200
 -
 -Arbitro
 @22
+[color] 3
 testbench.transaccion_0.arbitro.data_in_0[9:0]
+[color] 3
 testbench.transaccion_0.arbitro.data_in_1[9:0]
+[color] 3
 testbench.transaccion_0.arbitro.data_in_2[9:0]
+[color] 3
 testbench.transaccion_0.arbitro.data_in_3[9:0]
 @200
 -
 @28
+[color] 1
 testbench.transaccion_0.arbitro.in_FIFOS_empty
+[color] 2
 testbench.transaccion_0.arbitro.out_FIFOS_almost_full
 @200
 -
 @22
 testbench.transaccion_0.arbitro.mux_out[9:0]
-@28
+@24
 testbench.transaccion_0.arbitro.dest[1:0]
 @200
 -
 @28
+[color] 2
 testbench.transaccion_0.arbitro.pop_p0
+[color] 2
 testbench.transaccion_0.arbitro.pop_p1
+[color] 2
 testbench.transaccion_0.arbitro.pop_p2
+[color] 2
 testbench.transaccion_0.arbitro.pop_p3
 @200
 -
 @28
+[color] 5
 testbench.transaccion_0.arbitro.push_p0
+[color] 5
 testbench.transaccion_0.arbitro.push_p1
+[color] 5
 testbench.transaccion_0.arbitro.push_p2
+[color] 5
 testbench.transaccion_0.arbitro.push_p3
 @200
 -
@@ -147,57 +194,75 @@ testbench.probador_0.clk
 -FIFO_OUT0
 @24
 >0
+[color] 3
 testbench.transaccion_0.FIFO_out0.N[2:0]
 @22
 testbench.transaccion_0.FIFO_out0.data_in[9:0]
 testbench.transaccion_0.FIFO_out0.data_out[9:0]
 @28
+[color] 5
 testbench.transaccion_0.FIFO_out0.empty_flag
+[color] 2
 testbench.transaccion_0.FIFO_out0.almost_full_flag
 @200
 >49011035675
 -FIFO_OUT1
 @24
 >0
+[color] 3
 testbench.transaccion_0.FIFO_out1.N[2:0]
 @22
 testbench.transaccion_0.FIFO_out1.data_in[9:0]
 testbench.transaccion_0.FIFO_out1.data_out[9:0]
 @28
+[color] 5
 testbench.transaccion_0.FIFO_out1.empty_flag
+[color] 2
 testbench.transaccion_0.FIFO_out1.almost_full_flag
 @200
 >49011035675
 -FIFO_OUT2
 @24
 >0
+[color] 3
 testbench.transaccion_0.FIFO_out2.N[2:0]
 @22
 testbench.transaccion_0.FIFO_out2.data_in[9:0]
 testbench.transaccion_0.FIFO_out2.data_out[9:0]
 @28
+[color] 5
 testbench.transaccion_0.FIFO_out2.empty_flag
+[color] 2
 testbench.transaccion_0.FIFO_out2.almost_full_flag
 @200
 >49011035675
 -FIFO_OUT3
 @24
 >0
+[color] 3
 testbench.transaccion_0.FIFO_out3.N[2:0]
 @22
 testbench.transaccion_0.FIFO_out3.data_in[9:0]
 testbench.transaccion_0.FIFO_out3.data_out[9:0]
 @28
+[color] 5
 testbench.transaccion_0.FIFO_out3.empty_flag
+[color] 2
 testbench.transaccion_0.FIFO_out3.almost_full_flag
 @200
 >49011035675
 -Probador (entrada)
-@22
+@28
 >0
+testbench.clk
+@22
+[color] 3
 testbench.probador_0.dest_n_data_in0[9:0]
+[color] 3
 testbench.probador_0.dest_n_data_in1[9:0]
+[color] 3
 testbench.probador_0.dest_n_data_in2[9:0]
+[color] 3
 testbench.probador_0.dest_n_data_in3[9:0]
 @200
 >49011035675
@@ -224,13 +289,24 @@ testbench.probador_0.pop_FIFO_out3
 -
 @22
 >0
+[color] 2
 testbench.probador_0.data_out0[9:0]
-testbench.probador_0.data_out0_synth[9:0]
+[color] 2
 testbench.probador_0.data_out1[9:0]
-testbench.probador_0.data_out1_synth[9:0]
+[color] 2
 testbench.probador_0.data_out2[9:0]
-testbench.probador_0.data_out2_synth[9:0]
+[color] 2
 testbench.probador_0.data_out3[9:0]
+@200
+-
+@22
+[color] 6
+testbench.probador_0.data_out0_synth[9:0]
+[color] 6
+testbench.probador_0.data_out1_synth[9:0]
+[color] 6
+testbench.probador_0.data_out2_synth[9:0]
+[color] 6
 testbench.probador_0.data_out3_synth[9:0]
 @200
 >49011035675
@@ -239,27 +315,25 @@ testbench.probador_0.data_out3_synth[9:0]
 -Contadores
 @28
 >0
-testbench.probador_0.clk
-testbench.transaccion_0.contadores.empty_FIFO_0
-testbench.transaccion_0.contadores.empty_FIFO_1
-testbench.transaccion_0.contadores.empty_FIFO_2
-testbench.transaccion_0.contadores.empty_FIFO_3
-@200
--
-@28
-testbench.transaccion_0.contadores.pop_0
-testbench.transaccion_0.contadores.pop_1
-testbench.transaccion_0.contadores.pop_2
-testbench.transaccion_0.contadores.pop_3
-@200
--
--
-@28
 testbench.transaccion_0.idle
 testbench.probador_0.req
-@24
+@25
 testbench.probador_0.idx[1:0]
+@200
+-
+@24
+[color] 2
+testbench.data[5:0]
+@28
+[color] 2
+testbench.probador_0.valid
+@200
+-
+@28
+[color] 6
+testbench.probador_0.valid_synth
 @c00024
+[color] 6
 testbench.data_synth[5:0]
 @28
 (0)testbench.data_synth[5:0]
@@ -270,10 +344,5 @@ testbench.data_synth[5:0]
 (5)testbench.data_synth[5:0]
 @1401200
 -group_end
-@24
-testbench.data[5:0]
-@28
-testbench.probador_0.valid
-testbench.probador_0.valid_synth
 [pattern_trace] 1
 [pattern_trace] 0

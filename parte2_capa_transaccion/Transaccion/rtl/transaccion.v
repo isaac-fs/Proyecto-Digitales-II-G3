@@ -270,6 +270,8 @@ module transaccion #(
     .FIFO_WORD_SIZE (FIFO_WORD_SIZE)
 ) arbitro(
 		   // Outputs
+		   .clk (clk),
+		   .reset_L (reset_L),
 		   .data_out_0		(data_A_F_0[FIFO_WORD_SIZE-1:0]),
 		   .data_out_1		(data_A_F_1[FIFO_WORD_SIZE-1:0]),
 		   .data_out_2		(data_A_F_2[FIFO_WORD_SIZE-1:0]),

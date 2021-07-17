@@ -71,9 +71,9 @@ module probador #(
 		$dumpfile("testbench/transaccion_sim.vcd");	// Nombre de archivo del "dump"
 		$dumpvars;              // Directiva para "dumpear" variables
 		// Mensaje que se imprime en consola una vez
-		$display ("\t\ttime\tclk,\tcheck");
+		//$display ("\t\ttime\tclk,\tcheck");
 		// Mensaje que se imprime en consola cada vez que un elemento de la lista cambia
-		$monitor($time,"\t%b%d", clk, check);
+		//$monitor($time,"\t%b%d", clk, check);
         
 		// ** MODIFICAR A PARTIR DE ACÁ
         // Inicialización de datos
@@ -119,6 +119,8 @@ module probador #(
 			almost_full_threshold_input <= 6;
 		end
 
+
+		// Prueba almost full
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h0A6;
@@ -132,7 +134,6 @@ module probador #(
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h0CC;
-
 		end
 		
 		@(posedge clk) begin
@@ -142,14 +143,8 @@ module probador #(
 
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
-		dest_n_data_in0 <= 10'h001;
+		dest_n_data_in0 <= 10'h012;
 		end
-
-		@(posedge clk) begin
-		push_FIFO_in0 <= 0;
-		dest_n_data_in0 <= 0;
-		end
-	
 		
 		// Se dejan todos los FIFO out con 5 datos para luego provocar nada mas el almost 			full en el FIFO out 0.
 		
@@ -166,23 +161,16 @@ module probador #(
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h1CC;
-
-		end
-		
-		@(posedge clk) begin
-		push_FIFO_in0 <= 1;
-		dest_n_data_in0 <= 10'h101;
 		end
 		
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h15B;
 		end
-		
-		
+
 		@(posedge clk) begin
-		push_FIFO_in0 <= 0;
-		dest_n_data_in0 <= 0;
+		push_FIFO_in0 <= 1;
+		dest_n_data_in0 <= 10'h1BB;
 		end
 	
 		// Se deja el FIFO out 1 con 5 datos
@@ -199,21 +187,17 @@ module probador #(
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h2CC;
+		end
 
-		end
-		@(posedge clk) begin
-		push_FIFO_in0 <= 1;
-		dest_n_data_in0 <= 10'h25B;
-		end
 		
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h201;
 		end
-		
+
 		@(posedge clk) begin
-		push_FIFO_in0 <= 0;
-		dest_n_data_in0 <= 0;
+		push_FIFO_in0 <= 1;
+		dest_n_data_in0 <= 10'h237;
 		end
 		
 	
@@ -231,137 +215,108 @@ module probador #(
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h3CC;
-
 		end
 		
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h301;
 		end
+
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
-		dest_n_data_in0 <= 10'h35B;
+		dest_n_data_in0 <= 10'h321;
 		end
-		
-		@(posedge clk) begin
-		push_FIFO_in0 <= 0;
-		dest_n_data_in0 <= 0;
-		end
-		// Se deja el FIFO out 3 con 5 datos		
-		
-		
+
+		// // Se deja el FIFO out 3 con 5 datos	
+
+		// Llevar a 6
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h0A6;
 		end
-		@(posedge clk) begin
-		push_FIFO_in0 <= 1;
-		dest_n_data_in0 <= 10'h0AA;
-		end
-		@(posedge clk) begin
-		push_FIFO_in0 <= 0;
-		dest_n_data_in0 <= 0;
-		end
 
-		
-		//Se espera un par de ciclos para que el dato llegue y se levante la bandera del 			almost full para luego hacer un unico pop para FIFO out 0
-		@(posedge clk) begin
-		pop_FIFO_out0 <= 1;
-		end
-		@(posedge clk) begin
-		pop_FIFO_out0 <= 0;
-		end
-		// Se realiza el push con un dato de destino del FIFO out 1 para repetir el mismo 			proceso
-		
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h1A6;
 		end
-		@(posedge clk) begin
-		push_FIFO_in0 <= 1;
-		dest_n_data_in0 <= 10'h1AA;
-		end
+
 		@(posedge clk) begin
 		push_FIFO_in0 <= 0;
-		dest_n_data_in0 <= 0;
 		end
+
+		// pop
 		@(posedge clk) begin
 		pop_FIFO_out0 <= 1;
 		end
-		@(posedge clk) begin
-		pop_FIFO_out0 <= 0;
-		end
-		
 
+		//----------------------------
 		@(posedge clk) begin
-		pop_FIFO_out1 <= 1;
+		push_FIFO_in0 <= 1;
+		dest_n_data_in0 <= 10'h1A6;
 		end
-		@(posedge clk) begin
-		pop_FIFO_out1 <= 0;
-		end
-		// Se realiza el push con un dato de destino del FIFO out 2 para repetir el mismo 			proceso
-		
+
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h2A6;
 		end
-		@(posedge clk) begin
-		push_FIFO_in0 <= 1;
-		dest_n_data_in0 <= 10'h2AA;
-		end
-		@(posedge clk) begin
-		push_FIFO_in0 <= 0;
-		dest_n_data_in0 <= 0;
-		end
-		@(posedge clk) begin
-		pop_FIFO_out1 <= 1;
-		end
-		@(posedge clk) begin
-		pop_FIFO_out1 <= 0;
-		end
-		
 
 		@(posedge clk) begin
-		pop_FIFO_out2 <= 1;
+		push_FIFO_in0 <= 1;
+		dest_n_data_in0 <= 10'h2A6;
 		end
+
+		// pop
 		@(posedge clk) begin
-		pop_FIFO_out2 <= 0;
+		pop_FIFO_out0 <= 0;	
+		pop_FIFO_out1 <= 1;
 		end
-		// Se realiza el push con un dato de destino del FIFO out 1 para repetir el mismo 			proceso
-		
+
+		//----------------------------
+		@(posedge clk) begin
+		pop_FIFO_out1 <= 0;
+		push_FIFO_in0 <= 1;
+		dest_n_data_in0 <= 10'h3A6;
+		end
+
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		dest_n_data_in0 <= 10'h3A6;
 		end
+
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
-		dest_n_data_in0 <= 10'h3AA;
+		dest_n_data_in0 <= 10'h3A6;
 		end
-		@(posedge clk) begin
-		push_FIFO_in0 <= 0;
-		dest_n_data_in0 <= 0;
-		end
+
+		// pop
 		@(posedge clk) begin
 		pop_FIFO_out2 <= 1;
 		end
+
+		@(posedge clk) begin
+		pop_FIFO_out2 <= 1;
+		end
+
+		@(posedge clk) begin
+		pop_FIFO_out2 <= 1;
+		end
+
+		@(posedge clk) begin
+		pop_FIFO_out2 <= 1;
+		end
+
 		@(posedge clk) begin
 		pop_FIFO_out2 <= 0;
 		end
 		
 		// LLENAR FIFOS DE ENTRADA
-		repeat(7) begin
-			@(posedge clk) begin
-				push_FIFO_in0 <= 1;
-				dest_n_data_in0 <= dest_n_data_in0 + 1;
-			end
-		end
 
 		@(posedge clk) begin
 		push_FIFO_in0 <= 0;
 		dest_n_data_in0 <= 0;
 		end
 
-		repeat(7) begin
+		repeat(6) begin
 			@(posedge clk) begin
 				push_FIFO_in1 <= 1;
 				dest_n_data_in1 <= dest_n_data_in1 + 1;
@@ -373,7 +328,7 @@ module probador #(
 		dest_n_data_in1 <= 0;
 		end
 
-		repeat(7) begin
+		repeat(6) begin
 			@(posedge clk) begin
 				push_FIFO_in2 <= 1;
 				dest_n_data_in2 <= dest_n_data_in2 + 1;
@@ -385,7 +340,7 @@ module probador #(
 		dest_n_data_in2 <= 0;
 		end
 
-		repeat(7) begin
+		repeat(6) begin
 			@(posedge clk) begin
 				push_FIFO_in3 <= 1;
 				dest_n_data_in3 <= dest_n_data_in3 + 1;
@@ -399,7 +354,7 @@ module probador #(
 
 
 		//Vaciar FIFOS
-		repeat(5) begin
+		repeat(2) begin
 			@(posedge clk) begin
 				pop_FIFO_out0 <= 1;
 			end
@@ -419,7 +374,7 @@ module probador #(
 		pop_FIFO_out1 <= 0;
 		end
 
-		repeat(5) begin
+		repeat(2) begin
 			@(posedge clk) begin
 				pop_FIFO_out2 <= 1;
 			end
@@ -429,7 +384,7 @@ module probador #(
 		pop_FIFO_out2 <= 0;
 		end
 
-		repeat(7) begin
+		repeat(12) begin
 			@(posedge clk) begin
 				pop_FIFO_out3 <= 1;
 			end
@@ -439,8 +394,7 @@ module probador #(
 		pop_FIFO_out3 <= 0;
 		end
 
-		//////////////////////////////
-		repeat(27) begin
+		repeat(18) begin
 			@(posedge clk) begin
 				pop_FIFO_out0 <= 1;
 			end
@@ -450,34 +404,42 @@ module probador #(
 		pop_FIFO_out0 <= 0;
 		end
 
+		//////////////////////////////
+
 		#60
 
+		
 		@(posedge clk) begin
 		req <= 1;
 		idx <= 0;
 		end
+		@(posedge clk);
+		@(posedge clk);
 		//Se dejan dos ciclos entre cada request para un indice diferente para evitar 			problemas de que los bits no cambian al mismo tiempo
-		#20
 		@(posedge clk) begin
 		req <= 1;
 		idx <= 1;
 		end
-		#20
+		@(posedge clk);
+		@(posedge clk);
 		@(posedge clk) begin
 		req <= 1;
 		idx <= 2;
 		end
-		#20
 		@(posedge clk) begin
 		req <= 1;
 		idx <= 3;
 		end
-		
+		@(posedge clk);
+		@(posedge clk);
 		@(posedge clk) begin
 		req <= 0;
 		idx <= 0;
 		end
 		
+		#600
+		//LLenar con 4 cada FIFO in
+
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
 		push_FIFO_in1 <= 1;
@@ -521,6 +483,7 @@ module probador #(
 		dest_n_data_in2 <= 10'h0F8;
 		dest_n_data_in3 <= 10'h129;
 		end
+		
 		@(posedge clk) begin
 		push_FIFO_in0 <= 0;
 		push_FIFO_in1 <= 0;
@@ -531,20 +494,9 @@ module probador #(
 		dest_n_data_in2 <= 0;
 		dest_n_data_in3 <= 0;
 		end
-		// Se dan varios ciclos de reloj para que los datos lleguen
-		@(posedge clk); 
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk);
+		//////////////////////xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+		//Se dan varios ciclos de reloj para que los datos lleguen
+		#600
 		@(posedge clk) begin
 		pop_FIFO_out0 <= 1;
 		pop_FIFO_out1 <= 1;
@@ -553,16 +505,12 @@ module probador #(
 		end
 		@(posedge clk);
 		@(posedge clk);
+		@(posedge clk);
 		@(posedge clk) begin
+		pop_FIFO_out0 <= 0;
 		pop_FIFO_out1 <= 0;
 		pop_FIFO_out2 <= 0;
 		pop_FIFO_out3 <= 0;
-		end
-		@(posedge clk);
-		@(posedge clk);
-		@(posedge clk)
-		@(posedge clk) begin
-		pop_FIFO_out0 <= 0;
 		end
 		
 		// Ahora que todos estan vacios se vuelve a contar las palabras
@@ -591,9 +539,8 @@ module probador #(
 		end
 		@(posedge clk);
 		@(posedge clk);
-		// Final de pruebas
-		
-		#200
+
+		#100
 		// Final de pruebas
 		
 		$finish; // Termina de almacenar señales
