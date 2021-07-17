@@ -13,7 +13,7 @@ module contadores ( // Contador de salida de datos para 4 salidas
     input empty_FIFO_1,
     input empty_FIFO_2,
     input empty_FIFO_3,    
-    output reg [4:0] data, // cuenta del idx seleccionados
+    output reg [5:0] data, // cuenta del idx seleccionados
     output reg valid); // si la cuenta es válida i.e. si se leyó en idle
     /*
     Almacenan la cantidad de
@@ -26,7 +26,7 @@ module contadores ( // Contador de salida de datos para 4 salidas
     Va pegado a las salidas de los FIFOs de salida.
     */    
 
-    reg [4:0] contador [3:0]; // contador con palabras de 5 bits y profundidad de 4
+    reg [5:0] contador [3:0]; // contador con palabras de 5 bits y profundidad de 4
     integer i;
     always @(posedge clk) begin
         if(~rst_l) begin

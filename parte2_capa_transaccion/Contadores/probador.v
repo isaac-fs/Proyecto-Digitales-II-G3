@@ -16,8 +16,8 @@ module probador(
       output reg empty_FIFO_1,
       output reg empty_FIFO_2,
       output reg empty_FIFO_3,   
-      input [4:0] data,
-      input [4:0] data_E,
+      input [5:0] data,
+      input [5:0] data_E,
       input valid,
       input valid_E);
  

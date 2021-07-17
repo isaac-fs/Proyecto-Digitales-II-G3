@@ -10,8 +10,8 @@ module banco_pruebas;
 /*AUTOWIRE*/
 // Beginning of automatic wires (for undeclared instantiated-module outputs)
 wire			clk;			// From probador of probador.v
-wire [4:0]		data;			// From contadores of contadores.v
-wire [4:0]		data_E;			// From contadores_synth_0 of contadores_synth.v
+wire [5:0]		data;			// From contadores of contadores.v
+wire [5:0]		data_E;			// From contadores_synth_0 of contadores_synth.v
 wire [9:0]		data_out_FIFO_0;	// From probador of probador.v
 wire [9:0]		data_out_FIFO_1;	// From probador of probador.v
 wire [9:0]		data_out_FIFO_2;	// From probador of probador.v
@@ -35,7 +35,7 @@ wire			valid_E;		// From contadores_synth_0 of contadores_synth.v
 
 contadores contadores(/*AUTOINST*/
 		      // Outputs
-		      .data		(data[4:0]),
+		      .data		(data[5:0]),
 		      .valid		(valid),
 		      // Inputs
 		      .clk		(clk),
@@ -53,11 +53,11 @@ contadores contadores(/*AUTOINST*/
 		      .empty_FIFO_3	(empty_FIFO_3));
 
 /*contadores_synth AUTO_TEMPLATE(
-	.data		(data_E[4:0]),
+	.data		(data_E[5:0]),
 	.valid		(valid_E));*/
 contadores_synth contadores_synth_0 (/*AUTOINST*/
 				     // Outputs
-				     .data		(data_E[4:0]),	 // Templated
+				     .data		(data_E[5:0]),	 // Templated
 				     .valid		(valid_E),	 // Templated
 				     // Inputs
 				     .clk		(clk),
@@ -94,8 +94,8 @@ probador probador(/*AUTOINST*/
 		  .empty_FIFO_2		(empty_FIFO_2),
 		  .empty_FIFO_3		(empty_FIFO_3),
 		  // Inputs
-		  .data			(data[4:0]),
-		  .data_E		(data_E[4:0]),
+		  .data			(data[5:0]),
+		  .data_E		(data_E[5:0]),
 		  .valid		(valid),
 		  .valid_E		(valid_E));
 
