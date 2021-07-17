@@ -1,24 +1,24 @@
 [*]
 [*] GTKWave Analyzer v3.3.103 (w)1999-2019 BSI
-[*] Fri Jul 16 10:55:09 2021
+[*] Sat Jul 17 05:12:56 2021
 [*]
-[dumpfile] "/home/isaac/Desktop/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.vcd"
-[dumpfile_mtime] "Fri Jul 16 10:50:19 2021"
-[dumpfile_size] 1381224
-[savefile] "/home/isaac/Desktop/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.gtkw"
-[timestart] 9000000000000
-[size] 1848 894
+[dumpfile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.vcd"
+[dumpfile_mtime] "Sat Jul 17 05:11:51 2021"
+[dumpfile_size] 1468407
+[savefile] "/home/david/Escritorio/github/Proyecto-Digitales-II-G3/parte2_capa_transaccion/Transaccion/testbench/transaccion_sim.gtkw"
+[timestart] 2305000000000000
+[size] 1040 563
 [pos] -1 -1
-*-48.922977 2821000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+*-48.751167 3411000000000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
 [treeopen] testbench.
 [treeopen] testbench.transaccion_0.
 [treeopen] testbench.transaccion_synth_0.
 [treeopen] testbench.transaccion_synth_0.FIFO_in0.
 [treeopen] testbench.transaccion_synth_0.FIFO_out0.
-[sst_width] 233
-[signals_width] 422
-[sst_expanded] 1
-[sst_vpaned_height] 277
+[sst_width] 48
+[signals_width] 294
+[sst_expanded] 0
+[sst_vpaned_height] 268
 @200
 >49011035675
 -Clock y control
@@ -268,7 +268,7 @@ testbench.data_synth[5:0]
 (3)testbench.data_synth[5:0]
 (4)testbench.data_synth[5:0]
 (5)testbench.data_synth[5:0]
-@1401204
+@1401200
 -group_end
 @24
 testbench.data[5:0]

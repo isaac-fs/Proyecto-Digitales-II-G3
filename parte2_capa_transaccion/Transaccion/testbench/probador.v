@@ -449,241 +449,6 @@ module probador #(
 		@(posedge clk) begin
 		pop_FIFO_out0 <= 0;
 		end
-		// // No es necesario realizar un pop ya que se levanto la bandera para todos los 			FIFO de almost full. Siguiente paso es provocar almost full en los de entrada.
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h0A6;
-		// dest_n_data_in1 <= 10'h145;
-		// dest_n_data_in2 <= 10'h278;
-		// dest_n_data_in3 <= 10'h389;
-		// end
-		
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h15B;
-		// dest_n_data_in1 <= 10'h23A;
-		// dest_n_data_in2 <= 10'h399;
-		// dest_n_data_in3 <= 10'h00B;
-		// end
-		
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h3CC;
-		// dest_n_data_in1 <= 10'h017;
-		// dest_n_data_in2 <= 10'h1F8;
-		// dest_n_data_in3 <= 10'h24C;
-		// end
-		
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h201;
-		// dest_n_data_in1 <= 10'h37E;
-		// dest_n_data_in2 <= 10'h0F8;
-		// dest_n_data_in3 <= 10'h129;
-		// end
-		
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h0A6;
-		// dest_n_data_in1 <= 10'h145;
-		// dest_n_data_in2 <= 10'h278;
-		// dest_n_data_in3 <= 10'h389;
-		// end
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h3CC;
-		// dest_n_data_in1 <= 10'h017;
-		// dest_n_data_in2 <= 10'h1F8;
-		// dest_n_data_in3 <= 10'h24C;
-		// end
-		
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 0;
-		// push_FIFO_in1 <= 0;
-		// push_FIFO_in2 <= 0;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 0;
-		// dest_n_data_in1 <= 0;
-		// dest_n_data_in2 <= 0;
-		// dest_n_data_in3 <= 10'h24C;
-		// end
-
-
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 0;
-		// push_FIFO_in1 <= 0;
-		// push_FIFO_in2 <= 0;
-		// push_FIFO_in3 <= 0;
-		// dest_n_data_in0 <= 0;
-		// dest_n_data_in1 <= 0;
-		// dest_n_data_in2 <= 0;
-		// dest_n_data_in3 <= 0;
-		// end
-		
-
-		// // Se almacenan 6 datos en cada uno de los FIFO in para levantar la bandera de 			almost full para cada FIFO in. Se detiene de enviar datos 
-		// // Se hacen 5 pops en todos los FIFO out y uno extra para el FIFO out3 para sacar 			los datos que se tenian desde un inicio. 
-		// @(posedge clk) begin
-		// pop_FIFO_out0 <= 1;
-		// pop_FIFO_out1 <= 1;
-		// pop_FIFO_out2 <= 1;
-		// pop_FIFO_out3 <= 1;
-		// end
-
-		// @(posedge clk) begin
-		// pop_FIFO_out0 <= 0;
-		// pop_FIFO_out1 <= 0;
-		// pop_FIFO_out2 <= 0;
-		// pop_FIFO_out3 <= 1;
-		// end
-		// @(posedge clk) begin
-		// pop_FIFO_out3 <= 0;
-		// end
-		// // Se dejan correr unos ciclos con los pops en 0 para que lleguen los datos los 			FIFO in a los FIFO out,se debe evitar que haya un almost full para que no se 		detenga el arbitro
-	
-		// @(posedge clk) begin
-		// pop_FIFO_out0 <= 1;
-		// pop_FIFO_out1 <= 1;
-		// pop_FIFO_out2 <= 1;
-		// pop_FIFO_out3 <= 1;
-		// end
-		// @(posedge clk) begin
-		// pop_FIFO_out0 <= 0;
-		// pop_FIFO_out1 <= 0;
-		// pop_FIFO_out2 <= 0;
-		// pop_FIFO_out3 <= 0;
-		// end
-
-		// // Se da un poco mas de tiempo para que lleguen los valores a los FIFO out
-		// @(posedge clk) begin
-		// pop_FIFO_out0 <= 1;
-		// pop_FIFO_out1 <= 1;
-		// pop_FIFO_out2 <= 1;
-		// pop_FIFO_out3 <= 1;
-		// end
-	
-		// @(posedge clk) begin
-		// pop_FIFO_out0 <= 0;
-		// pop_FIFO_out1 <= 0;
-		// pop_FIFO_out2 <= 0;
-		// pop_FIFO_out3 <= 0;
-		// end
-		// Se vacian todos los FIFO para poder cambiar levantar la bandera de que todos 			estan empty y poder pasar la maquina de estados a idle. 
-	
-		// @(posedge clk) begin
-		// req <= 1;
-		// idx <= 0;
-		// end
-		// //Se dejan dos ciclos entre cada request para un indice diferente para evitar 			problemas de que los bits no cambian al mismo tiempo
-	
-		// @(posedge clk) begin
-		// req <= 1;
-		// idx <= 1;
-		// end
-	
-		// @(posedge clk) begin
-		// req <= 1;
-		// idx <= 2;
-		// end
-		
-		// @(posedge clk) begin
-		// req <= 1;
-		// idx <= 3;
-		// end
-		
-		// @(posedge clk) begin
-		// req <= 0;
-		// idx <= 0;
-		// end
-		
-		// // Se envian 4 palabras mas a cada FIFO 
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h0A6;
-		// dest_n_data_in1 <= 10'h145;
-		// dest_n_data_in2 <= 10'h278;
-		// dest_n_data_in3 <= 10'h389;
-		// end
-		
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h15B;
-		// dest_n_data_in1 <= 10'h23A;
-		// dest_n_data_in2 <= 10'h399;
-		// dest_n_data_in3 <= 10'h00B;
-		// end
-		
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h3CC;
-		// dest_n_data_in1 <= 10'h017;
-		// dest_n_data_in2 <= 10'h1F8;
-		// dest_n_data_in3 <= 10'h24C;
-		// end
-		
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 1;
-		// push_FIFO_in1 <= 1;
-		// push_FIFO_in2 <= 1;
-		// push_FIFO_in3 <= 1;
-		// dest_n_data_in0 <= 10'h201;
-		// dest_n_data_in1 <= 10'h37E;
-		// dest_n_data_in2 <= 10'h0F8;
-		// dest_n_data_in3 <= 10'h129;
-		// end
-		// @(posedge clk) begin
-		// push_FIFO_in0 <= 0;
-		// push_FIFO_in1 <= 0;
-		// push_FIFO_in2 <= 0;
-		// push_FIFO_in3 <= 0;
-		// dest_n_data_in0 <= 0;
-		// dest_n_data_in1 <= 0;
-		// dest_n_data_in2 <= 0;
-		// dest_n_data_in3 <= 0;
-		// end
-		// // Se dan varios ciclos de reloj para que los datos lleguen
-	
-		// @(posedge clk) begin
-		// pop_FIFO_out0 <= 1;
-		// pop_FIFO_out1 <= 1;
-		// pop_FIFO_out2 <= 1;
-		// pop_FIFO_out3 <= 1;
-		// end
-	
-		// @(posedge clk) begin
-		// pop_FIFO_out0 <= 0;
-		// pop_FIFO_out1 <= 0;
-		// pop_FIFO_out2 <= 0;
-		// pop_FIFO_out3 <= 0;
-		// end
-		// Ahora que todos estan vacios se vuelve a contar las palabras
 
 		#60
 
@@ -707,6 +472,126 @@ module probador #(
 		req <= 1;
 		idx <= 3;
 		end
+		
+		@(posedge clk) begin
+		req <= 0;
+		idx <= 0;
+		end
+		
+		@(posedge clk) begin
+		push_FIFO_in0 <= 1;
+		push_FIFO_in1 <= 1;
+		push_FIFO_in2 <= 1;
+		push_FIFO_in3 <= 1;
+		dest_n_data_in0 <= 10'h0A6;
+		dest_n_data_in1 <= 10'h145;
+		dest_n_data_in2 <= 10'h278;
+		dest_n_data_in3 <= 10'h389;
+		end
+		
+		@(posedge clk) begin
+		push_FIFO_in0 <= 1;
+		push_FIFO_in1 <= 1;
+		push_FIFO_in2 <= 1;
+		push_FIFO_in3 <= 1;
+		dest_n_data_in0 <= 10'h15B;
+		dest_n_data_in1 <= 10'h23A;
+		dest_n_data_in2 <= 10'h399;
+		dest_n_data_in3 <= 10'h00B;
+		end
+		
+		@(posedge clk) begin
+		push_FIFO_in0 <= 1;
+		push_FIFO_in1 <= 1;
+		push_FIFO_in2 <= 1;
+		push_FIFO_in3 <= 1;
+		dest_n_data_in0 <= 10'h3CC;
+		dest_n_data_in1 <= 10'h017;
+		dest_n_data_in2 <= 10'h1F8;
+		dest_n_data_in3 <= 10'h24C;
+		end
+		
+		@(posedge clk) begin
+		push_FIFO_in0 <= 1;
+		push_FIFO_in1 <= 1;
+		push_FIFO_in2 <= 1;
+		push_FIFO_in3 <= 1;
+		dest_n_data_in0 <= 10'h201;
+		dest_n_data_in1 <= 10'h37E;
+		dest_n_data_in2 <= 10'h0F8;
+		dest_n_data_in3 <= 10'h129;
+		end
+		@(posedge clk) begin
+		push_FIFO_in0 <= 0;
+		push_FIFO_in1 <= 0;
+		push_FIFO_in2 <= 0;
+		push_FIFO_in3 <= 0;
+		dest_n_data_in0 <= 0;
+		dest_n_data_in1 <= 0;
+		dest_n_data_in2 <= 0;
+		dest_n_data_in3 <= 0;
+		end
+		// Se dan varios ciclos de reloj para que los datos lleguen
+		@(posedge clk); 
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk) begin
+		pop_FIFO_out0 <= 1;
+		pop_FIFO_out1 <= 1;
+		pop_FIFO_out2 <= 1;
+		pop_FIFO_out3 <= 1;
+		end
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk) begin
+		pop_FIFO_out1 <= 0;
+		pop_FIFO_out2 <= 0;
+		pop_FIFO_out3 <= 0;
+		end
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk)
+		@(posedge clk) begin
+		pop_FIFO_out0 <= 0;
+		end
+		
+		// Ahora que todos estan vacios se vuelve a contar las palabras
+		@(posedge clk) begin
+		req <= 1;
+		idx <= 0;
+		end
+		//Se dejan dos ciclos entre cada request para un indice diferente para evitar 			problemas de que los bits no cambian al mismo tiempo
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk) begin
+		req <= 1;
+		idx <= 1;
+		end
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk) begin
+		req <= 1;
+		idx <= 2;
+		end
+		@(posedge clk);
+		@(posedge clk);
+		@(posedge clk) begin
+		req <= 1;
+		idx <= 3;
+		end
+		@(posedge clk);
+		@(posedge clk);
+		// Final de pruebas
 		
 		#200
 		// Final de pruebas
