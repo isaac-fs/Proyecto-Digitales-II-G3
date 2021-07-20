@@ -9,7 +9,8 @@ module memoria #(
 	input [WORD_SIZE-1:0] data_in,
 	input [PTR_SIZE-1:0] wr_ptr, 
 	input [PTR_SIZE-1:0] rd_ptr,
-	output reg [WORD_SIZE-1:0] data_out);
+	output reg [WORD_SIZE-1:0] data_out,
+	output reg valid);
 
    // wr_en y rd_en permiten escritura y lectura respectivamente
    // wr_ptr y rd_ptr brindan las direcciones para lecura y escritura en la memoria
@@ -25,13 +26,18 @@ module memoria #(
 	    for (i=0; i<MEM_DEPTH; i = i+1)
 			mem[i] <= 0;
 	    	data_out <= 0;
+			valid <= 0;
 		end
 	else
 	  begin //Lógica de lectura y escritura de la memoria
 	     if(wr_en)
 	       mem[wr_ptr] <= data_in;
-	     if(rd_en)
-	       data_out <= mem[rd_ptr];
+	     if(rd_en) begin
+			data_out <= mem[rd_ptr]; 
+			valid <= 1;
+		 end
+		 else 
+		 	valid <= 0;
 	  end // else: !if(!reset_L)
 	end // always @ (posedge clk)
 endmodule // memoria
