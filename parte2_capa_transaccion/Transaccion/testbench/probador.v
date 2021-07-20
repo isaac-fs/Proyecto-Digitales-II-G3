@@ -11,9 +11,9 @@ module probador #(
 	input [FIFO_WORD_SIZE-1:0] data_out1,
    	input [FIFO_WORD_SIZE-1:0] data_out2,
   	input [FIFO_WORD_SIZE-1:0] data_out3,
-    	//Salidas desde contadores
+    //Salidas desde contadores
 	input [4:0] data,
-    	input 	 valid,
+    input 	 valid,
 // Síntesis
 	input [FIFO_WORD_SIZE-1:0] data_out0_synth,
 	input [FIFO_WORD_SIZE-1:0] data_out1_synth,
@@ -128,7 +128,7 @@ module probador #(
 		
 		@(posedge clk) begin
 		push_FIFO_in0 <= 1;
-		dest_n_data_in0 <= 10'h05B;
+		dest_n_data_in0 <= 10'h000;
 		end
 		
 		@(posedge clk) begin
