@@ -32,6 +32,7 @@ module testbench; // Testbench
 	wire		init;			// From probador_0 of probador.v
 	wire		rd_en;			// From probador_0 of probador.v
 	wire		reset_L;		// From probador_0 of probador.v
+	wire		valid;			// From fifo_cond of FIFO.v, ...
 	wire		wr_en;			// From probador_0 of probador.v
 	// End of automatics
 
@@ -46,6 +47,7 @@ module testbench; // Testbench
 			.almost_empty_flag(almost_empty_flag),
 			.almost_full_flag(almost_full_flag),
 			.error_flag	(error_flag),
+			.valid		(valid),
 			// Inputs
 			.clk		(clk),
 			.reset_L	(reset_L),
@@ -74,6 +76,7 @@ module testbench; // Testbench
 			       .empty_flag	(empty_flag_SYNTH), // Templated
 			       .error_flag	(error_flag_SYNTH), // Templated
 			       .full_flag	(full_flag_SYNTH), // Templated
+			       .valid		(valid),
 			       // Inputs
 			       .almost_empty_threshold_input(almost_empty_threshold_input[2:0]),
 			       .almost_full_threshold_input(almost_full_threshold_input[2:0]),
