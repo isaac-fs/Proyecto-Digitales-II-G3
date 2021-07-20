@@ -17,7 +17,8 @@ module FIFO  #(
     output reg full_flag,
     output reg almost_empty_flag,
     output reg almost_full_flag,
-    output reg error_flag);
+    output reg error_flag,  
+    output valid);
     
 // Un push es hacer un enable de write y poner el dato
 // Un pop es hacer un enable de read y sacar el dato
@@ -45,6 +46,7 @@ memoria #(
 ) memoria_fifo (
     // Outputs
     .data_out	(data_out[FIFO_WORD_SIZE-1:0]),
+    .valid (valid),
     // Inputs
     .clk		(clk),
     .wr_en		(wr_en),

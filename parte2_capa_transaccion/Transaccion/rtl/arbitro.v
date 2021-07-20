@@ -18,6 +18,10 @@ module arbitro #( // Un árbitro para 4 FIFOS
 	input [FIFO_WORD_SIZE-1:0] data_in_1,
 	input [FIFO_WORD_SIZE-1:0] data_in_2,
 	input [FIFO_WORD_SIZE-1:0] data_in_3,
+	input valid_in_0,
+	input valid_in_1,
+	input valid_in_2,
+	input valid_in_3,
 	// Desde el demux a los FIFOS de salida
 	// Hacia los FIFOS de salida
     output reg [FIFO_WORD_SIZE-1:0] data_out_0,
@@ -124,7 +128,7 @@ module arbitro #( // Un árbitro para 4 FIFOS
 		push_p1 = 0;
 		push_p2 = 0;
 		push_p3 = 0;
-		data_valid = (mux_out != 10'h0);
+		data_valid = (valid_in_0 || valid_in_1 || valid_in_2 || valid_in_3);
 		if(!out_FIFOS_almost_full && data_valid) begin // !in_FIFOS_empty && ?
 		/* El árbitro hace push siempre y cuando los fifos de entrada 
 		no estén vacíos y no haya ningún fifo de salida en almost full - Freddy (2021)*/

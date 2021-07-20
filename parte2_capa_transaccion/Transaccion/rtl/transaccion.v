@@ -105,6 +105,7 @@ module transaccion #(
    //FIFOS de entrada
 /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_F_A_0[FIFO_WORD_SIZE-1:0]),
+				 .valid (valid_in_0),
 	         .empty_flag		(empty_flag_in0),
 		 .full_flag		(full_flag_in0),
 		 .almost_empty_flag	(almost_empty_flag_in0),
@@ -136,6 +137,7 @@ module transaccion #(
 	   .almost_empty_flag		(almost_empty_flag_in0), // Templated
 	   .almost_full_flag		(almost_full_flag_in0),	 // Templated
 	   .error_flag			(error_flag_in0),	 // Templated
+	   .valid			(valid_in_0),		 // Templated
 	   // Inputs
 	   .clk				(clk),			 // Templated
 	   .reset_L			(reset_L),		 // Templated
@@ -148,6 +150,7 @@ module transaccion #(
 
    /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_F_A_1[FIFO_WORD_SIZE-1:0]),
+				 .valid (valid_in_1),
 	         .empty_flag		(empty_flag_in1),
 		 .full_flag		(full_flag_in1),
 		 .almost_empty_flag	(almost_empty_flag_in1),
@@ -175,6 +178,7 @@ module transaccion #(
 	   .almost_empty_flag		(almost_empty_flag_in1), // Templated
 	   .almost_full_flag		(almost_full_flag_in1),	 // Templated
 	   .error_flag			(error_flag_in1),	 // Templated
+	   .valid			(valid_in_1),		 // Templated
 	   // Inputs
 	   .clk				(clk),			 // Templated
 	   .reset_L			(reset_L),		 // Templated
@@ -187,6 +191,7 @@ module transaccion #(
 
     /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_F_A_2[FIFO_WORD_SIZE-1:0]),
+				 .valid (valid_in_2),
 	         .empty_flag		(empty_flag_in2),
 		 .full_flag		(full_flag_in2),
 		 .almost_empty_flag	(almost_empty_flag_in2),
@@ -214,6 +219,7 @@ module transaccion #(
 	   .almost_empty_flag		(almost_empty_flag_in2), // Templated
 	   .almost_full_flag		(almost_full_flag_in2),	 // Templated
 	   .error_flag			(error_flag_in2),	 // Templated
+	   .valid			(valid_in_2),		 // Templated
 	   // Inputs
 	   .clk				(clk),			 // Templated
 	   .reset_L			(reset_L),		 // Templated
@@ -226,6 +232,7 @@ module transaccion #(
 
    /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_F_A_3[FIFO_WORD_SIZE-1:0]),
+				 .valid (valid_in_3),
 	         .empty_flag		(empty_flag_in3),
 		 .full_flag		(full_flag_in3),
 		 .almost_empty_flag	(almost_empty_flag_in3),
@@ -254,6 +261,7 @@ module transaccion #(
 	   .almost_empty_flag		(almost_empty_flag_in3), // Templated
 	   .almost_full_flag		(almost_full_flag_in3),	 // Templated
 	   .error_flag			(error_flag_in3),	 // Templated
+	   .valid			(valid_in_3),		 // Templated
 	   // Inputs
 	   .clk				(clk),			 // Templated
 	   .reset_L			(reset_L),		 // Templated
@@ -296,12 +304,17 @@ module transaccion #(
 		   .data_in_0		(data_F_A_0[FIFO_WORD_SIZE-1:0]),
 		   .data_in_1		(data_F_A_1[FIFO_WORD_SIZE-1:0]),
 		   .data_in_2		(data_F_A_2[FIFO_WORD_SIZE-1:0]),
-		   .data_in_3		(data_F_A_3[FIFO_WORD_SIZE-1:0]));
+		   .data_in_3		(data_F_A_3[FIFO_WORD_SIZE-1:0]),
+		   .valid_in_0		(valid_in_0),
+		   .valid_in_1		(valid_in_1),
+		   .valid_in_2		(valid_in_2),
+		   .valid_in_3		(valid_in_3));
 
    //FIFOS de salida
 
 /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_out0[FIFO_WORD_SIZE-1:0]),
+				 .valid (valid_out_0),
 	         .empty_flag		(empty_flag_out0),
 		 .full_flag		(full_flag_out0),
 		 .almost_empty_flag	(almost_empty_flag_out0),
@@ -331,6 +344,7 @@ module transaccion #(
 	    .almost_empty_flag		(almost_empty_flag_out0), // Templated
 	    .almost_full_flag		(almost_full_flag_out0), // Templated
 	    .error_flag			(error_flag_out0),	 // Templated
+	    .valid			(valid_out_0),		 // Templated
 	    // Inputs
 	    .clk			(clk),			 // Templated
 	    .reset_L			(reset_L),		 // Templated
@@ -343,6 +357,7 @@ module transaccion #(
 
 /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_out1[FIFO_WORD_SIZE-1:0]),
+				 .valid (valid_out_1),
 	         .empty_flag		(empty_flag_out1),
 		 .full_flag		(full_flag_out1),
 		 .almost_empty_flag	(almost_empty_flag_out1),
@@ -372,6 +387,7 @@ module transaccion #(
 	    .almost_empty_flag		(almost_empty_flag_out1), // Templated
 	    .almost_full_flag		(almost_full_flag_out1), // Templated
 	    .error_flag			(error_flag_out1),	 // Templated
+	    .valid			(valid_out_1),		 // Templated
 	    // Inputs
 	    .clk			(clk),			 // Templated
 	    .reset_L			(reset_L),		 // Templated
@@ -384,6 +400,7 @@ module transaccion #(
 
 /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_out2[FIFO_WORD_SIZE-1:0]),
+				 .valid (valid_out_2),
 	         .empty_flag		(empty_flag_out2),
 		 .full_flag		(full_flag_out2),
 		 .almost_empty_flag	(almost_empty_flag_out2),
@@ -412,6 +429,7 @@ module transaccion #(
 	    .almost_empty_flag		(almost_empty_flag_out2), // Templated
 	    .almost_full_flag		(almost_full_flag_out2), // Templated
 	    .error_flag			(error_flag_out2),	 // Templated
+	    .valid			(valid_out_2),		 // Templated
 	    // Inputs
 	    .clk			(clk),			 // Templated
 	    .reset_L			(reset_L),		 // Templated
@@ -424,6 +442,7 @@ module transaccion #(
 
 /*FIFO AUTO_TEMPLATE (
                  .data_out		(data_out3[FIFO_WORD_SIZE-1:0]),
+				 .valid (valid_out_3),
 	         .empty_flag		(empty_flag_out3),
 		 .full_flag		(full_flag_out3),
 		 .almost_empty_flag	(almost_empty_flag_out3),
@@ -452,6 +471,7 @@ module transaccion #(
 	    .almost_empty_flag		(almost_empty_flag_out3), // Templated
 	    .almost_full_flag		(almost_full_flag_out3), // Templated
 	    .error_flag			(error_flag_out3),	 // Templated
+	    .valid			(valid_out_3),		 // Templated
 	    // Inputs
 	    .clk			(clk),			 // Templated
 	    .reset_L			(reset_L),		 // Templated
